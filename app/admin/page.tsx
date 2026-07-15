@@ -1,15 +1,19 @@
+import Script from 'next/script';
+
 export default function AdminPage() {
   return (
-    <>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>FreshLock Admin</title>
-        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-      </head>
-      <body>
-        <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-      </body>
-    </>
+    <div>
+      <Script
+        src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+        strategy="beforeInteractive"
+      />
+      <Script
+        src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"
+        strategy="beforeInteractive"
+      />
+      <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <p>Loading CMS...</p>
+      </div>
+    </div>
   );
 }
