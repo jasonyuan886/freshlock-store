@@ -30,7 +30,7 @@ function Hero() {
           </div>
           <div className="hidden md:flex justify-center">
             <img
-              src="https://placehold.co/500x500/2A4A7F/white?text=FreshLock+Pro"
+              src="/images/products/sealer-main.jpg"
               alt="FreshLock Pro handheld vacuum sealer"
               className="rounded-2xl shadow-2xl"
             />
