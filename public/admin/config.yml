@@ -4,6 +4,8 @@ backend:
   branch: master
   base_url: https://www.freshlocksealer.com
   auth_endpoint: /api/auth
+  app_id: Ov23liOhWk7DLu1KMZwe
+  auth_scope: repo
 
 media_folder: "public/images/products"
 public_folder: "/images/products"
