@@ -2,6 +2,8 @@ backend:
   name: github
   repo: jasonyuan886/freshlock-store
   branch: master
+  base_url: https://www.freshlocksealer.com
+  auth_endpoint: /api/auth
 
 media_folder: "public/images/products"
 public_folder: "/images/products"
