@@ -2,8 +2,6 @@ backend:
   name: github
   repo: jasonyuan886/freshlock-store
   branch: master
-  base_url: https://api.github.com
-  auth_endpoint: /oauth/authorize
 
 media_folder: "public/images/products"
 public_folder: "/images/products"
