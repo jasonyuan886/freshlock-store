@@ -8,11 +8,11 @@ export const products: Product[] = [
     description:
       'The FreshLock Pro is our flagship handheld vacuum sealer, engineered for the Australian kitchen. Its powerful motor creates a strong, airtight seal in seconds, keeping your food fresh up to 5× longer. The cordless, rechargeable design means you can seal meals at the bench, in the pantry, or even out camping.',
     shortDescription: 'Powerful handheld vacuum sealer — cordless, rechargeable, one-touch operation.',
-    image: 'https://placehold.co/600x600/1B365D/white?text=FreshLock+Pro',
+    image: '/images/products/sealer-main.jpg',
     images: [
-      'https://placehold.co/600x600/1B365D/white?text=FreshLock+Pro+Front',
-      'https://placehold.co/600x600/1B365D/white?text=FreshLock+Pro+Side',
-      'https://placehold.co/600x600/1B365D/white?text=FreshLock+Pro+In-Use',
+      '/images/products/sealer-main.jpg',
+      '/images/products/sealer-use.jpg',
+      '/images/products/sealer-kit.jpg',
     ],
     features: [
       'Strong vacuum suction for airtight seal',
@@ -41,10 +41,10 @@ export const products: Product[] = [
     description:
       'Everything you need to start sealing fresh. The Starter Kit bundles the FreshLock Pro handheld sealer with 20 premium vacuum seal bags in mixed sizes, so you can start preserving straight out of the box. Perfect as a gift or for first-time buyers.',
     shortDescription: 'FreshLock Pro + 20 vacuum seal bags — everything in one box.',
-    image: 'https://placehold.co/600x600/1B365D/white?text=Starter+Kit',
+    image: '/images/products/sealer-kit.jpg',
     images: [
-      'https://placehold.co/600x600/1B365D/white?text=Starter+Kit+Overview',
-      'https://placehold.co/600x600/1B365D/white?text=Starter+Kit+Contents',
+      '/images/products/sealer-kit.jpg',
+      '/images/products/bags-1.jpg',
     ],
     features: [
       'Includes FreshLock Pro sealer',
@@ -68,10 +68,10 @@ export const products: Product[] = [
     description:
       'Premium multi-layer vacuum seal bags designed for the FreshLock system. Each bag creates an airtight barrier that locks out air and moisture, keeping meat, cheese, vegetables, and dry goods fresh for weeks. BPA-free and recyclable.',
     shortDescription: '30 × medium vacuum seal bags (20×25 cm). BPA-free & recyclable.',
-    image: 'https://placehold.co/600x600/1B365D/white?text=Vacuum+Bags+30pk',
+    image: '/images/products/bags-1.jpg',
     images: [
-      'https://placehold.co/600x600/1B365D/white?text=Bags+30pk+Front',
-      'https://placehold.co/600x600/1B365D/white?text=Bags+30pk+Detail',
+      '/images/products/bags-1.jpg',
+      '/images/products/bags-2.jpg',
     ],
     features: [
       'Multi-layer construction for maximum freshness',
@@ -96,10 +96,10 @@ export const products: Product[] = [
     description:
       'Our value-packed large bag option. At 28×35 cm these bags handle family-size portions, whole cuts of meat, bulk vegetables, and sous-vide cooking. Same premium multi-layer, BPA-free build as our medium bags.',
     shortDescription: '50 × large vacuum seal bags (28×35 cm). Great for bulk & family meals.',
-    image: 'https://placehold.co/600x600/1B365D/white?text=Vacuum+Bags+50pk',
+    image: '/images/products/bags-4.jpg',
     images: [
-      'https://placehold.co/600x600/1B365D/white?text=Bags+50pk+Front',
-      'https://placehold.co/600x600/1B365D/white?text=Bags+50pk+Detail',
+      '/images/products/bags-4.jpg',
+      '/images/products/bags-5.jpg',
     ],
     features: [
       'Multi-layer construction for maximum freshness',
@@ -126,10 +126,10 @@ export const products: Product[] = [
     description:
       'Take freshness on the road. The Travel Kit includes a compact FreshLock sealer in a sleek carry case plus 10 travel-size bags. Perfect for camping trips, road trips, caravanning, or keeping leftovers fresh in hotel fridges.',
     shortDescription: 'Compact sealer + carry case + 10 travel bags — freshness on the go.',
-    image: 'https://placehold.co/600x600/1B365D/white?text=Travel+Kit',
+    image: '/images/products/sealer-main.jpg',
     images: [
-      'https://placehold.co/600x600/1B365D/white?text=Travel+Kit+Overview',
-      'https://placehold.co/600x600/1B365D/white?text=Travel+Kit+Case',
+      '/images/products/sealer-main.jpg',
+      '/images/products/bags-7.jpg',
     ],
     features: [
       'Compact travel-size sealer',

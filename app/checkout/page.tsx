@@ -61,13 +61,36 @@ export default function CheckoutPage() {
           setProcessing(false);
         }
       } else if (paymentMethod === 'paypal') {
-        // PayPal 跳转（需要配置 PayPal Client ID）
-        const paypalClientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
-        if (paypalClientId && paypalClientId !== 'your_paypal_client_id_here') {
-          // 实际 PayPal 集成
-          alert('正在跳转到 PayPal...');
+        // PayPal Checkout 跳转
+        const res = await fetch('/api/paypal', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: items.map(item => ({
+              name: item.product.name,
+              price: item.product.price,
+              quantity: item.quantity,
+            })),
+            shippingAddress: {
+              name: `${form.firstName} ${form.lastName}`,
+              address: form.address,
+              city: form.city,
+              state: form.state,
+              postalCode: form.postcode,
+            },
+          }),
+        });
+
+        const data = await res.json();
+
+        if (data.approvalUrl) {
+          // 跳转到 PayPal 支付页面
+          window.location.href = data.approvalUrl;
+        } else if (data.error) {
+          setError(data.error);
+          setProcessing(false);
         } else {
-          alert('⚠️ PayPal 尚未配置。\n请在 .env.local 中填入 PayPal Client ID。');
+          alert('⚠️ PayPal 尚未配置。\n请在 .env.local 中填入你的 PayPal API 凭证后重试。');
           setProcessing(false);
         }
       } else if (paymentMethod === 'afterpay') {
