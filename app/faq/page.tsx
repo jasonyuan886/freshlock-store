@@ -1,6 +1,23 @@
+'use client';
+
+import { useEffect } from 'react';
 import { faqs } from '@/lib/data';
+import { generateFAQSchema } from '@/lib/schema';
 
 export default function FaqPage() {
+  // 添加FAQ结构化数据（GEO优化）
+  useEffect(() => {
+    const schema = generateFAQSchema(faqs);
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+    
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center mb-12">

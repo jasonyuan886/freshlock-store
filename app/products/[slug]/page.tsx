@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { products } from '@/lib/data';
 import { useCart } from '@/lib/cart-context';
+import { generateProductSchema } from '@/lib/schema';
 
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
   const product = products.find((p) => p.slug === params.slug);
@@ -14,6 +15,19 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
   const [selectedImage, setSelectedImage] = useState(0);
+
+  // 添加结构化数据到页面
+  useEffect(() => {
+    const schema = generateProductSchema(product);
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+    
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [product]);
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
