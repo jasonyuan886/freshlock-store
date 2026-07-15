@@ -5,30 +5,16 @@ backend:
   base_url: https://www.freshlocksealer.com
   auth_endpoint: /api/auth
 
-media_folder: "public/images/products"
-public_folder: "/images/products"
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
-  - name: "products"
-    label: "Products"
-    folder: "lib/data"
-    extension: "ts"
-    format: "frontmatter"
-    create: false
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - label: "Products Data"
-        name: "products"
-        widget: "list"
-        fields:
-          - {label: "Slug", name: "slug", widget: "string"}
-          - {label: "Name", name: "name", widget: "string"}
-          - {label: "Price", name: "price", widget: "number", value_type: "float"}
-          - {label: "Short Description", name: "shortDescription", widget: "text"}
-          - {label: "Description", name: "description", widget: "markdown"}
-          - {label: "Main Image", name: "image", widget: "image"}
-          - {label: "Category", name: "category", widget: "select", options: ["devices", "kits", "bags"]}
-          - {label: "Badge", name: "badge", widget: "string", required: false}
-          - label: "Features"
-            name: "features"
-            widget: "list"
-            field: {label: "Feature", name: "feature", widget: "string"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
