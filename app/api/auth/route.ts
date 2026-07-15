@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const CLIENT_ID = process.env.GITHUB_CLIENT_ID || 'Ov23lihgmCMClMp2C2Gx';
-const CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || '61c419b750992597b83b169091208ba6ac4cbc3d';
+const CLIENT_ID = process.env.GITHUB_CLIENT_ID || 'Ov23liOhWk7DLu1KMZwe';
+const CLIENT_SECRET = process.env.GITHUB_CLIENT_SECRET || '64f8f56974bdf6a5b8a789c6c80b887955859822';
 const ORIGIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.freshlocksealer.com';
 const REDIRECT_URI = `${ORIGIN}/api/auth`;
 
