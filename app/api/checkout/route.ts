@@ -1,10 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
+function getStripe() {
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key || key === 'sk_test_your_test_key_here') {
+    return null;
+  }
+  return new Stripe(key);
+}
 
 export async function POST(request: NextRequest) {
   try {
+    const stripe = getStripe();
+    if (!stripe) {
+      return NextResponse.json(
+        { error: 'Stripe is not configured. Please add your STRIPE_SECRET_KEY to environment variables.' },
+        { status: 500 }
+      );
+    }
+
     const { items, shippingInfo } = await request.json();
 
     // 创建 Stripe Checkout Session
