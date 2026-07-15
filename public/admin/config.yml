@@ -1,0 +1,34 @@
+backend:
+  name: github
+  repo: jasonyuan886/freshlock-store
+  branch: master
+  base_url: https://api.github.com
+  auth_endpoint: /oauth/authorize
+
+media_folder: "public/images/products"
+public_folder: "/images/products"
+
+collections:
+  - name: "products"
+    label: "Products"
+    folder: "lib/data"
+    extension: "ts"
+    format: "frontmatter"
+    create: false
+    fields:
+      - label: "Products Data"
+        name: "products"
+        widget: "list"
+        fields:
+          - {label: "Slug", name: "slug", widget: "string"}
+          - {label: "Name", name: "name", widget: "string"}
+          - {label: "Price", name: "price", widget: "number", value_type: "float"}
+          - {label: "Short Description", name: "shortDescription", widget: "text"}
+          - {label: "Description", name: "description", widget: "markdown"}
+          - {label: "Main Image", name: "image", widget: "image"}
+          - {label: "Category", name: "category", widget: "select", options: ["devices", "kits", "bags"]}
+          - {label: "Badge", name: "badge", widget: "string", required: false}
+          - label: "Features"
+            name: "features"
+            widget: "list"
+            field: {label: "Feature", name: "feature", widget: "string"}
