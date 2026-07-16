@@ -4,7 +4,7 @@ export default function AboutPage() {
       <div className="text-center mb-12">
         <h1 className="section-title">About FreshLock</h1>
         <p className="section-subtitle">
-          We started with a simple mission: help Australian households waste less food and save money.
+          We started with a simple mission: help households around the world waste less food and save money.
         </p>
       </div>
 
@@ -18,14 +18,14 @@ export default function AboutPage() {
             After researching commercial vacuum sealing technology, we realised the same science could be made accessible for everyday homes — without the bulk, the cords, or the complexity. The result was FreshLock: a handheld, cordless vacuum sealer that anyone can use.
           </p>
           <p className="text-gray-600 leading-relaxed">
-            Today, FreshLock is trusted by over 10,000 Australian households. From busy families batch-cooking on weekends, to campers keeping food fresh on the road, our products are designed to make freshness simple.
+            Today, FreshLock is trusted by over 10,000 households worldwide. From busy parents in the US and UK batch-cooking on weekends, to campers in Australia and Canada keeping food fresh on the road, our products are designed to make freshness simple.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {[
-            { icon: '🌱', title: 'Reduce Waste', text: 'The average Australian household throws away $2,000–$2,500 of food per year. Vacuum sealing helps change that.' },
-            { icon: '🇦🇺', title: 'Australian Made', text: 'Designed and tested in Australia for Australian conditions. We understand local kitchens.' },
+            { icon: '🌱', title: 'Reduce Waste', text: 'The average household throws away hundreds of dollars of food each year. Vacuum sealing helps change that.' },
+            { icon: '🌎', title: 'Global Design', text: 'Designed and tested for everyday kitchens worldwide — compact, USB-C rechargeable, and built to last.' },
             { icon: '♻️', title: 'Sustainability', text: 'Our bags are recyclable and our packaging is plastic-free. We are committed to reducing our footprint.' },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl p-6 shadow-sm text-center">
@@ -45,7 +45,7 @@ export default function AboutPage() {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
-              <span><strong>Free shipping</strong> on all orders over $79 Australia-wide.</span>
+              <span><strong>Free shipping</strong> on all orders over $79 AUD (worldwide shipping available).</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
