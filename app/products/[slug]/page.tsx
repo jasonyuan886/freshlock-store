@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const product = products.find((p) => p.slug === params.slug);
   if (!product) return {};
   const url = `${SITE_URL}/products/${product.slug}`;
-  const title = `${product.name} | FreshLock Handheld Vacuum Sealer`;
+  const title = product.name;
   const description = product.shortDescription + ' Free shipping over $79 AUD. 30-day money-back guarantee.';
   return {
     title,
@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
     alternates: { canonical: `/products/${product.slug}` },
     openGraph: {
       url,
-      title,
+      title: `${product.name} - Handheld Vacuum Sealer`,
       description,
       images: product.images.map((src) => ({
         url: src,
