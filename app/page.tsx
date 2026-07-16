@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { products, reviews, faqs } from '@/lib/data';
 import { generateFAQSchema } from '@/lib/schema';
+import Image from 'next/image';
 
 const faqSchema = generateFAQSchema(faqs);
 
@@ -31,13 +32,13 @@ function Hero() {
             </div>
           </div>
           <div className="hidden md:flex justify-center">
-            <img
-              src="/images/products/sealer-main.jpg"
-              alt="FreshLock Pro cordless handheld vacuum sealer with vacuum seal bags"
+            <Image src="/images/products/sealer-main.jpg"
+              alt="FreshLock Pro handheld vacuum sealer in pearl white with silver top, shown with green-zipper vacuum bags"
               className="rounded-2xl shadow-2xl"
               width={600}
               height={600}
-            />
+              priority
+              sizes="(max-width: 768px) 100vw, 600px" />
           </div>
         </div>
       </div>
@@ -140,14 +141,13 @@ function ProductShowcase() {
               className="group bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition"
             >
               <div className="relative overflow-hidden">
-                <img
-                  src={p.image}
-                  alt={`${p.name} - ${p.shortDescription}`}
+                <Image src={p.image}
+                  alt={`${p.name} — ${p.shortDescription}`}
                   className="w-full aspect-square object-cover group-hover:scale-105 transition duration-300"
                   width={400}
                   height={400}
                   loading="lazy"
-                />
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
                 {p.badge && (
                   <span className="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-2 py-1 rounded">
                     {p.badge}
