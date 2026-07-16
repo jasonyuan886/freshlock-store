@@ -3,6 +3,7 @@
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { products } from '@/lib/data';
+import Image from 'next/image';
 
 const categories = [
   { value: 'all', label: 'All Products' },
@@ -87,14 +88,13 @@ export default function ProductsPage() {
             className="group bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition"
           >
             <div className="relative overflow-hidden">
-              <img
-                src={p.image}
-                alt={`${p.name} - ${p.shortDescription}`}
+              <Image src={p.image}
+                alt={`${p.name} — ${p.shortDescription}`}
                 className="w-full aspect-square object-cover group-hover:scale-105 transition duration-300"
                 loading="lazy"
                 width={400}
                 height={400}
-              />
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" />
               {p.badge && (
                 <span className="absolute top-3 left-3 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
                   {p.badge}
