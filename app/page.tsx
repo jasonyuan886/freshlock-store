@@ -61,7 +61,7 @@ const featureList = [
   {
     icon: '🔋',
     title: 'Cordless & Portable',
-    text: 'USB-C rechargeable with 40+ seals per charge. Take it to the BBQ, camping, or on the road.',
+    text: 'USB-C rechargeable with 40+ seals per charge — compact enough for kitchen, pantry, or BBQ use.',
   },
 ];
 
