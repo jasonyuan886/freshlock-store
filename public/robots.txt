@@ -6,7 +6,18 @@ Disallow: /checkout/success
 Disallow: /cart/
 Disallow: /admin/
 
+# AI crawlers — see llms.txt for a friendly site summary
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Bytespider
+Allow: /
+
 Sitemap: https://www.freshlocksealer.com/sitemap.xml
 
 Host: www.freshlocksealer.com
-# Build trigger: deploy trigger: SEO+GEO final rebuild
