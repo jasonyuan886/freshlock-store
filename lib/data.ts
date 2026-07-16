@@ -181,7 +181,7 @@ export const faqs = [
   {
     question: 'Can I use FreshLock bags with other sealers?',
     answer:
-      'FreshLock bags use a standard one-way air valve that works with most handheld vacuum pump sealers on the Australian market. They are not compatible with heat-bar type chamber or edge sealers, as those require open-top embossed bags without a valve.',
+      'FreshLock bags use a standard one-way air valve that works with most handheld vacuum pump sealers. They are not compatible with heat-bar type chamber or edge sealers, as those require open-top embossed bags without a valve.',
   },
   {
     question: 'Is the FreshLock Pro waterproof?',
@@ -194,9 +194,9 @@ export const faqs = [
       'The FreshLock Pro delivers approximately 40+ seals per full charge. Standby time is up to 30 days. A full USB-C charge takes around 2 hours.',
   },
   {
-    question: 'Do you ship Australia-wide?',
+    question: 'Where do you ship?',
     answer:
-      'Yes! We ship to all Australian states and territories. Standard shipping is free on orders over $79 AUD. Express shipping is available at checkout.',
+      'We ship worldwide — including the US, UK, Canada, Australia, New Zealand and across Europe. Standard shipping is free on orders over $79 AUD. Express shipping options are available at checkout.',
   },
   {
     question: 'What is your returns policy?',
