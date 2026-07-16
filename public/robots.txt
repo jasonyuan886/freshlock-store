@@ -7,3 +7,5 @@ Disallow: /cart/
 Disallow: /admin/
 
 Sitemap: https://www.freshlocksealer.com/sitemap.xml
+
+Host: www.freshlocksealer.com
