@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { products, reviews } from '@/lib/data';
 import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/schema';
 import AddToCartClient from './AddToCartClient';
+import Image from 'next/image';
 
 type Params = { slug: string };
 
@@ -82,27 +83,25 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           {/* Images */}
           <section>
             <div className="rounded-xl overflow-hidden bg-white shadow mb-4">
-              <img
-                src={product.images[0] || product.image}
-                alt={`${product.name} - ${product.shortDescription}`}
+              <Image src={product.images[0] || product.image}
+                alt={`${product.name} — ${product.shortDescription}`}
                 className="w-full aspect-square object-cover"
                 itemProp="image"
                 width={600}
                 height={600}
-              />
+                priority
+                sizes="(max-width: 768px) 100vw, 600px" />
             </div>
             {product.images.length > 1 && (
               <div className="flex gap-3" role="list">
                 {product.images.slice(1).map((img, i) => (
                   <div key={i} role="listitem">
-                    <img
-                      src={img}
-                      alt={`${product.name} view ${i + 2}`}
+                    <Image src={img}
+                      alt={`${product.name} — alternate view ${i + 2}`}
                       className="w-20 h-20 rounded-lg object-cover border-2 border-transparent"
                       loading="lazy"
                       width={80}
-                      height={80}
-                    />
+                      height={80} />
                   </div>
                 ))}
               </div>
@@ -189,14 +188,12 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                   href={`/products/${p.slug}`}
                   className="group bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition flex"
                 >
-                  <img
-                    src={p.image}
+                  <Image src={p.image}
                     alt={`${p.name} - ${p.shortDescription}`}
                     className="w-32 h-32 object-cover"
                     width={128}
                     height={128}
-                    loading="lazy"
-                  />
+                    loading="lazy" />
                   <div className="p-4">
                     <h3 className="font-bold text-primary mb-1">{p.name}</h3>
                     <p className="text-accent font-bold">${p.price.toFixed(2)} AUD</p>
