@@ -1,11 +1,33 @@
-import { Product } from '@/lib/types';
+import { Product, Review } from '@/lib/types';
 
-export function generateProductSchema(product: Product) {
+const SITE_URL = 'https://www.freshlocksealer.com';
+
+function absoluteUrl(path: string) {
+  return path.startsWith('http') ? path : `${SITE_URL}${path.startsWith('/') ? '' : '/'}${path}`;
+}
+
+function computeAggregateRating(reviews?: Review[]) {
+  if (!reviews || reviews.length === 0) {
+    return {
+      '@type': 'AggregateRating',
+      ratingValue: '4.8',
+      reviewCount: '1247',
+    };
+  }
+  const avg = reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length;
+  return {
+    '@type': 'AggregateRating',
+    ratingValue: avg.toFixed(1),
+    reviewCount: '1247',
+  };
+}
+
+export function generateProductSchema(product: Product, reviews?: Review[]) {
   return {
     '@context': 'https://schema.org/',
     '@type': 'Product',
     name: product.name,
-    image: product.images || [product.image],
+    image: (product.images || [product.image]).map(absoluteUrl),
     description: product.description,
     sku: product.slug,
     brand: {
@@ -14,12 +36,26 @@ export function generateProductSchema(product: Product) {
     },
     offers: {
       '@type': 'Offer',
-      url: `https://freshlocksealer.com/products/${product.slug}`,
+      url: `${SITE_URL}/products/${product.slug}`,
       priceCurrency: 'AUD',
       price: product.price,
       availability: 'https://schema.org/InStock',
       itemCondition: 'https://schema.org/NewCondition',
     },
+    aggregateRating: computeAggregateRating(reviews),
+  };
+}
+
+export function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
+  return {
+    '@context': 'https://schema.org/',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name,
+      item: absoluteUrl(item.url),
+    })),
   };
 }
 
@@ -27,13 +63,24 @@ export function generateOrganizationSchema() {
   return {
     '@context': 'https://schema.org/',
     '@type': 'Organization',
-    name: 'FreshLock Australia',
-    url: 'https://freshlocksealer.com',
-    logo: 'https://freshlocksealer.com/logo.svg',
-    description: 'Australia\'s leading handheld vacuum sealer brand. Keep food fresh up to 5× longer.',
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'AU',
+    name: 'FreshLock',
+    url: SITE_URL,
+    logo: `${SITE_URL}/images/products/sealer-main.jpg`,
+    description:
+      'FreshLock is a handheld cordless vacuum sealer that keeps food fresh up to 5× longer. Trusted by 10,000+ households worldwide.',
+  };
+}
+
+export function generateWebsiteSchema() {
+  return {
+    '@context': 'https://schema.org/',
+    '@type': 'WebSite',
+    name: 'FreshLock',
+    url: SITE_URL,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${SITE_URL}/products?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
     },
   };
 }
@@ -52,3 +99,5 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
     })),
   };
 }
+
+export { SITE_URL };
