@@ -14,7 +14,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <img src="/logo.svg" alt="FreshLock Australia" className="h-10 w-auto" />
+            <img src="/logo.svg" alt="FreshLock — Handheld Vacuum Sealer" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop Navigation */}
