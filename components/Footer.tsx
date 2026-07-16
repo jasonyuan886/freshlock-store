@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="text-xl font-bold">FreshLock</span>
             </div>
             <p className="text-gray-300 text-sm">
-              Keep food fresh longer with Australia's favourite handheld vacuum sealer.
+              Keep food fresh longer with favourite handheld vacuum sealer for food storage worldwide.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-sm text-gray-300">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; {new Date().getFullYear()} FreshLock Australia. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} FreshLock. All rights reserved.</p>
             <p className="mt-2 md:mt-0">ABN: 12 345 678 901</p>
           </div>
         </div>
