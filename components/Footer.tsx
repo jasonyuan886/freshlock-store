@@ -14,7 +14,7 @@ export default function Footer() {
               <span className="text-xl font-bold">FreshLock</span>
             </div>
             <p className="text-gray-300 text-sm">
-              Keep food fresh up to 5× longer with the cordless handheld vacuum sealer designed for everyday Australian kitchens.
+              Keep food fresh longer with favourite handheld vacuum sealer for food storage worldwide.
             </p>
           </div>
 
@@ -39,7 +39,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/products?category=kits" className="text-gray-300 hover:text-white transition">
-                  Kits &amp; Bundles
+                  Kits & Bundles
                 </Link>
               </li>
             </ul>
@@ -47,7 +47,7 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h3 className="font-semibold mb-4">Customer Support</h3>
+            <h3 className="font-semibold mb-4">Support</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/faq" className="text-gray-300 hover:text-white transition">
@@ -60,13 +60,13 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/shipping" className="text-gray-300 hover:text-white transition">
-                  Shipping &amp; Delivery
+                <Link href="/returns" className="text-gray-300 hover:text-white transition">
+                  Returns & Refunds
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-gray-300 hover:text-white transition">
-                  Returns &amp; Refunds
+                <Link href="/shipping" className="text-gray-300 hover:text-white transition">
+                  Shipping Info
                 </Link>
               </li>
             </ul>
@@ -74,13 +74,8 @@ export default function Footer() {
 
           {/* Legal */}
           <div>
-            <h3 className="font-semibold mb-4">About &amp; Legal</h3>
+            <h3 className="font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/about" className="text-gray-300 hover:text-white transition">
-                  About FreshLock
-                </Link>
-              </li>
               <li>
                 <Link href="/privacy" className="text-gray-300 hover:text-white transition">
                   Privacy Policy
@@ -96,11 +91,9 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-sm text-gray-300">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-2">
+          <div className="flex flex-col md:flex-row justify-between items-center">
             <p>&copy; {new Date().getFullYear()} FreshLock. All rights reserved.</p>
-            <p>
-              Need help? Email <a href="mailto:support@freshlocksealer.com" className="underline hover:text-white">support@freshlocksealer.com</a>
-            </p>
+            <p className="mt-2 md:mt-0">ABN: 12 345 678 901</p>
           </div>
         </div>
       </div>
