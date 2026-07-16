@@ -32,10 +32,6 @@ export async function GET() {
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://freshlocksealer.com/products/freshlock-travel-kit</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
   <url>
     <loc>https://freshlocksealer.com/about</loc>
     <changefreq>monthly</changefreq>
