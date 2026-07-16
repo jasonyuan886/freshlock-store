@@ -1,57 +1,40 @@
 export async function GET() {
+  const today = "2026-07-16";
+  const staticPages = [
+    { loc: "/", changefreq: "weekly", priority: "1.0" },
+    { loc: "/products", changefreq: "weekly", priority: "0.9" },
+    { loc: "/about", changefreq: "monthly", priority: "0.6" },
+    { loc: "/faq", changefreq: "monthly", priority: "0.7" },
+    { loc: "/contact", changefreq: "monthly", priority: "0.6" },
+    { loc: "/returns", changefreq: "yearly", priority: "0.4" },
+    { loc: "/privacy", changefreq: "yearly", priority: "0.3" },
+    { loc: "/terms", changefreq: "yearly", priority: "0.3" },
+  ];
+  const productPages = [
+    "/products/freshlock-pro",
+    "/products/freshlock-starter-kit",
+    "/products/vacuum-seal-bags-30-pack",
+    "/products/vacuum-seal-bags-50-pack",
+  ];
+
+  const urlEntry = (loc: string, changefreq: string, priority: string) => `
+  <url>
+    <loc>https://www.freshlocksealer.com${loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>`;
+
+  const urls = [
+    ...staticPages.map((p) => urlEntry(p.loc, p.changefreq, p.priority)),
+    ...productPages.map((loc) => urlEntry(loc, "monthly", "0.8")),
+  ].join("");
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://freshlocksealer.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://freshlocksealer.com/products</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://freshlocksealer.com/products/freshlock-pro</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://freshlocksealer.com/products/freshlock-starter-kit</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://freshlocksealer.com/products/vacuum-seal-bags-30-pack</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://freshlocksealer.com/products/vacuum-seal-bags-50-pack</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-  <url>
-    <loc>https://freshlocksealer.com/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://freshlocksealer.com/faq</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://freshlocksealer.com/contact</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls}
 </urlset>`;
 
   return new Response(sitemap, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
+    headers: { "Content-Type": "application/xml" },
   });
 }
