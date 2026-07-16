@@ -31,14 +31,14 @@ function Hero() {
               </Link>
             </div>
           </div>
-          <div className="hidden md:flex justify-center">
+          <div className="flex justify-center md:justify-center mt-8 md:mt-0">
             <Image src="/images/products/sealer-main.jpg"
               alt="FreshLock Pro handheld vacuum sealer in pearl white with silver top, shown with green-zipper vacuum bags"
-              className="rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow-2xl w-64 md:w-full max-w-md md:max-w-none"
               width={600}
               height={600}
               priority
-              sizes="(max-width: 768px) 100vw, 600px" />
+              sizes="(max-width: 768px) 256px, 600px" />
           </div>
         </div>
       </div>
