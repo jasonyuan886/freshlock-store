@@ -15,17 +15,18 @@ export default function ContactPage() {
       <div className="text-center mb-12">
         <h1 className="section-title">Contact Us</h1>
         <p className="section-subtitle">
-          Got a question? We would love to hear from you. Our team responds within 24 hours, Monday to Friday.
+          Got a question? We would love to hear from you. Our team responds within 24 hours.
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-12">
+        {/* Form */}
         <div className="bg-white rounded-xl p-8 shadow-sm">
           {submitted ? (
             <div className="text-center py-12">
               <div className="text-5xl mb-4">✅</div>
               <h2 className="text-2xl font-bold text-primary mb-2">Message Sent!</h2>
-              <p className="text-gray-500">Thank you for reaching out. We will get back to you within 24 hours.</p>
+              <p className="text-gray-500">Thank you for reaching out. We will get back to you shortly.</p>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -51,9 +52,7 @@ export default function ContactPage() {
                   <option>General Enquiry</option>
                   <option>Order Support</option>
                   <option>Returns & Refunds</option>
-                  <option>Shipping & Delivery</option>
                   <option>Product Question</option>
-                  <option>Warranty Claim</option>
                   <option>Wholesale / Business</option>
                 </select>
               </div>
@@ -72,39 +71,35 @@ export default function ContactPage() {
           )}
         </div>
 
+        {/* Info */}
         <div className="space-y-8">
           <div>
             <h2 className="text-xl font-bold text-primary mb-4">Get in Touch</h2>
-            <p className="text-gray-600 mb-4">
-              We are here to help. For the fastest response, please email us directly — we typically reply within 24 hours on business days.
-            </p>
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <span className="text-2xl">📧</span>
                 <div>
-                  <p className="font-medium">Email (Primary)</p>
-                  <p className="text-gray-600">
-                    <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">
-                      support@freshlocksealer.com
-                    </a>
-                  </p>
-                  <p className="text-sm text-gray-400">Response within 24 hours, Mon–Fri</p>
+                  <p className="font-medium">Email</p>
+                  <p className="text-gray-600">support@freshlocksealer.com</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-2xl">⏰</span>
+                <span className="text-2xl">📞</span>
                 <div>
-                  <p className="font-medium">Support Hours</p>
-                  <p className="text-gray-600">Monday – Friday, 9:00 AM – 5:00 PM AEST</p>
-                  <p className="text-sm text-gray-400">Closed on Australian public holidays</p>
+                  <p className="font-medium">Phone</p>
+                  <p className="text-gray-600">1300 FRESHLOCK (1300 373 745)</p>
+                  <p className="text-sm text-gray-400">Mon–Fri 9am–5pm AEST</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-2xl">🌐</span>
+                <span className="text-2xl">📍</span>
                 <div>
-                  <p className="font-medium">Online Store</p>
+                  <p className="font-medium">Address</p>
                   <p className="text-gray-600">
-                    We are an Australia-based online retailer shipping to addresses across Australia. Our customer service team operates remotely to serve you better.
+                    FreshLock Pty Ltd<br />
+                    Level 4, 123 Collins Street<br />
+                    Melbourne VIC 3000<br />
+                    Australia
                   </p>
                 </div>
               </div>
@@ -112,15 +107,11 @@ export default function ContactPage() {
           </div>
 
           <div className="bg-gray-50 rounded-xl p-6">
-            <h3 className="font-bold text-primary mb-3">Before You Contact Us</h3>
-            <p className="text-sm text-gray-600 mb-3">
-              You may find a quick answer on these pages:
-            </p>
+            <h3 className="font-bold text-primary mb-2">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li><a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a></li>
-              <li><a href="/shipping" className="text-accent hover:underline">Shipping & Delivery Policy</a></li>
               <li><a href="/returns" className="text-accent hover:underline">Returns & Refund Policy</a></li>
-              <li><a href="/about" className="text-accent hover:underline">About FreshLock</a></li>
+              <li><a href="/contact" className="text-accent hover:underline">Shipping Information</a></li>
             </ul>
           </div>
         </div>
