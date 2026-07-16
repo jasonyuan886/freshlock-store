@@ -39,7 +39,7 @@ export const products: Product[] = [
     name: 'FreshLock Starter Kit',
     price: 109.99,
     description:
-      'Everything you need to start sealing fresh in one box. The Starter Kit bundles the FreshLock Pro handheld vacuum sealer with 30 premium vacuum zipper bags in three sizes (10 small, 10 medium, 10 large), so you can start preserving snacks, portions, and family meals straight out of the box. Perfect as a gift or for first-time buyers.',
+      'Everything you need to start sealing fresh, beautifully presented in a premium full-colour gift box. The Starter Kit bundles the FreshLock Pro handheld vacuum sealer with 30 premium vacuum zipper bags in three sizes (10 small, 10 medium, 10 large), so you can start preserving snacks, portions, and family meals straight out of the box. Premium gift-box packaging — presentation-ready, perfect as a gift.',
     shortDescription: 'FreshLock Pro + 30 vacuum zipper bags in 3 sizes — everything to get started.',
     image: '/images/products/sealer-kit.jpg',
     images: [
@@ -51,6 +51,7 @@ export const products: Product[] = [
       '30 × premium vacuum zipper bags (10 small + 10 medium + 10 large)',
       'USB-C charging cable included',
       'Quick-start guide',
+      'Premium full-colour gift box packaging',
       'Saves you $20 vs buying separately',
     ],
     specs: {
@@ -125,35 +126,6 @@ export const products: Product[] = [
     category: 'bags',
     badge: 'Value Pack',
   },
-  {
-    slug: 'freshlock-travel-kit',
-    name: 'FreshLock Travel Kit',
-    price: 69.99,
-    description:
-      'Take freshness on the road. The Travel Kit includes the FreshLock handheld sealer in a hard-shell carry case plus 10 small vacuum zipper bags. Perfect for camping trips, road trips, caravanning, picnics, or keeping leftovers fresh in hotel fridges. The compact case protects the sealer and stores neatly in a backpack, esky, or glove box.',
-    shortDescription: 'Sealer + hard-shell carry case + 10 small bags — freshness on the go.',
-    image: '/images/products/travel-kit.jpg',
-    images: [
-      '/images/products/travel-kit.jpg',
-      '/images/products/bags-7.jpg',
-    ],
-    features: [
-      'FreshLock handheld vacuum sealer',
-      'Hard-shell EVA carry case with custom foam insert',
-      '10 × small vacuum zipper bags (22×21 cm)',
-      'USB-C charging cable',
-      'Lightweight & compact',
-      'Fits in a backpack, esky, or glove box',
-    ],
-    specs: {
-      'Includes': '1× FreshLock Sealer, 1× Hard-shell Carry Case, 10× Small Bags (22×21 cm), 1× USB-C Cable',
-      'Bag Size': '22 × 21 cm (Small)',
-      'Sealer Weight': '380 g',
-      'Battery': '2000 mAh Li-ion (USB-C)',
-      'Warranty': '1 year',
-    },
-    category: 'kits',
-  },
 ];
 
 export const reviews: Review[] = [
@@ -175,12 +147,7 @@ export const reviews: Review[] = [
     text: 'Great product. I use it for sous-vide cooking and the seal is always perfect. Only wish it came in more colours. Would definitely recommend.',
     date: '2025-05-15',
   },
-  {
-    name: 'David L.',
-    rating: 5,
-    text: 'We take the Travel Kit on every camping trip. Keeps our meat and veggies fresh for days without a proper esky. Brilliant little device.',
-    date: '2025-04-30',
-  },
+
   {
     name: 'Emma W.',
     rating: 5,
