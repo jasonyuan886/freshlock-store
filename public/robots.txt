@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /checkout/
+Disallow: /checkout/success
 Disallow: /cart/
+Disallow: /admin/
 
-Sitemap: https://freshlocksealer.com/sitemap.xml
+Sitemap: https://www.freshlocksealer.com/sitemap.xml
