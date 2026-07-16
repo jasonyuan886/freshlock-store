@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
+import Image from 'next/image';
 
 export default function CartPage() {
   const { items, updateQuantity, removeFromCart, totalPrice } = useCart();
@@ -32,11 +33,9 @@ export default function CartPage() {
               className="bg-white rounded-xl p-4 sm:p-6 shadow flex gap-4 sm:gap-6"
             >
               <Link href={`/products/${item.product.slug}`}>
-                <img
-                  src={item.product.image}
+                <Image src={item.product.image}
                   alt={item.product.name}
-                  className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover"
-                />
+                  className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover" />
               </Link>
               <div className="flex-1 min-w-0">
                 <Link href={`/products/${item.product.slug}`}>
