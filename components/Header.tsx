@@ -23,6 +23,9 @@ export default function Header() {
             <Link href="/products" className="text-gray-700 hover:text-primary transition">
               Products
             </Link>
+            <Link href="/blog" className="text-gray-700 hover:text-primary transition">
+              Blog
+            </Link>
             <Link href="/about" className="text-gray-700 hover:text-primary transition">
               About
             </Link>
@@ -100,6 +103,13 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Products
+            </Link>
+            <Link
+              href="/blog"
+              className="block py-2 text-gray-700 hover:text-primary"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Blog
             </Link>
             <Link
               href="/about"
