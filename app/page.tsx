@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { products, reviews, faqs } from '@/lib/data';
+import { getAllPosts } from '@/lib/blog';
 import { generateFAQSchema } from '@/lib/schema';
 import Image from 'next/image';
 
@@ -293,6 +294,49 @@ function FaqPreview() {
   );
 }
 
+/* ───────── Blog Preview ───────── */
+function BlogPreview() {
+  const recentPosts = getAllPosts().slice(0, 3);
+  return (
+    <section className="py-20 bg-white" aria-labelledby="blog-heading">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-14">
+          <h2 id="blog-heading" className="section-title">FreshLock Guides & Tips</h2>
+          <p className="section-subtitle">
+            Learn how to get the most out of your handheld vacuum sealer with our practical guides.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {recentPosts.map(post => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              className="group bg-gray-50 rounded-xl p-6 hover:shadow-lg transition"
+            >
+              <h3 className="font-bold text-lg text-gray-900 group-hover:text-primary-600 transition mb-2">
+                {post.title}
+              </h3>
+              <p className="text-gray-600 text-sm mb-3 line-clamp-3">{post.description}</p>
+              <div className="flex items-center gap-2 text-xs text-gray-400">
+                <time dateTime={post.date}>
+                  {new Date(post.date).toLocaleDateString('en-AU', { year: 'numeric', month: 'short', day: 'numeric' })}
+                </time>
+                <span>·</span>
+                <span>{post.readingTime}</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+        <div className="text-center mt-10">
+          <Link href="/blog" className="btn-secondary">
+            View All Guides →
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ───────── CTA ───────── */
 function Cta() {
   return (
@@ -328,6 +372,7 @@ export default function HomePage() {
       <Reviews />
       <QABlock />
       <FaqPreview />
+      <BlogPreview />
       <Cta />
     </>
   );
