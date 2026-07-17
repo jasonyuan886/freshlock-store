@@ -95,3 +95,17 @@ export function getPostBySlug(slug: string): BlogPost | null {
     content: mdToHtml(content.trim()),
   };
 }
+
+export function getRelatedPosts(slug: string, limit: number = 3): BlogPost[] {
+  const all = getAllPosts();
+  const current = all.find(p => p.slug === slug);
+  if (!current) return [];
+  const others = all.filter(p => p.slug !== slug);
+  // Score by shared tags, then by date recency
+  const scored = others.map(p => {
+    const sharedTags = p.tags.filter(t => current.tags.includes(t)).length;
+    return { post: p, score: sharedTags * 10 + (new Date(p.date).getTime() / 1e12) };
+  });
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, limit).map(s => s.post);
+}
