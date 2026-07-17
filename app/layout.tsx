@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   keywords:
     'handheld vacuum sealer, vacuum sealer, portable vacuum sealer, cordless vacuum sealer, food vacuum sealer, vacuum seal bags, reusable vacuum bags, food storage, meal prep, food preservation, FreshLock, kitchen gadget',
   applicationName: siteName,
+  icons: {
+    icon: '/logo.svg',
+    apple: '/logo.svg',
+  },
   alternates: {
     canonical: '/',
     languages: {
