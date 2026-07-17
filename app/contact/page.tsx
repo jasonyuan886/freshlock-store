@@ -154,7 +154,7 @@ export default function ContactPage() {
             <ul className="space-y-2 text-sm">
               <li><a href="/faq" className="text-accent hover:underline">Frequently Asked Questions</a></li>
               <li><a href="/returns" className="text-accent hover:underline">Returns & Refund Policy</a></li>
-              <li><a href="/contact" className="text-accent hover:underline">Shipping Information</a></li>
+              <li><a href="/shipping" className="text-accent hover:underline">Shipping Information</a></li>
             </ul>
           </div>
         </div>
