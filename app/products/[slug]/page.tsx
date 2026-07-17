@@ -67,6 +67,47 @@ export default function ProductDetailPage({ params }: { params: Params }) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: [
+            {
+              '@type': 'Question',
+              name: 'How long does food stay fresh with a vacuum sealer?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'When used with FreshLock vacuum zipper bags, food stays fresh 3–5× longer in the fridge and up to 6 months in the freezer compared with ordinary storage. Vacuum sealing removes up to 95% of the air, slowing oxidation and freezer burn.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Does FreshLock use heat sealing?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'No. FreshLock is a pump-style handheld vacuum sealer that extracts air through a one-way valve on reusable zipper bags. There is no heat bar — sealing is achieved by vacuum pressure only.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Is the battery rechargeable?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Yes. FreshLock Pro charges via USB-C in about 2 hours and delivers 40+ seals on a full charge.'
+              }
+            },
+            {
+              '@type': 'Question',
+              name: 'Are FreshLock vacuum bags reusable?',
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: 'Yes. FreshLock bags use a double-track green zipper slider so you can wash and re-seal them many times. For raw meat or fish use a fresh bag each time; dry goods bags can be reused extensively.'
+              }
+            }
+          ]
+        }) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
@@ -153,17 +194,33 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               </dl>
             </section>
 
-            {/* Q&A for GEO */}
+            {/* Q&A for SEO + GEO */}
             <section className="mt-8">
               <h2 className="font-semibold text-primary mb-3 text-lg">Common Questions</h2>
-              <div className="space-y-3 text-sm text-gray-600">
-                <div>
-                  <h3 className="font-semibold text-gray-800">How long does food stay fresh?</h3>
-                  <p className="leading-relaxed">When used with FreshLock vacuum bags, food stays fresh 3–5× longer in the fridge and up to 6 months in the freezer compared with ordinary storage.</p>
+              <div className="space-y-4 text-sm text-gray-600">
+                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <h3 className="font-semibold text-gray-800" itemProp="name">How long does food stay fresh with a vacuum sealer?</h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="leading-relaxed" itemProp="text">When used with FreshLock vacuum zipper bags, food stays fresh 3–5× longer in the fridge and up to 6 months in the freezer compared with ordinary zipper bags or cling wrap. Vacuum sealing removes up to 95% of the air, slowing oxidation and freezer burn.</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-gray-800">Is the battery rechargeable?</h3>
-                  <p className="leading-relaxed">Yes. FreshLock Pro charges via USB-C in about 2 hours and delivers 40+ seals on a full charge.</p>
+                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <h3 className="font-semibold text-gray-800" itemProp="name">Does FreshLock use heat sealing?</h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="leading-relaxed" itemProp="text">No. FreshLock is a pump-style handheld vacuum sealer that extracts air through a one-way valve on reusable zipper bags. There is no heat bar — sealing is achieved by vacuum pressure only, making it safe, simple, and bag-reusable.</p>
+                  </div>
+                </div>
+                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <h3 className="font-semibold text-gray-800" itemProp="name">Is the battery rechargeable?</h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="leading-relaxed" itemProp="text">Yes. FreshLock Pro charges via USB-C in about 2 hours and delivers 40+ seals on a full charge, enough for multiple days of everyday kitchen use.</p>
+                  </div>
+                </div>
+                <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                  <h3 className="font-semibold text-gray-800" itemProp="name">Are FreshLock vacuum bags reusable?</h3>
+                  <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
+                    <p className="leading-relaxed" itemProp="text">Yes. FreshLock bags use a double-track green zipper slider so you can open, wash, and re-seal them many times. For raw meat or fish we recommend a fresh bag each time; for dry goods like coffee, rice, pasta, or snacks, bags can be reused extensively.</p>
+                  </div>
                 </div>
               </div>
             </section>
