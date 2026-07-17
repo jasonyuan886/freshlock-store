@@ -65,9 +65,25 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     name: 'FreshLock',
     url: SITE_URL,
-    logo: `${SITE_URL}/images/products/sealer-main.jpg`,
+    logo: `${SITE_URL}/logo.svg`,
     description:
       'FreshLock is a handheld cordless vacuum sealer that keeps food fresh up to 5× longer. Trusted by 10,000+ households worldwide.',
+    email: 'support@freshlocksealer.com',
+    telephone: '+61-1300-373-745',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Level 4, 123 Collins Street',
+      addressLocality: 'Melbourne',
+      addressRegion: 'VIC',
+      postalCode: '3000',
+      addressCountry: 'AU',
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'support@freshlocksealer.com',
+      contactType: 'customer support',
+      availableLanguage: ['English'],
+    },
   };
 }
 
