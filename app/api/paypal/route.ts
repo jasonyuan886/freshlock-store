@@ -1,25 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// PayPal API credentials
 const PAYPAL_CLIENT_ID = process.env.PAYPAL_CLIENT_ID || '';
 const PAYPAL_SECRET = process.env.PAYPAL_SECRET || '';
-const PAYPAL_BASE_URL = process.env.PAYPAL_MODE === 'live' 
-  ? 'https://api-m.paypal.com' 
+const PAYPAL_BASE_URL = process.env.PAYPAL_MODE === 'live'
+  ? 'https://api-m.paypal.com'
   : 'https://api-m.sandbox.paypal.com';
 
-// Get PayPal access token
 async function getAccessToken() {
   const auth = Buffer.from(`${PAYPAL_CLIENT_ID}:${PAYPAL_SECRET}`).toString('base64');
-  
   const response = await fetch(`${PAYPAL_BASE_URL}/v1/oauth2/token`, {
     method: 'POST',
-    headers: {
-      'Authorization': `Basic ${auth}`,
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
+    headers: { 'Authorization': `Basic ${auth}`, 'Content-Type': 'application/x-www-form-urlencoded' },
     body: 'grant_type=client_credentials',
   });
-
   const data = await response.json();
   return data.access_token;
 }
@@ -27,72 +20,60 @@ async function getAccessToken() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { items, shippingAddress } = body;
+    const { items, shippingAddress, shippingMethod, shippingCost: clientShippingCost } = body;
 
     if (!items || items.length === 0) {
-      return NextResponse.json(
-        { error: 'Cart is empty' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'Cart is empty' }, { status: 400 });
     }
 
-    // Calculate totals
-    const subtotal = items.reduce((sum: number, item: { price: number; quantity: number }) => 
-      sum + item.price * item.quantity, 0
-    );
-    const shipping = subtotal >= 99 ? 0 : 12.95;
+    const subtotal = items.reduce((sum: number, item: { price: number; quantity: number }) =>
+      sum + item.price * item.quantity, 0);
+
+    // Use shipping cost from frontend if provided (reflects user's chosen method), otherwise calculate
+    let shipping = clientShippingCost;
+    if (typeof shipping !== 'number') {
+      // Fallback: standard only
+      shipping = subtotal >= 99 ? 0 : 12.95;
+    }
     const total = subtotal + shipping;
 
-    // Get PayPal access token
     const accessToken = await getAccessToken();
 
-    // Create PayPal order
+    const shippingMethodName = shippingMethod === 'express'
+      ? 'Express Shipping (DHL, 3-5 days)'
+      : 'Standard Shipping (7-12 days)';
+
     const paypalOrder = await fetch(`${PAYPAL_BASE_URL}/v2/checkout/orders`, {
       method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
         intent: 'CAPTURE',
-        purchase_units: [
-          {
-            amount: {
-              currency_code: 'AUD',
-              value: total.toFixed(2),
-              breakdown: {
-                item_total: {
-                  currency_code: 'AUD',
-                  value: subtotal.toFixed(2),
-                },
-                shipping: {
-                  currency_code: 'AUD',
-                  value: shipping.toFixed(2),
-                },
-              },
+        purchase_units: [{
+          amount: {
+            currency_code: 'AUD',
+            value: total.toFixed(2),
+            breakdown: {
+              item_total: { currency_code: 'AUD', value: subtotal.toFixed(2) },
+              shipping: { currency_code: 'AUD', value: shipping.toFixed(2) },
             },
-            items: items.map((item: { name: string; price: number; quantity: number }) => ({
-              name: item.name,
-              unit_amount: {
-                currency_code: 'AUD',
-                value: item.price.toFixed(2),
-              },
-              quantity: item.quantity.toString(),
-            })),
-            shipping: shippingAddress ? {
-              name: {
-                full_name: shippingAddress.name,
-              },
-              address: {
-                address_line_1: shippingAddress.address,
-                admin_area_2: shippingAddress.city,
-                admin_area_1: shippingAddress.state,
-                postal_code: shippingAddress.postalCode,
-                country_code: 'AU',
-              },
-            } : undefined,
           },
-        ],
+          items: items.map((item: { name: string; price: number; quantity: number }) => ({
+            name: item.name,
+            unit_amount: { currency_code: 'AUD', value: item.price.toFixed(2) },
+            quantity: item.quantity.toString(),
+          })),
+          shipping: shippingAddress ? {
+            name: { full_name: shippingAddress.name },
+            address: {
+              address_line_1: shippingAddress.address,
+              admin_area_2: shippingAddress.city,
+              admin_area_1: shippingAddress.state,
+              postal_code: shippingAddress.postalCode,
+              country_code: 'AU',
+            },
+          } : undefined,
+          description: shippingMethodName,
+        }],
         application_context: {
           brand_name: 'FreshLock',
           landing_page: 'NO_PREFERENCE',
@@ -104,71 +85,34 @@ export async function POST(request: NextRequest) {
     });
 
     const orderData = await paypalOrder.json();
+    const approveLink = orderData.links?.find((link: { rel: string }) => link.rel === 'approve');
+    if (!approveLink) throw new Error('Could not get PayPal approval URL');
 
-    // Find approval URL
-    const approveLink = orderData.links?.find(
-      (link: { rel: string }) => link.rel === 'approve'
-    );
-
-    if (!approveLink) {
-      throw new Error('Could not get PayPal approval URL');
-    }
-
-    return NextResponse.json({
-      orderId: orderData.id,
-      approvalUrl: approveLink.href,
-    });
+    return NextResponse.json({ orderId: orderData.id, approvalUrl: approveLink.href });
   } catch (error) {
     console.error('PayPal order creation error:', error);
-    return NextResponse.json(
-      { error: 'Failed to create PayPal order' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to create PayPal order' }, { status: 500 });
   }
 }
 
-// Capture PayPal payment after approval
 export async function PUT(request: NextRequest) {
   try {
     const { orderId } = await request.json();
-
-    if (!orderId) {
-      return NextResponse.json(
-        { error: 'Order ID is required' },
-        { status: 400 }
-      );
-    }
+    if (!orderId) return NextResponse.json({ error: 'Order ID is required' }, { status: 400 });
 
     const accessToken = await getAccessToken();
-
-    // Capture the payment
-    const captureResponse = await fetch(
-      `${PAYPAL_BASE_URL}/v2/checkout/orders/${orderId}/capture`,
-      {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-
+    const captureResponse = await fetch(`${PAYPAL_BASE_URL}/v2/checkout/orders/${orderId}/capture`, {
+      method: 'POST',
+      headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+    });
     const captureData = await captureResponse.json();
-
     if (captureData.status === 'COMPLETED') {
-      return NextResponse.json({
-        success: true,
-        orderId: captureData.id,
-        status: captureData.status,
-      });
+      return NextResponse.json({ success: true, orderId: captureData.id, status: captureData.status });
     } else {
       throw new Error('Payment not completed');
     }
   } catch (error) {
     console.error('PayPal capture error:', error);
-    return NextResponse.json(
-      { error: 'Failed to capture payment' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to capture payment' }, { status: 500 });
   }
 }
