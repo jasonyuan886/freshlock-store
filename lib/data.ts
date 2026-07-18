@@ -196,7 +196,7 @@ export const faqs = [
   {
     question: 'Where do you ship?',
     answer:
-      'We ship worldwide — including the US, UK, Canada, Australia, New Zealand and across Europe. Standard shipping is free on orders over $79 AUD. Express shipping options are available at checkout.',
+      'We ship worldwide — including the US, UK, Canada, Australia, New Zealand and across Europe. Standard shipping is FREE on orders over A$99 to Australia & New Zealand. Express delivery 3-5 days available at checkout.',
   },
   {
     question: 'What is your returns policy?',
