@@ -94,7 +94,7 @@ export async function POST(request: NextRequest) {
           },
         ],
         application_context: {
-          brand_name: 'FreshLock Australia',
+          brand_name: 'FreshLock',
           landing_page: 'NO_PREFERENCE',
           user_action: 'PAY_NOW',
           return_url: `${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/checkout/success?payment_method=paypal`,
