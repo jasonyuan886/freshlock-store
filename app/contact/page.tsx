@@ -130,7 +130,7 @@ export default function ContactPage() {
                 <span className="text-2xl">⏱️</span>
                 <div>
                   <p className="font-medium">Response Time</p>
-                  <p className="text-gray-600">Within 24 hours, Mon–Sun</p>
+                  <p className="text-gray-600">Within 24 hours, Mon–Sun<br />AEST/JST business hours prioritized</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
