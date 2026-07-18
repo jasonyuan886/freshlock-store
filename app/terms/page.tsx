@@ -15,7 +15,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">2. Who We Are</h2>
             <p className="text-gray-600 leading-relaxed">
-              FreshLock is an online retailer of handheld vacuum sealers and vacuum seal bags. Customer support can be reached at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>. We ship to addresses within Australia from this storefront.
+              FreshLock is an online retailer of handheld vacuum sealers and vacuum seal bags. Customer support can be reached at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>. We ship worldwide from this storefront.
             </p>
           </section>
 
@@ -32,7 +32,7 @@ export default function TermsPage() {
               We take care to describe and display our products accurately. Please note:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
-              <li>All prices are shown in Australian Dollars (AUD) and include GST where applicable.</li>
+              <li>All prices are shown in Australian Dollars (AUD). Applicable taxes, duties and import fees are the responsibility of the customer in accordance with local regulations.</li>
               <li>We reserve the right to correct pricing errors, even after an order has been placed, and will notify you before charging a different price.</li>
               <li>Product images are for illustrative purposes. Colours and finishes may vary slightly depending on your screen.</li>
               <li>We reserve the right to discontinue products, limit quantities, or change specifications without notice.</li>
@@ -64,7 +64,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">7. Returns, Refunds and Consumer Guarantees</h2>
             <p className="text-gray-600 leading-relaxed">
-              Our <a href="/returns" className="text-accent hover:underline">Returns &amp; Refund Policy</a> sets out our 30-day return process for change-of-mind returns and how we handle defective or damaged items. Nothing in these Terms limits your rights under the Australian Consumer Law (ACL), including your entitlement to a replacement, repair, or refund for a major failure and compensation for any other reasonably foreseeable loss or damage.
+              Our <a href="/returns" className="text-accent hover:underline">Returns &amp; Refund Policy</a> sets out our 30-day return process for change-of-mind returns and how we handle defective or damaged items. Nothing in these Terms limits your non-excludable statutory consumer rights under applicable local law, including your entitlement to a replacement, repair, or refund for a major failure and compensation for any other reasonably foreseeable loss or damage.
             </p>
           </section>
 
@@ -90,14 +90,14 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">10. Limitation of Liability</h2>
             <p className="text-gray-600 leading-relaxed">
-              To the maximum extent permitted by law, FreshLock and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, or goodwill — arising from your use of the Site or products, even if we have been advised of the possibility of such damages. Our total aggregate liability for any claim relating to a product you purchased shall not exceed the amount you actually paid for that product. Nothing in this clause limits your rights under the Australian Consumer Law.
+              To the maximum extent permitted by law, FreshLock and its operators shall not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of profits, data, or goodwill — arising from your use of the Site or products, even if we have been advised of the possibility of such damages. Our total aggregate liability for any claim relating to a product you purchased shall not exceed the amount you actually paid for that product. Nothing in this clause limits your non-excludable statutory rights under applicable local consumer protection laws.
             </p>
           </section>
 
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">11. Intellectual Property</h2>
             <p className="text-gray-600 leading-relaxed">
-              All content on the Site — including text, graphics, logos, product images, photographs, videos, and software — is the property of FreshLock or its licensors and is protected by Australian and international copyright, trade mark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any of this content without our prior written permission. The FreshLock name and logo are trade marks of FreshLock.
+              All content on the Site — including text, graphics, logos, product images, photographs, videos, and software — is the property of FreshLock or its licensors and is protected by international copyright, trade mark, and other intellectual property laws. You may not reproduce, distribute, modify, or create derivative works from any of this content without our prior written permission. The FreshLock name and logo are trade marks of FreshLock.
             </p>
           </section>
 
@@ -131,7 +131,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">15. Governing Law and Jurisdiction</h2>
             <p className="text-gray-600 leading-relaxed">
-              These Terms are governed by the laws of Victoria, Australia. Any dispute arising from these Terms or your use of the Site will be subject to the exclusive jurisdiction of the courts of Victoria, Australia, subject to any non-excludable rights you may have under consumer protection laws in your own jurisdiction.
+              These Terms are governed by the laws of Hong Kong SAR. Any dispute arising from these Terms or your use of the Site will be subject to the non-exclusive jurisdiction of the courts of Hong Kong SAR, subject to any non-excludable rights you may have under consumer protection laws in your own jurisdiction.
             </p>
           </section>
 
