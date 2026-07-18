@@ -93,9 +93,9 @@ export default function ReturnsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-primary mb-3">9. Your Rights Under Australian Consumer Law</h2>
+            <h2 className="text-2xl font-bold text-primary mb-3">9. Your Statutory Rights</h2>
             <p className="text-gray-600 leading-relaxed">
-              Our returns policy does not exclude, restrict, or modify any rights or remedies you may have under the Australian Consumer Law (ACL), including your right to a repair, replacement, or refund for a major failure and compensation for any other reasonably foreseeable loss or damage. Nothing in this policy limits your statutory rights.
+              Our returns policy does not exclude, restrict, or modify any non-excludable statutory rights or remedies you may have under applicable local consumer protection laws, including your right to a repair, replacement, or refund for a major failure and compensation for any other reasonably foreseeable loss or damage.
             </p>
           </section>
 
