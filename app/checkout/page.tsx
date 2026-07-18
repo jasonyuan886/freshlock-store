@@ -294,7 +294,7 @@ export default function CheckoutPage() {
                   />
                   <div>
                     <span className="font-medium">🟣 Afterpay</span>
-                    <p className="text-xs text-gray-500 mt-0.5">4 interest-free payments — popular in Australia</p>
+                    <p className="text-xs text-gray-500 mt-0.5">4 interest-free payments</p>
                   </div>
                 </label>
               </div>
