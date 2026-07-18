@@ -30,7 +30,13 @@ export default function CartPage() {
           {items.map((item) => (
             <div key={item.product.slug} className="bg-white rounded-xl p-4 sm:p-6 shadow flex gap-4 sm:gap-6">
               <Link href={`/products/${item.product.slug}`}>
+<<<<<<< Updated upstream
                 <Image src={item.product.image} alt={item.product.name} className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover" />
+=======
+                <Image src={item.product.image}
+                  alt={item.product.name}
+                  className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover" />
+>>>>>>> Stashed changes
               </Link>
               <div className="flex-1 min-w-0">
                 <Link href={`/products/${item.product.slug}`}>
