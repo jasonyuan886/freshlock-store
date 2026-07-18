@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
     const subtotal = items.reduce((sum: number, item: { price: number; quantity: number }) => 
       sum + item.price * item.quantity, 0
     );
-    const shipping = subtotal >= 79 ? 0 : 9.99;
+    const shipping = subtotal >= 99 ? 0 : 12.95;
     const total = subtotal + shipping;
 
     // Get PayPal access token
