@@ -7,7 +7,7 @@ import Image from 'next/image';
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
-  const shipping = totalPrice >= 79 ? 0 : 9.95;
+  const shipping = totalPrice >= 99 ? 0 : 12.95;
   const total = totalPrice + shipping;
 
   const [paymentMethod, setPaymentMethod] = useState('stripe');
@@ -338,9 +338,9 @@ export default function CheckoutPage() {
                   <span className="text-gray-500">Shipping</span>
                   <span>{shipping === 0 ? <span className="text-accent font-medium">FREE</span> : `$${shipping.toFixed(2)}`}</span>
                 </div>
-                {totalPrice < 79 && (
+                {totalPrice < 99 && (
                   <p className="text-xs text-gray-400">
-                    Add ${(79 - totalPrice).toFixed(2)} more for free shipping!
+                    Add ${(99 - totalPrice).toFixed(2)} more for FREE shipping!
                   </p>
                 )}
               </div>
