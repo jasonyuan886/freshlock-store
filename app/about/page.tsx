@@ -42,7 +42,7 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {[
             { icon: '🌱', title: 'Reduce Food Waste', text: 'The average household throws away hundreds of dollars of food each year. Vacuum sealing extends fridge, freezer and pantry life by up to 5×.' },
-            { icon: '🌍', title: 'Worldwide Shipping', text: 'We ship globally from our fulfilment centres. Orders over $79 AUD include free standard shipping.' },
+            { icon: '🌍', title: 'Worldwide Shipping', text: 'We ship globally from our fulfilment centres. Orders over A$99 enjoy FREE standard shipping to Australia & NZ. Express 3-5 days also available.' },
             { icon: '♻️', title: 'Reusable & Practical', text: 'Our zip-closure vacuum bags are reusable again and again. Minimal packaging, real everyday use.' },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl p-6 shadow-sm text-center">
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
-              <span><strong>Free standard shipping</strong> on all orders over $79 AUD.</span>
+              <span><strong>FREE standard shipping</strong> on all orders over A$99 to Australia & New Zealand.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
