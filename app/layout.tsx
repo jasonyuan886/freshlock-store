@@ -64,6 +64,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 's5k1bV4GOf6JitkZAj0KewRM2B2TgAO5N_6aDlZ59cM',
+  },
 };
 
 const orgSchema = generateOrganizationSchema();
