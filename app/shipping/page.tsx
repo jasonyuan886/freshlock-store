@@ -17,7 +17,7 @@ export default function ShippingPage() {
 
       <div className="prose prose-lg max-w-none">
         <h2>Shipping Regions</h2>
-        <p>We currently ship to Australia nationwide (including NSW, VIC, QLD, SA, WA, TAS, ACT, NT). Japanese customers please visit <a href="https://jp.freshlocksealer.com" className="text-accent hover:underline">FreshLock Japan</a>.</p>
+        <p>We ship worldwide — including the US, UK, Canada, Australia, New Zealand, and across Europe. Japanese customers please visit <a href="https://jp.freshlocksealer.com" className="text-accent hover:underline">FreshLock Japan</a> for local pricing in JPY.</p>
 
         <h2>Processing Time</h2>
         <p>All orders are processed within 1–2 business days (Monday–Friday, excluding public holidays). Orders placed after 2:00 PM AEST/AEDT will be processed the next business day.</p>
@@ -48,7 +48,7 @@ export default function ShippingPage() {
         </div>
 
         <h2>Free Shipping</h2>
-        <p>Enjoy <strong>FREE standard shipping</strong> on all orders over <strong>$79 AUD</strong> within Australia. The discount is automatically applied at checkout — no code needed.</p>
+        <p>Enjoy <strong>FREE standard shipping</strong> on all orders over <strong>$79 AUD</strong>. The discount is automatically applied at checkout — no code needed. International shipping rates are calculated at checkout based on destination.</p>
 
         <h2>Order Tracking</h2>
         <p>Once your order ships, you will receive a confirmation email with a tracking number. If you do not receive a tracking email within 3 business days, please contact us at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>.</p>
