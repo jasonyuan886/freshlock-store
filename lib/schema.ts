@@ -69,11 +69,13 @@ export function generateOrganizationSchema() {
     description:
       'FreshLock is a handheld cordless vacuum sealer that keeps food fresh up to 5× longer. Trusted by 10,000+ households worldwide.',
     email: 'support@freshlocksealer.com',
+    areaServed: ['AU', 'NZ', 'JP', 'US', 'CA', 'GB', 'SG', 'HK', 'Worldwide'],
     contactPoint: {
       '@type': 'ContactPoint',
       email: 'support@freshlocksealer.com',
       contactType: 'customer support',
-      availableLanguage: ['English'],
+      availableLanguage: ['English', 'Japanese'],
+      areaServed: ['AU', 'NZ', 'JP', 'US', 'CA', 'GB', 'SG', 'HK', 'Worldwide'],
     },
   };
 }
