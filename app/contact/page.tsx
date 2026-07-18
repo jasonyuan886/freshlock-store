@@ -127,22 +127,20 @@ export default function ContactPage() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-2xl">📞</span>
+                <span className="text-2xl">⏱️</span>
                 <div>
-                  <p className="font-medium">Phone</p>
-                  <p className="text-gray-600">1300 FRESHLOCK (1300 373 745)</p>
-                  <p className="text-sm text-gray-400">Mon–Fri 9am–5pm AEST</p>
+                  <p className="font-medium">Response Time</p>
+                  <p className="text-gray-600">Within 24 hours, Mon–Sun</p>
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <span className="text-2xl">📍</span>
+                <span className="text-2xl">🌐</span>
                 <div>
-                  <p className="font-medium">Address</p>
+                  <p className="font-medium">Online Store</p>
                   <p className="text-gray-600">
-                    FreshLock Pty Ltd<br />
-                    Level 4, 123 Collins Street<br />
-                    Melbourne VIC 3000<br />
-                    Australia
+                    FreshLock operates as an online-only store.<br />
+                    We ship worldwide from our fulfilment centres.<br />
+                    No physical retail location.
                   </p>
                 </div>
               </div>
