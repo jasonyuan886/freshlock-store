@@ -86,12 +86,12 @@ export default function CartPage() {
             </div>
             <div className="flex justify-between">
               <span className="text-gray-500">Shipping</span>
-              <span>{totalPrice >= 79 ? <span className="text-accent font-medium">FREE</span> : '$9.95 AUD'}</span>
+              <span>{totalPrice >= 99 ? <span className="text-accent font-medium">FREE</span> : '$12.95 AUD'}</span>
             </div>
           </div>
           <div className="flex justify-between font-bold text-lg mb-6">
             <span>Total</span>
-            <span>${(totalPrice + (totalPrice >= 79 ? 0 : 9.95)).toFixed(2)} AUD</span>
+            <span>${(totalPrice + (totalPrice >= 99 ? 0 : 12.95)).toFixed(2)} AUD</span>
           </div>
           <Link href="/checkout" className="btn-primary w-full block">
             Proceed to Checkout
@@ -99,9 +99,9 @@ export default function CartPage() {
           <Link href="/products" className="block text-center text-sm text-gray-500 hover:text-primary mt-4">
             ← Continue Shopping
           </Link>
-          {totalPrice < 79 && (
+          {totalPrice < 99 && (
             <p className="text-xs text-gray-400 mt-4 text-center">
-              Add ${(79 - totalPrice).toFixed(2)} more for free shipping!
+              Add ${(99 - totalPrice).toFixed(2)} more for FREE shipping!
             </p>
           )}
         </div>
