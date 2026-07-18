@@ -11,7 +11,7 @@ export default function PrivacyPage() {
               FreshLock (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) operates the website www.freshlocksealer.com and is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website, make a purchase, or interact with our services.
             </p>
             <p className="text-gray-600 leading-relaxed mt-3">
-              We comply with the Australian Privacy Principles (APPs) under the Privacy Act 1988 (Cth) and applicable data protection laws for customers in other regions, including the General Data Protection Regulation (GDPR) for customers in the European Economic Area.
+              We comply with applicable data protection laws for our customers worldwide, including the General Data Protection Regulation (GDPR) for customers in the European Economic Area and other regional privacy requirements.
             </p>
           </section>
 
@@ -65,7 +65,7 @@ export default function PrivacyPage() {
               <li><strong>Vercel:</strong> Hosting and content delivery platform that serves our website. Processes IP address and technical data for security and performance.</li>
               <li><strong>Google Analytics:</strong> Website traffic and usage analysis. Data is anonymised where possible. You can opt out via Google&rsquo;s browser add-on.</li>
               <li><strong>Stripe &amp; PayPal:</strong> Payment processing providers who handle payment card data securely.</li>
-              <li><strong>Shipping carriers (e.g. Australia Post and partner couriers):</strong> To deliver your orders; they receive your name, shipping address, and contact details for delivery purposes only.</li>
+              <li><strong>Shipping carriers and fulfilment partners:</strong> To deliver your orders; they receive your name, shipping address, and contact details for delivery purposes only.</li>
               <li><strong>Email service providers:</strong> To send transactional emails (order confirmations, shipping updates) and marketing emails (if you have subscribed).</li>
             </ul>
             <p className="text-gray-600 leading-relaxed mt-3">
@@ -100,7 +100,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">9. International Data Transfers</h2>
             <p className="text-gray-600 leading-relaxed">
-              Some of our third-party service providers (such as cloud hosting and analytics platforms) may process data outside Australia, including in the United States and other jurisdictions. We take steps to ensure such transfers comply with applicable law and that your information receives an adequate level of protection.
+              Some of our third-party service providers (such as cloud hosting, payment processing and analytics platforms) may process data in different jurisdictions, including the United States and other countries. We take steps to ensure such transfers comply with applicable law and that your information receives an adequate level of protection.
             </p>
           </section>
 
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
               <li>Request deletion of your personal data (subject to legal retention obligations).</li>
               <li>Object to or restrict certain types of processing.</li>
               <li>Opt out of marketing communications at any time (use the &ldquo;unsubscribe&rdquo; link in any marketing email).</li>
-              <li>Lodge a complaint with your local data protection authority (e.g. the Office of the Australian Information Commissioner in Australia).</li>
+              <li>Lodge a complaint with your local data protection authority.</li>
             </ul>
             <p className="text-gray-600 leading-relaxed mt-3">
               To exercise any of these rights, please contact us using the details below. We will respond within a reasonable timeframe, generally within 30 days.
