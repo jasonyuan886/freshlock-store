@@ -211,12 +211,22 @@ function Reviews() {
         <div className="grid md:grid-cols-3 gap-8">
           {topReviews.map((r) => (
             <article key={r.name} className="bg-white rounded-xl p-6 shadow-sm" itemScope itemType="https://schema.org/Review">
+              <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Product">
+                <meta itemProp="name" content="FreshLock Pro Handheld Vacuum Sealer" />
+              </div>
+              <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
+                <meta itemProp="ratingValue" content={String(r.rating)} />
+                <meta itemProp="bestRating" content="5" />
+                <meta itemProp="worstRating" content="1" />
+              </div>
               <div className="flex items-center mb-3" aria-label={`Rated ${r.rating} out of 5`}>
                 {'★'.repeat(r.rating)}
                 <span className="ml-1 text-gray-400 text-sm">{r.rating}/5</span>
               </div>
               <p className="text-gray-700 mb-4 italic" itemProp="reviewBody">&ldquo;{r.text}&rdquo;</p>
-              <p className="font-semibold text-primary text-sm" itemProp="author">{r.name}</p>
+              <p className="font-semibold text-primary text-sm" itemProp="author" itemScope itemType="https://schema.org/Person">
+                <span itemProp="name">{r.name}</span>
+              </p>
             </article>
           ))}
         </div>
