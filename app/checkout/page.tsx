@@ -4,14 +4,11 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
 import Image from 'next/image';
-<<<<<<< Updated upstream
 
 const FREE_THRESHOLD = 99;
 const STANDARD_FEE = 12.95;
 const EXPRESS_FEE = 22.95;
 const EXPRESS_UPGRADE = 9.95;
-=======
->>>>>>> Stashed changes
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart, shippingMethod, setShippingMethod, getShippingCost } = useCart();
@@ -230,13 +227,7 @@ export default function CheckoutPage() {
               <div className="space-y-3 mb-4">
                 {items.map((item) => (
                   <div key={item.product.slug} className="flex gap-3">
-<<<<<<< Updated upstream
                     <Image src={item.product.image} alt={item.product.name} className="w-14 h-14 rounded-lg object-cover" />
-=======
-                    <Image src={item.product.image}
-                      alt={item.product.name}
-                      className="w-14 h-14 rounded-lg object-cover" />
->>>>>>> Stashed changes
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-gray-900 truncate">{item.product.name}</p>
                       <p className="text-xs text-gray-500">Qty: {item.quantity}</p>
