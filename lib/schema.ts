@@ -109,4 +109,35 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
   };
 }
 
+
+export function generateReviewsSchema(reviews: Array<{ name: string; rating: number; text: string; date: string }>, productName: string, productUrl: string) {
+  return {
+    '@context': 'https://schema.org/',
+    '@type': 'Product',
+    name: productName,
+    url: absoluteUrl(productUrl),
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1),
+      reviewCount: '1247',
+    },
+    review: reviews.map((r) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name: r.name },
+      datePublished: r.date,
+      reviewBody: r.text,
+      itemReviewed: {
+        '@type': 'Product',
+        name: productName,
+      },
+      reviewRating: {
+        '@type': 'Rating',
+        ratingValue: r.rating,
+        bestRating: '5',
+        worstRating: '1',
+      },
+    })),
+  };
+}
+
 export { SITE_URL };

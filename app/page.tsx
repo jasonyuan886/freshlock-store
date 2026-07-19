@@ -7,10 +7,11 @@ export const metadata: Metadata = {
 import Link from 'next/link';
 import { products, reviews, faqs } from '@/lib/data';
 import { getAllPosts } from '@/lib/blog';
-import { generateFAQSchema } from '@/lib/schema';
+import { generateFAQSchema, generateReviewsSchema } from '@/lib/schema';
 import Image from 'next/image';
 
 const faqSchema = generateFAQSchema(faqs);
+const reviewsSchema = generateReviewsSchema(reviews.slice(0, 3), 'FreshLock Pro Handheld Vacuum Sealer', '/products/freshlock-pro');
 
 /* ───────── Hero ───────── */
 function Hero() {
@@ -216,23 +217,13 @@ function Reviews() {
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {topReviews.map((r) => (
-            <article key={r.name} className="bg-white rounded-xl p-6 shadow-sm" itemScope itemType="https://schema.org/Review">
-              <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Product">
-                <meta itemProp="name" content="FreshLock Pro Handheld Vacuum Sealer" />
-              </div>
-              <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-                <meta itemProp="ratingValue" content={String(r.rating)} />
-                <meta itemProp="bestRating" content="5" />
-                <meta itemProp="worstRating" content="1" />
-              </div>
+            <article key={r.name} className="bg-white rounded-xl p-6 shadow-sm">
               <div className="flex items-center mb-3" aria-label={`Rated ${r.rating} out of 5`}>
                 {'★'.repeat(r.rating)}
                 <span className="ml-1 text-gray-400 text-sm">{r.rating}/5</span>
               </div>
-              <p className="text-gray-700 mb-4 italic" itemProp="reviewBody">&ldquo;{r.text}&rdquo;</p>
-              <p className="font-semibold text-primary text-sm" itemProp="author" itemScope itemType="https://schema.org/Person">
-                <span itemProp="name">{r.name}</span>
-              </p>
+              <p className="text-gray-700 mb-4 italic">&ldquo;{r.text}&rdquo;</p>
+              <p className="font-semibold text-primary text-sm">{r.name}</p>
             </article>
           ))}
         </div>
@@ -385,6 +376,10 @@ export default function HomePage() {
       <Features />
       <ProductShowcase />
       <SocialProof />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsSchema) }}
+      />
       <Reviews />
       <QABlock />
       <FaqPreview />
