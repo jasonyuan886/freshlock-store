@@ -1,3 +1,12 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description:
+    'FreshLock privacy policy: how we collect, use, and protect your personal information. GDPR-compliant for EU customers.',
+  alternates: { canonical: '/privacy' },
+};
+
 export default function PrivacyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

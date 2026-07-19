@@ -1,3 +1,12 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'About FreshLock',
+  description:
+    'FreshLock makes compact, cordless handheld vacuum sealers that help households reduce food waste and keep food fresh up to 5× longer. Learn our story and mission.',
+  alternates: { canonical: '/about' },
+};
+
 export default function AboutPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

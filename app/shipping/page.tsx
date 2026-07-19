@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Shipping Policy | FreshLock Australia',
+  title: { absolute: 'Shipping Policy | FreshLock Australia' },
   description: 'FreshLock Australia shipping: FREE standard delivery on orders over A$99. Express shipping available. Ships from China via tracked air to AU & NZ.',
+  alternates: { canonical: '/shipping' },
 };
 
 export default function ShippingPage() {

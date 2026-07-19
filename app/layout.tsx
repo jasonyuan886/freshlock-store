@@ -22,11 +22,10 @@ export const metadata: Metadata = {
     'handheld vacuum sealer, vacuum sealer, portable vacuum sealer, cordless vacuum sealer, food vacuum sealer, vacuum seal bags, reusable vacuum bags, food storage, meal prep, food preservation, FreshLock, kitchen gadget',
   applicationName: siteName,
   icons: {
-    icon: '/logo.svg',
+    icon: [{ url: '/favicon.ico', sizes: '32x32' }, { url: '/logo.svg', type: 'image/svg+xml' }],
     apple: '/logo.svg',
   },
   alternates: {
-    canonical: '/',
     languages: {
       'en': 'https://www.freshlocksealer.com',
       'ja': 'https://jp.freshlocksealer.com',

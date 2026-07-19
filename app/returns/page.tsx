@@ -1,3 +1,12 @@
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Returns & Refund Policy',
+  description:
+    'FreshLock return and refund policy. 30-day satisfaction guarantee, full refund or exchange on unused items. Learn how to start a return.',
+  alternates: { canonical: '/returns' },
+};
+
 export default function ReturnsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
