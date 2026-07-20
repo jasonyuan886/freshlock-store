@@ -80,6 +80,14 @@ export function generateOrganizationSchema() {
       availableLanguage: ['English', 'Japanese'],
       areaServed: ['AU', 'NZ', 'JP', 'US', 'CA', 'GB', 'SG', 'HK', 'Worldwide'],
     },
+    hasMerchantReturnPolicy: {
+      '@type': 'MerchantReturnPolicy',
+      applicableCountry: 'AU',
+      returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+      merchantReturnDays: 30,
+      returnMethod: 'https://schema.org/ReturnByMail',
+      returnFees: 'https://schema.org/FreeReturn',
+    },
   };
 }
 
