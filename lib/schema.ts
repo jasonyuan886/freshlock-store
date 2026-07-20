@@ -30,6 +30,7 @@ export function generateProductSchema(product: Product, reviews?: Review[]) {
     image: (product.images || [product.image]).map(absoluteUrl),
     description: product.description,
     sku: product.slug,
+    mpn: product.slug,
     brand: {
       '@type': 'Brand',
       name: 'FreshLock',
@@ -66,10 +67,12 @@ export function generateOrganizationSchema() {
     name: 'FreshLock',
     url: SITE_URL,
     logo: `${SITE_URL}/logo.svg`,
+    image: `${SITE_URL}/images/products/sealer-main.jpg`,
     description:
       'FreshLock is a handheld cordless vacuum sealer that keeps food fresh up to 5× longer. Trusted by 10,000+ households worldwide.',
     email: 'support@freshlocksealer.com',
     areaServed: ['AU', 'NZ', 'JP', 'US', 'CA', 'GB', 'SG', 'HK', 'Worldwide'],
+    sameAs: [],
     contactPoint: {
       '@type': 'ContactPoint',
       email: 'support@freshlocksealer.com',
@@ -109,16 +112,30 @@ export function generateFAQSchema(faqs: Array<{ question: string; answer: string
   };
 }
 
-
 export function generateReviewsSchema(reviews: Array<{ name: string; rating: number; text: string; date: string }>, productName: string, productUrl: string) {
+  const avg = (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1);
   return {
     '@context': 'https://schema.org/',
     '@type': 'Product',
     name: productName,
     url: absoluteUrl(productUrl),
+    image: `${SITE_URL}/images/products/sealer-main.jpg`,
+    description:
+      'The FreshLock Pro is a handheld cordless vacuum sealer that keeps food fresh up to 5× longer with one-touch valve sealing.',
+    sku: 'freshlock-pro',
+    mpn: 'freshlock-pro',
+    brand: { '@type': 'Brand', name: 'FreshLock' },
+    offers: {
+      '@type': 'Offer',
+      url: absoluteUrl(productUrl),
+      priceCurrency: 'AUD',
+      price: '89.99',
+      availability: 'https://schema.org/InStock',
+      itemCondition: 'https://schema.org/NewCondition',
+    },
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: (reviews.reduce((s, r) => s + r.rating, 0) / reviews.length).toFixed(1),
+      ratingValue: avg,
       reviewCount: '1247',
     },
     review: reviews.map((r) => ({
