@@ -16,8 +16,6 @@ If you've been freezing fish in cling wrap or supermarket freezer bags, you know
 
 This guide is for Aussie anglers who want to bring their catch home and actually eat it. We'll cover how to vacuum seal fish on the boat, how long different species last, how to handle fish blood without destroying your sealer, why a tiny zip-slider makes a huge difference when your hands are wet, and a few tricks picked up over years of towing the boat up and down the coast.
 
-![Freshly caught snapper on a boat deck ready for filleting](/images/blog/snapper-on-deck.jpg)
-
 ## Why Fish Goes Bad Faster Than Other Meat
 
 Fish spoils faster and gets freezer burn more easily than red meat. Three reasons:
@@ -27,8 +25,6 @@ Fish spoils faster and gets freezer burn more easily than red meat. Three reason
 3. **Enzymes keep working** even in the fridge; only freezing stops them, and air exposure speeds the process.
 
 Freezer burn is air exposure, plain and simple — moisture sublimates straight from ice to vapour, leaving dry, discoloured patches. Vacuum sealing removes almost all the air; an airtight zipper keeps it out. Done properly, a vacuum-sealed fillet at -18°C doesn't develop freezer burn and tastes fresh months later. See our [vacuum-sealed shelf life guide for Australia](/blog/how-long-does-vacuum-sealed-food-last-australia-2026) for a species-by-species breakdown.
-
-![Vacuum-sealed barramundi fillets stacked in a freezer](/images/blog/barra-fillets-vacuum-sealed.jpg)
 
 ## Sealing on the Boat: Why a Cordless Handheld Is an Angler's Best Mate
 
@@ -46,8 +42,6 @@ The FreshLock Pro is USB-C rechargeable and a single charge seals 100+ bags — 
 6. **Seal** in short bursts, 15–20 seconds total.
 7. **Drop straight into ice slurry.** Back home, bags go straight to freezer — no repackaging.
 
-![Handheld vacuum sealer and filleting setup on a boat seat](/images/blog/boat-sealing-setup.jpg)
-
 ## Fish Blood vs. Your Sealer: The Overflow Problem
 
 Fish is wet — even bled and patted dry, fillets leak juice, oily fish leak a lot, and prawns hold water. That moisture is what makes fresh fish taste great, but it can wreck a sealer that isn't built for it. Watch pinkish liquid get sucked into the nozzle of a cheap handheld, and it either dies immediately or slowly rusts and smells of fish forever. It's the same problem we cover in our [liquids and marinades guide](/blog/vacuum-seal-liquids-sauces-marinades-without-motor-damage), but it's extra frustrating on a boat with a day's catch and no backup.
@@ -58,8 +52,6 @@ And because there are no electronics in the fluid path, you can actually clean i
 
 When sealing fish, pulse the suction rather than running it continuously. Tight is enough — crush-the-fillet tight is unnecessary and increases liquid risk.
 
-![Collection cup after sealing fish fillets](/images/blog/fish-juice-collection-cup.jpg)
-
 ## The Zip-Slider: Small Detail, Massive Difference on the Water
 
 This sounds trivial until you're sealing bags on a rocking boat with wet, slimy hands.
@@ -69,8 +61,6 @@ Nearly every vacuum bag on the market uses a loose little plastic clip to close 
 Every FreshLock bag has an **attached apple-green zip-slider** permanently clipped on at the factory. Put the fillet in, run the bright green slider across once end-to-end, and it's airtight. No separate clip to fumble or drop. The bright green colour is intentional — lime-green plastic is easy to spot in an ice-filled esky, on the boat floor, or in camp sand.
 
 The zip-slider is on every FreshLock bag — small (15×20cm), medium (20×30cm), large (25×35cm), all 90μm embossed.
-
-![Apple-green zip-slider on a sealed bag of fish fillets](/images/blog/apple-green-zip-slider.jpg)
 
 ## How Long Does Vacuum-Sealed Fish Last?
 
@@ -89,8 +79,6 @@ That's roughly triple the freezer life of cling wrap or standard freezer bags, w
 
 One thing vacuum sealing does *not* do: replace ice. You still need to keep fish cold — an ice slurry (seawater + ice = roughly -1°C) is gold standard on the boat. Vacuum sealing keeps meltwater out, protects fillets, and stops fishy smells from contaminating everything else in the esky.
 
-![Esky loaded with ice and vacuum-sealed fish bags](/images/blog/esky-vacuum-sealed-fish.jpg)
-
 ## Tips for Boat Trips and 4WD Camping
 
 - **Charge the night before** (100+ seals per charge). For week-long trips, bring a 20,000mAh power bank or charge off the car USB — USB-C is everywhere now.
@@ -99,8 +87,6 @@ One thing vacuum sealing does *not* do: replace ice. You still need to keep fish
 - **Bag bait too.** Vacuum-sealed pilchards and squid don't leak goo over the tackle box; unused portions go back in the freezer.
 - **Freeze bags flat** on a tray for 24 hours before stacking — faster freeze, faster thaw, less space.
 - For camp cook-ups off the boat, our [BBQ & camping vacuum sealing guide](/blog/vacuum-sealing-bbq-camping-australia) covers marinated snags and esky organisation.
-
-![4WD camping setup with esky, vacuum sealer and fishing gear](/images/blog/4wd-camping-fishing.jpg)
 
 ## Common Mistakes & FAQ
 
@@ -115,8 +101,6 @@ One thing vacuum sealing does *not* do: replace ice. You still need to keep fish
 **Reusing fish bags?** Not recommended — raw fish bacteria makes cross-contamination a risk. Treat as single-use.
 
 **Cleaning after a fishy day?** Empty the cup each session. Back home, rinse the cup and air channel through with warm soapy water (hold base in a bowl, run sealer 5–10 seconds, repeat with clean water), then air-dry with the cup off. Don't submerge the whole sealer — the top housing isn't designed for it. Never put any part in the dishwasher. Full cleaning details in our [liquids guide](/blog/vacuum-seal-liquids-sauces-marinades-without-motor-damage#easy-cleaning--because-the-fluid-path-has-zero-electronics).
-
-![Thawed snapper fillet pan-fried with lemon butter and herbs](/images/blog/cooked-snapper-lemon-butter.jpg)
 
 ## Wrapping Up
 

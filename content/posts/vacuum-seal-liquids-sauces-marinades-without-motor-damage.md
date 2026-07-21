@@ -12,8 +12,6 @@ If you've ever vacuum-sealed a bag of leftover bolognese or a steak in red wine 
 
 A lot of people walk away convinced vacuum sealers can't handle liquids. They're wrong. You *can* vacuum seal liquids safely — you just need the right technique and the right tool. This guide covers why liquids kill sealers, which methods actually work, how to seal marinades, soups and meat juices without trashing your motor, and how a simple mechanical design makes the process far more forgiving.
 
-![Vacuum sealing a marinated steak in an embossed vacuum bag](/images/blog/liquids-vacuum-seal-setup.jpg)
-
 ## Why Liquids Are the #1 Killer of Handheld Vacuum Sealers
 
 A vacuum sealer works by pulling air out of a bag, and atmospheric pressure squeezes the bag tight around the food — that's what keeps food fresh, prevents freezer burn and helps marinades penetrate fast.
@@ -28,8 +26,6 @@ Most handhelds use one of two approaches, neither reliable:
 - **Electronic water-level sensors.** Supposed to cut suction when they detect liquid, but sensors can fail, get coated in marinade residue, or react too late. The motor is still exposed.
 
 Both designs rely on you never making a mistake.
-
-![Close-up of a collection cup on a handheld vacuum sealer](/images/blog/collection-cup-closeup.jpg)
 
 ## The Wrong Way vs. the Right Way to Seal Liquids
 
@@ -52,8 +48,6 @@ Rigid canisters attached via a hose are purpose-built for liquids — liquid sit
 
 **4. Use a sealer designed to tolerate liquid**
 Some handhelds are built with overflow handling so pulled liquid never reaches the motor. That's where tool selection changes everything.
-
-![Frozen soup blocks laid flat on a tray before vacuum sealing](/images/blog/freeze-first-soup-tray.jpg)
 
 ## How the FreshLock Pro Handles Liquids Without Killing the Motor
 
@@ -82,8 +76,6 @@ To be precise: this doesn't mean the whole sealer is waterproof or fully submers
 
 Freeze-first is still best for large volumes of pure liquid. But the everyday amounts of juice you encounter in real cooking — meat blood, sloshed marinade, sauce residue, a not-quite-frozen soup — won't destroy your pump. If you're comparing options, our [roundup of the best handheld vacuum sealers in Australia for 2026](/blog/best-handheld-vacuum-sealer-australia-2026) breaks down what's on the market.
 
-![FreshLock Pro with transparent collection cup visible at the base](/images/blog/freshlock-pro-collection-cup.jpg)
-
 ## Vacuum Sealing Marinades: The 30-Minute Flavour Hack
 
 Marinating is the #1 reason people want to seal liquids — and it's a genuine weeknight hack. In a bowl, marinade works into meat slowly via osmosis, which is why recipes call for hours or overnight. Under vacuum, air trapped in meat fibres gets pulled out; when you release the seal, atmospheric pressure shoves marinade *into* those gaps. A 30-minute vacuum marinade delivers flavour comparable to several hours in a bowl.
@@ -98,8 +90,6 @@ Marinating is the #1 reason people want to seal liquids — and it's a genuine w
 6. Stop before marinade travels toward the top — 20–30 seconds total is plenty.
 7. Rest flat in the fridge for 20–30 minutes, flip once.
 8. Cook as planned — pan, grill, BBQ, or [sous vide](/blog/sous-vide-vacuum-sealing-guide).
-
-![Chicken thighs marinating in a vacuum bag with herbs and olive oil](/images/blog/vacuum-marinade-chicken.jpg)
 
 ### Quick tips
 
@@ -123,8 +113,6 @@ Portioning bolognese, curry, soup or gravy into single-serve bags is one of the 
 
 Properly vacuum-sealed frozen soups and sauces hold quality 3–6 months, vs. 1–2 months in cling wrap. Full breakdown in our [shelf-life guide for Australia](/blog/how-long-does-vacuum-sealed-food-last-australia-2026).
 
-![Frozen soup bags stacked flat in a freezer drawer](/images/blog/frozen-soup-stacked.jpg)
-
 Thick sauces (bolognese, curry, pesto) can skip pre-freeze: keep them chunky, fill only halfway, use short pulses, stop when the bag tightens.
 
 ## Meat Juices, Fish Blood, and Wet Proteins
@@ -139,8 +127,6 @@ Freeze-first is overkill here — you don't want to freeze a fresh premium steak
 - Check the collection cup between every few bags and empty it.
 
 If you're an angler dealing with whole fish and fillets on the boat, our dedicated guide on [vacuum-sealing your fish catch the Aussie way](/blog/vacuum-sealing-fish-catch-australia) covers boat-side workflow, species timings, and how to handle a day's catch without trashing your esky. For BBQ and camping, our [camping & BBQ vacuum sealing guide](/blog/vacuum-sealing-bbq-camping-australia) has you covered.
-
-![Fresh snapper fillets going into vacuum bags on a boat deck](/images/blog/fish-fillets-vacuum-bag.jpg)
 
 ## Common Mistakes & FAQ
 
@@ -158,8 +144,6 @@ Absolutely — season, vacuum, straight into the water bath. FreshLock bags hand
 
 **Paper towel between food and valve?**
 We don't recommend it — it works once, then saturates and sheds lint.
-
-![Collection cup removed from FreshLock Pro ready for rinsing](/images/blog/rinse-collection-cup.jpg)
 
 ## Wrapping Up
 
