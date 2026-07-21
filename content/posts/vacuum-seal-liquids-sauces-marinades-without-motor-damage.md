@@ -12,8 +12,6 @@ If you've ever vacuum-sealed a bag of leftover bolognese or a steak in red wine 
 
 A lot of people walk away convinced vacuum sealers can't handle liquids. They're wrong. You *can* vacuum seal liquids safely — you just need the right technique and the right tool. This guide covers why liquids kill sealers, which methods actually work, how to seal marinades, soups and meat juices without trashing your motor, and how a simple mechanical design makes the process far more forgiving.
 
-![FreshLock Pro sealing a marinated bag — collection cup catches excess liquid](/images/blog/sealer-in-use.jpg)
-
 ## Why Liquids Are the #1 Killer of Handheld Vacuum Sealers
 
 A vacuum sealer works by pulling air out of a bag, and atmospheric pressure squeezes the bag tight around the food — that's what keeps food fresh, prevents freezer burn and helps marinades penetrate fast.
