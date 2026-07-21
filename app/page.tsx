@@ -23,12 +23,15 @@ function Hero() {
             <span className="inline-block bg-accent/20 text-accent text-sm font-semibold px-3 py-1 rounded-full mb-4">
               🌍 Trusted in 10,000+ Kitchens Worldwide
             </span>
-            <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Seal in Freshness.<br />
-              <span className="text-accent">Seal in Flavour.</span>
+            <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
+              Best Handheld Vacuum Sealer<br />
+              <span className="text-accent">for Liquids, Marinades & Fish</span>
             </h1>
+            <p className="text-xl font-semibold text-white/90 mb-3">
+              Seal in Freshness. Seal in Flavour.
+            </p>
             <p className="text-lg text-gray-300 mb-8 max-w-lg">
-              The FreshLock <strong>handheld vacuum sealer</strong> keeps your food fresh up to 5× longer — cordless, one-touch, and built for everyday use at home, work, or outdoors.
+              The FreshLock <strong>cordless handheld vacuum sealer</strong> vacuums liquids, sauces and marinades without motor damage — thanks to a mechanical auto-drain collection cup. Every bag has an attached apple-green zip-slider so you never lose the clip. Keeps food fresh up to 5× longer. Ships Australia-wide.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/products" className="btn-primary text-lg">

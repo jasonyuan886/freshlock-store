@@ -7,9 +7,9 @@ import { CartProvider } from '@/lib/cart-context';
 import { generateOrganizationSchema, generateWebsiteSchema, SITE_URL } from '@/lib/schema';
 
 const siteName = 'FreshLock';
-const title = 'FreshLock — Handheld Vacuum Sealer | Keep Food Fresh 5× Longer';
+const title = 'FreshLock Pro | Best Handheld Vacuum Sealer Australia for Liquids, Marinades & Fish';
 const description =
-  'FreshLock cordless handheld vacuum sealer keeps food fresh up to 5× longer with one-touch sealing. Includes reusable vacuum seal bags, USB-C rechargeable. Free shipping on orders over $79. 30-day guarantee.';
+  'FreshLock Pro cordless handheld vacuum sealer vacuums liquids, marinades, sauces and fish without motor damage thanks to a mechanical auto-drain cup. Every bag has an attached apple-green zip-slider (no lost clips). Reusable vacuum seal bags, USB-C rechargeable, one-touch. Free shipping Australia on orders over $79 AUD. 30-day money-back guarantee.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   description,
   keywords:
-    'handheld vacuum sealer, vacuum sealer, portable vacuum sealer, cordless vacuum sealer, food vacuum sealer, vacuum seal bags, reusable vacuum bags, food storage, meal prep, food preservation, FreshLock, kitchen gadget',
+    'handheld vacuum sealer, best handheld vacuum sealer australia, vacuum sealer for liquids, vacuum seal marinades, vacuum seal fish, portable cordless vacuum sealer, food vacuum sealer, vacuum seal bags with zip slider, reusable vacuum bags, meal prep vacuum sealer, food storage, freezer burn prevention, sous vide vacuum sealer, FreshLock Pro',
   applicationName: siteName,
   icons: {
     icon: [{ url: '/favicon.ico', sizes: '32x32' }, { url: '/logo.svg', type: 'image/svg+xml' }],
