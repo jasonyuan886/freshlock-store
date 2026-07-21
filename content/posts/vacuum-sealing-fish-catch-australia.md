@@ -16,6 +16,8 @@ If you've been freezing fish in cling wrap or supermarket freezer bags, you know
 
 This guide is for Aussie anglers who want to bring their catch home and actually eat it. We'll cover how to vacuum seal fish on the boat, how long different species last, how to handle fish blood without destroying your sealer, why a tiny zip-slider makes a huge difference when your hands are wet, and a few tricks picked up over years of towing the boat up and down the coast.
 
+![FreshLock Pro in use — sealing fish fillets on a boat](/images/blog/sealer-in-use.jpg)
+
 ## Why Fish Goes Bad Faster Than Other Meat
 
 Fish spoils faster and gets freezer burn more easily than red meat. Three reasons:
