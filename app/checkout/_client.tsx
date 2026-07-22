@@ -166,7 +166,7 @@ export default function CheckoutPage() {
                   <div className="flex-1">
                     <div className="flex justify-between items-center">
                       <span className="font-semibold">Standard Shipping</span>
-                      <span className="font-semibold">{totalPrice >= FREE_THRESHOLD ? <span className="text-accent">FREE</span> : `$${STANDARD_FEE.toFixed(2)}`}</span>
+                      <span className="font-semibold">{totalPrice >= FREE_THRESHOLD ? <span className="text-accent">FREE</span> : `A$${STANDARD_FEE.toFixed(2)}`}</span>
                     </div>
                     <p className="text-xs text-gray-500 mt-0.5">7–12 business days · Tracked air mail from Shenzhen, China</p>
                   </div>
@@ -176,7 +176,7 @@ export default function CheckoutPage() {
                   <div className="flex-1">
                     <div className="flex justify-between items-center">
                       <span className="font-semibold">Express Shipping (DHL)</span>
-                      <span className="font-semibold">{totalPrice >= FREE_THRESHOLD ? `$${EXPRESS_UPGRADE.toFixed(2)} upgrade` : `$${EXPRESS_FEE.toFixed(2)}`}</span>
+                      <span className="font-semibold">{totalPrice >= FREE_THRESHOLD ? `A$${EXPRESS_UPGRADE.toFixed(2)} upgrade` : `A$${EXPRESS_FEE.toFixed(2)}`}</span>
                     </div>
                     <p className="text-xs text-gray-500 mt-0.5">3–5 business days · DHL Express from Shenzhen, China</p>
                   </div>
@@ -189,7 +189,8 @@ export default function CheckoutPage() {
 
             {/* Payment */}
             <div className="bg-white rounded-xl p-4 sm:p-6 shadow">
-              <h2 className="font-bold text-primary text-lg mb-4">Payment Method</h2>
+              <h2 className="font-bold text-primary text-lg mb-2">Payment Method</h2>
+              <p className="text-xs text-gray-500 mb-3">We accept Apple Pay, Google Pay, VISA, Mastercard, and PayPal. Afterpay coming soon!</p>
               <div className="space-y-3">
                 <label className={`flex items-center gap-3 p-3 sm:p-4 border rounded-lg cursor-pointer transition min-h-[44px] ${paymentMethod === 'stripe' ? 'border-primary bg-primary/5' : 'hover:bg-gray-50'}`}>
                   <input type="radio" name="payment" value="stripe" checked={paymentMethod === 'stripe'} onChange={(e) => setPaymentMethod(e.target.value)} className="accent-primary" />
@@ -239,19 +240,19 @@ export default function CheckoutPage() {
               <div className="border-t pt-4 space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-500">Subtotal</span>
-                  <span>${totalPrice.toFixed(2)}</span>
+                  <span>A${totalPrice.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Shipping ({shippingMethod === 'express' ? 'Express' : 'Standard'})</span>
-                  <span>{shipping === 0 ? <span className="text-accent font-medium">FREE</span> : `$${shipping.toFixed(2)}`}</span>
+                  <span>{shipping === 0 ? <span className="text-accent font-medium">FREE</span> : `A$${shipping.toFixed(2)}`}</span>
                 </div>
                 {totalPrice < FREE_THRESHOLD && (
-                  <p className="text-xs text-gray-400">Add ${(FREE_THRESHOLD - totalPrice).toFixed(2)} more for FREE standard shipping!</p>
+                  <p className="text-xs text-gray-400">Add A$${(FREE_THRESHOLD - totalPrice).toFixed(2)} more for FREE standard shipping!</p>
                 )}
               </div>
               <div className="border-t mt-4 pt-4 flex justify-between font-bold text-lg">
                 <span>Total</span>
-                <span>${total.toFixed(2)} AUD</span>
+                <span>A${total.toFixed(2)}</span>
               </div>
               <button type="submit" disabled={processing}
                 className="btn-primary w-full mt-6 disabled:opacity-50 disabled:cursor-not-allowed">
@@ -263,7 +264,7 @@ export default function CheckoutPage() {
                     </svg>
                     Processing...
                   </span>
-                ) : `Pay $${total.toFixed(2)} AUD`}
+                ) : `Pay A$${total.toFixed(2)}`}
               </button>
               <p className="text-xs text-gray-400 text-center mt-3">🔒 Secure checkout — your data is encrypted</p>
             </div>

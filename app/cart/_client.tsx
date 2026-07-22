@@ -4,11 +4,14 @@ import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
 import Image from 'next/image';
 
+const FREE_THRESHOLD = 99;
+
 export default function CartPage() {
   const { items, updateQuantity, removeFromCart, totalPrice, shippingMethod, setShippingMethod, getShippingCost } = useCart();
   const shipping = getShippingCost();
   const total = totalPrice + shipping;
-  const FREE_THRESHOLD = 99;
+  const away = FREE_THRESHOLD - totalPrice;
+  const freeUnlocked = totalPrice >= FREE_THRESHOLD;
 
   if (items.length === 0) {
     return (
@@ -30,13 +33,13 @@ export default function CartPage() {
           {items.map((item) => (
             <div key={item.product.slug} className="bg-white rounded-xl p-3 sm:p-6 shadow flex gap-3 sm:gap-6">
               <Link href={`/products/${item.product.slug}`}>
-                <Image src={item.product.image} alt={item.product.name} className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover" />
+                <Image src={item.product.image} alt={item.product.name} className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover" width={128} height={128} />
               </Link>
               <div className="flex-1 min-w-0">
                 <Link href={`/products/${item.product.slug}`}>
                   <h2 className="font-bold text-primary hover:underline">{item.product.name}</h2>
                 </Link>
-                <p className="text-accent font-bold mt-1">${item.product.price.toFixed(2)} AUD</p>
+                <p className="text-accent font-bold mt-1">A${item.product.price.toFixed(2)}</p>
                 <div className="flex items-center justify-between mt-4">
                   <div className="flex items-center border rounded-lg">
                     <button onClick={() => updateQuantity(item.product.slug, item.quantity - 1)} className="w-10 h-10 min-h-[44px] flex items-center justify-center text-base hover:bg-gray-100 transition rounded-l-lg" aria-label="Decrease quantity">−</button>
@@ -45,10 +48,10 @@ export default function CartPage() {
                   </div>
                   <button onClick={() => removeFromCart(item.product.slug)} className="text-red-500 text-sm hover:underline py-2 px-1 -ml-1 min-h-[44px] inline-flex items-center">Remove</button>
                 </div>
-                <p className="font-bold text-base sm:hidden mt-1 text-accent">${(item.product.price * item.quantity).toFixed(2)} AUD</p>
+                <p className="font-bold text-base sm:hidden mt-1 text-accent">A${(item.product.price * item.quantity).toFixed(2)}</p>
               </div>
               <div className="text-right hidden sm:block self-start">
-                <p className="font-bold text-lg">${(item.product.price * item.quantity).toFixed(2)}</p>
+                <p className="font-bold text-lg">A${(item.product.price * item.quantity).toFixed(2)}</p>
               </div>
             </div>
           ))}
@@ -57,10 +60,31 @@ export default function CartPage() {
         {/* Summary */}
         <div className="bg-white rounded-xl p-4 sm:p-6 shadow h-fit lg:sticky lg:top-24">
           <h2 className="font-bold text-primary text-lg mb-4">Order Summary</h2>
+
+          {/* Free-shipping nudge (top, prominent) */}
+          {!freeUnlocked ? (
+            <div className="mb-4 rounded-lg bg-accent/10 border border-accent/20 p-3 text-sm">
+              <p className="font-semibold text-accent">
+                You&apos;re <span className="text-base">A${away.toFixed(2)}</span> away from FREE shipping! 🎉
+              </p>
+              <p className="text-gray-600 mt-1.5 text-xs leading-relaxed">
+                Add a pack of{' '}
+                <Link href="/products/vacuum-seal-bags-30-pack" className="underline text-primary font-medium hover:text-primary-700">
+                  30 Vacuum Bags for A$29.99
+                </Link>{' '}
+                to qualify — perfect for keeping your food fresh.
+              </p>
+            </div>
+          ) : (
+            <div className="mb-4 rounded-lg bg-green-50 border border-green-200 p-3 text-sm">
+              <p className="font-semibold text-green-700">🎉 You&apos;ve unlocked FREE standard shipping!</p>
+            </div>
+          )}
+
           <div className="space-y-2 text-sm border-b pb-4 mb-4">
             <div className="flex justify-between">
               <span className="text-gray-500">Subtotal</span>
-              <span>${totalPrice.toFixed(2)} AUD</span>
+              <span>A${totalPrice.toFixed(2)}</span>
             </div>
           </div>
 
@@ -73,7 +97,7 @@ export default function CartPage() {
                 <div className="flex-1">
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-sm">Standard Shipping</span>
-                    <span className="font-semibold text-sm">{totalPrice >= FREE_THRESHOLD ? <span className="text-accent">FREE</span> : '$12.95'}</span>
+                    <span className="font-semibold text-sm">{freeUnlocked ? <span className="text-accent">FREE</span> : 'A$12.95'}</span>
                   </div>
                   <p className="text-xs text-gray-500 mt-0.5">7–12 business days, tracked air mail from Shenzhen</p>
                 </div>
@@ -83,7 +107,7 @@ export default function CartPage() {
                 <div className="flex-1">
                   <div className="flex justify-between items-center">
                     <span className="font-semibold text-sm">Express Shipping</span>
-                    <span className="font-semibold text-sm">{totalPrice >= FREE_THRESHOLD ? '$9.95' : '$22.95'}</span>
+                    <span className="font-semibold text-sm">{freeUnlocked ? 'A$9.95' : 'A$22.95'}</span>
                   </div>
                   <p className="text-xs text-gray-500 mt-0.5">3–5 business days, DHL Express from Shenzhen</p>
                 </div>
@@ -94,20 +118,15 @@ export default function CartPage() {
           <div className="space-y-2 text-sm border-b pb-4 mb-4">
             <div className="flex justify-between">
               <span className="text-gray-500">Shipping</span>
-              <span>{shipping === 0 ? <span className="text-accent font-medium">FREE</span> : `$${shipping.toFixed(2)}`}</span>
+              <span>{shipping === 0 ? <span className="text-accent font-medium">FREE</span> : `A$${shipping.toFixed(2)}`}</span>
             </div>
           </div>
           <div className="flex justify-between font-bold text-lg mb-6">
             <span>Total</span>
-            <span>${total.toFixed(2)} AUD</span>
+            <span>A${total.toFixed(2)}</span>
           </div>
           <Link href="/checkout" className="btn-primary w-full block">Proceed to Checkout</Link>
           <Link href="/products" className="block text-center text-sm text-gray-500 hover:text-primary mt-4">← Continue Shopping</Link>
-          {totalPrice < FREE_THRESHOLD && (
-            <p className="text-xs text-gray-400 mt-4 text-center">
-              Add ${(FREE_THRESHOLD - totalPrice).toFixed(2)} more for FREE standard shipping!
-            </p>
-          )}
         </div>
       </div>
     </div>

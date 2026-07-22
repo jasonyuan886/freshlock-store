@@ -52,7 +52,7 @@ function CheckoutSuccessContent() {
 
       {orderInfo?.amount_total && (
         <p className="text-2xl font-bold text-primary mb-8">
-          Total: ${(orderInfo.amount_total / 100).toFixed(2)} AUD
+          Total: A${(orderInfo.amount_total / 100).toFixed(2)}
         </p>
       )}
 

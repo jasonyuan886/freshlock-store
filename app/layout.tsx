@@ -9,7 +9,7 @@ import { generateOrganizationSchema, generateWebsiteSchema, SITE_URL } from '@/l
 const siteName = 'FreshLock';
 const title = 'FreshLock Pro | Best Handheld Vacuum Sealer Australia for Liquids, Marinades & Fish';
 const description =
-  'FreshLock Pro cordless handheld vacuum sealer vacuums liquids, marinades, sauces and fish without motor damage thanks to a mechanical auto-drain cup. Every bag has an attached apple-green zip-slider (no lost clips). Reusable vacuum seal bags, USB-C rechargeable, one-touch. Free shipping Australia on orders over $79 AUD. 30-day money-back guarantee.';
+  'FreshLock Pro cordless handheld vacuum sealer vacuums liquids, marinades, sauces and fish without motor damage thanks to a mechanical auto-drain cup. Every bag has an attached apple-green zip-slider (no lost clips). Reusable vacuum seal bags, USB-C rechargeable, one-touch. Free shipping Australia on orders over A$99. 30-day money-back guarantee.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

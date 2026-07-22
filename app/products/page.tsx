@@ -5,7 +5,7 @@ import ProductsClient from './ProductsClient';
 export const metadata: Metadata = {
   title: 'Shop Handheld Vacuum Sealers & Vacuum Bags',
   description:
-    'Shop FreshLock handheld vacuum sealers, starter kits and reusable vacuum seal bags. Cordless, one-touch operation. Free shipping on orders over $79 AUD.',
+    'Shop FreshLock handheld vacuum sealers, starter kits and reusable vacuum seal bags. Cordless, one-touch operation. Free shipping on orders over A$99.',
   alternates: { canonical: '/products' },
 };
 

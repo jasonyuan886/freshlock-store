@@ -70,7 +70,7 @@ export async function POST(request: NextRequest) {
               amount: 0,
               currency: 'aud',
             },
-            display_name: 'Free Shipping (Orders $79+)',
+            display_name: 'Free Shipping (Orders A$99+)',
             delivery_estimate: {
               minimum: {
                 unit: 'business_day',

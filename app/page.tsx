@@ -41,6 +41,17 @@ function Hero() {
                 Learn More
               </Link>
             </div>
+            <div className="mt-5 flex flex-wrap gap-2 sm:gap-2.5 text-sm" aria-label="Shipping & returns">
+              <span className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur text-white rounded-full px-3.5 py-1.5">
+                <span aria-hidden="true">🚚</span> FREE Shipping over A$99
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur text-white rounded-full px-3.5 py-1.5">
+                <span aria-hidden="true">📦</span> Tracked Air Mail 7–12 days
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-white/15 backdrop-blur text-white rounded-full px-3.5 py-1.5">
+                <span aria-hidden="true">↩️</span> 30-Day Returns
+              </span>
+            </div>
           </div>
           <div className="flex justify-center mt-6 sm:mt-8 md:mt-0">
             <Image src="/images/products/sealer-main.jpg"
@@ -192,7 +203,7 @@ function SocialProof() {
           {[
             ['10,000+', 'Happy Customers'],
             ['4.8 ★', 'Average Rating'],
-            ['Free', 'Shipping over $79'],
+            ['Free', 'Shipping over A$99'],
             ['30-Day', 'Money-Back Guarantee'],
           ].map(([stat, label]) => (
             <div key={label}>
@@ -356,7 +367,7 @@ function Cta() {
           Ready to Keep Your Food Fresh?
         </h2>
         <p className="text-gray-300 mb-8 text-base sm:text-lg leading-relaxed">
-          Join 10,000+ households worldwide. Free shipping on orders over $79 AUD.
+          Join 10,000+ households worldwide. Free shipping on orders over A$99.
         </p>
         <Link href="/products" className="btn-primary text-base sm:text-lg w-full sm:w-auto px-8">
           Shop FreshLock Now

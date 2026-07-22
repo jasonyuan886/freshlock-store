@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { products, reviews } from '@/lib/data';
 import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/schema';
 import AddToCartClient from './AddToCartClient';
+import BundleAddons from './BundleAddons';
 import ProductGallery from './ProductGallery';
 import Image from 'next/image';
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!product) return {};
   const url = `${SITE_URL}/products/${product.slug}`;
   const title = product.name;
-  const description = product.shortDescription + ' Free shipping over $79 AUD. 30-day money-back guarantee.';
+  const description = product.shortDescription + ' Free shipping over A$99. 30-day money-back guarantee.';
   return {
     title,
     description,
@@ -47,9 +48,18 @@ export default function ProductDetailPage({ params }: { params: Params }) {
   const product = products.find((p) => p.slug === params.slug);
   if (!product) return notFound();
 
-  const related = products
-    .filter((p) => p.slug !== product.slug && p.category === product.category)
-    .slice(0, 2);
+  // Tailored cross-sell: sealer → bags; bags → sealer + other bag; kits → bags
+  let related;
+  if (product.slug === 'freshlock-pro') {
+    related = products.filter((p) => p.category === 'bags');
+  } else if (product.category === 'bags') {
+    const sealer = products.find((x) => x.slug === 'freshlock-pro');
+    const otherBag = products.find((x) => x.category === 'bags' && x.slug !== product.slug);
+    related = [sealer, otherBag].filter(Boolean) as typeof products;
+  } else {
+    related = products.filter((x) => x.slug !== product.slug && x.category === product.category).slice(0, 2);
+  }
+  const relatedHeading = product.slug === 'freshlock-pro' ? 'Complete Your Setup' : 'You May Also Need';
 
   const productSchema = generateProductSchema(product, reviews);
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -141,8 +151,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               <meta itemProp="priceCurrency" content="AUD" />
               <meta itemProp="price" content={String(product.price)} />
               <meta itemProp="availability" content="https://schema.org/InStock" />
-              ${product.price.toFixed(2)}{' '}
-              <span className="text-sm text-gray-400 font-normal">AUD</span>
+              A${product.price.toFixed(2)}
             </p>
             <p className="text-gray-600 text-base leading-relaxed mb-6 sm:mb-8" itemProp="description">{product.description}</p>
 
@@ -160,6 +169,8 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             </section>
 
             <AddToCartClient product={product} />
+
+            <BundleAddons product={product} />
 
             {/* Specs */}
             <section className="bg-gray-50 rounded-xl p-6 mt-6">
@@ -206,10 +217,19 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             </section>
 
             {/* Trust badges */}
-            <div className="flex flex-wrap gap-4 mt-6 text-sm text-gray-500" aria-label="Trust badges">
-              <span>🚚 Free shipping over $79</span>
-              <span>↩️ 30-day returns</span>
-              <span>🔒 Secure checkout</span>
+            <div className="mt-6 space-y-2" aria-label="Trust badges">
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 rounded-full px-3 py-1.5 text-sm">🚚 Tracked Shipping 7–12 days</span>
+                <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 rounded-full px-3 py-1.5 text-sm">🔒 Secure Checkout</span>
+                <span className="inline-flex items-center gap-1 bg-gray-100 text-gray-700 rounded-full px-3 py-1.5 text-sm">↩️ 30-Day Money Back</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                <span className="inline-flex items-center gap-1 bg-gray-50 text-gray-500 rounded-full px-3 py-1.5 text-xs">💳 Apple Pay</span>
+                <span className="inline-flex items-center gap-1 bg-gray-50 text-gray-500 rounded-full px-3 py-1.5 text-xs">Google Pay</span>
+                <span className="inline-flex items-center gap-1 bg-gray-50 text-gray-500 rounded-full px-3 py-1.5 text-xs">VISA</span>
+                <span className="inline-flex items-center gap-1 bg-gray-50 text-gray-500 rounded-full px-3 py-1.5 text-xs">Mastercard</span>
+                <span className="inline-flex items-center gap-1 bg-gray-50 text-gray-400 rounded-full px-3 py-1.5 text-xs">Afterpay coming soon</span>
+              </div>
             </div>
           </section>
         </article>
@@ -217,7 +237,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
         {/* Related */}
         {related.length > 0 && (
           <section className="mt-12 sm:mt-20" aria-labelledby="related-heading">
-            <h2 id="related-heading" className="section-title mb-8">You May Also Like</h2>
+            <h2 id="related-heading" className="section-title mb-8">{relatedHeading}</h2>
             <div className="grid sm:grid-cols-2 gap-8">
               {related.map((p) => (
                 <Link
@@ -233,7 +253,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                     loading="lazy" />
                   <div className="p-3 sm:p-4 flex-1 min-w-0">
                     <h3 className="font-bold text-primary mb-1 text-sm sm:text-base leading-snug line-clamp-2">{p.name}</h3>
-                    <p className="text-accent font-bold">${p.price.toFixed(2)} AUD</p>
+                    <p className="text-accent font-bold">A${p.price.toFixed(2)}</p>
                   </div>
                 </Link>
               ))}
