@@ -109,7 +109,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           ]
         }) }}
       />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Breadcrumb */}
         <nav className="text-sm text-gray-500 mb-8" aria-label="Breadcrumb">
           <ol className="flex flex-wrap items-center">
@@ -136,15 +136,15 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                 {product.badge}
               </span>
             )}
-            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4" itemProp="name">{product.name}</h1>
-            <p className="text-3xl font-bold text-accent mb-6" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4 leading-tight" itemProp="name">{product.name}</h1>
+            <p className="text-2xl sm:text-3xl font-bold text-accent mb-6" itemProp="offers" itemScope itemType="https://schema.org/Offer">
               <meta itemProp="priceCurrency" content="AUD" />
               <meta itemProp="price" content={String(product.price)} />
               <meta itemProp="availability" content="https://schema.org/InStock" />
               ${product.price.toFixed(2)}{' '}
               <span className="text-sm text-gray-400 font-normal">AUD</span>
             </p>
-            <p className="text-gray-600 leading-relaxed mb-8" itemProp="description">{product.description}</p>
+            <p className="text-gray-600 text-base leading-relaxed mb-6 sm:mb-8" itemProp="description">{product.description}</p>
 
             {/* Features */}
             <section className="mb-8">
@@ -164,7 +164,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             {/* Specs */}
             <section className="bg-gray-50 rounded-xl p-6 mt-6">
               <h2 className="font-semibold text-primary mb-3 text-lg">Specifications</h2>
-              <dl className="grid grid-cols-2 gap-2 text-sm">
+              <dl className="grid grid-cols-2 gap-x-3 gap-y-3 text-sm">
                 {Object.entries(product.specs).map(([key, val]) => (
                   <div key={key}>
                     <dt className="text-gray-500">{key}</dt>
@@ -216,7 +216,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
 
         {/* Related */}
         {related.length > 0 && (
-          <section className="mt-20" aria-labelledby="related-heading">
+          <section className="mt-12 sm:mt-20" aria-labelledby="related-heading">
             <h2 id="related-heading" className="section-title mb-8">You May Also Like</h2>
             <div className="grid sm:grid-cols-2 gap-8">
               {related.map((p) => (
@@ -227,12 +227,12 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                 >
                   <Image src={p.image}
                     alt={`${p.name} - ${p.shortDescription}`}
-                    className="w-32 h-32 object-cover"
+                    className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-l-xl flex-shrink-0"
                     width={128}
                     height={128}
                     loading="lazy" />
-                  <div className="p-4">
-                    <h3 className="font-bold text-primary mb-1">{p.name}</h3>
+                  <div className="p-3 sm:p-4 flex-1 min-w-0">
+                    <h3 className="font-bold text-primary mb-1 text-sm sm:text-base leading-snug line-clamp-2">{p.name}</h3>
                     <p className="text-accent font-bold">${p.price.toFixed(2)} AUD</p>
                   </div>
                 </Link>

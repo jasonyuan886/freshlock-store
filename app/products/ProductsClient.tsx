@@ -40,7 +40,7 @@ export default function ProductsPage() {
   }, [category, sort]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
       {/* Header */}
       <div className="text-center mb-10">
         <h1 className="section-title">Our Products</h1>
@@ -56,7 +56,7 @@ export default function ProductsPage() {
             <button
               key={c.value}
               onClick={() => setCategory(c.value)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+              className={`px-4 py-2.5 min-h-[44px] rounded-full text-sm font-medium transition inline-flex items-center ${
                 category === c.value
                   ? 'bg-primary text-white'
                   : 'bg-white text-gray-600 hover:bg-gray-100 border'
@@ -69,7 +69,7 @@ export default function ProductsPage() {
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value)}
-          className="border rounded-lg px-4 py-2 text-sm bg-white"
+          className="border rounded-lg px-4 py-2 min-h-[44px] text-base bg-white"
         >
           {sortOptions.map((o) => (
             <option key={o.value} value={o.value}>
@@ -80,7 +80,7 @@ export default function ProductsPage() {
       </div>
 
       {/* Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
         {filtered.map((p) => (
           <Link
             key={p.slug}
@@ -101,11 +101,11 @@ export default function ProductsPage() {
                 </span>
               )}
             </div>
-            <div className="p-6">
-              <h2 className="text-lg font-bold text-primary mb-2">{p.name}</h2>
-              <p className="text-gray-500 text-sm mb-4 line-clamp-2">{p.shortDescription}</p>
+            <div className="p-3 sm:p-6">
+              <h2 className="text-sm sm:text-lg font-bold text-primary mb-1 sm:mb-2 leading-snug line-clamp-2">{p.name}</h2>
+              <p className="text-gray-500 text-xs sm:text-sm mb-2 sm:mb-4 line-clamp-2 hidden sm:block">{p.shortDescription}</p>
               <div className="flex justify-between items-center">
-                <span className="text-2xl font-bold text-accent">${p.price.toFixed(2)}</span>
+                <span className="text-lg sm:text-2xl font-bold text-accent">A${p.price.toFixed(2)}</span>
                 <span className="text-sm text-gray-400">AUD</span>
               </div>
             </div>

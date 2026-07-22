@@ -17,39 +17,39 @@ const reviewsSchema = generateReviewsSchema(reviews.slice(0, 3), 'FreshLock Pro 
 function Hero() {
   return (
     <section className="bg-primary text-white" aria-labelledby="hero-heading">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-28">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block bg-accent/20 text-accent text-sm font-semibold px-3 py-1 rounded-full mb-4">
               🌍 Trusted in 10,000+ Kitchens Worldwide
             </span>
-            <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4">
-              Best Handheld Vacuum Sealer<br />
-              <span className="text-accent">for Liquids, Marinades & Fish</span>
+            <h1 id="hero-heading" className="text-[2rem] sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.15] sm:leading-tight mb-4 -tracking-[0.01em]">
+              Best Handheld Vacuum Sealer{' '}
+              <span className="text-accent">for Liquids, Marinades &amp; Fish</span>
             </h1>
-            <p className="text-xl font-semibold text-white/90 mb-3">
+            <p className="text-base sm:text-lg md:text-xl font-semibold text-white/90 mb-3">
               Seal in Freshness. Seal in Flavour.
             </p>
-            <p className="text-lg text-gray-300 mb-8 max-w-lg">
+            <p className="text-base sm:text-lg text-gray-300 mb-8 max-w-lg leading-relaxed">
               The FreshLock <strong>cordless handheld vacuum sealer</strong> vacuums liquids, sauces and marinades without motor damage — thanks to a mechanical auto-drain collection cup. Every bag has an attached apple-green zip-slider so you never lose the clip. Keeps food fresh up to 5× longer. Ships Australia-wide.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/products" className="btn-primary text-lg">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/products" className="btn-primary text-base sm:text-lg w-full sm:w-auto px-6">
                 Shop Now
               </Link>
-              <Link href="#features" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg">
+              <Link href="#features" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-base sm:text-lg w-full sm:w-auto px-6">
                 Learn More
               </Link>
             </div>
           </div>
-          <div className="flex justify-center md:justify-center mt-8 md:mt-0">
+          <div className="flex justify-center mt-6 sm:mt-8 md:mt-0">
             <Image src="/images/products/sealer-main.jpg"
               alt="FreshLock Pro handheld vacuum sealer in pearl white with silver top, shown with green-zipper vacuum bags"
-              className="rounded-2xl shadow-2xl w-64 md:w-full max-w-md md:max-w-none"
+              className="rounded-2xl shadow-2xl w-56 sm:w-64 md:w-full max-w-sm sm:max-w-md md:max-w-none"
               width={600}
               height={600}
               priority
-              sizes="(max-width: 768px) 256px, 600px" />
+              sizes="(max-width: 640px) 224px, (max-width: 768px) 256px, 600px" />
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@ function Hero() {
 /* ───────── About / Brand ───────── */
 function AboutFreshLock() {
   return (
-    <section id="about" className="py-20 bg-white" aria-labelledby="about-heading">
+    <section id="about" className="py-12 sm:py-16 md:py-20 bg-white" aria-labelledby="about-heading">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
           <h2 id="about-heading" className="section-title">About FreshLock</h2>
@@ -107,7 +107,7 @@ const featureList = [
 
 function Features() {
   return (
-    <section id="features" className="py-20 bg-gray-50" aria-labelledby="features-heading">
+    <section id="features" className="py-12 sm:py-16 md:py-20 bg-gray-50" aria-labelledby="features-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 id="features-heading" className="section-title">Why FreshLock?</h2>
@@ -122,7 +122,7 @@ function Features() {
               className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition"
             >
               <div className="text-4xl mb-4" aria-hidden="true">{f.icon}</div>
-              <h3 className="text-lg font-bold text-primary mb-2">{f.title}</h3>
+              <h3 className="text-base sm:text-lg font-bold text-primary mb-2">{f.title}</h3>
               <p className="text-gray-600 text-sm">{f.text}</p>
             </article>
           ))}
@@ -136,7 +136,7 @@ function Features() {
 function ProductShowcase() {
   const featured = products.slice(0, 4);
   return (
-    <section className="py-20 bg-white" aria-labelledby="products-heading">
+    <section className="py-12 sm:py-16 md:py-20 bg-white" aria-labelledby="products-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 id="products-heading" className="section-title">Our Products</h2>
@@ -165,10 +165,10 @@ function ProductShowcase() {
                   </span>
                 )}
               </div>
-              <div className="p-5">
-                <h3 className="font-bold text-primary mb-1">{p.name}</h3>
+              <div className="p-4 sm:p-5">
+                <h3 className="font-bold text-primary mb-1 text-base sm:text-lg leading-snug">{p.name}</h3>
                 <p className="text-gray-500 text-sm mb-3 line-clamp-2">{p.shortDescription}</p>
-                <p className="text-xl font-bold text-accent">${p.price.toFixed(2)} AUD</p>
+                <p className="text-lg sm:text-xl font-bold text-accent">A${p.price.toFixed(2)}</p>
               </div>
             </Link>
           ))}
@@ -196,7 +196,7 @@ function SocialProof() {
             ['30-Day', 'Money-Back Guarantee'],
           ].map(([stat, label]) => (
             <div key={label}>
-              <p className="text-3xl font-bold text-accent">{stat}</p>
+              <p className="text-2xl sm:text-3xl font-bold text-accent">{stat}</p>
               <p className="text-sm text-gray-300 mt-1">{label}</p>
             </div>
           ))}
@@ -210,7 +210,7 @@ function SocialProof() {
 function Reviews() {
   const topReviews = reviews.slice(0, 3);
   return (
-    <section className="py-20 bg-gray-50" aria-labelledby="reviews-heading">
+    <section className="py-12 sm:py-16 md:py-20 bg-gray-50" aria-labelledby="reviews-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 id="reviews-heading" className="section-title">What Our Customers Say</h2>
@@ -253,7 +253,7 @@ const qaItems = [
 
 function QABlock() {
   return (
-    <section className="py-20 bg-white" aria-labelledby="qa-heading">
+    <section className="py-12 sm:py-16 md:py-20 bg-white" aria-labelledby="qa-heading">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
           <h2 id="qa-heading" className="section-title">Your Questions, Answered</h2>
@@ -276,7 +276,7 @@ function QABlock() {
 function FaqPreview() {
   const preview = faqs.slice(0, 4);
   return (
-    <section className="py-20 bg-gray-50" aria-labelledby="faq-heading">
+    <section className="py-12 sm:py-16 md:py-20 bg-gray-50" aria-labelledby="faq-heading">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 id="faq-heading" className="section-title">Frequently Asked Questions</h2>
@@ -308,7 +308,7 @@ function FaqPreview() {
 function BlogPreview() {
   const recentPosts = getAllPosts().slice(0, 3);
   return (
-    <section className="py-20 bg-white" aria-labelledby="blog-heading">
+    <section className="py-12 sm:py-16 md:py-20 bg-white" aria-labelledby="blog-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 id="blog-heading" className="section-title">FreshLock Guides & Tips</h2>
@@ -350,15 +350,15 @@ function BlogPreview() {
 /* ───────── CTA ───────── */
 function Cta() {
   return (
-    <section className="py-20 bg-primary text-white text-center">
+    <section className="py-12 sm:py-16 md:py-20 bg-primary text-white text-center">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
           Ready to Keep Your Food Fresh?
         </h2>
-        <p className="text-gray-300 mb-8 text-lg">
+        <p className="text-gray-300 mb-8 text-base sm:text-lg leading-relaxed">
           Join 10,000+ households worldwide. Free shipping on orders over $79 AUD.
         </p>
-        <Link href="/products" className="btn-primary text-lg">
+        <Link href="/products" className="btn-primary text-base sm:text-lg w-full sm:w-auto px-8">
           Shop FreshLock Now
         </Link>
       </div>

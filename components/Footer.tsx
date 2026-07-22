@@ -23,22 +23,22 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Shop</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/products" className="text-gray-300 hover:text-white transition">
+                <Link href="/products" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   All Products
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=devices" className="text-gray-300 hover:text-white transition">
+                <Link href="/products?category=devices" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Vacuum Sealers
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=bags" className="text-gray-300 hover:text-white transition">
+                <Link href="/products?category=bags" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Vacuum Bags
                 </Link>
               </li>
               <li>
-                <Link href="/products?category=kits" className="text-gray-300 hover:text-white transition">
+                <Link href="/products?category=kits" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Kits & Bundles
                 </Link>
               </li>
@@ -50,27 +50,27 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Support</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/blog" className="text-gray-300 hover:text-white transition">
+                <Link href="/blog" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-gray-300 hover:text-white transition">
+                <Link href="/faq" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-300 hover:text-white transition">
+                <Link href="/contact" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="/returns" className="text-gray-300 hover:text-white transition">
+                <Link href="/returns" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Returns & Refunds
                 </Link>
               </li>
               <li>
-                <Link href="/shipping" className="text-gray-300 hover:text-white transition">
+                <Link href="/shipping" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Shipping Info
                 </Link>
               </li>
@@ -82,12 +82,12 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/privacy" className="text-gray-300 hover:text-white transition">
+                <Link href="/privacy" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="text-gray-300 hover:text-white transition">
+                <Link href="/terms" className="text-gray-300 hover:text-white transition py-2 inline-block">
                   Terms of Service
                 </Link>
               </li>

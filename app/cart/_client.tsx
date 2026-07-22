@@ -12,9 +12,9 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="max-w-3xl mx-auto px-4 py-20 text-center">
+      <div className="max-w-3xl mx-auto px-4 py-12 sm:py-20 text-center">
         <div className="text-6xl mb-6">🛒</div>
-        <h1 className="text-3xl font-bold text-primary mb-4">Your Cart is Empty</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Your Cart is Empty</h1>
         <p className="text-gray-500 mb-8">Looks like you have not added anything yet.</p>
         <Link href="/products" className="btn-primary">Browse Products</Link>
       </div>
@@ -22,13 +22,13 @@ export default function CartPage() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold text-primary mb-8">Shopping Cart</h1>
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+      <h1 className="text-2xl sm:text-3xl font-bold text-primary mb-6 sm:mb-8">Shopping Cart</h1>
       <div className="grid lg:grid-cols-3 gap-8">
         {/* Items */}
         <div className="lg:col-span-2 space-y-4">
           {items.map((item) => (
-            <div key={item.product.slug} className="bg-white rounded-xl p-4 sm:p-6 shadow flex gap-4 sm:gap-6">
+            <div key={item.product.slug} className="bg-white rounded-xl p-3 sm:p-6 shadow flex gap-3 sm:gap-6">
               <Link href={`/products/${item.product.slug}`}>
                 <Image src={item.product.image} alt={item.product.name} className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover" />
               </Link>
@@ -39,14 +39,15 @@ export default function CartPage() {
                 <p className="text-accent font-bold mt-1">${item.product.price.toFixed(2)} AUD</p>
                 <div className="flex items-center justify-between mt-4">
                   <div className="flex items-center border rounded-lg">
-                    <button onClick={() => updateQuantity(item.product.slug, item.quantity - 1)} className="px-3 py-1.5 text-sm hover:bg-gray-100 transition">−</button>
-                    <span className="px-3 py-1.5 text-sm font-semibold">{item.quantity}</span>
-                    <button onClick={() => updateQuantity(item.product.slug, item.quantity + 1)} className="px-3 py-1.5 text-sm hover:bg-gray-100 transition">+</button>
+                    <button onClick={() => updateQuantity(item.product.slug, item.quantity - 1)} className="w-10 h-10 min-h-[44px] flex items-center justify-center text-base hover:bg-gray-100 transition rounded-l-lg" aria-label="Decrease quantity">−</button>
+                    <span className="px-2 text-sm font-semibold min-w-[2rem] text-center">{item.quantity}</span>
+                    <button onClick={() => updateQuantity(item.product.slug, item.quantity + 1)} className="w-10 h-10 min-h-[44px] flex items-center justify-center text-base hover:bg-gray-100 transition rounded-r-lg" aria-label="Increase quantity">+</button>
                   </div>
-                  <button onClick={() => removeFromCart(item.product.slug)} className="text-red-500 text-sm hover:underline">Remove</button>
+                  <button onClick={() => removeFromCart(item.product.slug)} className="text-red-500 text-sm hover:underline py-2 px-1 -ml-1 min-h-[44px] inline-flex items-center">Remove</button>
                 </div>
+                <p className="font-bold text-base sm:hidden mt-1 text-accent">${(item.product.price * item.quantity).toFixed(2)} AUD</p>
               </div>
-              <div className="text-right hidden sm:block">
+              <div className="text-right hidden sm:block self-start">
                 <p className="font-bold text-lg">${(item.product.price * item.quantity).toFixed(2)}</p>
               </div>
             </div>
@@ -54,7 +55,7 @@ export default function CartPage() {
         </div>
 
         {/* Summary */}
-        <div className="bg-white rounded-xl p-6 shadow h-fit sticky top-24">
+        <div className="bg-white rounded-xl p-4 sm:p-6 shadow h-fit lg:sticky lg:top-24">
           <h2 className="font-bold text-primary text-lg mb-4">Order Summary</h2>
           <div className="space-y-2 text-sm border-b pb-4 mb-4">
             <div className="flex justify-between">

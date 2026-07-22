@@ -16,25 +16,25 @@ export default function AddToCartClient({ product }: { product: Product }) {
   };
 
   return (
-    <div className="flex items-center gap-4 mb-6">
-      <div className="flex items-center border rounded-lg" role="group" aria-label="Quantity selector">
+    <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6">
+      <div className="flex items-center border rounded-lg self-start sm:self-auto" role="group" aria-label="Quantity selector">
         <button
           onClick={() => setQuantity(Math.max(1, quantity - 1))}
-          className="px-4 py-3 text-lg hover:bg-gray-100 transition"
+          className="w-11 h-11 flex items-center justify-center text-lg hover:bg-gray-100 transition rounded-l-lg"
           aria-label="Decrease quantity"
         >
           −
         </button>
-        <span className="px-4 py-3 font-semibold min-w-[3rem] text-center" aria-live="polite">{quantity}</span>
+        <span className="px-4 font-semibold min-w-[3rem] text-center" aria-live="polite">{quantity}</span>
         <button
           onClick={() => setQuantity(quantity + 1)}
-          className="px-4 py-3 text-lg hover:bg-gray-100 transition"
+          className="w-11 h-11 flex items-center justify-center text-lg hover:bg-gray-100 transition rounded-r-lg"
           aria-label="Increase quantity"
         >
           +
         </button>
       </div>
-      <button onClick={handleAddToCart} className="btn-primary flex-1" aria-live="polite">
+      <button onClick={handleAddToCart} className="btn-primary flex-1 w-full sm:w-auto px-6 text-base" aria-live="polite">
         {added ? '✓ Added to Cart!' : 'Add to Cart'}
       </button>
     </div>

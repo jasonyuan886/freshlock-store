@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image src="/logo.svg" alt="FreshLock — Handheld Vacuum Sealer" className="h-10 w-auto" width={160} height={40} priority />
@@ -35,7 +35,7 @@ export default function Header() {
             <Link href="/contact" className="text-gray-700 hover:text-primary transition">
               Contact
             </Link>
-            <Link href="/cart" className="relative">
+            <Link href="/cart" className="relative w-10 h-10 flex items-center justify-center" aria-label="Shopping cart">
               <svg
                 className="w-6 h-6 text-gray-700 hover:text-primary transition"
                 fill="none"
@@ -58,8 +58,8 @@ export default function Header() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-4">
-            <Link href="/cart" className="relative">
+          <div className="md:hidden flex items-center space-x-2">
+            <Link href="/cart" className="relative w-11 h-11 flex items-center justify-center -ml-2" aria-label="Shopping cart">
               <svg
                 className="w-6 h-6 text-gray-700"
                 fill="none"
@@ -81,7 +81,8 @@ export default function Header() {
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="text-gray-700"
+              aria-label="Toggle menu"
+              className="text-gray-700 w-11 h-11 flex items-center justify-center -mr-2"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileMenuOpen ? (
@@ -96,38 +97,38 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4">
+          <div className="md:hidden pb-2 border-t border-gray-100 pt-2">
             <Link
               href="/products"
-              className="block py-2 text-gray-700 hover:text-primary"
+              className="block py-3 px-2 min-h-[44px] flex items-center text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
               Products
             </Link>
             <Link
               href="/blog"
-              className="block py-2 text-gray-700 hover:text-primary"
+              className="block py-3 px-2 min-h-[44px] flex items-center text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
               Blog
             </Link>
             <Link
               href="/about"
-              className="block py-2 text-gray-700 hover:text-primary"
+              className="block py-3 px-2 min-h-[44px] flex items-center text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="/faq"
-              className="block py-2 text-gray-700 hover:text-primary"
+              className="block py-3 px-2 min-h-[44px] flex items-center text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
               FAQ
             </Link>
             <Link
               href="/contact"
-              className="block py-2 text-gray-700 hover:text-primary"
+              className="block py-3 px-2 min-h-[44px] flex items-center text-gray-700 hover:text-primary"
               onClick={() => setMobileMenuOpen(false)}
             >
               Contact

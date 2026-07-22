@@ -5,26 +5,35 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-gray-50 text-gray-900 antialiased;
+    @apply bg-gray-50 text-gray-900 antialiased text-base;
+  }
+  /* Prevent iOS zoom on form inputs (requires font-size >= 16px) */
+  input, select, textarea, button {
+    font-size: 16px;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-accent hover:bg-accent-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 inline-block text-center;
+    @apply bg-accent hover:bg-accent-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 inline-flex items-center justify-center text-center min-h-[44px];
   }
   .btn-secondary {
-    @apply bg-primary hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 inline-block text-center;
+    @apply bg-primary hover:bg-primary-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-200 inline-flex items-center justify-center text-center min-h-[44px];
   }
   .btn-outline {
-    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-6 rounded-lg transition duration-200 inline-block text-center;
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 px-6 rounded-lg transition duration-200 inline-flex items-center justify-center text-center min-h-[44px];
   }
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-primary mb-4;
+    @apply text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4;
   }
   .section-subtitle {
-    @apply text-lg text-gray-600 max-w-2xl mx-auto;
+    @apply text-base sm:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed;
+  }
+  /* Form controls: 44px tap target, 16px font to avoid iOS zoom */
+  .form-input {
+    @apply w-full border rounded-lg px-4 py-2.5 min-h-[44px] text-base focus:ring-2 focus:ring-primary focus:border-transparent outline-none;
   }
 }

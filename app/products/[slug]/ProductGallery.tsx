@@ -37,14 +37,14 @@ export default function ProductGallery({ images, productName, shortDescription }
       </div>
 
       {images.length > 1 && (
-        <div className="flex gap-3" role="list" aria-label="Product image thumbnails">
+        <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-1 -mx-1 px-1" role="list" aria-label="Product image thumbnails">
           {images.map((img, i) => (
             <button
               key={i}
               type="button"
               role="listitem"
               onClick={() => setActive(i)}
-              className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition ${
+              className={`w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-2 transition flex-shrink-0 ${
                 i === active ? 'border-primary ring-2 ring-primary/30' : 'border-transparent hover:border-gray-300'
               }`}
               aria-label={`View image ${i + 1} of ${images.length}`}
@@ -77,7 +77,7 @@ export default function ProductGallery({ images, productName, shortDescription }
               e.stopPropagation();
               setZoom(false);
             }}
-            className="absolute top-4 right-4 text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20"
+            className="absolute top-3 right-3 sm:top-4 sm:right-4 text-white text-2xl sm:text-3xl w-11 h-11 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 z-10"
             aria-label="Close"
           >
             ×
