@@ -18,7 +18,13 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const product = products.find((p) => p.slug === params.slug);
   if (!product) return {};
   const url = `${SITE_URL}/products/${product.slug}`;
-  const title = product.name;
+  const seoTitles: Record<string, string> = {
+    'freshlock-pro': 'FreshLock Pro | Best Handheld Vacuum Sealer Australia for Liquids, Marinades & Fish',
+    'freshlock-starter-kit': 'FreshLock Starter Kit | Handheld Vacuum Sealer + 30 Bags Bundle Australia',
+    'vacuum-seal-bags-30-pack': 'FreshLock Vacuum Seal Bags 30-Pack | Reusable Zipper Bags (26×28 cm)',
+    'vacuum-seal-bags-50-pack': 'FreshLock Vacuum Seal Bags 50-Pack | Reusable Zipper Bags (26×34 cm)',
+  };
+  const title = seoTitles[product.slug] || `${product.name} | FreshLock Australia`;
   const description = product.shortDescription + ' Free shipping over A$99. 30-day money-back guarantee.';
   return {
     title,
