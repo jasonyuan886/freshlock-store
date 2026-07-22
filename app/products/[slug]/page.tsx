@@ -6,6 +6,7 @@ import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib
 import AddToCartClient from './AddToCartClient';
 import BundleAddons from './BundleAddons';
 import ProductGallery from './ProductGallery';
+import ReviewsSection from './ReviewsSection';
 import Image from 'next/image';
 
 type Params = { slug: string };
@@ -239,6 +240,9 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             </div>
           </section>
         </article>
+
+        {/* Customer Reviews */}
+        <ReviewsSection productName={product.name} />
 
         {/* Related */}
         {related.length > 0 && (

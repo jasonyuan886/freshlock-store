@@ -161,7 +161,7 @@ export default function CheckoutPage() {
             <div className="bg-white rounded-xl p-4 sm:p-6 shadow">
               <h2 className="font-bold text-primary text-lg mb-4">Shipping Method</h2>
               <div className="space-y-3">
-                <label className={`flex items-start gap-3 p-3 sm:p-4 border rounded-lg cursor-pointer transition min-h-[44px] ${shippingMethod === 'standard' ? 'border-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'}`}>
+                <label className={`flex items-start gap-3 p-3 sm:p-4 border rounded-lg cursor-pointer transition min-h-[44px] ${shippingMethod === 'standard' ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
                   <input type="radio" name="shipmethod" checked={shippingMethod === 'standard'} onChange={() => setShippingMethod('standard')} className="mt-1 accent-primary" />
                   <div className="flex-1">
                     <div className="flex justify-between items-center">
@@ -171,7 +171,7 @@ export default function CheckoutPage() {
                     <p className="text-xs text-gray-500 mt-0.5">7–12 business days · Tracked air mail from Shenzhen, China</p>
                   </div>
                 </label>
-                <label className={`flex items-start gap-3 p-3 sm:p-4 border rounded-lg cursor-pointer transition min-h-[44px] ${shippingMethod === 'express' ? 'border-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'}`}>
+                <label className={`flex items-start gap-3 p-3 sm:p-4 border rounded-lg cursor-pointer transition min-h-[44px] ${shippingMethod === 'express' ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
                   <input type="radio" name="shipmethod" checked={shippingMethod === 'express'} onChange={() => setShippingMethod('express')} className="mt-1 accent-primary" />
                   <div className="flex-1">
                     <div className="flex justify-between items-center">
@@ -266,7 +266,12 @@ export default function CheckoutPage() {
                   </span>
                 ) : `Pay A$${total.toFixed(2)}`}
               </button>
-              <p className="text-xs text-gray-400 text-center mt-3">🔒 Secure checkout — your data is encrypted</p>
+              {/* Trust badges */}
+              <div className="flex flex-wrap gap-2 justify-center mt-4">
+                <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 rounded-full px-2.5 py-1.5">🔒 Secure Checkout (SSL 256-bit)</span>
+                <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 rounded-full px-2.5 py-1.5">↩️ 30-Day Returns</span>
+                <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 rounded-full px-2.5 py-1.5">🚚 Tracked Shipping</span>
+              </div>
             </div>
           </div>
         </div>

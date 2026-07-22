@@ -92,24 +92,34 @@ export default function CartPage() {
           <div className="mb-4">
             <p className="font-semibold text-sm text-gray-700 mb-2">Shipping Method</p>
             <div className="space-y-2">
-              <label className={`flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition ${shippingMethod === 'standard' ? 'border-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'}`}>
+              <label className={`flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition ${shippingMethod === 'standard' ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
                 <input type="radio" name="shipping" value="standard" checked={shippingMethod === 'standard'} onChange={() => setShippingMethod('standard')} className="mt-1 accent-primary" />
                 <div className="flex-1">
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold text-sm">Standard Shipping</span>
-                    <span className="font-semibold text-sm">{freeUnlocked ? <span className="text-accent">FREE</span> : 'A$12.95'}</span>
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="font-semibold text-sm leading-tight">Standard Shipping</span>
+                    <span className="font-semibold text-sm whitespace-nowrap">
+                      {freeUnlocked ? <span className="text-accent">FREE 🎉</span> : 'A$12.95'}
+                    </span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-0.5">7–12 business days, tracked air mail from Shenzhen</p>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
+                    7–12 business days · Tracked air mail{' '}
+                    <span className="text-gray-400">· Free over A$99</span>
+                  </p>
                 </div>
               </label>
-              <label className={`flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition ${shippingMethod === 'express' ? 'border-primary bg-blue-50' : 'border-gray-200 hover:border-gray-300'}`}>
+              <label className={`flex items-start gap-3 p-3 border rounded-lg cursor-pointer transition ${shippingMethod === 'express' ? 'border-primary bg-primary/5' : 'border-gray-200 hover:border-gray-300'}`}>
                 <input type="radio" name="shipping" value="express" checked={shippingMethod === 'express'} onChange={() => setShippingMethod('express')} className="mt-1 accent-primary" />
                 <div className="flex-1">
-                  <div className="flex justify-between items-center">
-                    <span className="font-semibold text-sm">Express Shipping</span>
-                    <span className="font-semibold text-sm">{freeUnlocked ? 'A$9.95' : 'A$22.95'}</span>
+                  <div className="flex justify-between items-start gap-2">
+                    <span className="font-semibold text-sm leading-tight">Express (DHL 3–5 days)</span>
+                    <span className="font-semibold text-sm whitespace-nowrap">
+                      {freeUnlocked ? 'A$9.95' : 'A$22.95'}
+                    </span>
                   </div>
-                  <p className="text-xs text-gray-500 mt-0.5">3–5 business days, DHL Express from Shenzhen</p>
+                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">
+                    3–5 business days · DHL Express from Shenzhen{' '}
+                    <span className="text-gray-400">· A$9.95 over A$99</span>
+                  </p>
                 </div>
               </label>
             </div>
@@ -117,13 +127,34 @@ export default function CartPage() {
 
           <div className="space-y-2 text-sm border-b pb-4 mb-4">
             <div className="flex justify-between">
-              <span className="text-gray-500">Shipping</span>
-              <span>{shipping === 0 ? <span className="text-accent font-medium">FREE</span> : `A$${shipping.toFixed(2)}`}</span>
+              <span className="text-gray-500">
+                Shipping ({shippingMethod === 'express' ? 'Express DHL' : 'Standard'})
+              </span>
+              <span>
+                {shippingMethod === 'standard' ? (
+                  freeUnlocked ? (
+                    <span className="text-accent font-medium">FREE 🎉</span>
+                  ) : (
+                    <span>A$12.95 <span className="text-gray-400 font-normal">(Free over A$99)</span></span>
+                  )
+                ) : (
+                  <span>{freeUnlocked ? 'A$9.95' : 'A$22.95'} <span className="text-gray-400 font-normal">({freeUnlocked ? 'upgrade fee over A$99' : 'under A$99'})</span></span>
+                )}
+              </span>
             </div>
+            <p className="text-[11px] text-gray-400 leading-snug">
+              All shipping costs are shown upfront — no surprise fees at checkout. Prices include GST where applicable.
+            </p>
           </div>
           <div className="flex justify-between font-bold text-lg mb-6">
             <span>Total</span>
             <span>A${total.toFixed(2)}</span>
+          </div>
+          {/* Trust badges */}
+          <div className="flex flex-wrap gap-2 justify-center mb-4">
+            <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 rounded-full px-2.5 py-1.5">🔒 Secure Checkout (SSL 256-bit)</span>
+            <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 rounded-full px-2.5 py-1.5">↩️ 30-Day Returns</span>
+            <span className="inline-flex items-center gap-1 text-[11px] text-gray-500 bg-gray-50 rounded-full px-2.5 py-1.5">🚚 Tracked Shipping</span>
           </div>
           <Link href="/checkout" className="btn-primary w-full block">Proceed to Checkout</Link>
           <Link href="/products" className="block text-center text-sm text-gray-500 hover:text-primary mt-4">← Continue Shopping</Link>

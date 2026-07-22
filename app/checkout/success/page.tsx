@@ -65,13 +65,20 @@ function CheckoutSuccessContent() {
         </ul>
       </div>
 
-      <div className="flex gap-4 justify-center">
+      <div className="flex gap-4 justify-center flex-wrap">
         <Link href="/" className="btn-primary">
           Back to Home
         </Link>
         <Link href="/products" className="px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition">
           Continue Shopping
         </Link>
+      </div>
+
+      {/* Trust badges */}
+      <div className="flex flex-wrap gap-2 justify-center mt-8">
+        <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1.5">🔒 Secure Checkout (SSL 256-bit)</span>
+        <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1.5">↩️ 30-Day Returns</span>
+        <span className="inline-flex items-center gap-1 text-xs text-gray-500 bg-gray-50 rounded-full px-3 py-1.5">🚚 Tracked Shipping</span>
       </div>
     </div>
   );
