@@ -8,7 +8,7 @@ const SMTP_HOST = process.env.SMTP_HOST || 'smtp.zoho.com';
 const SMTP_PORT = Number(process.env.SMTP_PORT || 587);
 const SMTP_USER = process.env.SMTP_USER || 'support@freshlocksealer.com';
 const SMTP_PASS = process.env.SMTP_PASS;
-const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'jasonyuan866@gmail.com';
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL || 'support@freshlocksealer.com';
 const FROM_EMAIL_NAME = 'FreshLock Support';
 const FROM_EMAIL_ADDRESS = SMTP_USER;
 
