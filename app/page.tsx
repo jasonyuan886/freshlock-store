@@ -165,7 +165,7 @@ function ProductShowcase() {
               <div className="relative overflow-hidden">
                 <Image src={p.image}
                   alt={`${p.name} — ${p.shortDescription}`}
-                  className="w-full aspect-square object-cover group-hover:scale-105 transition duration-300"
+                  className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition duration-300"
                   width={400}
                   height={400}
                   loading="lazy"

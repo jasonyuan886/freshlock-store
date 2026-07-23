@@ -8,8 +8,9 @@ export const products: Product[] = [
     description:
       'The FreshLock Pro is our flagship handheld vacuum sealer, engineered for quick, cordless food preservation — even with moist foods, marinades, and fresh-caught fish. Simply attach the nozzle to the valve on any FreshLock zipper bag, press one button, and the powerful -60 kPa motor extracts air in seconds, creating an airtight seal that keeps food fresh up to 5× longer. The built-in absorbent sponge pad catches residual juices from the valve surface so liquids do not drip everywhere, and the mechanical drain tube channels collected liquids out of the unit automatically — no burnt motors, no mess. No heat bar, no complicated setup. USB-C rechargeable and fully portable, so you can seal at the bench, in the pantry, fridge, on the boat, or at the campsite.',
     shortDescription: 'Handheld vacuum sealer with sponge pad & drain tube — seals moist foods without motor damage.',
-    image: '/images/products/sealer-detail-1.jpg',
+    image: '/images/products/sealer-main.jpg',
     images: [
+      '/images/products/sealer-main.jpg',
       '/images/products/sealer-detail-1.jpg',
       '/images/products/sealer-detail-2.jpg',
       '/images/products/sealer-real-1.jpg',
