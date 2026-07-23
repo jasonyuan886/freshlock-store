@@ -90,7 +90,7 @@ export default function ProductsPage() {
             <div className="relative overflow-hidden">
               <Image src={p.image}
                 alt={`${p.name} — ${p.shortDescription}`}
-                className="w-full aspect-square object-contain bg-white group-hover:scale-105 transition duration-300"
+                className="w-full aspect-square object-cover group-hover:scale-105 transition duration-300"
                 loading="lazy"
                 width={400}
                 height={400}

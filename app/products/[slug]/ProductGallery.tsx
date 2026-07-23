@@ -28,9 +28,9 @@ export default function ProductGallery({ images, productName, shortDescription }
         <Image
           src={images[active]}
           alt={`${productName} — ${shortDescription}`}
-          className="w-full max-h-[55vh] sm:max-h-none sm:aspect-[3/4] aspect-square object-contain bg-gray-50 transition-opacity duration-200"
+          className="w-full aspect-square object-cover transition-opacity duration-200"
           width={600}
-          height={800}
+          height={600}
           priority={active === 0}
           sizes="(max-width: 768px) 100vw, 600px"
         />
