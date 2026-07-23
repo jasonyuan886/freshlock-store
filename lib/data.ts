@@ -19,6 +19,7 @@ export const products: Product[] = [
       '/images/products/sealer-drain.jpg',
       '/images/products/sealer-detail-3.jpg',
       '/images/products/sealer-use.jpg',
+      '/images/products/sealer-angled.jpg',
     ],
     features: [
       'Powerful -60 kPa suction — extracts air through the bag valve in seconds',
