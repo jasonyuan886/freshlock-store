@@ -22,8 +22,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const seoTitles: Record<string, string> = {
     'freshlock-pro': 'FreshLock Pro | Best Handheld Vacuum Sealer Australia for Liquids, Marinades & Fish',
     'freshlock-starter-kit': 'FreshLock Starter Kit | Handheld Vacuum Sealer + 30 Bags Bundle Australia',
-    'vacuum-seal-bags-30-pack': 'FreshLock Vacuum Seal Bags 30-Pack | Reusable Zipper Bags (26×28 cm)',
-    'vacuum-seal-bags-50-pack': 'FreshLock Vacuum Seal Bags 50-Pack | Reusable Zipper Bags (26×34 cm)',
+    'vacuum-seal-bags-25-pack': 'FreshLock Vacuum Seal Bags 25-Pack | Small Reusable Zipper Bags (22×21 cm)',
+    'vacuum-seal-bags-30-pack': 'FreshLock Vacuum Seal Bags 30-Pack | Medium Reusable Zipper Bags (26×28 cm)',
+    'vacuum-seal-bags-50-pack': 'FreshLock Vacuum Seal Bags 50-Pack | Large Reusable Zipper Bags (30×34 cm)',
   };
   const title = seoTitles[product.slug] || `${product.name} | FreshLock Australia`;
   const description = product.shortDescription + ' Free shipping over A$99. 30-day money-back guarantee.';
@@ -55,18 +56,20 @@ export default function ProductDetailPage({ params }: { params: Params }) {
   const product = products.find((p) => p.slug === params.slug);
   if (!product) return notFound();
 
-  // Tailored cross-sell: sealer → bags; bags → sealer + other bag; kits → bags
+  // Tailored cross-sell: sealer → all bags; bags → sealer + other 2 bags; kits → bags
   let related;
   if (product.slug === 'freshlock-pro') {
     related = products.filter((p) => p.category === 'bags');
   } else if (product.category === 'bags') {
     const sealer = products.find((x) => x.slug === 'freshlock-pro');
-    const otherBag = products.find((x) => x.category === 'bags' && x.slug !== product.slug);
-    related = [sealer, otherBag].filter(Boolean) as typeof products;
+    const otherBags = products.filter((x) => x.category === 'bags' && x.slug !== product.slug);
+    related = [sealer, ...otherBags].filter(Boolean) as typeof products;
+  } else if (product.category === 'kits') {
+    related = products.filter((x) => x.category === 'bags').slice(0, 3);
   } else {
-    related = products.filter((x) => x.slug !== product.slug && x.category === product.category).slice(0, 2);
+    related = products.filter((x) => x.slug !== product.slug && x.category === product.category).slice(0, 3);
   }
-  const relatedHeading = product.slug === 'freshlock-pro' ? 'Complete Your Setup' : 'You May Also Need';
+  const relatedHeading = product.slug === 'freshlock-pro' ? 'Complete Your Setup' : product.category === 'bags' ? 'You May Also Need' : 'You May Also Like';
 
   const productSchema = generateProductSchema(product, reviews);
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -120,7 +123,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               name: 'Are FreshLock vacuum bags reusable?',
               acceptedAnswer: {
                 '@type': 'Answer',
-                text: 'Yes. FreshLock bags use a double-track green zipper slider so you can wash and re-seal them many times. For raw meat or fish use a fresh bag each time; dry goods bags can be reused extensively.'
+                text: 'Yes. FreshLock bags use a double-track zipper with an attached apple-green zip-slider so you can wash and re-seal them many times. For raw meat or fish use a fresh bag each time; dry goods bags can be reused extensively.'
               }
             }
           ]
@@ -217,7 +220,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                 <div itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
                   <h3 className="font-semibold text-gray-800" itemProp="name">Are FreshLock vacuum bags reusable?</h3>
                   <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                    <p className="leading-relaxed" itemProp="text">Yes. FreshLock bags use a double-track green zipper slider so you can open, wash, and re-seal them many times. For raw meat or fish we recommend a fresh bag each time; for dry goods like coffee, rice, pasta, or snacks, bags can be reused extensively.</p>
+                    <p className="leading-relaxed" itemProp="text">Yes. FreshLock bags use a double-track zipper with an attached apple-green zip-slider so you can open, wash, and re-seal them many times. For raw meat or fish we recommend a fresh bag each time; for dry goods like coffee, rice, pasta, or snacks, bags can be reused extensively.</p>
                   </div>
                 </div>
               </div>
@@ -248,7 +251,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
         {related.length > 0 && (
           <section className="mt-12 sm:mt-20" aria-labelledby="related-heading">
             <h2 id="related-heading" className="section-title mb-8">{relatedHeading}</h2>
-            <div className="grid sm:grid-cols-2 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {related.map((p) => (
                 <Link
                   key={p.slug}
