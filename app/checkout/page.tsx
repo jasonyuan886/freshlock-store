@@ -7,12 +7,8 @@ import Image from 'next/image';
 
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
 
-export const metadata = {
-  title: 'Secure Checkout | FreshLock',
-  description:
-    'Complete your FreshLock order securely. Free US shipping over $50, 60-day returns, 2-year warranty. Pay by card or PayPal.',
-  robots: { index: false, follow: false },
-};
+// NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
+// meta robots noindex is applied via vercel.json headers for /checkout.
 
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
