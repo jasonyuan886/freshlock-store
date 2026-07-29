@@ -8,15 +8,6 @@ import Image from 'next/image';
 
 type Params = { slug: string };
 
-function StarRating({ rating, size = 'text-base' }: { rating: number; size?: string }) {
-  return (
-    <span className={size}>
-      {'★'.repeat(rating)}
-      <span className="text-gray-300">{'★'.repeat(5 - rating)}</span>
-    </span>
-  );
-}
-
 function StickyMobileATC({ productName, productPrice }: { productName: string; productPrice: string }) {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg z-40 px-4 py-3 flex items-center gap-3">
