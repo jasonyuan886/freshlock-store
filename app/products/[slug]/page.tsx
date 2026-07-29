@@ -8,6 +8,29 @@ import Image from 'next/image';
 
 type Params = { slug: string };
 
+function StarRating({ rating, size = 'text-base' }: { rating: number; size?: string }) {
+  return (
+    <span className={size}>
+      {'★'.repeat(rating)}
+      <span className="text-gray-300">{'★'.repeat(5 - rating)}</span>
+    </span>
+  );
+}
+
+function StickyMobileATC({ productName, productPrice }: { productName: string; productPrice: string }) {
+  return (
+    <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg z-40 px-4 py-3 flex items-center gap-3">
+      <div className="flex-1 min-w-0">
+        <div className="text-xs text-gray-500 truncate">{productName}</div>
+        <div className="text-accent font-bold">{productPrice}</div>
+      </div>
+      <a href="#purchase" className="btn-primary text-sm px-5 py-2 whitespace-nowrap">
+        Add to Cart
+      </a>
+    </div>
+  );
+}
+
 export async function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
 }
@@ -287,7 +310,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               </ul>
             </section>
 
-            <AddToCartClient product={product} />
+            <div id="purchase"><AddToCartClient product={product} /></div>
 
             <div className="flex flex-wrap gap-4 mt-6 text-xs text-gray-500">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
@@ -360,6 +383,8 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           </section>
         )}
       </div>
+      <StickyMobileATC productName={product.name} productPrice={`$${product.price}`} />
+      <div className="md:hidden h-20" />
     </>
   );
 }
