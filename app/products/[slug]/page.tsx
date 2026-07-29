@@ -115,11 +115,16 @@ function ReviewsSection() {
               </time>
             </div>
             {r.images && r.images.length > 0 && (
-              <div className="flex gap-2 mt-3">
+              <div className="flex gap-2 mt-3 flex-wrap">
                 {r.images.map((src, i) => (
-                  <div key={i} className="w-16 h-16 rounded border border-gray-200 bg-gray-50 flex items-center justify-center text-[10px] text-gray-400">
-                    📷 Photo
-                  </div>
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    key={i}
+                    src={src}
+                    alt={`Review photo by ${r.name}`}
+                    loading="lazy"
+                    className="w-20 h-20 object-cover rounded border border-gray-200"
+                  />
                 ))}
               </div>
             )}
