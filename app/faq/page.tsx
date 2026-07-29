@@ -4,10 +4,17 @@ import { faqs } from '@/lib/data';
 import { generateFAQSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Frequently Asked Questions',
+  title: 'FAQ — Battery, Bags, Freezer Burn, Drip Tray & Warranty | FreshLock',
   description:
-    'Find answers to common questions about FreshLock handheld vacuum sealers, vacuum bags, shipping, returns, battery life and more.',
-  alternates: { canonical: '/faq' },
+    'Answers about the FreshLock Pro handheld vacuum sealer: battery life, USB-C charging, BPA-free bags, drip tray for liquids, warranty, 60-day returns and shipping.',
+  alternates: {
+    canonical: '/faq',
+    languages: {
+      'en-US': 'https://www.freshlocksealer.com/faq',
+      'ja-JP': 'https://jp.freshlocksealer.com/faq',
+      'x-default': 'https://www.freshlocksealer.com/faq',
+    },
+  },
 };
 
 const faqSchema = generateFAQSchema(faqs);

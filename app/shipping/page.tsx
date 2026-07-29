@@ -1,8 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Shipping Policy | FreshLock',
-  description: 'FreshLock shipping policy: delivery times, costs, and regions for handheld vacuum sealers and vacuum seal bags.',
+  title: 'Shipping Policy — Delivery Times, Costs & Tracking | FreshLock',
+  description:
+    'FreshLock shipping policy: free US shipping on orders over $50, $5.99 flat rate under $50, 3–7 day US delivery with tracking. International rates calculated at checkout.',
 };
 
 export default function ShippingPage() {
@@ -11,62 +12,56 @@ export default function ShippingPage() {
       <div className="text-center mb-12">
         <h1 className="section-title">Shipping Policy</h1>
         <p className="section-subtitle">
-          Everything you need to know about delivery times, costs, and shipping regions.
+          Transparent rates, real tracking, and 1–2 business day processing.
         </p>
       </div>
 
       <div className="prose prose-lg max-w-none">
-        <h2>Shipping Regions</h2>
-        <p>We ship worldwide — including the US, UK, Canada, Australia, New Zealand, and across Europe. Japanese customers please visit <a href="https://jp.freshlocksealer.com" className="text-accent hover:underline">FreshLock Japan</a> for local pricing in JPY.</p>
-
-        <h2>Shipping Origin</h2>
-        <p>FreshLock is a direct-to-consumer brand. Orders ship from our fulfilment partners in Asia via tracked international air mail. Prices on this site are in AUD for the convenience of our Australian and New Zealand customers.</p>
-
         <h2>Processing Time</h2>
-        <p>All orders are processed within 1–2 business days (Monday–Friday). Orders placed after 2:00 PM AEST/AEDT will be processed the next business day.</p>
+        <p>
+          All orders are processed within <strong>1–2 business days</strong> (Monday–Friday, excluding major holidays). Orders placed after 2 PM ET on business days will begin processing the next business day. You will receive an order confirmation immediately, and a shipping confirmation with tracking number once your package leaves our fulfilment centre.
+        </p>
 
-        <h2>Shipping Methods & Delivery Times</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse border border-gray-300 my-4">
-            <thead>
-              <tr className="bg-gray-100">
-                <th className="border border-gray-300 px-4 py-2 text-left">Destination</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Delivery Time (after dispatch)</th>
-                <th className="border border-gray-300 px-4 py-2 text-left">Cost</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border border-gray-300 px-4 py-2">Australia & New Zealand</td>
-                <td className="border border-gray-300 px-4 py-2">7–14 business days</td>
-                <td className="border border-gray-300 px-4 py-2">FREE over $79 AUD<br />$7.95 AUD under $79</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 px-4 py-2">United States, Canada & UK</td>
-                <td className="border border-gray-300 px-4 py-2">7–14 business days</td>
-                <td className="border border-gray-300 px-4 py-2">Calculated at checkout</td>
-              </tr>
-              <tr>
-                <td className="border border-gray-300 px-4 py-2">Europe & Rest of World</td>
-                <td className="border border-gray-300 px-4 py-2">10–18 business days</td>
-                <td className="border border-gray-300 px-4 py-2">Calculated at checkout</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <p className="text-sm text-gray-600 italic">Delivery times are estimates after dispatch. Customs clearance in the destination country may add a few extra days — this is outside our control but we will help resolve any delays.</p>
+        <h2>Shipping Rates (United States)</h2>
+        <ul>
+          <li><strong>Free standard shipping</strong> on all US orders over <strong>$50 USD</strong> (discount applied automatically at checkout).</li>
+          <li>US orders under $50 ship for a <strong>flat rate of $5.99</strong>.</li>
+          <li>Delivered via USPS First Class / Priority Mail or equivalent tracked postal service.</li>
+          <li><strong>Transit time:</strong> 3–7 business days after dispatch (continental US; Alaska, Hawaii, and US territories may take 7–14 days).</li>
+        </ul>
 
-        <h2>Free Shipping</h2>
-        <p>Enjoy <strong>FREE standard shipping</strong> on all orders over <strong>$79 AUD</strong> (Australia & New Zealand). The discount is applied automatically — no code needed. Rates for other regions are calculated at checkout based on destination.</p>
+        <h2>International Shipping</h2>
+        <p>
+          We ship to Canada, the UK, Australia, New Zealand, the EU, and most other countries. Shipping rates for international destinations are calculated live at checkout based on destination and package weight. Typical transit times are 7–18 business days depending on destination and customs clearance.
+        </p>
+        <p>
+          Japanese customers: please visit <a href="https://jp.freshlocksealer.com/shipping" className="text-accent hover:underline">FreshLock Japan</a> for JPY pricing and local Japanese support.
+        </p>
 
-        <h2>Order Tracking</h2>
-        <p>Once your order ships, you will receive a confirmation email with a tracking number. If you do not receive a tracking email within 3 business days, please contact us at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>.</p>
+        <h2>Customs, Duties & Taxes</h2>
+        <p>
+          International orders may be subject to import duties, taxes, or customs fees levied by the destination country. These charges are the responsibility of the customer and are not included in our shipping charges. Please check with your local customs office for estimates before ordering.
+        </p>
+
+        <h2>Tracking</h2>
+        <p>
+          Every order ships with a <strong>tracking number</strong>. You will receive an email with tracking information as soon as your order is dispatched. If you do not receive a tracking email within 3 business days of ordering, please contact us at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>.
+        </p>
 
         <h2>Lost or Damaged Packages</h2>
-        <p>If your package arrives damaged or appears to be lost in transit, please contact us within 7 days of the estimated delivery date at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>. We will work with the carrier to resolve the issue.</p>
+        <p>
+          If your package arrives damaged or appears to be lost in transit, please contact us within 7 days of the estimated delivery date at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>. We will work with the carrier to resolve the issue and, where applicable, ship a replacement at no extra cost.
+        </p>
+
+        <h2>PO Boxes & APO/FPO</h2>
+        <p>
+          We ship to PO boxes and APO/FPO addresses via USPS. Delivery to APO/FPO addresses may take longer due to military postal routing.
+        </p>
 
         <h2>Contact Us</h2>
-        <p>For any shipping-related questions, please email <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>. Response time: within 24 hours on business days.</p>
+        <p>
+          For shipping questions, email <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>. We respond within 24 hours on business days.
+        </p>
       </div>
     </div>
   );

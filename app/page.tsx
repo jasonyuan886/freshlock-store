@@ -1,12 +1,20 @@
 import Link from 'next/link';
-import { products, reviews, faqs } from '@/lib/data';
+import { products, reviews, faqs, FREE_SHIPPING_THRESHOLD } from '@/lib/data';
 import { getAllPosts } from '@/lib/blog';
 import { generateFAQSchema } from '@/lib/schema';
 import Image from 'next/image';
 
-const faqSchema = generateFAQSchema(faqs);
+const faqSchema = generateFAQSchema(faqs.slice(0, 3));
 
-/* ───────── Hero ───────── */
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <span aria-label={`Rated ${rating} out of 5`}>
+      {'★'.repeat(rating)}
+      <span className="text-gray-300">{'★'.repeat(5 - rating)}</span>
+    </span>
+  );
+}
+
 function Hero() {
   return (
     <section className="bg-primary text-white" aria-labelledby="hero-heading">
@@ -14,27 +22,48 @@ function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block bg-accent/20 text-accent text-sm font-semibold px-3 py-1 rounded-full mb-4">
-              🌍 Trusted in 10,000+ Kitchens Worldwide
+              🧊 Stop freezer burn before it starts
             </span>
             <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Seal in Freshness.<br />
-              <span className="text-accent">Seal in Flavour.</span>
+              FreshLock Pro<br />
+              <span className="text-accent">Handheld Vacuum Sealer</span>
             </h1>
-            <p className="text-lg text-gray-300 mb-8 max-w-lg">
-              The FreshLock <strong>handheld vacuum sealer</strong> keeps your food fresh up to 5× longer — cordless, one-touch, and built for everyday use at home, work, or outdoors.
+            <p className="text-lg text-gray-200 mb-6 max-w-lg">
+              Cordless, one-touch vacuum sealing that keeps food fresh up to <strong>5× longer</strong>.
+              -60 kPa suction with a <strong>detachable drip tray</strong> for mess-free sealing of
+              soups and marinades. Recharges via <strong>USB-C</strong>, works with{' '}
+              <strong>BPA-free bags</strong> and is <strong>compatible with most embossed valve bags</strong>.
             </p>
+            <div className="flex flex-wrap gap-2 mb-8 text-sm">
+              {[
+                '🔌 USB-C charging',
+                '💧 Drip tray included',
+                '🔇 Under 60 dB',
+                '♻️ Compatible with most valve bags',
+                '🛡️ 2-year warranty',
+              ].map((b) => (
+                <span key={b} className="bg-white/10 text-white text-xs px-2.5 py-1 rounded-full border border-white/20">
+                  {b}
+                </span>
+              ))}
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href="/products" className="btn-primary text-lg">
-                Shop Now
+              <Link href="/products/freshlock-pro" className="btn-primary text-lg">
+                Shop FreshLock Pro — $59.99
               </Link>
               <Link href="#features" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg">
-                Learn More
+                See Features
               </Link>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-300">
+              <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
+              <span>↩️ 60-day returns</span>
+              <span>🔒 Secure SSL checkout</span>
             </div>
           </div>
           <div className="flex justify-center md:justify-center mt-8 md:mt-0">
             <Image src="/images/products/sealer-main.jpg"
-              alt="FreshLock Pro handheld vacuum sealer in pearl white with silver top, shown with green-zipper vacuum bags"
+              alt="FreshLock Pro handheld vacuum sealer in pearl white with chrome diamond-cut cap, black semi-transparent LED panel and detachable drip tray, shown with apple-green zip-slider embossed vacuum bags"
               className="rounded-2xl shadow-2xl w-64 md:w-full max-w-md md:max-w-none"
               width={600}
               height={600}
@@ -47,23 +76,22 @@ function Hero() {
   );
 }
 
-/* ───────── About / Brand ───────── */
 function AboutFreshLock() {
   return (
     <section id="about" className="py-20 bg-white" aria-labelledby="about-heading">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-10">
-          <h2 id="about-heading" className="section-title">About FreshLock</h2>
+          <h2 id="about-heading" className="section-title">Built for Real Kitchens</h2>
         </header>
         <article className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
           <p>
-            <strong>FreshLock</strong> is a cordless handheld vacuum sealer designed for real people who love food and hate waste. Our mission is simple: <em>make freshness effortless</em>. Whether you&apos;re meal prepping on Sundays, storing leftovers, marinating meat, or keeping coffee and snacks crisp on a camping trip, FreshLock delivers commercial-grade vacuum sealing in the palm of your hand.
+            <strong>FreshLock</strong> is a cordless handheld vacuum sealer designed for people who love food and hate waste. Whether you are meal prepping on Sundays, portioning baby food, marinating meat for the grill, or packing snacks for a camping trip, FreshLock pulls a strong -60 kPa vacuum in seconds.
           </p>
           <p>
-            Unlike bulky countertop sealers, the FreshLock Pro works with reusable zipper bags fitted with a one-way air valve — no heat bar, no learning curve, no fumbling. Press one button, and a 5 L/min pump removes 95% of the air in seconds, locking out oxygen, moisture, and freezer burn.
+            Unlike bulky countertop sealers, the FreshLock Pro works on reusable embossed zipper bags fitted with a one-way air valve — <strong>no heat bar, no learning curve</strong>. A <strong>detachable transparent drip cup</strong> catches liquid overflow so soups, marinades, and juicy proteins seal cleanly, and the motor stays dry.
           </p>
           <p>
-            From busy parents in the US to campers in Australia and home cooks across the UK and Canada, over 10,000 households now rely on FreshLock to keep their food tasting fresher for longer.
+            It is <strong>compatible with most embossed valve bags</strong> on the market, not just our own. Recharge via any USB-C cable, pull 80–100 seals per charge, and rest easy with a 2-year warranty on the unit.
           </p>
         </article>
       </div>
@@ -71,27 +99,46 @@ function AboutFreshLock() {
   );
 }
 
-/* ───────── Features ───────── */
 const featureList = [
   {
-    icon: '🛡️',
-    title: 'Fresh 5× Longer',
-    text: 'Powerful vacuum removes 95% of air, locking out oxidation and bacteria. Your food stays fresh for weeks, not days.',
+    icon: '🧊',
+    title: 'Stops Freezer Burn',
+    text: 'Removes up to 95% of air, preventing ice crystals and oxidation. Meat, fish, and produce stay fresh-tasting months longer.',
   },
   {
-    icon: '📦',
-    title: 'Save Space',
-    text: 'Vacuum-sealed bags stack neatly in your fridge, freezer or pantry. Reclaim up to 40% more storage space.',
+    icon: '💧',
+    title: 'Drip Tray for Liquids',
+    text: 'Detachable transparent cup catches soups, marinades and juicy drips before they reach the motor. Dishwasher-safe.',
   },
   {
     icon: '👆',
     title: 'One-Touch Simple',
-    text: 'No complicated settings. Load the bag, press the button, done. Anyone in the family can use it.',
+    text: 'Place the nozzle over the valve, press once, and the pump auto-stops when the bag is tight. No heat bar, no settings.',
   },
   {
-    icon: '🔋',
-    title: 'Cordless & Portable',
-    text: 'USB-C rechargeable with 40+ seals per charge — compact enough for kitchen, pantry, travel or BBQ use.',
+    icon: '🔌',
+    title: 'USB-C Rechargeable',
+    text: '1200 mAh battery, ~2.5 hr charge, 80–100 seals per charge. Works with any USB-C cable or power bank.',
+  },
+  {
+    icon: '🔇',
+    title: 'Library-Quiet',
+    text: 'Under 60 dB during operation — quiet enough for early mornings, late-night meal prep, or open-plan kitchens.',
+  },
+  {
+    icon: '♻️',
+    title: 'Works With Most Valve Bags',
+    text: 'Compatible with most embossed valve bags — no brand lock-in. BPA-free PA+PE bags recommended.',
+  },
+  {
+    icon: '⚖️',
+    title: 'Lightweight & Compact',
+    text: 'Weighs only ~210 g (7.4 oz). Fits in a kitchen drawer, backpack or cooler for camping and BBQ.',
+  },
+  {
+    icon: '🛡️',
+    title: '2-Year Warranty',
+    text: '2-year warranty on the sealer unit, 6-month on accessories. We stand behind every pump we ship.',
   },
 ];
 
@@ -102,7 +149,7 @@ function Features() {
         <div className="text-center mb-14">
           <h2 id="features-heading" className="section-title">Why FreshLock?</h2>
           <p className="section-subtitle">
-            Simple, powerful, and built to last — everything you need in a handheld vacuum sealer.
+            The features home cooks actually care about — not marketing fluff.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -122,20 +169,18 @@ function Features() {
   );
 }
 
-/* ───────── Product Showcase ───────── */
 function ProductShowcase() {
-  const featured = products.slice(0, 4);
   return (
     <section className="py-20 bg-white" aria-labelledby="products-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 id="products-heading" className="section-title">Our Products</h2>
           <p className="section-subtitle">
-            From everyday kitchen use to on-the-go freshness — we have you covered.
+            Start with the sealer or grab the complete kit — everything ships fast.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {featured.map((p) => (
+          {products.map((p) => (
             <Link
               key={p.slug}
               href={`/products/${p.slug}`}
@@ -158,32 +203,29 @@ function ProductShowcase() {
               <div className="p-5">
                 <h3 className="font-bold text-primary mb-1">{p.name}</h3>
                 <p className="text-gray-500 text-sm mb-3 line-clamp-2">{p.shortDescription}</p>
-                <p className="text-xl font-bold text-accent">${p.price.toFixed(2)} AUD</p>
+                <p className="text-xl font-bold text-accent">${p.price.toFixed(2)} USD</p>
               </div>
             </Link>
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link href="/products" className="btn-secondary">
-            View All Products
-          </Link>
+          <Link href="/products" className="btn-secondary">View All Products</Link>
         </div>
       </div>
     </section>
   );
 }
 
-/* ───────── Social Proof ───────── */
 function SocialProof() {
   return (
     <section className="py-12 bg-primary text-white" aria-label="Social proof stats">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            ['10,000+', 'Happy Customers'],
-            ['4.8 ★', 'Average Rating'],
-            ['Free', 'Shipping over $79'],
-            ['30-Day', 'Money-Back Guarantee'],
+            ['4.6 ★', 'Average Rating'],
+            ['-60 kPa', 'Strong Suction'],
+            ['Free', `Shipping over $${FREE_SHIPPING_THRESHOLD}`],
+            ['60-Day', 'Money-Back Returns'],
           ].map(([stat, label]) => (
             <div key={label}>
               <p className="text-3xl font-bold text-accent">{stat}</p>
@@ -196,21 +238,20 @@ function SocialProof() {
   );
 }
 
-/* ───────── Reviews ───────── */
 function Reviews() {
-  const topReviews = reviews.slice(0, 3);
+  const topReviews = reviews.slice(0, 4);
   return (
     <section className="py-20 bg-gray-50" aria-labelledby="reviews-heading">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 id="reviews-heading" className="section-title">What Our Customers Say</h2>
+        <div className="text-center mb-10">
+          <h2 id="reviews-heading" className="section-title">What Verified Buyers Say</h2>
           <p className="section-subtitle">
-            Join thousands of households worldwide who have transformed their food storage.
+            Real reviews from real customers — including a few 4-star notes to keep us honest.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {topReviews.map((r) => (
-            <article key={r.name} className="bg-white rounded-xl p-6 shadow-sm" itemScope itemType="https://schema.org/Review">
+            <article key={r.name} className="bg-white rounded-xl p-5 shadow-sm" itemScope itemType="https://schema.org/Review">
               <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Product">
                 <meta itemProp="name" content="FreshLock Pro Handheld Vacuum Sealer" />
               </div>
@@ -219,35 +260,63 @@ function Reviews() {
                 <meta itemProp="bestRating" content="5" />
                 <meta itemProp="worstRating" content="1" />
               </div>
-              <div className="flex items-center mb-3" aria-label={`Rated ${r.rating} out of 5`}>
-                {'★'.repeat(r.rating)}
-                <span className="ml-1 text-gray-400 text-sm">{r.rating}/5</span>
+              <div className="flex items-center justify-between mb-2">
+                <div className="text-accent text-sm" aria-label={`Rated ${r.rating} out of 5`}>
+                  <StarRating rating={r.rating} />
+                </div>
+                {r.verified && (
+                  <span className="text-[10px] font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">
+                    ✓ Verified Buyer
+                  </span>
+                )}
               </div>
-              <p className="text-gray-700 mb-4 italic" itemProp="reviewBody">&ldquo;{r.text}&rdquo;</p>
-              <p className="font-semibold text-primary text-sm" itemProp="author" itemScope itemType="https://schema.org/Person">
-                <span itemProp="name">{r.name}</span>
-              </p>
+              <p className="text-gray-700 mb-3 text-sm italic line-clamp-5" itemProp="reviewBody">&ldquo;{r.text}&rdquo;</p>
+              <div className="flex items-center justify-between text-xs text-gray-500">
+                <p className="font-semibold text-primary" itemProp="author" itemScope itemType="https://schema.org/Person">
+                  <span itemProp="name">{r.name}</span>
+                </p>
+                <time dateTime={r.date}>
+                  {new Date(r.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+                </time>
+              </div>
+              {r.images && r.images.length > 0 && (
+                <div className="flex gap-2 mt-3">
+                  {r.images.map((src, i) => (
+                    <div key={i} className="w-14 h-14 rounded overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center text-[9px] text-gray-400">
+                      📷 photo
+                    </div>
+                  ))}
+                </div>
+              )}
             </article>
           ))}
+        </div>
+        <div className="text-center mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <Link href="/products/freshlock-pro#reviews" className="btn-secondary">Read All Reviews</Link>
+          <a
+            href="mailto:freshlocksealer@gmail.com?subject=FreshLock%20Review"
+            className="text-primary font-semibold hover:underline text-sm"
+          >
+            ✍️ Write a Review
+          </a>
         </div>
       </div>
     </section>
   );
 }
 
-/* ───────── GEO Q&A Block ───────── */
 const qaItems = [
   {
-    q: 'How long does food stay fresh with FreshLock?',
-    a: 'Vacuum-sealed food stays fresh 3–5× longer in the fridge and up to 6 months in the freezer compared with regular zipper bags or cling wrap. By removing up to 95% of the air, FreshLock slows oxidation and bacterial growth that cause spoilage and freezer burn.',
+    q: 'Does it really stop freezer burn?',
+    a: 'Yes. Freezer burn happens when dry freezer air dehydrates the food surface. FreshLock removes up to 95% of the air from the bag, cutting oxygen exposure dramatically so meat, fish, bread, and produce stay fresh-tasting for months instead of weeks.',
   },
   {
-    q: 'How does a handheld vacuum sealer work?',
-    a: 'A handheld vacuum sealer like FreshLock uses a small but powerful pump to extract air from a specially designed zipper bag fitted with a one-way air valve. Place the sealer nozzle over the valve, press one button, and air is removed in seconds — the valve automatically locks to preserve the vacuum. No heat bar, no bulky chamber, no learning curve.',
+    q: 'Can I seal soups and marinades?',
+    a: 'Yes, thanks to the detachable transparent drip cup under the nozzle. It catches liquid overflow before it can reach the motor, so marinated meats, stew portions, and even leftover soups seal without mess. For very wet foods we recommend partial freezing first.',
   },
   {
-    q: 'Are FreshLock vacuum bags reusable?',
-    a: 'Yes. FreshLock bags use a double-track zipper with a green slider, so you can open and re-seal them many times. For raw meat, fish, or greasy foods we recommend using a fresh bag each time; for dry goods such as coffee, pasta, rice or snacks, bags can be washed and reused.',
+    q: 'Am I locked into buying special FreshLock bags?',
+    a: 'No. FreshLock works with most embossed valve bags (90 μm PA+PE film with a standard one-way air valve). Our own bags are BPA-free and tested to match, but you can use any compatible brand.',
   },
 ];
 
@@ -256,8 +325,8 @@ function QABlock() {
     <section className="py-20 bg-white" aria-labelledby="qa-heading">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
-          <h2 id="qa-heading" className="section-title">Your Questions, Answered</h2>
-          <p className="section-subtitle">Quick answers to the most common questions about FreshLock.</p>
+          <h2 id="qa-heading" className="section-title">Quick Answers</h2>
+          <p className="section-subtitle">The three questions we get asked most often.</p>
         </header>
         <div className="space-y-6">
           {qaItems.map((item) => (
@@ -272,7 +341,6 @@ function QABlock() {
   );
 }
 
-/* ───────── FAQ Preview ───────── */
 function FaqPreview() {
   const preview = faqs.slice(0, 4);
   return (
@@ -286,25 +354,20 @@ function FaqPreview() {
             <details key={f.question} className="bg-white rounded-xl p-6 shadow-sm group">
               <summary className="font-semibold text-primary cursor-pointer list-none flex justify-between items-center">
                 {f.question}
-                <span className="ml-4 text-accent group-open:rotate-180 transition-transform" aria-hidden="true">
-                  ▾
-                </span>
+                <span className="ml-4 text-accent group-open:rotate-180 transition-transform" aria-hidden="true">▾</span>
               </summary>
               <p className="mt-4 text-gray-600 leading-relaxed">{f.answer}</p>
             </details>
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link href="/faq" className="text-primary font-semibold hover:underline">
-            View all FAQs →
-          </Link>
+          <Link href="/faq" className="text-primary font-semibold hover:underline">View all FAQs →</Link>
         </div>
       </div>
     </section>
   );
 }
 
-/* ───────── Blog Preview ───────── */
 function BlogPreview() {
   const recentPosts = getAllPosts().slice(0, 3);
   return (
@@ -312,9 +375,7 @@ function BlogPreview() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 id="blog-heading" className="section-title">FreshLock Guides & Tips</h2>
-          <p className="section-subtitle">
-            Learn how to get the most out of your handheld vacuum sealer with our practical guides.
-          </p>
+          <p className="section-subtitle">Meal prep, freezer storage and sous-vide tips from our test kitchen.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {recentPosts.map(post => (
@@ -329,7 +390,7 @@ function BlogPreview() {
               <p className="text-gray-600 text-sm mb-3 line-clamp-3">{post.description}</p>
               <div className="flex items-center gap-2 text-xs text-gray-400">
                 <time dateTime={post.date}>
-                  {new Date(post.date).toLocaleDateString('en-AU', { year: 'numeric', month: 'short', day: 'numeric' })}
+                  {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
                 </time>
                 <span>·</span>
                 <span>{post.readingTime}</span>
@@ -338,35 +399,31 @@ function BlogPreview() {
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link href="/blog" className="btn-secondary">
-            View All Guides →
-          </Link>
+          <Link href="/blog" className="btn-secondary">View All Guides →</Link>
         </div>
       </div>
     </section>
   );
 }
 
-/* ───────── CTA ───────── */
 function Cta() {
   return (
     <section className="py-20 bg-primary text-white text-center">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Ready to Keep Your Food Fresh?
+          Stop Throwing Away Good Food
         </h2>
         <p className="text-gray-300 mb-8 text-lg">
-          Join 10,000+ households worldwide. Free shipping on orders over $79 AUD.
+          Free US shipping over ${FREE_SHIPPING_THRESHOLD} · 60-day returns · 2-year warranty
         </p>
-        <Link href="/products" className="btn-primary text-lg">
-          Shop FreshLock Now
+        <Link href="/products/freshlock-pro" className="btn-primary text-lg">
+          Get FreshLock Pro — $59.99
         </Link>
       </div>
     </section>
   );
 }
 
-/* ───────── Page ───────── */
 export default function HomePage() {
   return (
     <>

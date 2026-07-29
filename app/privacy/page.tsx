@@ -146,7 +146,7 @@ export default function PrivacyPage() {
           </section>
 
           <p className="text-sm text-gray-500 mt-8 pt-6 border-t">
-            Last updated: {new Date().toLocaleDateString('en-AU', { month: 'long', day: 'numeric', year: 'numeric' })}
+            Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
           </p>
         </div>
       </div>

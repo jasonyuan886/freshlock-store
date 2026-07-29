@@ -5,9 +5,18 @@ import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
 import Image from 'next/image';
 
+import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
+
+export const metadata = {
+  title: 'Secure Checkout | FreshLock',
+  description:
+    'Complete your FreshLock order securely. Free US shipping over $50, 60-day returns, 2-year warranty. Pay by card or PayPal.',
+  robots: { index: false, follow: false },
+};
+
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
-  const shipping = totalPrice >= 79 ? 0 : 9.95;
+  const shipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const total = totalPrice + shipping;
 
   const [paymentMethod, setPaymentMethod] = useState('stripe');
@@ -207,35 +216,27 @@ export default function CheckoutPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">State</label>
-                  <select
+                  <input
+                    type="text"
                     name="state"
                     value={form.state}
                     onChange={handleChange}
                     required
-                    className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none bg-white"
-                  >
-                    <option value="">Select state</option>
-                    <option value="NSW">NSW</option>
-                    <option value="VIC">VIC</option>
-                    <option value="QLD">QLD</option>
-                    <option value="WA">WA</option>
-                    <option value="SA">SA</option>
-                    <option value="TAS">TAS</option>
-                    <option value="ACT">ACT</option>
-                    <option value="NT">NT</option>
-                  </select>
+                    placeholder="e.g. CA"
+                    className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                  />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Postcode</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
                   <input
                     type="text"
                     name="postcode"
                     value={form.postcode}
                     onChange={handleChange}
                     required
-                    maxLength={4}
-                    pattern="[0-9]{4}"
-                    placeholder="2000"
+                    pattern="[0-9]{5}"
+                    maxLength={5}
+                    placeholder="90210"
                     className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
                   />
                 </div>
@@ -243,7 +244,7 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Country</label>
                   <input
                     type="text"
-                    value="Australia"
+                    value="United States"
                     readOnly
                     className="w-full border rounded-lg px-4 py-2.5 bg-gray-50 text-gray-500"
                   />
@@ -338,15 +339,15 @@ export default function CheckoutPage() {
                   <span className="text-gray-500">Shipping</span>
                   <span>{shipping === 0 ? <span className="text-accent font-medium">FREE</span> : `$${shipping.toFixed(2)}`}</span>
                 </div>
-                {totalPrice < 79 && (
+                {totalPrice < FREE_SHIPPING_THRESHOLD && (
                   <p className="text-xs text-gray-400">
-                    Add ${(79 - totalPrice).toFixed(2)} more for free shipping!
+                    Add ${(FREE_SHIPPING_THRESHOLD - totalPrice).toFixed(2)} more for free shipping!
                   </p>
                 )}
               </div>
               <div className="border-t mt-4 pt-4 flex justify-between font-bold text-lg">
                 <span>Total</span>
-                <span>${total.toFixed(2)} AUD</span>
+                <span>${total.toFixed(2)} USD</span>
               </div>
               <button
                 type="submit"
@@ -362,11 +363,16 @@ export default function CheckoutPage() {
                     Processing...
                   </span>
                 ) : (
-                  `Pay $${total.toFixed(2)} AUD`
+                  `Pay $${total.toFixed(2)} USD`
                 )}
               </button>
-              <p className="text-xs text-gray-400 text-center mt-3">
-                🔒 Secure checkout — your data is encrypted
+              <div className="mt-3 flex flex-wrap gap-2 justify-center text-[10px] text-gray-400">
+                <span>🔒 SSL Secure Checkout</span>
+                <span>·</span>
+                <span>Visa / MC / Amex / Discover / PayPal</span>
+              </div>
+              <p className="text-xs text-gray-400 text-center mt-2">
+                Free US shipping over $50 · 60-day returns · 2-year warranty
               </p>
             </div>
           </div>

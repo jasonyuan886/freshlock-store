@@ -22,4 +22,6 @@ export interface Review {
   rating: number;
   text: string;
   date: string;
+  verified?: boolean;
+  images?: string[];
 }

@@ -3,10 +3,17 @@ import { products } from '@/lib/data';
 import ProductsClient from './ProductsClient';
 
 export const metadata: Metadata = {
-  title: 'Shop Handheld Vacuum Sealers & Vacuum Bags',
+  title: 'Shop Handheld Vacuum Sealers & BPA-Free Vacuum Bags | FreshLock',
   description:
-    'Shop FreshLock handheld vacuum sealers, starter kits and reusable vacuum seal bags. Cordless, one-touch operation. Free shipping on orders over $79 AUD.',
-  alternates: { canonical: '/products' },
+    'Shop FreshLock Pro handheld vacuum sealers, starter kits and BPA-free embossed vacuum bags. -60 kPa suction, USB-C rechargeable, drip tray, compatible with most valve bags. Free US shipping over $50.',
+  alternates: {
+    canonical: '/products',
+    languages: {
+      'en-US': 'https://www.freshlocksealer.com/products',
+      'ja-JP': 'https://jp.freshlocksealer.com/products',
+      'x-default': 'https://www.freshlocksealer.com/products',
+    },
+  },
 };
 
 const itemListSchema = {

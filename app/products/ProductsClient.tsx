@@ -106,7 +106,7 @@ export default function ProductsPage() {
               <p className="text-gray-500 text-sm mb-4 line-clamp-2">{p.shortDescription}</p>
               <div className="flex justify-between items-center">
                 <span className="text-2xl font-bold text-accent">${p.price.toFixed(2)}</span>
-                <span className="text-sm text-gray-400">AUD</span>
+                <span className="text-sm text-gray-400">USD</span>
               </div>
             </div>
           </Link>

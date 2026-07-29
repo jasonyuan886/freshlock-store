@@ -37,7 +37,7 @@ export default function BlogIndex() {
               >
                 <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-3">
                   <time dateTime={post.date}>
-                    {new Date(post.date).toLocaleDateString('en-AU', {
+                    {new Date(post.date).toLocaleDateString('en-US', {
                       year: 'numeric', month: 'long', day: 'numeric',
                     })}
                   </time>

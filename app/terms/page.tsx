@@ -32,7 +32,7 @@ export default function TermsPage() {
               We take care to describe and display our products accurately. Please note:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
-              <li>All prices are shown in Australian Dollars (AUD). Applicable taxes, duties and import fees are the responsibility of the customer in accordance with local regulations.</li>
+              <li>All prices are shown in US Dollars (USD). Applicable taxes, duties and import fees are the responsibility of the customer in accordance with local regulations.</li>
               <li>We reserve the right to correct pricing errors, even after an order has been placed, and will notify you before charging a different price.</li>
               <li>Product images are for illustrative purposes. Colours and finishes may vary slightly depending on your screen.</li>
               <li>We reserve the right to discontinue products, limit quantities, or change specifications without notice.</li>
@@ -64,7 +64,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">7. Returns, Refunds and Consumer Guarantees</h2>
             <p className="text-gray-600 leading-relaxed">
-              Our <a href="/returns" className="text-accent hover:underline">Returns &amp; Refund Policy</a> sets out our 30-day return process for change-of-mind returns and how we handle defective or damaged items. Nothing in these Terms limits your non-excludable statutory consumer rights under applicable local law, including your entitlement to a replacement, repair, or refund for a major failure and compensation for any other reasonably foreseeable loss or damage.
+              Our <a href="/returns" className="text-accent hover:underline">Returns &amp; Refund Policy</a> sets out our 60-day return process for change-of-mind returns and how we handle defective or damaged items. Nothing in these Terms limits your non-excludable statutory consumer rights under applicable local law, including your entitlement to a replacement, repair, or refund for a major failure and compensation for any other reasonably foreseeable loss or damage.
             </p>
           </section>
 
@@ -78,7 +78,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">9. Warranties and Disclaimers</h2>
             <p className="text-gray-600 leading-relaxed mb-3">
-              FreshLock products come with a manufacturer&rsquo;s warranty against defects in materials and workmanship, as specified on the product page (typically 1–2 years from purchase). To the fullest extent permitted by law, and except for non-excludable consumer guarantees under the ACL:
+              FreshLock products come with a manufacturer's warranty against defects in materials and workmanship, as specified on the product page (2-year warranty on the main unit, 6-month warranty on accessories and consumables) from purchase. To the fullest extent permitted by law:
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
               <li>The Site and its content are provided &ldquo;as is&rdquo; without warranties of any kind, whether express or implied.</li>
@@ -149,12 +149,12 @@ export default function TermsPage() {
             </p>
             <p className="text-gray-600 leading-relaxed mt-3">
               <strong>Email:</strong> <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a><br />
-              <strong>Response time:</strong> Within 24 hours on business days (Mon–Fri, 9am–5pm AEST)
+              <strong>Response time:</strong> Within 24 hours on business days (Mon–Fri, 9am–5pm EST)
             </p>
           </section>
 
           <p className="text-sm text-gray-500 mt-8 pt-6 border-t">
-            Last updated: {new Date().toLocaleDateString('en-AU', { month: 'long', day: 'numeric', year: 'numeric' })}
+            Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
           </p>
         </div>
       </div>

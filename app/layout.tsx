@@ -7,9 +7,9 @@ import { CartProvider } from '@/lib/cart-context';
 import { generateOrganizationSchema, generateWebsiteSchema, SITE_URL } from '@/lib/schema';
 
 const siteName = 'FreshLock';
-const title = 'FreshLock — Handheld Vacuum Sealer | Keep Food Fresh 5× Longer';
+const title = 'FreshLock Handheld Vacuum Sealer — Stop Freezer Burn, Stay Fresh 5× Longer';
 const description =
-  'FreshLock cordless handheld vacuum sealer keeps food fresh up to 5× longer with one-touch sealing. Includes reusable vacuum seal bags, USB-C rechargeable. Free shipping on orders over $79. 30-day guarantee.';
+  'FreshLock Pro cordless handheld vacuum sealer stops freezer burn with -60 kPa suction, detachable drip tray and USB-C charging. BPA-free bags, works with most embossed valve bags. Free US shipping over $50, 60-day returns.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   description,
   keywords:
-    'handheld vacuum sealer, vacuum sealer, portable vacuum sealer, cordless vacuum sealer, food vacuum sealer, vacuum seal bags, reusable vacuum bags, food storage, meal prep, food preservation, FreshLock, kitchen gadget',
+    'handheld vacuum sealer, cordless vacuum sealer, portable vacuum sealer, food vacuum sealer, vacuum seal bags, reusable vacuum bags, BPA-free, USB-C, meal prep, freezer burn prevention, food storage, sous vide, FreshLock',
   applicationName: siteName,
   icons: {
     icon: '/logo.svg',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
     languages: {
-      'en': 'https://www.freshlocksealer.com',
-      'ja': 'https://jp.freshlocksealer.com',
+      'en-US': 'https://www.freshlocksealer.com',
+      'ja-JP': 'https://jp.freshlocksealer.com',
       'x-default': 'https://www.freshlocksealer.com',
     },
   },
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: '/images/products/sealer-main.jpg',
         width: 1200,
         height: 630,
-        alt: 'FreshLock handheld vacuum sealer',
+        alt: 'FreshLock Pro handheld vacuum sealer in pearl white with apple-green zip-slider bags',
       },
     ],
   },
@@ -75,8 +75,11 @@ const websiteSchema = generateWebsiteSchema();
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en-US">
       <head>
+        <link rel="alternate" hrefLang="en-US" href="https://www.freshlocksealer.com" />
+        <link rel="alternate" hrefLang="ja-JP" href="https://jp.freshlocksealer.com" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.freshlocksealer.com" />
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-N16R0F2B1Y" strategy="afterInteractive" />
         <Script id="ga4-init" strategy="afterInteractive">
           {`
