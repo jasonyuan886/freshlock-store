@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const paymentMethods = [
@@ -11,9 +12,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-primary font-bold text-xl">F</span>
-              </div>
+              <Image src="/logo-icon.png" alt="FreshLock" width={32} height={36} className="w-8 h-9" />
               <span className="text-xl font-bold">FreshLock</span>
             </div>
             <p className="text-gray-300 text-sm">

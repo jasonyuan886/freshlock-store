@@ -22,8 +22,11 @@ export const metadata: Metadata = {
     'handheld vacuum sealer, cordless vacuum sealer, portable vacuum sealer, food vacuum sealer, vacuum seal bags, reusable vacuum bags, BPA-free, USB-C, meal prep, freezer burn prevention, food storage, sous vide, FreshLock',
   applicationName: siteName,
   icons: {
-    icon: '/logo.svg',
-    apple: '/logo.svg',
+    icon: '/favicon-32.png',
+    apple: '/apple-touch-icon.png',
+    other: {
+      'msapplication-TileImage': '/icon-192.png',
+    },
   },
   alternates: {
     canonical: '/',

@@ -23,24 +23,26 @@ function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block bg-accent/20 text-accent text-sm font-semibold px-3 py-1 rounded-full mb-4">
-              🧊 Stop freezer burn before it starts
+              💧 Vacuum-seal soups & marinades — without killing the motor
             </span>
             <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               FreshLock Pro<br />
               <span className="text-accent">Handheld Vacuum Sealer</span>
             </h1>
             <p className="text-lg text-gray-200 mb-6 max-w-lg">
-              Cordless, one-touch vacuum sealing that keeps food fresh up to <strong>5× longer</strong>.
-              -60 kPa suction with a <strong>detachable drip tray</strong> for mess-free sealing of
-              soups and marinades. Recharges via <strong>USB-C</strong>, works with{' '}
-              <strong>BPA-free bags</strong> and is <strong>compatible with most embossed valve bags</strong>.
+              The only cordless handheld sealer with a{' '}
+              <strong>mechanical drip-drain cup</strong> that catches soups, marinades
+              and juicy drips <em>before</em> they hit the motor. No clogged pumps,
+              no burnt units — just -60 kPa one-touch vacuum that keeps food fresh{' '}
+              <strong>5× longer</strong>. USB-C rechargeable, works with{' '}
+              <strong>most embossed valve bags</strong> (not just ours).
             </p>
             <div className="flex flex-wrap gap-2 mb-8 text-sm">
               {[
-                '🔌 USB-C charging',
-                '💧 Drip tray included',
+                '💧 Mechanical drain cup (soups/marinades safe)',
+                '🔌 USB-C · 80-100 seals/charge',
                 '🔇 Under 60 dB',
-                '♻️ Compatible with most valve bags',
+                '♻️ Works with most valve bags',
                 '🛡️ 2-year warranty',
               ].map((b) => (
                 <span key={b} className="bg-white/10 text-white text-xs px-2.5 py-1 rounded-full border border-white/20">
