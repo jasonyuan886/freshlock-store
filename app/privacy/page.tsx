@@ -20,7 +20,7 @@ export default function PrivacyPage() {
             <p className="text-gray-600 leading-relaxed mb-3">We may collect the following categories of information:</p>
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
               <li><strong>Personal Information:</strong> Name, email address, phone number, shipping address, and billing address provided when you place an order, create an account, or contact us.</li>
-              <li><strong>Payment Information:</strong> Credit/debit card details or PayPal account information. Payment is processed securely by our payment providers (Stripe, PayPal); we do not store full card numbers on our servers.</li>
+              <li><strong>Payment Information:</strong> PayPal account information and any card details entered during checkout. Payment is processed securely by PayPal; we do not store full card numbers on our servers.</li>
               <li><strong>Order Information:</strong> Purchase history, order details, product preferences, and correspondence related to your orders.</li>
               <li><strong>Technical Information:</strong> IP address, browser type and version, device type and operating system, referring URLs, pages visited, time spent on pages, and other diagnostic data collected automatically when you use the site.</li>
               <li><strong>Communication Data:</strong> Emails, form submissions, chat messages, or other correspondence with our support team.</li>
