@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Shipping Policy — Delivery Times, Costs & Tracking  |',
+  title: 'Shipping Policy — Delivery Times, Costs & Tracking',
   description:
     'FreshLock shipping policy: free US/CA/UK/JP shipping on orders over $79 (AU/NZ over $59), Starter Kits ship free worldwide, $5.99 flat rate under threshold, 3–7 day US delivery with tracking.',
 };

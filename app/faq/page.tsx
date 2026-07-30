@@ -4,7 +4,7 @@ import { faqs } from '@/lib/data';
 import { generateFAQSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'FAQ — Battery, Bags, Freezer Burn, Drip Tray & Warranty  |',
+  title: 'FAQ — Battery, Bags, Freezer Burn, Drip Tray & Warranty',
   description:
     'Answers about the FreshLock Pro handheld vacuum sealer: battery life, USB-C charging, BPA-free bags, drip tray for liquids, warranty, 60-day returns and shipping.',
   alternates: {
