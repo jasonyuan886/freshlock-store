@@ -2,6 +2,8 @@ export interface Product {
   slug: string;
   name: string;
   price: number;
+  compareAtPrice?: number;
+  discountBadge?: string;
   description: string;
   shortDescription: string;
   image: string;

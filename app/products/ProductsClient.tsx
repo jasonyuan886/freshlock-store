@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { products } from '@/lib/data';
 import Image from 'next/image';
+import PriceDisplay from '@/components/PriceDisplay';
 
 const categories = [
   { value: 'all', label: 'All Products' },
@@ -104,8 +105,14 @@ export default function ProductsPage() {
             <div className="p-6">
               <h2 className="text-lg font-bold text-primary mb-2">{p.name}</h2>
               <p className="text-gray-500 text-sm mb-4 line-clamp-2">{p.shortDescription}</p>
-              <div className="flex justify-between items-center">
-                <span className="text-2xl font-bold text-accent">${p.price.toFixed(2)}</span>
+              <div className="flex justify-between items-end">
+                <PriceDisplay
+                  price={p.price}
+                  compareAtPrice={p.compareAtPrice}
+                  discountBadge={p.discountBadge}
+                  size="sm"
+                  showCurrencyLabel={false}
+                />
                 <span className="text-sm text-gray-400">USD</span>
               </div>
             </div>

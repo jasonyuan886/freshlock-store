@@ -23,6 +23,9 @@ export default function Header() {
             <Link href="/products" className="text-gray-700 hover:text-primary transition">
               Products
             </Link>
+            <Link href="/food-waste-calculator" className="text-accent hover:text-accent/80 font-semibold transition">
+              💰 Save $1,866
+            </Link>
             <Link href="/blog" className="text-gray-700 hover:text-primary transition">
               Blog
             </Link>
@@ -103,6 +106,13 @@ export default function Header() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Products
+            </Link>
+            <Link
+              href="/food-waste-calculator"
+              className="block py-2 text-accent font-semibold hover:text-accent/80"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              💰 Save $1,866 / Year
             </Link>
             <Link
               href="/blog"

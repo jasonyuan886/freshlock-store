@@ -9,7 +9,7 @@ import { generateOrganizationSchema, generateWebsiteSchema, SITE_URL } from '@/l
 const siteName = 'FreshLock';
 const title = 'FreshLock Handheld Vacuum Sealer — Stop Freezer Burn, Stay Fresh 5× Longer';
 const description =
-  'FreshLock Pro cordless handheld vacuum sealer stops freezer burn with -60 kPa suction, detachable drip tray and USB-C charging. BPA-free bags, works with most embossed valve bags. Free US shipping over $50, 60-day returns.';
+  'FreshLock Pro cordless handheld vacuum sealer stops freezer burn with -60 kPa suction, detachable drip tray and USB-C charging. BPA-free bags, works with most embossed valve bags. Free shipping over $79, 60-day returns.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

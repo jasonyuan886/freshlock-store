@@ -59,7 +59,7 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {[
             { icon: '🌱', title: 'Reduce Food Waste', text: 'Vacuum sealing extends fridge, freezer and pantry life by up to 5× — saving groceries and money.' },
-            { icon: '🌍', title: 'Free US Shipping $50+', text: 'Free standard US shipping over $50. International rates calculated at checkout.' },
+            { icon: '🌍', title: 'Free US Shipping $79+', text: 'Free standard US/CA/UK/JP shipping over $79; AU/NZ free over $59; Starter Kits always ship free. International rates calculated at checkout.' },
             { icon: '♻️', title: 'Compatible & Reusable', text: 'Works with most embossed valve bags. Bags are washable and reusable for dry goods.' },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl p-6 shadow-sm text-center">
@@ -79,7 +79,7 @@ export default function AboutPage() {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
-              <span><strong>Free US shipping</strong> on all orders over $50.</span>
+              <span><strong>Free shipping</strong> on US/CA/UK/JP orders over $79 (AU/NZ over $59); Starter Kits always ship free.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>

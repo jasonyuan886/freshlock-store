@@ -5,7 +5,7 @@ import ProductsClient from './ProductsClient';
 export const metadata: Metadata = {
   title: 'Shop Handheld Vacuum Sealers & BPA-Free Vacuum Bags | FreshLock',
   description:
-    'Shop FreshLock Pro handheld vacuum sealers, starter kits and BPA-free embossed vacuum bags. -60 kPa suction, USB-C rechargeable, drip tray, compatible with most valve bags. Free US shipping over $50.',
+    'Shop FreshLock Pro handheld vacuum sealers, starter kits and BPA-free embossed vacuum bags. -60 kPa suction, USB-C rechargeable, drip tray, compatible with most valve bags. Free shipping over $79, Starter Kits ship free.',
   alternates: {
     canonical: '/products',
     languages: {

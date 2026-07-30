@@ -1,14 +1,26 @@
 import { Product, Review } from './types';
 
 // Free shipping threshold for US orders (USD)
-export const FREE_SHIPPING_THRESHOLD = 50;
+export const FREE_SHIPPING_THRESHOLD = 79;
 export const SHIPPING_FEE_UNDER = 5.99;
+// International free-shipping tiers
+export const FREE_SHIPPING_REGIONS: Record<string, number> = {
+  US: 79,
+  CA: 79,
+  GB: 79,
+  JP: 79,
+  AU: 59,
+  NZ: 59,
+};
+export const STARTER_KIT_SHIPS_FREE = true; // Starter kits always ship free
 
 export const products: Product[] = [
   {
     slug: 'freshlock-pro',
     name: 'FreshLock Pro Handheld Vacuum Sealer',
     price: 59.99,
+    compareAtPrice: 89.99,
+    discountBadge: '33% off MSRP',
     description:
       'The FreshLock Pro is a cordless handheld vacuum sealer designed to stop freezer burn before it starts. Attach the nozzle to the valve on any compatible embossed valve bag, press one button, and the quiet pump pulls air out in seconds — creating an airtight seal that keeps food fresh up to 5× longer. A detachable drip tray catches liquid overflow so soups, marinades, and juicy meats seal cleanly without damaging the motor. No heat bar, no complicated setup. Recharge via USB-C and take it anywhere — kitchen drawer, fridge, pantry, or campsite.',
     shortDescription:
@@ -51,6 +63,8 @@ export const products: Product[] = [
     slug: 'freshlock-starter-kit',
     name: 'FreshLock Starter Kit',
     price: 79.99,
+    compareAtPrice: 104.97,
+    discountBadge: 'Save $24.98 · Ships FREE',
     description:
       'Everything you need to start vacuum sealing today — the FreshLock Pro handheld vacuum sealer plus 30 BPA-free embossed valve bags in three sizes (10 small, 10 medium, 10 large), all packed in a premium full-colour gift box. Stop freezer burn on meal prep, leftovers, marinating meats, and sous-vide portions the moment you unbox. The sealer works with most embossed valve bags, so you are never locked into expensive replacements.',
     shortDescription:
@@ -265,7 +279,7 @@ export const faqs = [
   {
     question: 'What is your shipping policy?',
     answer:
-      'We offer free standard shipping on all US orders over $50 (US orders under $50 ship for $5.99). Orders are processed within 1–2 business days and delivered in 3–7 business days via tracked postal service. International shipping rates are calculated at checkout. Tracking is included with every order.',
+      'Free standard shipping on US/CA/UK/JP orders over $79, and AU/NZ orders over $59. All Starter Kits ship free within US/CA/UK/JP regardless of subtotal. Orders under the free-shipping threshold pay a $5.99 flat rate (US) or live calculated rate (international). Orders are processed within 1–2 business days and delivered in 3–7 business days via tracked postal service (international 7–18 days). Tracking is included with every order.',
   },
   {
     question: 'What is your return policy?',

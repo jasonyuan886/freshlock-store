@@ -5,15 +5,26 @@ import { products, reviews as allReviews, FREE_SHIPPING_THRESHOLD, ratingDistrib
 import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/schema';
 import AddToCartClient from './AddToCartClient';
 import Image from 'next/image';
+import PriceDisplay from '@/components/PriceDisplay';
 
 type Params = { slug: string };
 
-function StickyMobileATC({ productName, productPrice }: { productName: string; productPrice: string }) {
+function StickyMobileATC({ product }: { product: { name: string; price: number; compareAtPrice?: number; discountBadge?: string; slug: string } }) {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg z-40 px-4 py-3 flex items-center gap-3">
       <div className="flex-1 min-w-0">
-        <div className="text-xs text-gray-500 truncate">{productName}</div>
-        <div className="text-accent font-bold">{productPrice}</div>
+        <div className="text-xs text-gray-500 truncate">{product.name}</div>
+        <div className="flex items-baseline gap-2">
+          {product.compareAtPrice && product.compareAtPrice > product.price && (
+            <span className="text-xs text-gray-400 line-through">${product.compareAtPrice.toFixed(2)}</span>
+          )}
+          <span className="text-accent font-bold">${product.price.toFixed(2)}</span>
+          {product.discountBadge && (
+            <span className="text-[10px] bg-red-50 text-red-600 font-bold px-1.5 py-0.5 rounded-full border border-red-200">
+              {product.discountBadge}
+            </span>
+          )}
+        </div>
       </div>
       <a href="#purchase" className="btn-primary text-sm px-5 py-2 whitespace-nowrap">
         Add to Cart
@@ -223,6 +234,9 @@ export default function ProductDetailPage({ params }: { params: Params }) {
         {/* ATF Trust badges */}
         <div className="flex flex-wrap gap-3 mb-6 text-sm" aria-label="Trust badges">
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🚚 Free Shipping ${FREE_SHIPPING_THRESHOLD}+</span>
+          {product.badge === 'Best Value' || product.slug.includes('kit') ? (
+            <span className="bg-red-50 text-red-600 border border-red-200 px-3 py-1 rounded-full text-xs font-semibold">🎁 Ships FREE</span>
+          ) : null}
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">↩️ 60-Day Returns</span>
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🛡️ 2-Year Warranty</span>
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🔒 Secure SSL Checkout</span>
@@ -280,13 +294,17 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               <span className="text-sm text-gray-500">{allReviews.length} verified reviews</span>
             </div>
 
-            <p className="text-3xl font-bold text-accent mb-6" itemProp="offers" itemScope itemType="https://schema.org/Offer">
+            <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="mb-6">
               <meta itemProp="priceCurrency" content="USD" />
               <meta itemProp="price" content={String(product.price)} />
               <meta itemProp="availability" content="https://schema.org/InStock" />
-              ${product.price.toFixed(2)}{' '}
-              <span className="text-sm text-gray-400 font-normal">USD</span>
-            </p>
+              <PriceDisplay
+                price={product.price}
+                compareAtPrice={product.compareAtPrice}
+                discountBadge={product.discountBadge}
+                size="lg"
+              />
+            </div>
             <p className="text-gray-600 leading-relaxed mb-8" itemProp="description">{product.description}</p>
 
             <section className="mb-8">
@@ -366,7 +384,13 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                   <div className="p-4">
                     <h3 className="font-bold text-primary mb-1">{p.name}</h3>
                     <p className="text-gray-500 text-xs line-clamp-2 mb-2">{p.shortDescription}</p>
-                    <p className="text-accent font-bold">${p.price.toFixed(2)} USD</p>
+                    <PriceDisplay
+                      price={p.price}
+                      compareAtPrice={p.compareAtPrice}
+                      discountBadge={p.discountBadge}
+                      size="sm"
+                      showCurrencyLabel
+                    />
                   </div>
                 </Link>
               ))}
@@ -374,7 +398,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           </section>
         )}
       </div>
-      <StickyMobileATC productName={product.name} productPrice={`$${product.price}`} />
+      <StickyMobileATC product={product} />
       <div className="md:hidden h-20" />
     </>
   );

@@ -368,7 +368,7 @@ export default function CheckoutPage() {
                 <span>Visa / MC / Amex / Discover / PayPal</span>
               </div>
               <p className="text-xs text-gray-400 text-center mt-2">
-                Free US shipping over $50 · 60-day returns · 2-year warranty
+                Free shipping over $79 · Starter Kits ship free · 60-day returns · 2-year warranty
               </p>
             </div>
           </div>

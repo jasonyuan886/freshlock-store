@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { products, reviews, faqs, FREE_SHIPPING_THRESHOLD } from '@/lib/data';
+import PriceDisplay from '@/components/PriceDisplay';
 import { getAllPosts } from '@/lib/blog';
 import { generateFAQSchema } from '@/lib/schema';
 import Image from 'next/image';
@@ -203,7 +204,13 @@ function ProductShowcase() {
               <div className="p-5">
                 <h3 className="font-bold text-primary mb-1">{p.name}</h3>
                 <p className="text-gray-500 text-sm mb-3 line-clamp-2">{p.shortDescription}</p>
-                <p className="text-xl font-bold text-accent">${p.price.toFixed(2)} USD</p>
+                <PriceDisplay
+                  price={p.price}
+                  compareAtPrice={p.compareAtPrice}
+                  discountBadge={p.discountBadge}
+                  size="sm"
+                  showCurrencyLabel
+                />
               </div>
             </Link>
           ))}
@@ -414,7 +421,7 @@ function Cta() {
           Stop Throwing Away Good Food
         </h2>
         <p className="text-gray-300 mb-8 text-lg">
-          Free US shipping over ${FREE_SHIPPING_THRESHOLD} · 60-day returns · 2-year warranty
+          Free shipping over ${FREE_SHIPPING_THRESHOLD} · Starter Kits ship free · 60-day returns · 2-year warranty
         </p>
         <Link href="/products/freshlock-pro" className="btn-primary text-lg">
           Get FreshLock Pro — $59.99

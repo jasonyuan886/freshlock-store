@@ -57,7 +57,8 @@ export default function Footer() {
               <li><Link href="/terms" className="text-gray-300 hover:text-white transition">Terms of Service</Link></li>
             </ul>
             <div className="mt-4 text-xs text-gray-300 space-y-1">
-              <p>🚚 Free US shipping over $50</p>
+              <p>🚚 Free US shipping over $79</p>
+              <p>🎁 Starter Kits Ship FREE</p>
               <p>↩️ 60-day returns</p>
               <p>🛡️ 2-year warranty (unit)</p>
             </div>

@@ -7,7 +7,7 @@ const PAYPAL_BASE_URL = process.env.PAYPAL_MODE === 'live'
   ? 'https://api-m.paypal.com'
   : 'https://api-m.sandbox.paypal.com';
 
-const FREE_SHIPPING_THRESHOLD = 50;
+const FREE_SHIPPING_THRESHOLD = 79;
 const SHIPPING_FEE_UNDER = 5.99;
 
 async function getAccessToken() {
