@@ -29,11 +29,13 @@ export const products: Product[] = [
     images: [
       '/images/products/sealer-main.jpg',
       '/images/products/sealer-angled.jpg',
+      '/images/products/sealer-kit.jpg',
+      '/images/products/sealer-box-angle.jpg',
+      '/images/products/sealer-drain.jpg',
       '/images/products/sealer-detail-suction.jpg',
       '/images/products/sealer-detail-usbc.jpg',
       '/images/products/sealer-detail-cup.jpg',
       '/images/products/sealer-detail-tube.jpg',
-      '/images/products/sealer-drain.jpg',
     ],
     features: [
       '-60 kPa strong suction — pulls air through the bag valve in seconds',
@@ -70,20 +72,20 @@ export const products: Product[] = [
     compareAtPrice: 104.97,
     discountBadge: 'Save $24.98 · Ships FREE',
     description:
-      'Everything you need to start vacuum sealing today — the FreshLock Pro handheld vacuum sealer plus 30 BPA-free embossed valve bags in three sizes (10 small, 10 medium, 10 large), all packed in a premium full-colour gift box. Stop freezer burn on meal prep, leftovers, marinating meats, and sous-vide portions the moment you unbox. The sealer works with most embossed valve bags, so you are never locked into expensive replacements.',
+      'Everything you need to start vacuum sealing today — the FreshLock Pro handheld vacuum sealer plus 30 BPA-free embossed valve bags in three sizes (10 small, 10 medium, 10 large), all in the retail box. Stop freezer burn on meal prep, leftovers, marinating meats, and sous-vide portions the moment you open the box. The sealer works with most embossed valve bags, so you are never locked into expensive replacements.',
     shortDescription:
       'FreshLock Pro + 30 BPA-free vacuum zipper bags in 3 sizes — everything to get started sealing today.',
     image: '/images/products/sealer-kit.jpg',
     images: [
       '/images/products/sealer-kit.jpg',
-      '/images/products/travel-kit.jpg',
+      '/images/products/sealer-box-angle.jpg',
       '/images/products/sealer-main.jpg',
       '/images/products/sealer-angled.jpg',
+      '/images/products/sealer-drain.jpg',
       '/images/products/sealer-detail-suction.jpg',
       '/images/products/sealer-detail-usbc.jpg',
       '/images/products/sealer-detail-cup.jpg',
       '/images/products/sealer-detail-tube.jpg',
-      '/images/products/sealer-drain.jpg',
       '/images/products/bags-small.jpg',
       '/images/products/bags-med.jpg',
       '/images/products/bags-lrg.jpg',
@@ -94,7 +96,7 @@ export const products: Product[] = [
       'Detachable drip tray for mess-free sealing of liquids and marinades',
       'USB-C charging cable + quick-start guide included',
       'Works with most embossed valve bags — not locked to our own bags',
-      'Premium full-colour gift box packaging',
+      'Comes in retail gift-ready box',
     ],
     specs: {
       'Includes': '1× FreshLock Pro sealer, 10× Small bags, 10× Medium bags, 10× Large bags, 1× USB-C cable, 1× quick-start guide',
