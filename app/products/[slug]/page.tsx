@@ -10,6 +10,22 @@ import PriceDisplay from '@/components/PriceDisplay';
 
 type Params = { slug: string };
 
+function First100ReviewersBlock({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={`bg-green-50 border-2 border-green-500/40 rounded-xl ${compact ? 'p-4 mt-4' : 'p-5 mt-5'}`}>
+      <p className={`font-bold text-green-800 ${compact ? 'text-sm' : 'text-base'} mb-1`}>🎁 Be one of our first 100 reviewers — get FREE bags!</p>
+      <p className={`text-green-900/80 ${compact ? 'text-xs' : 'text-sm'} mb-3`}>Leave an honest review within 30 days of purchase and we&apos;ll send you a <strong>FREE 30-pack refill bag set</strong> (value $19.99) after verification.</p>
+      <a
+        href="mailto:freshlocksealer@gmail.com?subject=FreshLock%20Product%20Review%20%28First%20100%20Reviewers%29&body=Hi%20FreshLock%2C%0A%0AOrder%20%23%3A%20%28please%20include%20your%20order%20number%29%0A%0AI%27d%20like%20to%20leave%20a%20review%20of%20my%20FreshLock%20purchase%20and%20claim%20the%20First%20100%20Reviewers%20free%20bag%20set.%0A%0A--%20Paste%20your%20review%20below%20--%0A%0AStar%20rating%20%281-5%29%3A%0AReview%3A%0A"
+        className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-4 py-2 rounded-lg text-sm transition"
+      >
+        ✍️ Write a Review &amp; Claim Free Bags
+      </a>
+      <p className="text-[10px] text-green-700/60 mt-2">Reviews must be genuine &amp; from verified buyers. We do not pay for positive reviews.</p>
+    </div>
+  );
+}
+
 function StickyMobileATC({ product }: { product: { name: string; price: number; compareAtPrice?: number; discountBadge?: string; slug: string } }) {
   return (
     <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg z-40 px-4 py-3 flex items-center gap-3">
@@ -156,18 +172,6 @@ function ReviewsSection() {
             )}
           </article>
         ))}
-      </div>
-
-      <div className="mt-8 text-center bg-accent/5 border border-accent/20 rounded-xl p-6">
-        <p className="text-sm font-semibold text-primary mb-2">🎁 Be one of our first 100 reviewers</p>
-        <p className="text-xs text-gray-600 mb-4">Leave an honest review within 30 days of purchase and get a <strong>FREE 30-pack refill bag set</strong> (value $19.99) — we&apos;ll email you a coupon after your review is verified.</p>
-        <a
-          href="mailto:freshlocksealer@gmail.com?subject=FreshLock%20Product%20Review%20%28First%20100%20Reviewers%29&body=Hi%20FreshLock%2C%0A%0AOrder%20%23%3A%20%28please%20include%20your%20order%20number%29%0A%0AI%27d%20like%20to%20leave%20a%20review%20of%20my%20FreshLock%20purchase%20and%20claim%20the%20First%20100%20Reviewers%20free%20bag%20set.%0A%0A--%20Paste%20your%20review%20below%20--%0A%0AStar%20rating%20%281-5%29%3A%0AReview%3A%0A"
-          className="inline-block btn-primary"
-        >
-          ✍️ Write a Review & Claim Free Bags
-        </a>
-        <p className="text-[10px] text-gray-400 mt-2">Reviews must be genuine & from verified buyers. We do not pay for positive reviews.</p>
       </div>
     </section>
   );
@@ -316,7 +320,9 @@ export default function ProductDetailPage({ params }: { params: Params }) {
 
             <div id="purchase"><AddToCartClient product={product} /></div>
 
-            <div className="flex flex-wrap gap-4 mt-6 text-xs text-gray-500">
+            <First100ReviewersBlock compact />
+
+            <div className="flex flex-wrap gap-4 mt-4 text-xs text-gray-500">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
               <span>↩️ 60-day hassle-free returns</span>
               <span>🛡️ 2-year warranty</span>

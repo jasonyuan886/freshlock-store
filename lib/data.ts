@@ -29,6 +29,10 @@ export const products: Product[] = [
     images: [
       '/images/products/sealer-main.jpg',
       '/images/products/sealer-angled.jpg',
+      '/images/products/sealer-detail-suction.jpg',
+      '/images/products/sealer-detail-usbc.jpg',
+      '/images/products/sealer-detail-cup.jpg',
+      '/images/products/sealer-detail-tube.jpg',
       '/images/products/sealer-drain.jpg',
     ],
     features: [
