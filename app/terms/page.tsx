@@ -49,7 +49,7 @@ export default function TermsPage() {
               <li>You agree to provide accurate, current, and complete billing and shipping information.</li>
               <li>You will receive an automated order confirmation email acknowledging receipt of your order.</li>
               <li>A binding contract is formed only when we dispatch the goods and send you a shipping confirmation.</li>
-              <li>Payment is processed securely through our third-party payment providers (Stripe, PayPal), who handle your payment details in accordance with their own security and privacy standards.</li>
+              <li>Payment is processed securely through PayPal, our third-party payment provider, who handles your payment details in accordance with their own security and privacy standards.</li>
               <li>We reserve the right to refuse or cancel any order at our discretion — for example, if a product is out of stock, if pricing is incorrect, or if we suspect fraudulent activity. In such cases we will issue a full refund.</li>
             </ul>
           </section>

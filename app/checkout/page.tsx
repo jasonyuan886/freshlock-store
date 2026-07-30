@@ -15,7 +15,7 @@ export default function CheckoutPage() {
   const shipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const total = totalPrice + shipping;
 
-  const [paymentMethod, setPaymentMethod] = useState('stripe');
+  const [paymentMethod, setPaymentMethod] = useState('paypal');
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState('');
 
@@ -252,6 +252,7 @@ export default function CheckoutPage() {
             <div className="bg-white rounded-xl p-6 shadow">
               <h2 className="font-bold text-primary text-lg mb-4">Payment Method</h2>
               <div className="space-y-3">
+                {/* Credit/Debit Card via Stripe — disabled per Stripe ban 2026-07-30
                 <label className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition ${paymentMethod === 'stripe' ? 'border-primary bg-primary/5' : 'hover:bg-gray-50'}`}>
                   <input
                     type="radio"
@@ -263,9 +264,10 @@ export default function CheckoutPage() {
                   />
                   <div>
                     <span className="font-medium">💳 Credit / Debit Card</span>
-                    <p className="text-xs text-gray-500 mt-0.5">Visa, Mastercard, Amex — powered by Stripe</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Visa, Mastercard, Amex — securely processed</p>
                   </div>
                 </label>
+                */}
                 <label className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition ${paymentMethod === 'paypal' ? 'border-primary bg-primary/5' : 'hover:bg-gray-50'}`}>
                   <input
                     type="radio"
@@ -277,9 +279,10 @@ export default function CheckoutPage() {
                   />
                   <div>
                     <span className="font-medium">🅿️ PayPal</span>
-                    <p className="text-xs text-gray-500 mt-0.5">Pay with your PayPal account</p>
+                    <p className="text-xs text-gray-500 mt-0.5">Pay with PayPal — Visa, Mastercard, Amex accepted via PayPal</p>
                   </div>
                 </label>
+                {/* Afterpay — not integrated yet, hidden to avoid false promise
                 <label className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition ${paymentMethod === 'afterpay' ? 'border-primary bg-primary/5' : 'hover:bg-gray-50'}`}>
                   <input
                     type="radio"
@@ -294,6 +297,7 @@ export default function CheckoutPage() {
                     <p className="text-xs text-gray-500 mt-0.5">4 interest-free payments</p>
                   </div>
                 </label>
+                */}
               </div>
 
               {/* 安全提示 */}

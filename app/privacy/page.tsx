@@ -64,7 +64,7 @@ export default function PrivacyPage() {
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
               <li><strong>Vercel:</strong> Hosting and content delivery platform that serves our website. Processes IP address and technical data for security and performance.</li>
               <li><strong>Google Analytics:</strong> Website traffic and usage analysis. Data is anonymised where possible. You can opt out via Google&rsquo;s browser add-on.</li>
-              <li><strong>Stripe &amp; PayPal:</strong> Payment processing providers who handle payment card data securely.</li>
+              <li><strong>PayPal:</strong> Payment processing provider that handles payment card data securely.</li>
               <li><strong>Shipping carriers and fulfilment partners:</strong> To deliver your orders; they receive your name, shipping address, and contact details for delivery purposes only.</li>
               <li><strong>Email service providers:</strong> To send transactional emails (order confirmations, shipping updates) and marketing emails (if you have subscribed).</li>
             </ul>

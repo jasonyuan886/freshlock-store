@@ -2,8 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   const paymentMethods = [
-    'Visa', 'Mastercard', 'American Express', 'Discover',
-    'PayPal', 'Apple Pay', 'Google Pay',
+    'PayPal', 'Visa', 'Mastercard', 'American Express', 'Discover',
   ];
   return (
     <footer className="bg-primary text-white">
