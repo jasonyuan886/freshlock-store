@@ -125,6 +125,7 @@ export default function CalculatorClient() {
                 <input
                   type="range" min={1} max={8} value={household}
                   onChange={(e) => setHousehold(Number(e.target.value))}
+                  onInput={(e) => setHousehold(Number((e.target as HTMLInputElement).value))}
                   className="w-full accent-accent h-2"
                 />
                 <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -140,6 +141,7 @@ export default function CalculatorClient() {
                 <input
                   type="range" min={50} max={400} step={10} value={spendPerWeek}
                   onChange={(e) => setSpendPerWeek(Number(e.target.value))}
+                  onInput={(e) => setSpendPerWeek(Number((e.target as HTMLInputElement).value))}
                   className="w-full accent-accent h-2"
                 />
                 <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -155,6 +157,7 @@ export default function CalculatorClient() {
                 <input
                   type="range" min={10} max={50} step={5} value={wastePercent}
                   onChange={(e) => setWastePercent(Number(e.target.value))}
+                  onInput={(e) => setWastePercent(Number((e.target as HTMLInputElement).value))}
                   className="w-full accent-accent h-2"
                 />
                 <div className="flex justify-between text-xs text-gray-400 mt-1">
@@ -170,6 +173,7 @@ export default function CalculatorClient() {
                 <input
                   type="range" min={20} max={90} step={5} value={bagUsed}
                   onChange={(e) => setBagUsed(Number(e.target.value))}
+                  onInput={(e) => setBagUsed(Number((e.target as HTMLInputElement).value))}
                   className="w-full accent-accent h-2"
                 />
                 <div className="flex justify-between text-xs text-gray-400 mt-1">
