@@ -268,18 +268,21 @@ export default function CheckoutPage() {
                   </div>
                 </label>
                 */}
-                <label className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition ${paymentMethod === 'paypal' ? 'border-primary bg-primary/5' : 'hover:bg-gray-50'}`}>
+                <label className={`flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer transition ${paymentMethod === 'paypal' ? 'border-[#003087] bg-[#003087]/5' : 'hover:bg-gray-50 border-gray-200'}`}>
                   <input
                     type="radio"
                     name="payment"
                     value="paypal"
                     checked={paymentMethod === 'paypal'}
                     onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="accent-primary"
+                    className="accent-[#003087] mt-1"
                   />
-                  <div>
-                    <span className="font-medium">🅿️ PayPal</span>
-                    <p className="text-xs text-gray-500 mt-0.5">Pay with PayPal — Visa, Mastercard, Amex accepted via PayPal</p>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="inline-flex items-center font-bold text-[#003087] bg-[#ffc439] px-2 py-0.5 rounded text-sm tracking-wide">PayPal</span>
+                      <span className="text-xs bg-blue-100 text-blue-800 px-2 py-0.5 rounded-full font-medium">🛡️ Buyer Protection</span>
+                    </div>
+                    <p className="text-xs text-gray-600 mt-1">Pay securely with your PayPal account, or check out as a guest using Visa, Mastercard, Amex, or Discover. <strong className="text-[#003087]">Eligible purchases are covered by PayPal Buyer Protection.</strong></p>
                   </div>
                 </label>
                 {/* Afterpay — not integrated yet, hidden to avoid false promise

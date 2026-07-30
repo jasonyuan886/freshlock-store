@@ -67,10 +67,20 @@ export default function Footer() {
         {/* Payment badges */}
         <div className="border-t border-gray-700 mt-8 pt-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-gray-400">We accept:</p>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex items-center gap-2">
+              <p className="text-xs text-gray-400">We accept:</p>
+              <span className="text-xs text-green-400">🛡️ PayPal Buyer Protection</span>
+            </div>
+            <div className="flex flex-wrap gap-2 justify-center">
               {paymentMethods.map((m) => (
-                <span key={m} className="bg-white/10 text-white text-xs px-2 py-1 rounded border border-white/20">
+                <span
+                  key={m}
+                  className={
+                    m === 'PayPal'
+                      ? 'bg-[#ffc439] text-[#003087] text-xs px-2 py-1 rounded font-bold border border-[#ffc439]'
+                      : 'bg-white/10 text-white text-xs px-2 py-1 rounded border border-white/20'
+                  }
+                >
                   {m}
                 </span>
               ))}
