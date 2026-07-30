@@ -69,7 +69,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <p className="text-xs text-gray-400">We accept:</p>
-              <span className="text-xs text-green-400">🛡️ PayPal Buyer Protection</span>
+              <span className="text-xs text-blue-300">🛡️ PayPal Buyer Protection</span>
             </div>
             <div className="flex flex-wrap gap-2 justify-center">
               {paymentMethods.map((m) => (
