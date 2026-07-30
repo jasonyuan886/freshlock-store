@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { products, reviews as allReviews, FREE_SHIPPING_THRESHOLD, ratingDistribution } from '@/lib/data';
+import type { Product } from '@/lib/types';
 import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/schema';
 import AddToCartClient from './AddToCartClient';
 import GalleryClient from './GalleryClient';
