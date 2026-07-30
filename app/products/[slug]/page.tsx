@@ -5,6 +5,7 @@ import { products, reviews as allReviews, FREE_SHIPPING_THRESHOLD, ratingDistrib
 import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/schema';
 import AddToCartClient from './AddToCartClient';
 import GalleryClient from './GalleryClient';
+import FrequentlyBoughtTogether from '@/components/FrequentlyBoughtTogether';
 import Image from 'next/image';
 import PriceDisplay from '@/components/PriceDisplay';
 
@@ -159,14 +160,16 @@ function ReviewsSection() {
             {r.images && r.images.length > 0 && (
               <div className="flex gap-2 mt-3 flex-wrap">
                 {r.images.map((src, i) => (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={i}
-                    src={src}
-                    alt={`Review photo by ${r.name}`}
-                    loading="lazy"
-                    className="w-20 h-20 object-cover rounded border border-gray-200"
-                  />
+                  <div key={i} className="relative w-20 h-20 rounded border border-gray-200 overflow-hidden">
+                    <Image
+                      src={src}
+                      alt={`Review photo by ${r.name}`}
+                      fill
+                      sizes="80px"
+                      loading="lazy"
+                      className="object-cover"
+                    />
+                  </div>
                 ))}
               </div>
             )}
@@ -184,6 +187,28 @@ export default function ProductDetailPage({ params }: { params: Params }) {
   const related = products
     .filter((p) => p.slug !== product.slug)
     .slice(0, 3);
+
+  // Frequently bought together — smart bundle logic
+  const getBundleProducts = (): Product[] => {
+    if (product.slug === 'freshlock-pro') {
+      // Sealer + medium bags (most popular entry combo)
+      return products.filter((p) => p.slug === 'vacuum-seal-bags-30-pack');
+    }
+    if (product.slug === 'freshlock-starter-kit') {
+      // Kit already has 30 bags — offer large 50-pack refill
+      return products.filter((p) => p.slug === 'vacuum-seal-bags-50-pack');
+    }
+    if (product.slug === 'vacuum-seal-bags-30-pack') {
+      // Medium bags — upsell the sealer (if they're just buying bags they might need the device)
+      return products.filter((p) => p.slug === 'freshlock-pro');
+    }
+    if (product.slug === 'vacuum-seal-bags-50-pack') {
+      // Large bags — upsell medium pack for variety
+      return products.filter((p) => p.slug === 'vacuum-seal-bags-30-pack');
+    }
+    return [];
+  };
+  const bundleProducts = getBundleProducts();
 
   const productSchema = generateProductSchema(product, allReviews);
   const breadcrumbSchema = generateBreadcrumbSchema([
@@ -365,6 +390,14 @@ export default function ProductDetailPage({ params }: { params: Params }) {
         </article>
 
         <ReviewsSection />
+
+        {bundleProducts.length > 0 && (
+          <FrequentlyBoughtTogether
+            mainProduct={product}
+            bundleProducts={bundleProducts}
+            discountPercent={10}
+          />
+        )}
 
         {related.length > 0 && (
           <section className="mt-16" aria-labelledby="related-heading">
