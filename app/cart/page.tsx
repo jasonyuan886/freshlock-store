@@ -2,15 +2,129 @@
 
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
-import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
+import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER, products } from '@/lib/data';
 import Image from 'next/image';
+import { useMemo } from 'react';
 
 export const dynamic = 'force-dynamic';
 
+/** Smart "add more to unlock free shipping" recommender.
+ *  - Finds products NOT already in cart that would close the gap
+ *  - Starter Kit itself ships free (>= $79), but we don't recommend it
+ *    as an upsell if you already have the sealer — recommend bags instead.
+ *  - If bag prices don't close the gap, recommend "add another bag pack".
+ */
+function getFreeShipRecommendations(
+  currentTotal: number,
+  cartSlugs: string[],
+): Array<{ slug: string; name: string; price: number; image: string; reason: string }> {
+  const gap = Math.max(0, FREE_SHIPPING_THRESHOLD - currentTotal);
+  if (gap === 0) return [];
+
+  const bagProducts = products.filter(
+    (p) => p.category === 'bags' && !cartSlugs.includes(p.slug),
+  );
+  // If user already has all bag SKUs in cart, suggest adding quantity of cheapest bag
+  const cheapestBag = products
+    .filter((p) => p.category === 'bags')
+    .sort((a, b) => a.price - b.price)[0];
+
+  const recs: Array<{ slug: string; name: string; price: number; image: string; reason: string }> = [];
+
+  // 1) Single bag that closes the gap — prefer cheapest that still covers the gap
+  const closesGap = bagProducts
+    .filter((p) => p.price >= gap - 0.01)
+    .sort((a, b) => a.price - b.price);
+  if (closesGap.length > 0) {
+    const p = closesGap[0];
+    recs.push({
+      slug: p.slug,
+      name: p.name,
+      price: p.price,
+      image: p.image,
+      reason: `Add it — unlocks FREE shipping (you save $${SHIPPING_FEE_UNDER.toFixed(2)})`,
+    });
+  }
+
+  // 2) Cheapest bag (even if not enough alone — good for stacking)
+  const cheapBagNotShown =
+    cheapestBag &&
+    !recs.some((r) => r.slug === cheapestBag.slug) &&
+    !cartSlugs.includes(cheapestBag.slug);
+  if (cheapBagNotShown) {
+    const qty = Math.ceil(gap / cheapestBag.price);
+    recs.push({
+      slug: cheapestBag.slug,
+      name: cheapestBag.name,
+      price: cheapestBag.price,
+      image: cheapestBag.image,
+      reason:
+        qty === 1
+          ? `Add 1 pack — only $${(gap - cheapestBag.price).toFixed(2)} away after`
+          : `Add ${qty} packs — ships FREE`,
+    });
+  }
+
+  // 3) If user already has both bag SKUs, suggest adding more of cheapest
+  if (recs.length === 0 && cheapestBag) {
+    recs.push({
+      slug: cheapestBag.slug,
+      name: `More ${cheapestBag.name}`,
+      price: cheapestBag.price,
+      image: cheapestBag.image,
+      reason: `Add another pack — ${
+        cheapestBag.price >= gap ? 'unlocks FREE shipping' : `only $${(gap - cheapestBag.price).toFixed(2)} more after`
+      }`,
+    });
+  }
+
+  return recs.slice(0, 2);
+}
+
+function FreeShippingProgress({ total }: { total: number }) {
+  const isFree = total >= FREE_SHIPPING_THRESHOLD;
+  const pct = Math.min(100, (total / FREE_SHIPPING_THRESHOLD) * 100);
+  const away = (FREE_SHIPPING_THRESHOLD - total).toFixed(2);
+
+  return (
+    <div
+      className={`rounded-xl p-4 mb-4 border-2 ${
+        isFree
+          ? 'bg-green-50 border-green-400'
+          : 'bg-amber-50 border-amber-300'
+      }`}
+    >
+      {isFree ? (
+        <p className="text-sm font-semibold text-green-700 text-center">
+          🎉 You've unlocked FREE US shipping!
+        </p>
+      ) : (
+        <>
+          <p className="text-sm font-semibold text-amber-800 mb-2">
+            🚚 Add <span className="text-accent">${away}</span> more for FREE US shipping
+            <span className="text-xs text-amber-700 font-normal"> (save ${SHIPPING_FEE_UNDER.toFixed(2)})</span>
+          </p>
+          <div className="w-full bg-amber-200 rounded-full h-2.5 overflow-hidden">
+            <div
+              className="bg-accent h-2.5 rounded-full transition-all duration-500"
+              style={{ width: `${pct}%` }}
+            />
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function CartPage() {
-  const { items, updateQuantity, removeFromCart, totalPrice } = useCart();
+  const { items, updateQuantity, removeFromCart, totalPrice, addToCart } = useCart();
   const shipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const total = totalPrice + shipping;
+  const cartSlugs = useMemo(() => items.map((i) => i.product.slug), [items]);
+  const recs = useMemo(
+    () => getFreeShipRecommendations(totalPrice, cartSlugs),
+    [totalPrice, cartSlugs],
+  );
 
   if (items.length === 0) {
     return (
@@ -35,11 +149,13 @@ export default function CartPage() {
               className="bg-white rounded-xl p-4 sm:p-6 shadow flex gap-4 sm:gap-6"
             >
               <Link href={`/products/${item.product.slug}`}>
-                <Image src={item.product.image}
+                <Image
+                  src={item.product.image}
                   alt={`${item.product.name} — ${item.product.shortDescription}`}
                   className="w-24 h-24 sm:w-32 sm:h-32 rounded-lg object-cover"
                   width={128}
-                  height={128} />
+                  height={128}
+                />
               </Link>
               <div className="flex-1 min-w-0">
                 <Link href={`/products/${item.product.slug}`}>
@@ -53,13 +169,17 @@ export default function CartPage() {
                       onClick={() => updateQuantity(item.product.slug, item.quantity - 1)}
                       className="px-3 py-1.5 text-sm hover:bg-gray-100 transition"
                       aria-label="Decrease quantity"
-                    >−</button>
+                    >
+                      −
+                    </button>
                     <span className="px-3 py-1.5 text-sm font-semibold">{item.quantity}</span>
                     <button
                       onClick={() => updateQuantity(item.product.slug, item.quantity + 1)}
                       className="px-3 py-1.5 text-sm hover:bg-gray-100 transition"
                       aria-label="Increase quantity"
-                    >+</button>
+                    >
+                      +
+                    </button>
                   </div>
                   <button
                     onClick={() => removeFromCart(item.product.slug)}
@@ -80,6 +200,10 @@ export default function CartPage() {
 
         <div className="bg-white rounded-xl p-6 shadow h-fit sticky top-24">
           <h2 className="font-bold text-primary text-lg mb-4">Order Summary</h2>
+
+          {/* Free shipping progress bar */}
+          <FreeShippingProgress total={totalPrice} />
+
           <div className="space-y-2 text-sm border-b pb-4 mb-4">
             <div className="flex justify-between">
               <span className="text-gray-500">Subtotal</span>
@@ -87,9 +211,13 @@ export default function CartPage() {
             </div>
             <div className="flex justify-between">
               <span className="text-gray-500">Shipping</span>
-              <span>{shipping === 0
-                ? <span className="text-accent font-medium">FREE</span>
-                : `$${shipping.toFixed(2)} USD`}</span>
+              <span>
+                {shipping === 0 ? (
+                  <span className="text-green-600 font-medium">FREE</span>
+                ) : (
+                  `$${shipping.toFixed(2)} USD`
+                )}
+              </span>
             </div>
           </div>
           <div className="flex justify-between font-bold text-lg mb-6">
@@ -99,14 +227,50 @@ export default function CartPage() {
           <Link href="/checkout" className="btn-primary w-full block text-center">
             Proceed to Checkout
           </Link>
-          <Link href="/products" className="block text-center text-sm text-gray-500 hover:text-primary mt-4">
+          <Link
+            href="/products"
+            className="block text-center text-sm text-gray-500 hover:text-primary mt-4"
+          >
             ← Continue Shopping
           </Link>
-          {totalPrice < FREE_SHIPPING_THRESHOLD && (
-            <p className="text-xs text-gray-400 mt-4 text-center">
-              Add ${(FREE_SHIPPING_THRESHOLD - totalPrice).toFixed(2)} more for free US shipping!
-            </p>
+
+          {/* Smart bundle recommendations to reach free shipping */}
+          {recs.length > 0 && (
+            <div className="mt-6 pt-4 border-t">
+              <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                🎁 Add these to ship FREE
+              </p>
+              <div className="space-y-3">
+                {recs.map((rec) => {
+                  const fullProduct = products.find((p) => p.slug === rec.slug);
+                  return (
+                    <div key={rec.slug} className="flex gap-3 items-center">
+                      <Image
+                        src={rec.image}
+                        alt={rec.name}
+                        width={56}
+                        height={56}
+                        className="w-14 h-14 rounded-lg object-cover"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs font-semibold text-primary truncate">{rec.name}</p>
+                        <p className="text-xs text-green-700">{rec.reason}</p>
+                      </div>
+                      <button
+                        onClick={() => {
+                          if (fullProduct) addToCart(fullProduct);
+                        }}
+                        className="shrink-0 bg-accent text-white text-xs font-semibold px-3 py-1.5 rounded-lg hover:bg-accent/90 transition"
+                      >
+                        + Add ${rec.price.toFixed(2)}
+                      </button>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           )}
+
           <p className="text-xs text-gray-400 mt-4 text-center">
             🔒 Secure SSL checkout · 60-day returns · 2-year warranty
           </p>

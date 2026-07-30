@@ -331,19 +331,38 @@ export default function CheckoutPage() {
                 ))}
               </div>
               <div className="border-t pt-4 space-y-2 text-sm">
+                {/* Free shipping progress bar */}
+                {totalPrice < FREE_SHIPPING_THRESHOLD ? (
+                  <div className="bg-amber-50 border border-amber-300 rounded-lg p-3 mb-2">
+                    <p className="text-xs font-semibold text-amber-800 mb-1.5">
+                      🚚 Add ${(FREE_SHIPPING_THRESHOLD - totalPrice).toFixed(2)} more for FREE shipping
+                      <span className="text-amber-700 font-normal"> (save ${SHIPPING_FEE_UNDER.toFixed(2)})</span>
+                    </p>
+                    <div className="w-full bg-amber-200 rounded-full h-2 overflow-hidden">
+                      <div
+                        className="bg-accent h-2 rounded-full transition-all"
+                        style={{ width: `${Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100)}%` }}
+                      />
+                    </div>
+                    <Link href="/cart" className="text-xs text-accent font-semibold hover:underline mt-1.5 inline-block">
+                      ← Return to cart to add items
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="bg-green-50 border border-green-400 rounded-lg p-3 mb-2">
+                    <p className="text-xs font-semibold text-green-700 text-center">
+                      🎉 You've unlocked FREE US shipping!
+                    </p>
+                  </div>
+                )}
                 <div className="flex justify-between">
                   <span className="text-gray-500">Subtotal</span>
                   <span>${totalPrice.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Shipping</span>
-                  <span>{shipping === 0 ? <span className="text-accent font-medium">FREE</span> : `$${shipping.toFixed(2)}`}</span>
+                  <span>{shipping === 0 ? <span className="text-green-600 font-medium">FREE</span> : `$${shipping.toFixed(2)}`}</span>
                 </div>
-                {totalPrice < FREE_SHIPPING_THRESHOLD && (
-                  <p className="text-xs text-gray-400">
-                    Add ${(FREE_SHIPPING_THRESHOLD - totalPrice).toFixed(2)} more for free shipping!
-                  </p>
-                )}
               </div>
               <div className="border-t mt-4 pt-4 flex justify-between font-bold text-lg">
                 <span>Total</span>
