@@ -28,8 +28,8 @@ export const products: Product[] = [
     image: '/images/products/sealer-main.jpg',
     images: [
       '/images/products/sealer-main.jpg',
-      '/images/products/sealer-use.jpg',
-      '/images/products/sealer-kit.jpg',
+      '/images/products/sealer-angled.jpg',
+      '/images/products/sealer-drain.jpg',
     ],
     features: [
       '-60 kPa strong suction — pulls air through the bag valve in seconds',
@@ -69,10 +69,13 @@ export const products: Product[] = [
       'Everything you need to start vacuum sealing today — the FreshLock Pro handheld vacuum sealer plus 30 BPA-free embossed valve bags in three sizes (10 small, 10 medium, 10 large), all packed in a premium full-colour gift box. Stop freezer burn on meal prep, leftovers, marinating meats, and sous-vide portions the moment you unbox. The sealer works with most embossed valve bags, so you are never locked into expensive replacements.',
     shortDescription:
       'FreshLock Pro + 30 BPA-free vacuum zipper bags in 3 sizes — everything to get started sealing today.',
-    image: '/images/products/sealer-kit.jpg',
+    image: '/images/products/sealer-main.jpg',
     images: [
-      '/images/products/sealer-kit.jpg',
-      '/images/products/bags-1.jpg',
+      '/images/products/sealer-main.jpg',
+      '/images/products/sealer-angled.jpg',
+      '/images/products/bags-small.jpg',
+      '/images/products/bags-med.jpg',
+      '/images/products/bags-lrg.jpg',
     ],
     features: [
       'Includes FreshLock Pro handheld vacuum sealer (-60 kPa, USB-C, ~210 g)',

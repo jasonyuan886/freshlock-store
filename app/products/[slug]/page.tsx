@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { products, reviews as allReviews, FREE_SHIPPING_THRESHOLD, ratingDistribution } from '@/lib/data';
 import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/schema';
 import AddToCartClient from './AddToCartClient';
+import GalleryClient from './GalleryClient';
 import Image from 'next/image';
 import PriceDisplay from '@/components/PriceDisplay';
 
@@ -157,14 +158,16 @@ function ReviewsSection() {
         ))}
       </div>
 
-      <div className="mt-8 text-center">
+      <div className="mt-8 text-center bg-accent/5 border border-accent/20 rounded-xl p-6">
+        <p className="text-sm font-semibold text-primary mb-2">🎁 Be one of our first 100 reviewers</p>
+        <p className="text-xs text-gray-600 mb-4">Leave an honest review within 30 days of purchase and get a <strong>FREE 30-pack refill bag set</strong> (value $19.99) — we&apos;ll email you a coupon after your review is verified.</p>
         <a
-          href="mailto:freshlocksealer@gmail.com?subject=FreshLock%20Product%20Review&body=Hi%20FreshLock%2C%0A%0AI'd%20like%20to%20leave%20a%20review%20of%20my%20FreshLock%20Pro..."
-          className="inline-block btn-secondary"
+          href="mailto:freshlocksealer@gmail.com?subject=FreshLock%20Product%20Review%20%28First%20100%20Reviewers%29&body=Hi%20FreshLock%2C%0A%0AOrder%20%23%3A%20%28please%20include%20your%20order%20number%29%0A%0AI%27d%20like%20to%20leave%20a%20review%20of%20my%20FreshLock%20purchase%20and%20claim%20the%20First%20100%20Reviewers%20free%20bag%20set.%0A%0A--%20Paste%20your%20review%20below%20--%0A%0AStar%20rating%20%281-5%29%3A%0AReview%3A%0A"
+          className="inline-block btn-primary"
         >
-          ✍️ Write a Review
+          ✍️ Write a Review & Claim Free Bags
         </a>
-        <p className="text-xs text-gray-500 mt-2">Reviews are from verified buyers. We do not pay for positive reviews.</p>
+        <p className="text-[10px] text-gray-400 mt-2">Reviews must be genuine & from verified buyers. We do not pay for positive reviews.</p>
       </div>
     </section>
   );
@@ -253,32 +256,11 @@ export default function ProductDetailPage({ params }: { params: Params }) {
         </nav>
 
         <article className="grid md:grid-cols-2 gap-12" itemScope itemType="https://schema.org/Product">
-          <section>
-            <div className="rounded-xl overflow-hidden bg-white shadow mb-4">
-              <Image src={product.images[0] || product.image}
-                alt={`${product.name} — ${product.shortDescription}`}
-                className="w-full aspect-square object-cover"
-                itemProp="image"
-                width={800}
-                height={800}
-                priority
-                sizes="(max-width: 768px) 100vw, 600px" />
-            </div>
-            {product.images.length > 1 && (
-              <div className="flex gap-3" role="list">
-                {product.images.slice(1).map((img, i) => (
-                  <div key={i} role="listitem">
-                    <Image src={img}
-                      alt={`${product.name} — alternate view ${i + 2}`}
-                      className="w-20 h-20 rounded-lg object-cover border-2 border-transparent"
-                      loading="lazy"
-                      width={80}
-                      height={80} />
-                  </div>
-                ))}
-              </div>
-            )}
-          </section>
+          <GalleryClient
+            images={product.images && product.images.length > 0 ? product.images : [product.image]}
+            name={product.name}
+            shortDescription={product.shortDescription}
+          />
 
           <section>
             {product.badge && (
@@ -305,6 +287,19 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                 size="lg"
               />
             </div>
+
+            {/* Differentiator callouts */}
+            <div className="grid grid-cols-2 gap-2 mb-6">
+              <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
+                <p className="text-xs font-bold text-blue-700">💧 Seal Marinades & Juices</p>
+                <p className="text-[11px] text-blue-600 mt-1 leading-tight">Detachable drip cup catches soups, marinades & juicy meat drips — no liquid into the motor.</p>
+              </div>
+              <div className="bg-orange-50 border border-orange-100 rounded-lg p-3">
+                <p className="text-xs font-bold text-orange-700">🔥 No Heat Bar to Burn Out</p>
+                <p className="text-[11px] text-orange-600 mt-1 leading-tight">Pump-only design — zero heating element, safer around kids & lasts years longer.</p>
+              </div>
+            </div>
+
             <p className="text-gray-600 leading-relaxed mb-8" itemProp="description">{product.description}</p>
 
             <section className="mb-8">
