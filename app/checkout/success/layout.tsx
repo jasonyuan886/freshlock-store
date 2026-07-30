@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Order Confirmed — Thank You | FreshLock',
+  title: 'Order Confirmed — Thank You  |',
   description: 'Your FreshLock order has been placed. Check your email for order confirmation and tracking details.',
   robots: { index: false, follow: false },
 };

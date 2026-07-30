@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Returns & Refund Policy — 60-Day Money-Back Guarantee | FreshLock',
+  title: 'Returns & Refund Policy — 60-Day Money-Back Guarantee  |',
   description:
     'FreshLock offers a 60-day satisfaction guarantee. Return any unused item within 60 days for a refund or exchange. 2-year warranty on the sealer unit.',
 };
