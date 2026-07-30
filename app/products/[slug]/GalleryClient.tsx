@@ -18,14 +18,14 @@ export default function GalleryClient({
 
   return (
     <section>
-      <div className="rounded-xl overflow-hidden bg-white shadow mb-4 relative">
+      <div className="rounded-xl overflow-hidden bg-stone-50 shadow mb-4 relative flex items-center justify-center" style={{ minHeight: 'min(80vw, 560px)' }}>
         <Image
           src={allImages[active]}
           alt={`${name} — ${shortDescription}`}
-          className="w-full aspect-square object-cover"
+          className="max-w-full max-h-[80vh] w-auto h-auto object-contain"
           itemProp="image"
-          width={800}
-          height={800}
+          width={1200}
+          height={1600}
           priority
           sizes="(max-width: 768px) 100vw, 600px"
         />
