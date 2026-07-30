@@ -24,9 +24,6 @@ export const metadata: Metadata = {
   icons: {
     icon: '/favicon-32.png',
     apple: '/apple-touch-icon.png',
-    other: {
-      'msapplication-TileImage': '/icon-192.png',
-    },
   },
   alternates: {
     canonical: '/',
