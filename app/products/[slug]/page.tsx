@@ -134,26 +134,16 @@ function ReviewsSection() {
 
       <div className="grid md:grid-cols-2 gap-6">
         {allReviews.map((r) => (
-          <article key={r.name + r.date} className="bg-white border rounded-xl p-5" itemScope itemType="https://schema.org/Review">
-            <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Product">
-              <meta itemProp="name" content="FreshLock Pro Handheld Vacuum Sealer" />
-            </div>
-            <div itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
-              <meta itemProp="ratingValue" content={String(r.rating)} />
-              <meta itemProp="bestRating" content="5" />
-              <meta itemProp="worstRating" content="1" />
-            </div>
+          <article key={r.name + r.date} className="bg-white border rounded-xl p-5">
             <div className="flex items-center justify-between mb-2">
               <StarRating rating={r.rating} size="text-sm" />
               {r.verified && (
                 <span className="text-[10px] font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">✓ Verified Buyer</span>
               )}
             </div>
-            <p className="text-gray-700 text-sm mb-3" itemProp="reviewBody">&ldquo;{r.text}&rdquo;</p>
+            <p className="text-gray-700 text-sm mb-3">&ldquo;{r.text}&rdquo;</p>
             <div className="flex items-center justify-between text-xs text-gray-500">
-              <span className="font-semibold text-primary" itemProp="author" itemScope itemType="https://schema.org/Person">
-                <span itemProp="name">{r.name}</span>
-              </span>
+              <span className="font-semibold text-primary">{r.name}</span>
               <time dateTime={r.date}>
                 {new Date(r.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
               </time>
@@ -285,7 +275,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           </ol>
         </nav>
 
-        <article className="grid md:grid-cols-2 gap-12" itemScope itemType="https://schema.org/Product">
+        <article className="grid md:grid-cols-2 gap-12">
           <GalleryClient
             images={product.images && product.images.length > 0 ? product.images : [product.image]}
             name={product.name}
@@ -298,7 +288,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                 {product.badge}
               </span>
             )}
-            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3" itemProp="name">{product.name}</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3">{product.name}</h1>
 
             {/* Mini rating */}
             <div className="flex items-center gap-2 mb-4">
@@ -306,10 +296,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               <span className="text-sm text-gray-500">{allReviews.length} verified reviews</span>
             </div>
 
-            <div itemProp="offers" itemScope itemType="https://schema.org/Offer" className="mb-6">
-              <meta itemProp="priceCurrency" content="USD" />
-              <meta itemProp="price" content={String(product.price)} />
-              <meta itemProp="availability" content="https://schema.org/InStock" />
+            <div className="mb-6">
               <PriceDisplay
                 price={product.price}
                 compareAtPrice={product.compareAtPrice}
@@ -330,7 +317,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               </div>
             </div>
 
-            <p className="text-gray-600 leading-relaxed mb-8" itemProp="description">{product.description}</p>
+            <p className="text-gray-600 leading-relaxed mb-8">{product.description}</p>
 
             <section className="mb-8">
               <h2 className="font-semibold text-primary mb-3 text-lg">Key Features</h2>
@@ -372,10 +359,10 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               <h2 className="font-semibold text-primary mb-3 text-lg">Common Questions</h2>
               <div className="space-y-4 text-sm text-gray-600">
                 {pdpFaqs.map((f) => (
-                  <div key={f.q} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
-                    <h3 className="font-semibold text-gray-800" itemProp="name">{f.q}</h3>
-                    <div itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-                      <p className="leading-relaxed mt-1" itemProp="text">{f.a}</p>
+                  <div key={f.q}>
+                    <h3 className="font-semibold text-gray-800">{f.q}</h3>
+                    <div>
+                      <p className="leading-relaxed mt-1">{f.a}</p>
                     </div>
                   </div>
                 ))}
