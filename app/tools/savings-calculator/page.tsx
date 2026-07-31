@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Food Savings Calculator — See How Much FreshLock Saves You',
     description:
-      'Find out how much money you throw away on spoiled food — and how fast a $29.90 FreshLock pays for itself.',
+      'Find out how much money you throw away on spoiled food — and how fast a 9.99 FreshLock Starter Kit pays for itself.',
     type: 'website',
     url: '/tools/savings-calculator',
     images: [

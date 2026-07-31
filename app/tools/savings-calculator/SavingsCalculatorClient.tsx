@@ -244,7 +244,7 @@ export default function SavingsCalculatorClient() {
                     href="/products/freshlock-starter-kit"
                     className="block w-full text-center bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-6 rounded-lg transition text-lg"
                   >
-                    Get FreshLock for $29.90 →
+                    Get FreshLock Starter Kit for $79.99 →
                   </Link>
                   <p className="text-xs text-gray-500 text-center mt-3">
                     Free shipping on the Starter Kit · 2-year warranty · 30-day returns
@@ -308,7 +308,7 @@ export default function SavingsCalculatorClient() {
           </h2>
           <p className="text-lg text-gray-600 mb-8">
             The FreshLock is the size of a flashlight, charges with USB-C, and
-            keeps food fresh up to 5× longer. Starting at $29.90.
+            keeps food fresh up to 5× longer. Starter Kit from 9.99.
           </p>
           <Link
             href="/products/freshlock-starter-kit"
