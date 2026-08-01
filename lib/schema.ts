@@ -85,8 +85,8 @@ export function generateProductSchema(product: Product, reviews?: Review[]) {
           },
           transitTime: {
             '@type': 'QuantitativeValue',
-            minValue: 3,
-            maxValue: 7,
+            minValue: 5,
+            maxValue: 8,
             unitCode: 'DAY',
           },
         },
