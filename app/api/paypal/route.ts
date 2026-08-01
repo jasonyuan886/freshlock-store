@@ -82,7 +82,7 @@ export async function POST(request: NextRequest) {
                     admin_area_2: shippingAddress.city,
                     admin_area_1: shippingAddress.state,
                     postal_code: shippingAddress.postalCode,
-                    country_code: 'US',
+                    country_code: shippingAddress.country || 'US',
                   },
                 }
               : undefined,

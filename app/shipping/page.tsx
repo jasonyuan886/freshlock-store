@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Shipping Policy — Delivery Times, Costs & Tracking',
   description:
-    'FreshLock shipping policy: free US/CA/UK/JP shipping on orders over $79 (AU/NZ over $59), Starter Kits ship free worldwide, $5.99 flat rate under threshold, 3–7 day US delivery with tracking.',
+    'FreshLock shipping policy: free US/CA/UK/JP shipping on orders over $89 (AU/NZ over $69), Starter Kits ship free worldwide, $5.99 flat rate under threshold, 5–8 day DHL Express delivery with tracking.',
 };
 
 export default function ShippingPage() {
@@ -24,21 +24,21 @@ export default function ShippingPage() {
 
         <h2>Shipping Rates (United States & Canada)</h2>
         <ul>
-          <li><strong>Free standard shipping</strong> on all US & CA orders over <strong>$79 USD</strong> (discount applied automatically at checkout).</li>
-          <li>US & CA orders under $79 ship for a <strong>flat rate of $5.99</strong>.</li>
+          <li><strong>Free standard shipping</strong> on all US & CA orders over <strong>$89 USD</strong> (discount applied automatically at checkout).</li>
+          <li>US & CA orders under $89 ship for a <strong>flat rate of $5.99</strong>.</li>
           <li>All <strong>Starter Kits ship free</strong> within US/CA/UK/JP regardless of subtotal.</li>
           <li>Delivered via USPS First Class / Priority Mail or equivalent tracked postal service.</li>
-          <li><strong>Transit time:</strong> 3–7 business days after dispatch (continental US; Alaska, Hawaii, and US territories may take 7–14 days).</li>
+          <li><strong>Transit time:</strong> 5–8 business days via DHL Express after dispatch (continental US; Alaska, Hawaii, and US territories may take 7–14 days).</li>
         </ul>
 
         <h2>UK, EU & Japan</h2>
         <p>
-          Free standard shipping on UK & JP orders over <strong>$79</strong>. EU and other international orders under the threshold pay live rates calculated at checkout based on destination and package weight. Typical transit time is 7–18 business days depending on destination and customs clearance.
+          Free standard shipping on UK & JP orders over <strong>$89</strong>. EU and other international orders under the threshold pay live rates calculated at checkout based on destination and package weight. Typical transit time is 7–18 business days depending on destination and customs clearance.
         </p>
 
         <h2>Australia & New Zealand</h2>
         <p>
-          Free standard shipping on AU & NZ orders over <strong>$59</strong>. Orders under the threshold ship at live rates calculated at checkout.
+          Free standard shipping on AU & NZ orders over <strong>$69</strong>. Orders under the threshold ship at live rates calculated at checkout.
         </p>
 
         <h2>Other Destinations</h2>

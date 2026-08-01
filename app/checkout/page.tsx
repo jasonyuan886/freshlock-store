@@ -29,7 +29,17 @@ export default function CheckoutPage() {
     city: '',
     state: '',
     postcode: '',
+    country: 'US',
   });
+
+  const COUNTRIES = [
+    { code: 'US', name: 'United States' },
+    { code: 'CA', name: 'Canada' },
+    { code: 'GB', name: 'United Kingdom' },
+    { code: 'JP', name: 'Japan' },
+    { code: 'AU', name: 'Australia' },
+    { code: 'NZ', name: 'New Zealand' },
+  ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -83,6 +93,7 @@ export default function CheckoutPage() {
               city: form.city,
               state: form.state,
               postalCode: form.postcode,
+              country: form.country,
             },
           }),
         });
@@ -141,7 +152,7 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                   <input
                     type="text"
-                    name="firstName"
+                    name="firstName" autoComplete="given-name"
                     value={form.firstName}
                     onChange={handleChange}
                     required
@@ -152,7 +163,7 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
                   <input
                     type="text"
-                    name="lastName"
+                    name="lastName" autoComplete="family-name"
                     value={form.lastName}
                     onChange={handleChange}
                     required
@@ -163,7 +174,7 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                   <input
                     type="email"
-                    name="email"
+                    name="email" autoComplete="email"
                     value={form.email}
                     onChange={handleChange}
                     required
@@ -174,7 +185,7 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
                   <input
                     type="tel"
-                    name="phone"
+                    name="phone" autoComplete="tel"
                     value={form.phone}
                     onChange={handleChange}
                     className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
@@ -191,7 +202,7 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Street Address</label>
                   <input
                     type="text"
-                    name="address"
+                    name="address" autoComplete="street-address"
                     value={form.address}
                     onChange={handleChange}
                     required
@@ -203,7 +214,7 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">City / Suburb</label>
                   <input
                     type="text"
-                    name="city"
+                    name="city" autoComplete="address-level2"
                     value={form.city}
                     onChange={handleChange}
                     required
@@ -214,11 +225,11 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">State</label>
                   <input
                     type="text"
-                    name="state"
+                    name="state" autoComplete="address-level1"
                     value={form.state}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. CA"
+                    placeholder="State / Province"
                     className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
                   />
                 </div>
@@ -226,24 +237,26 @@ export default function CheckoutPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">ZIP Code</label>
                   <input
                     type="text"
-                    name="postcode"
+                    name="postcode" autoComplete="postal-code"
                     value={form.postcode}
                     onChange={handleChange}
                     required
-                    pattern="[0-9]{5}"
-                    maxLength={5}
                     placeholder="90210"
                     className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Country</label>
-                  <input
-                    type="text"
-                    value="United States"
-                    readOnly
-                    className="w-full border rounded-lg px-4 py-2.5 bg-gray-50 text-gray-500"
-                  />
+                  <select
+                    name="country"
+                    value={form.country}
+                    onChange={handleChange}
+                    className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
+                  >
+                    {COUNTRIES.map(c => (
+                      <option key={c.code} value={c.code}>{c.name}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
             </div>
