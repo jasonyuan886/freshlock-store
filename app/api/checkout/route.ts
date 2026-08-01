@@ -57,7 +57,7 @@ export async function POST(request: NextRequest) {
           shipping_rate_data: {
             type: 'fixed_amount',
             fixed_amount: { amount: 0, currency: 'usd' },
-            display_name: 'Free Shipping (Orders $79+)',
+            display_name: 'Free Shipping (Orders $89+)',
             delivery_estimate: {
               minimum: { unit: 'business_day', value: 3 },
               maximum: { unit: 'business_day', value: 7 },

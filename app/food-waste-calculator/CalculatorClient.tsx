@@ -259,7 +259,7 @@ export default function CalculatorClient() {
           </h2>
           <p className="text-gray-200 text-lg mb-8">
             Join households saving ${Math.round(AVG_ANNUAL_WASTE * 0.4).toLocaleString()}+/year on groceries.
-            60-day returns · 2-year warranty · Free shipping over $79.
+            60-day returns · 2-year warranty · Free shipping over $89.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/products/freshlock-starter-kit" className="bg-accent hover:bg-accent/90 text-white text-lg font-bold px-8 py-4 rounded-lg transition">

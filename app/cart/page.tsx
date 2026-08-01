@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic';
 
 /** Smart "add more to unlock free shipping" recommender.
  *  - Finds products NOT already in cart that would close the gap
- *  - Starter Kit itself ships free (>= $79), but we don't recommend it
+ *  - Starter Kit itself ships free (>= $89), but we don't recommend it
  *    as an upsell if you already have the sealer — recommend bags instead.
  *  - If bag prices don't close the gap, recommend "add another bag pack".
  */
