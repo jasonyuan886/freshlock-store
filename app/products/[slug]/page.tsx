@@ -411,7 +411,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                 >
                   <Image src={p.image}
                     alt={`${p.name} — ${p.shortDescription}`}
-                    className="w-full aspect-square object-cover"
+                    className="w-full aspect-square object-contain bg-stone-50"
                     width={400}
                     height={400}
                     loading="lazy" />
