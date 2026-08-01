@@ -244,7 +244,7 @@ export default function SavingsCalculatorClient() {
                     href="/products/freshlock-starter-kit"
                     className="block w-full text-center bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-6 rounded-lg transition text-lg"
                   >
-                    Get FreshLock Starter Kit for $79.99 →
+                    Get FreshLock Starter Kit for $89.99 →
                   </Link>
                   <p className="text-xs text-gray-500 text-center mt-3">
                     Free shipping on the Starter Kit · 2-year warranty · 30-day returns

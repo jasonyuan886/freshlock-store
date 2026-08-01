@@ -68,9 +68,9 @@ export const products: Product[] = [
   {
     slug: 'freshlock-starter-kit',
     name: 'FreshLock Starter Kit',
-    price: 79.99,
+    price: 89.99,
     compareAtPrice: 104.97,
-    discountBadge: 'Save $24.98 · Ships FREE',
+    discountBadge: 'Save $14.98 · Ships FREE',
     description:
       'Everything you need to start vacuum sealing today — the FreshLock Pro handheld vacuum sealer plus 30 BPA-free embossed valve bags in three sizes (10 small, 10 medium, 10 large), all in the retail box. Stop freezer burn on meal prep, leftovers, marinating meats, and sous-vide portions the moment you open the box. The sealer works with most embossed valve bags, so you are never locked into expensive replacements.',
     shortDescription:

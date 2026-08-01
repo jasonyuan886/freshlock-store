@@ -17,7 +17,7 @@ const FOODS = [
 
 const AVG_ANNUAL_WASTE = 1866;
 const FRESHLOCK_PRICE = 69.99;
-const KIT_PRICE = 79.99;
+const KIT_PRICE = 89.99;
 
 export default function CalculatorClient() {
   const [household, setHousehold] = useState(2);
