@@ -16,7 +16,7 @@ const FOODS = [
 ];
 
 const AVG_ANNUAL_WASTE = 1866;
-const FRESHLOCK_PRICE = 59.99;
+const FRESHLOCK_PRICE = 69.99;
 const KIT_PRICE = 79.99;
 
 export default function CalculatorClient() {

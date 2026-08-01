@@ -18,9 +18,9 @@ export const products: Product[] = [
   {
     slug: 'freshlock-pro',
     name: 'FreshLock Pro Handheld Vacuum Sealer',
-    price: 59.99,
+    price: 69.99,
     compareAtPrice: 89.99,
-    discountBadge: '33% off MSRP',
+    discountBadge: '22% off MSRP',
     description:
       'The FreshLock Pro is a cordless handheld vacuum sealer designed to stop freezer burn before it starts. Attach the nozzle to the valve on any compatible embossed valve bag, press one button, and the quiet pump pulls air out in seconds — creating an airtight seal that keeps food fresh up to 5× longer. A detachable drip tray catches liquid overflow so soups, marinades, and juicy meats seal cleanly without damaging the motor. No heat bar, no complicated setup. Recharge via USB-C and take it anywhere — kitchen drawer, fridge, pantry, or campsite.',
     shortDescription:
