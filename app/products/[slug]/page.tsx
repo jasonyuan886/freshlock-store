@@ -9,6 +9,9 @@ import GalleryClient from './GalleryClient';
 import FrequentlyBoughtTogether from '@/components/FrequentlyBoughtTogether';
 import Image from 'next/image';
 import PriceDisplay from '@/components/PriceDisplay';
+import FomoLiveViewers from '@/components/FomoLiveViewers';
+import FomoStockIndicator from '@/components/FomoStockIndicator';
+import FomoCountdownTimer from '@/components/FomoCountdownTimer';
 
 type Params = { slug: string };
 
@@ -290,6 +293,9 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             )}
             <h1 className="text-3xl md:text-4xl font-bold text-primary mb-3">{product.name}</h1>
 
+            {/* FOMO: Live viewers */}
+            <FomoLiveViewers />
+
             {/* Mini rating */}
             <div className="flex items-center gap-2 mb-4">
               <StarRating rating={5} size="text-sm" />
@@ -304,6 +310,9 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                 size="lg"
               />
             </div>
+
+            {/* FOMO: Stock indicator */}
+            <FomoStockIndicator initialStock={15} />
 
             {/* Differentiator callouts */}
             <div className="grid grid-cols-2 gap-2 mb-6">
@@ -331,7 +340,10 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               </ul>
             </section>
 
-            <div id="purchase"><AddToCartClient product={product} /></div>
+            <div id="purchase">
+              <FomoCountdownTimer variant="pdp" />
+              <AddToCartClient product={product} />
+            </div>
 
             <First100ReviewersBlock compact />
 

@@ -103,6 +103,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <FomoPurchaseNotification />
         </CartProvider>
       </body>
     </html>
