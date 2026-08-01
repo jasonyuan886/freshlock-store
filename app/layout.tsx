@@ -3,6 +3,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import FomoPurchaseNotification from '@/components/FomoPurchaseNotification';
 import { CartProvider } from '@/lib/cart-context';
 import { generateOrganizationSchema, generateWebsiteSchema, SITE_URL } from '@/lib/schema';
 

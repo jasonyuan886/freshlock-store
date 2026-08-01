@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { products, reviews, faqs, FREE_SHIPPING_THRESHOLD } from '@/lib/data';
 import PriceDisplay from '@/components/PriceDisplay';
+import FomoCountdownTimer from '@/components/FomoCountdownTimer';
 import { getAllPosts } from '@/lib/blog';
 import { generateFAQSchema } from '@/lib/schema';
 import Image from 'next/image';
