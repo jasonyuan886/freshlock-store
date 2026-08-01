@@ -53,7 +53,7 @@ function Hero() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/products/freshlock-pro" className="btn-primary text-lg">
-                Shop FreshLock Pro — $69.99
+                Shop FreshLock Pro — $74.99
               </Link>
               <Link href="#features" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg">
                 See Features
@@ -427,7 +427,7 @@ function Cta() {
           Free shipping over ${FREE_SHIPPING_THRESHOLD} · Starter Kits ship free · 60-day returns · 2-year warranty
         </p>
         <Link href="/products/freshlock-pro" className="btn-primary text-lg">
-          Get FreshLock Pro — $69.99
+          Get FreshLock Pro — $74.99
         </Link>
       </div>
     </section>

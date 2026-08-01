@@ -1,16 +1,16 @@
 import { Product, Review } from './types';
 
 // Free shipping threshold for US orders (USD)
-export const FREE_SHIPPING_THRESHOLD = 79;
+export const FREE_SHIPPING_THRESHOLD = 89;
 export const SHIPPING_FEE_UNDER = 5.99;
 // International free-shipping tiers
 export const FREE_SHIPPING_REGIONS: Record<string, number> = {
-  US: 79,
-  CA: 79,
-  GB: 79,
-  JP: 79,
-  AU: 59,
-  NZ: 59,
+  US: 89,
+  CA: 89,
+  GB: 89,
+  JP: 89,
+  AU: 69,
+  NZ: 69,
 };
 export const STARTER_KIT_SHIPS_FREE = true; // Starter kits always ship free
 
@@ -18,9 +18,9 @@ export const products: Product[] = [
   {
     slug: 'freshlock-pro',
     name: 'FreshLock Pro Handheld Vacuum Sealer',
-    price: 69.99,
+    price: 74.99,
     compareAtPrice: 89.99,
-    discountBadge: '22% off MSRP',
+    discountBadge: '17% off MSRP',
     description:
       'The FreshLock Pro is a cordless handheld vacuum sealer designed to stop freezer burn before it starts. Attach the nozzle to the valve on any compatible embossed valve bag, press one button, and the quiet pump pulls air out in seconds — creating an airtight seal that keeps food fresh up to 5× longer. A detachable drip tray catches liquid overflow so soups, marinades, and juicy meats seal cleanly without damaging the motor. No heat bar, no complicated setup. Recharge via USB-C and take it anywhere — kitchen drawer, fridge, pantry, or campsite.',
     shortDescription:
@@ -68,9 +68,9 @@ export const products: Product[] = [
   {
     slug: 'freshlock-starter-kit',
     name: 'FreshLock Starter Kit',
-    price: 89.99,
+    price: 94.99,
     compareAtPrice: 104.97,
-    discountBadge: 'Save $14.98 · Ships FREE',
+    discountBadge: 'Save $9.98 · Ships FREE',
     description:
       'Everything you need to start vacuum sealing today — the FreshLock Pro handheld vacuum sealer plus 30 BPA-free embossed valve bags in three sizes (10 small, 10 medium, 10 large), all in the retail box. Stop freezer burn on meal prep, leftovers, marinating meats, and sous-vide portions the moment you open the box. The sealer works with most embossed valve bags, so you are never locked into expensive replacements.',
     shortDescription:
@@ -113,7 +113,7 @@ export const products: Product[] = [
   {
     slug: 'vacuum-seal-bags-30-pack',
     name: 'Vacuum Seal Bags — 30 Pack (Medium)',
-    price: 19.99,
+    price: 29.99,
     description:
       'Premium 90 μm embossed vacuum zipper bags with a white circular one-way air valve and apple-green zip slider. Attach any valve-type handheld sealer (including FreshLock Pro) to the valve, extract the air, and the bag creates an airtight barrier that locks out oxygen and moisture — stopping freezer burn on meat, cheese, vegetables, and dry goods. BPA-free, food-safe, freezer-safe, microwave-safe (with zipper open), and reusable.',
     shortDescription:
@@ -148,7 +148,7 @@ export const products: Product[] = [
   {
     slug: 'vacuum-seal-bags-50-pack',
     name: 'Vacuum Seal Bags — 50 Pack (Large)',
-    price: 29.99,
+    price: 39.99,
     description:
       'Our value-sized large bag pack. At 26×34 cm these 90 μm embossed valve bags handle family-size portions, whole cuts of meat, bulk vegetables, and sous-vide cooking. Same premium multi-layer construction, white circular one-way air valve, and apple-green double-track zip slider as our medium bags. BPA-free, food-safe, reusable, and compatible with most valve-type handheld vacuum sealers.',
     shortDescription:
