@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Returns & Refund Policy — 60-Day Money-Back Guarantee',
+  title: 'Returns & Refund Policy — 30-Day Money-Back Guarantee',
   description:
-    'FreshLock offers a 60-day satisfaction guarantee. Return any unused item within 60 days for a refund or exchange. 2-year warranty on the sealer unit.',
+    'FreshLock offers a 30-day satisfaction guarantee. Return any unused item within 30 days for a refund or exchange. 1-year warranty on the sealer unit.',
 };
 
 export default function ReturnsPage() {
@@ -11,7 +11,7 @@ export default function ReturnsPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center mb-10">
         <h1 className="section-title">Returns &amp; Refund Policy</h1>
-        <p className="section-subtitle">60-day satisfaction guarantee — backed by our 2-year warranty.</p>
+        <p className="section-subtitle">30-day satisfaction guarantee — backed by our 1-year warranty.</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -19,7 +19,7 @@ export default function ReturnsPage() {
           <section>
             <div className="bg-accent/10 border-l-4 border-accent p-4 rounded">
               <p className="text-gray-900 font-semibold">
-                🎉 60-Day Satisfaction Guarantee — If you&apos;re not completely happy with your FreshLock purchase within 60 days of delivery, we&apos;ll make it right.
+                🎉 30-Day Satisfaction Guarantee — If you&apos;re not completely happy with your FreshLock purchase within 30 days of delivery, we&apos;ll make it right.
               </p>
             </div>
           </section>
@@ -27,7 +27,7 @@ export default function ReturnsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">1. Return Window (Change of Mind)</h2>
             <p className="text-gray-600 leading-relaxed">
-              You may return most new, unused items within <strong>60 days of delivery</strong> for a full refund or exchange, no questions asked. Items must be in their original packaging, undamaged, and in resalable condition, with all accessories and documentation included.
+              You may return most new, unused items within <strong>30 days of delivery</strong> for a full refund or exchange, no questions asked. Items must be in their original packaging, undamaged, and in resalable condition, with all accessories and documentation included.
             </p>
           </section>
 
@@ -35,7 +35,7 @@ export default function ReturnsPage() {
             <h2 className="text-2xl font-bold text-primary mb-3">2. Eligibility</h2>
             <p className="text-gray-600 leading-relaxed mb-3">To be eligible for a change-of-mind return:</p>
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
-              <li>Return request must be initiated within 60 days of delivery.</li>
+              <li>Return request must be initiated within 30 days of delivery.</li>
               <li>The item must be unused, undamaged, and in its original packaging.</li>
               <li>All accessories (charging cable, user manual, included bags, etc.) must be included.</li>
               <li>Proof of purchase (order number) is required.</li>
@@ -91,7 +91,7 @@ export default function ReturnsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">8. Warranty Claims</h2>
             <p className="text-gray-600 leading-relaxed">
-              The FreshLock Pro handheld vacuum sealer is backed by a <strong>2-year warranty on the main unit</strong> and <strong>6-month warranty on accessories</strong> (USB-C cable, starter bags) against defects in materials and workmanship. Warranty claims outside the 60-day return window are handled separately — simply email us with your order number, a description of the issue, and photos or video if possible, and we will arrange repair or replacement under warranty.
+              The FreshLock Pro handheld vacuum sealer is backed by a <strong>1-year warranty on the main unit</strong> and <strong>6-month warranty on accessories</strong> (USB-C cable, starter bags) against defects in materials and workmanship. Warranty claims outside the 30-day return window are handled separately — simply email us with your order number, a description of the issue, and photos or video if possible, and we will arrange repair or replacement under warranty.
             </p>
           </section>
 
