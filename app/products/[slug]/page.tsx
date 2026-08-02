@@ -161,7 +161,7 @@ function ReviewsSection() {
                       fill
                       sizes="80px"
                       loading="lazy"
-                      className="object-cover"
+                      className="object-contain"
                     />
                   </div>
                 ))}
