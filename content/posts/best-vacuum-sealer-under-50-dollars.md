@@ -20,7 +20,7 @@ Forget chamber sealers. Forget heavy-duty countertop suction machines. Those sta
 - **Compact plug-in handhelds** — usually cheaper but less powerful.
 - **No-name cheap edge sealers** — mostly garbage. Heat bars fail quickly and bags jam.
 
-Handheld valve-bag sealers are the best value in this range. They are portable, powerful enough for home use, and the ongoing bag cost is low.
+Handheld valve-bag sealers are the best value in this range. They are [portable](/blog/portable-vacuum-sealer-benefits), powerful enough for home use, and the ongoing bag cost is low.
 
 ---
 
@@ -83,7 +83,7 @@ Compared to other sub-$50 handhelds, the drip cup is the standout feature. Most 
 Some listings show a sealer for $19.99 — but the bags are $15 for a pack of 20. Over a year, the bag cost adds up to more than the sealer. Factor in ongoing bag cost.
 
 ### "Hand pump" hybrids
-Manual hand-pump sealers are not vacuum sealers — they are manual pumps. They work for occasional mason jar use, but doing 20 bags for meal prep will give you a workout. Electric is worth the money.
+Manual hand-pump sealers are not vacuum sealers — they are [manual](/blog/vacuum-sealer-vs-hand-pump-comparison) pumps. They work for occasional mason jar use, but doing 20 bags for meal prep will give you a workout. Electric is worth the money.
 
 ### Off-brand Amazon units with suspicious reviews
 If every review is 5 stars and reads the same way, or the brand has no website or support channel, expect a throwaway product. Look for at least a real support email and a warranty. FreshLock offers a 2-year warranty on the main unit and responds at support@freshlocksealer.com.

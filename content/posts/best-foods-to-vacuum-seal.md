@@ -6,7 +6,7 @@ author: "FreshLock Team"
 tags: ["Food Storage", "Tips", "Meal Prep"]
 ---
 
-A handheld vacuum sealer is one of the most useful kitchen gadgets you can own — but not every food plays nicely inside a vacuum-sealed bag. Get it right and you'll slash food waste, save hundreds on groceries, and enjoy fresher food for weeks or months longer. Get it wrong and you can end up with crushed berries, soggy lettuce, or worse.
+A handheld vacuum sealer is one of the most useful kitchen gadgets you can own — but not every food plays nicely inside a vacuum-sealed bag. Get it right and you'll slash [food waste](/blog/food-storage-mistakes-costing-money), save hundreds on groceries, and enjoy fresher food for weeks or months longer. Get it wrong and you can end up with crushed berries, soggy lettuce, or worse.
 
 In this article, we break down **18 foods that vacuum seal beautifully** (and how to seal them properly), plus **5 foods you should never vacuum seal**.
 
@@ -45,7 +45,7 @@ Cured meats already last reasonably well, but vacuum sealing prevents the white 
 
 ### 🧀 Cheese & Dairy
 
-**6. Hard cheeses (cheddar, parmesan, gouda, mozzarella blocks)**
+**6. Hard [cheeses](/blog/vacuum-sealer-for-cheese-storage) (cheddar, parmesan, gouda, mozzarella blocks)**
 This is a game-changer. A block of cheddar normally goes mouldy after 1–2 weeks in the fridge once opened. Vacuum sealed, it lasts **4–8 weeks**. Just make sure the cheese is dry on the outside (wipe with a paper towel if needed). Block cheese only — don't vacuum seal already-grated cheese (it gets crushed) or soft cheese (see "what not to seal" below).
 
 **7. Butter**
@@ -54,7 +54,7 @@ Butter picks up fridge odours easily. Vacuum-seal extra blocks of butter and the
 ### 🥬 Vegetables
 
 **8. Broccoli, cauliflower, carrots, green beans, and peas**
-**Blanch first!** Drop them into boiling water for 1–3 minutes (depending on size), then plunge into ice water to stop cooking, drain, pat very dry, and seal. Blanching deactivates enzymes that would otherwise make vegetables go mushy and off-flavoured in the freezer even without air. Blanched and sealed, veg lasts 2–3 years in the freezer.
+**Blanch first!** Drop them into boiling water for 1–3 minutes (depending on size), then plunge into ice water to stop cooking, drain, pat very dry, and seal. Blanching deactivates enzymes that would otherwise make [vegetables](/blog/vacuum-sealer-for-freezing-vegetables) go mushy and off-flavoured in the freezer even without air. Blanched and sealed, veg lasts 2–3 years in the freezer.
 
 **9. Corn on the cob**
 Blanch for 4–6 minutes (depending on cob size), cool in ice water, pat dry, seal whole or cut into rounds. Perfect summer corn in the middle of winter.

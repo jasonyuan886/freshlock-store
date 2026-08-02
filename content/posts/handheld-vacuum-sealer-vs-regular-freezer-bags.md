@@ -19,7 +19,7 @@ In this article we compare handheld vacuum sealers and regular freezer bags head
 | Factor | Regular freezer/zip-lock bags | Handheld vacuum sealer |
 |---|---|---|
 | **Upfront cost** | Very cheap ($3–$5/box) | $80–$120 AUD for a starter kit |
-| **Ongoing bag cost** | $0.10–0.30 per bag (disposable) | $0.50–1.00 per bag (reusable 10–50×) |
+| **Ongoing bag cost** | $0.10–0.30 per bag (disposable) | $0.50–1.00 per bag ([reusable](/blog/reusable-vacuum-sealer-bags-guide) 10–50×) |
 | **Air removal** | Minimal — you squeeze by hand | Near-complete — pump removes ~90%+ of air |
 | **Freezer life (meat)** | 1–6 months (freezer burn) | 2–3 years |
 | **Fridge life (leftovers)** | 3–4 days | 1–2 weeks |
@@ -119,7 +119,7 @@ Neither is "more convenient" across the board. But for most households the 10-se
 
 This one is more nuanced than you'd think.
 
-**Regular freezer bags** are almost always single-use. Australians throw away billions of plastic bags per year. Even "reusable" zip-lock bags are rarely reused more than a few times because they hold odours and are hard to dry.
+**Regular freezer bags** are almost always single-use. Australians throw away billions of p[last](/blog/how-long-does-vacuum-sealed-food-last)ic bags per year. Even "reusable" zip-lock bags are rarely reused more than a few times because they hold odours and are hard to dry.
 
 **Vacuum zipper bags** are designed to be reused 10–50+ times, especially when used for dry goods, bread, fruit, vegetables, or cheese. You wash them with warm soapy water, rinse, and air-dry. Only bags that held raw meat should be single-use (food safety).
 
@@ -193,6 +193,6 @@ If you've decided vacuum sealing is for you, there's one more choice: handheld p
 
 For the vast majority of Australian households, a handheld vacuum sealer is one of the highest-ROI kitchen gadgets you can buy. The upfront cost is modest, the savings from reduced food waste are real and measurable, and the convenience of having fresh food that lasts weeks or months longer pays off every single week.
 
-If you're on the fence, try a starter kit that includes the sealer and a variety of bag sizes — that way you can experiment with different foods without committing to a big bag purchase upfront.
+If you're on the fence, try a starter kit that includes the sealer and a variety of bag sizes — that way you can experiment with different [foods](/blog/best-foods-to-vacuum-seal) without committing to a big bag purchase upfront.
 
 Ready to give it a go? Check out the [FreshLock Starter Kit](/products/freshlock-starter-kit) — it includes the cordless handheld sealer plus 30 reusable vacuum bags in three sizes, with free shipping on orders over $79 AUD.

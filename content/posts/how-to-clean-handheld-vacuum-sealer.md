@@ -6,7 +6,7 @@ author: "FreshLock Team"
 tags: ["Maintenance", "Cleaning", "How-To", "Vacuum Sealer Care"]
 ---
 
-A handheld vacuum sealer is one of those kitchen tools that works so reliably you barely think about it — until the day it doesn't. The pump gets weak, the seal gets sloppy, or strange smells start coming from the nozzle. Nine times out of ten, the problem isn't a broken sealer. It's a dirty one.
+A handheld vacuum sealer is one of those kitchen tools that works so reliably you barely think about it — until the day it doesn't. The pump gets weak, the seal gets sloppy, or strange smells start coming from the nozzle. Nine times out of ten, the [problem](/blog/vacuum-sealer-not-sealing-properly-fix) isn't a broken sealer. It's a dirty one.
 
 Regular cleaning takes 2–5 minutes and prevents almost every common vacuum sealer issue. In this guide, we'll walk you through exactly how to clean a handheld vacuum sealer, how often to do it, which parts need attention, and what not to do (these are the mistakes that actually break sealers).
 
@@ -102,7 +102,7 @@ Do this every month or two, or immediately if you notice weak suction, bad smell
 - You can also use a soft-bristle toothbrush dampened with vinegar water to gently scrub the nozzle opening
 - The vinegar dissolves mineral deposits, kills bacteria and mold, and cuts through dried-on food oils
 
-**Step 3: Let the vinegar sit for 2–3 minutes.** This gives it time to dissolve buildup. Don't turn the sealer upside down or point the nozzle up — you don't want liquid running deeper into the motor housing. Keep it nozzle-down.
+**Step 3: Let the vinegar sit for 2–3 minutes.** This gives it time to dissolve buildup. Don't turn the sealer upside down or point the nozzle up — you don't want liquid running deeper into the motor ho[using](/blog/how-to-use-handheld-vacuum-sealer). Keep it nozzle-down.
 
 **Step 4: Flush with clean water.** Dampen a clean cotton swab with plain warm water, swab the nozzle to rinse out vinegar and loosened debris.
 
@@ -116,7 +116,7 @@ Do this every month or two, or immediately if you notice weak suction, bad smell
 
 ## Cleaning Removable Parts (If Your Sealer Has Them)
 
-Some handheld vacuum sealers (though not all) have a removable drip tray, nozzle tip, or liquid guard. Check your manual. If parts are removable:
+Some handheld vacuum sealers (though not all) have a removable [drip tray](/blog/vacuum-sealer-liquid-protection-drip-tray), nozzle tip, or liquid guard. Check your manual. If parts are removable:
 
 - Rinse removable parts under warm running water with a little dish soap
 - Use the small brush to clean crevices
@@ -124,7 +124,7 @@ Some handheld vacuum sealers (though not all) have a removable drip tray, nozzle
 - Air dry completely before reassembling
 - Never force a part off if it doesn't seem removable — you'll break it
 
-**Important:** Most handheld pump-style sealers (including FreshLock) do NOT have removable nozzle parts. That's by design — fewer seams means fewer places for bacteria to hide. Don't try to pry anything apart.
+**Important:** Most handheld pump-style sealers (including [FreshLock](/blog/freshlock-vacuum-sealer-review)) do NOT have removable nozzle parts. That's by design — fewer seams means fewer places for bacteria to hide. Don't try to pry anything apart.
 
 ---
 

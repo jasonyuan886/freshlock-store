@@ -6,9 +6,9 @@ author: "FreshLock Team"
 tags: ["Mason Jars", "Food Storage", "How-To"]
 ---
 
-Mason jars are the workhorses of the pantry. They are cheap, reusable, oven-safe, and endlessly useful. But one thing most people do not realize is that you can **vacuum seal mason jars** — turning them from simple glass containers into airtight, long-term storage vessels that keep food fresh for months.
+Mason jars are the workhorses of the pantry. They are cheap, [reusable](/blog/reusable-vacuum-sealer-bags-guide), oven-safe, and endlessly useful. But one thing most people do not realize is that you can **vacuum seal mason jars** — turning them from simple glass containers into airtight, long-term storage vessels that keep food fresh for months.
 
-If you already own a handheld vacuum sealer, you are one cheap accessory away from sealing jars. It is one of the most useful tricks in the whole vacuum-sealing playbook.
+If you already own a [handheld vacuum sealer](/blog/how-to-use-handheld-vacuum-sealer), you are one cheap accessory away from sealing jars. It is one of the most useful tricks in the whole vacuum-sealing playbook.
 
 ---
 
@@ -41,7 +41,7 @@ You do not need a special countertop sealer. Here is the kit:
 Start with a clean, completely dry jar. Moisture is the enemy of shelf-stable dry goods. Fill the jar, leaving **at least ½ inch of headroom** at the top — more if you are sealing liquids (1 inch minimum) to allow for expansion during freezing.
 
 For dry goods (flour, rice, nuts, coffee), you can fill close to the shoulder of the jar.
-For wet foods or marinating, leave more room.
+For wet [foods](/blog/best-foods-to-vacuum-seal) or marinating, leave more room.
 For freezing, leave extra room for expansion — liquids expand as they freeze and can crack jars.
 
 ### Step 2: Apply the flat lid
@@ -57,7 +57,7 @@ Press the nozzle of your handheld vacuum sealer into the port on top of the jar 
 Keep the sealer running until you feel the pull weaken and you hear the pump note change — that means the vacuum inside the jar is close to the pump's limit (around **-60 kPa** on most handhelds), and the flat lid will be pulled firmly down into a concave position. You can often see the lid "snap" down.
 
 ### Step 6: Detach and secure
-Release the sealer and pull the jar attachment straight off. The flat lid should be tight — try to lift it with your fingernail. If it does not move, you have a good seal. If it pops off easily, wipe the rim, reposition the lid, and try again. Add the screw-on ring for extra security (especially for pantry storage).
+Release the sealer and pull the jar attachment straight off. The flat lid should be tight — try to lift it with your fingernail. If it does not move, you have a good seal. If it pops off easily, wipe the rim, reposition the lid, and try again. Add the screw-on ring for extra security (especially for pantry [storage](/blog/vacuum-sealing-vs-containers)).
 
 ### Step 7: Label
 Write the date and contents on the lid or a piece of tape. Sealed jars of dry goods can last 6–12 months in a cool pantry. Frozen sealed jars keep well for 3–6 months.

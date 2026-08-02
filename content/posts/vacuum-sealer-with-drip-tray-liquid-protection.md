@@ -8,7 +8,7 @@ tags: ["Drip Tray", "Features", "Buying Guide", "Liquids"]
 
 If you read enough vacuum sealer reviews, you will see the same complaint over and over: "It worked great for a few months, then suction just died." Nine times out of ten, the cause is the same — **liquids got pulled into the pump** from sealing marinated meats, juicy fish, soups, or even just-moist produce.
 
-A **vacuum sealer with a drip tray** (also called a drip cup, liquid trap, or overflow reservoir) is not a nice-to-have feature. It is the single biggest factor in how long a handheld vacuum sealer lasts. Here is why.
+A **vacuum sealer with a [drip tray](/blog/vacuum-sealer-liquid-protection-drip-tray)** (also called a drip cup, liquid trap, or overflow reservoir) is not a nice-to-have feature. It is the single biggest factor in how long a handheld vacuum sealer lasts. Here is why.
 
 ---
 
@@ -36,7 +36,7 @@ Good drip trays share these characteristics:
 
 1. **Removable** — you can pop it off, empty it, and wash it.
 2. **Transparent** — so you can see if there is liquid in it without disassembling anything.
-3. **Easy to clean** — smooth surfaces, no tiny crevices that trap food. Dishwasher-safe is a bonus.
+3. **Easy to [clean](/blog/how-to-clean-handheld-vacuum-sealer)** — smooth surfaces, no tiny crevices that trap food. Dishwasher-safe is a bonus.
 4. **Positive seal** — when clicked into place, there is no air leak around the cup that would reduce suction.
 5. **Adequate capacity** — large enough to catch a small splash (5–15ml is typical; you don't need it to hold a bowl of soup — it is for incidental liquid).
 
@@ -58,7 +58,7 @@ It is important to be honest about the limits.
 
 A drip tray will **not** let you vacuum seal a bag full of soup like a $500 chamber sealer. It catches incidental, accidental liquid — the splash of teriyaki, the juice off a steak, the melted ice off a fillet of fish, the tablespoon of brine that sloshes.
 
-If you try to seal a bag of stew, you will overwhelm the cup. That is not a defect — that is the wrong tool for the job. For genuine liquid sealing, use the freeze-first method (freeze liquids in an ice cube tray, add the frozen cube to the bag before sealing) or invest in a chamber sealer.
+If you try to seal a bag of stew, you will overwhelm the cup. That is not a defect — that is the wrong tool for the job. For genuine liquid sealing, use the freeze-first method (freeze [liquids](/blog/vacuum-sealer-for-sous-vide-liquids-marinades) in an ice cube tray, add the frozen cube to the bag before sealing) or invest in a chamber sealer.
 
 ---
 

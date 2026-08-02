@@ -6,9 +6,9 @@ author: "FreshLock Team"
 tags: ["Meal Prep", "Food Storage", "Vacuum Sealing", "Beginner"]
 ---
 
-If you have ever opened your fridge at 6 pm staring at wilted vegetables, expired chicken, and containers of forgotten leftovers, you already know the two biggest enemies of meal prep: **time** and **spoilage**. You spend Sunday afternoon cooking, and by Thursday half of it has gone bad.
+If you have ever opened your fridge at 6 pm staring at wilted vegetables, expired chicken, and containers of forgotten [leftovers](/blog/vacuum-sealer-for-leftovers-stay-fresh), you already know the two biggest enemies of meal prep: **time** and **spoilage**. You spend Sunday afternoon cooking, and by Thursday half of it has gone bad.
 
-A **handheld vacuum sealer** solves both problems. It lets you prep in bulk, portion individual meals, lock in freshness for days or weeks, and dramatically cut down on food waste. This guide will show you exactly how to use vacuum sealing for meal prep — what foods to seal, how to portion, how long things last, and a step-by-step workflow that takes less than an hour each week.
+A **handheld vacuum sealer** solves both problems. It lets you prep in bulk, portion individual meals, lock in freshness for days or weeks, and dramatically cut down on food waste. This [guide](/blog/vacuum-sealer-meal-prep-guide) will show you exactly how to use vacuum sealing for meal prep — what foods to seal, how to portion, how long things last, and a step-by-step workflow that takes less than an hour each week.
 
 ---
 
@@ -18,7 +18,7 @@ Meal prepping without a vacuum sealer means relying on plastic wrap, zip-top bag
 
 - **Freezer burn** — ice crystals, dry spots, and off-flavours on frozen food
 - **Oxidation** — cut fruit browns, cooked meat gets dry, vegetables wilt
-- **Shorter shelf life** — most prepped food lasts 3–5 days in the fridge
+- **Shorter [shelf life](/blog/how-long-does-vacuum-sealed-food-last)** — most prepped food lasts 3–5 days in the fridge
 - **Fridge clutter** — mismatched containers, leaking bags, wasted space
 
 Vacuum sealing removes most of the air before storage. The result:

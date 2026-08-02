@@ -8,7 +8,7 @@ tags: ["Freezing", "Vegetables", "Food Storage"]
 
 Home-frozen vegetables have a bad reputation. People remember mushy green beans, flavorless broccoli, and bags full of frost-covered carrots from childhood freezers. The problem was never the freezing — it was the **packaging**. Air is the enemy. A **vacuum sealer for freezing vegetables** removes that air and changes everything.
 
-Properly blanched, vacuum-sealed, and frozen vegetables stay fresh-tasting for 8–12 months. They keep their color, their snap, and their nutritional value in a way regular freezer bags cannot match.
+Properly [blanch](/blog/best-foods-to-vacuum-seal)ed, vacuum-sealed, and frozen vegetables stay fresh-tasting for 8–12 months. They keep their color, their snap, and their nutritional value in a way regular [freezer](/blog/how-long-does-vacuum-sealed-food-last) bags cannot match.
 
 ---
 
@@ -20,7 +20,7 @@ Three things ruin frozen vegetables:
 2. **Ice crystal damage** — Temperature swings in the freezer cause moisture to migrate out of the vegetables and form large ice crystals inside the bag, which rupture cell walls and turn veggies mushy when thawed.
 3. **Enzyme activity** — Raw vegetables contain enzymes that, even in the freezer, slowly break down color, texture, and flavor over months.
 
-Vacuum sealing fixes #1 and #2 directly. Blanching fixes #3. Together, they are the one-two punch of serious vegetable preservation.
+[Vacuum sealing](/blog/vacuum-sealer-for-fish-and-seafood-storage) fixes #1 and #2 directly. Blanching fixes #3. Together, they are the one-two punch of serious vegetable preservation.
 
 ---
 

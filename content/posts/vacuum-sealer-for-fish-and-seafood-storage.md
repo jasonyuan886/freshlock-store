@@ -6,7 +6,7 @@ author: "FreshLock Team"
 tags: ["Seafood", "Freezing", "Fish Storage"]
 ---
 
-Fish and seafood are the hardest foods to store well. They are high in moisture, full of delicate omega-3 oils, and spoil fast. Even in the freezer, plain plastic wrap or zip-top bags leave enough oxygen to turn beautiful salmon fillets into dry, fishy-tasting disappointment within weeks. A **vacuum sealer for fish and seafood** is the difference between "caught yesterday" texture and "this has been in here a while" regret.
+Fish and seafood are the hardest foods to store well. They are high in moisture, full of delicate omega-3 oils, and spoil fast. Even in the freezer, plain p[last](/blog/how-long-does-vacuum-sealed-food-last)ic wrap or zip-top bags leave enough oxygen to turn beautiful salmon fillets into dry, fishy-tasting disappointment within weeks. A **vacuum sealer for fish and seafood** is the difference between "caught yesterday" texture and "this has been in here a while" regret.
 
 ---
 
@@ -14,7 +14,7 @@ Fish and seafood are the hardest foods to store well. They are high in moisture,
 
 Freezer burn happens when frozen food is exposed to dry, oxygen-rich freezer air. Moisture sublimates (evaporates directly from ice) off the surface, leaving behind a dry, discolored, oxidized layer. On red meat this is annoying. On fish it is catastrophic — the delicate oils oxidize fast, producing that strong "fishy" smell and off flavor.
 
-**Vacuum sealing removes nearly all the air** from the bag before freezing. No oxygen = no oxidation = no freezer burn. Properly sealed, fatty fish like salmon stays fresh in the freezer for 6–9 months (instead of 2–3 months in a regular bag). Lean white fish like cod or halibut can go 8–12 months.
+**Vacuum sealing removes nearly all the air** from the bag before [freezing](/blog/vacuum-sealer-for-freezing-vegetables). No oxygen = no oxidation = no freezer burn. Properly sealed, fatty fish like salmon stays fresh in the freezer for 6–9 months (instead of 2–3 months in a regular bag). Lean white fish like cod or halibut can go 8–12 months.
 
 ---
 
@@ -27,7 +27,7 @@ FreshLock pulls **-60 kPa** suction — strong enough for a tight seal, but not 
 A few reasons handheld is a great fit for seafood:
 
 - **Speed.** 10–20 seconds per fillet. You can process a whole catch from a fishing trip before the boat is even tied up.
-- **Drip cup protection.** Fish is wet. FreshLock's **removable transparent drip cup** (mechanical drip-drain) catches fish juice and melted ice water before it gets pulled into the motor. Empty it after sealing seafood to keep fish odor out of the pump.
+- **Drip cup protection.** Fish is wet. FreshLock's **removable transparent [drip cup](/blog/vacuum-sealer-liquid-protection-drip-tray)** (mechanical drip-drain) catches fish juice and melted ice water before it gets pulled into the motor. Empty it after sealing seafood to keep fish odor out of the pump.
 - **Portability.** Clean and seal fish at the cabin, on the boat, or on a camping trip — no wall outlet needed. USB-C rechargeable, 80–100 seals per charge.
 
 ---

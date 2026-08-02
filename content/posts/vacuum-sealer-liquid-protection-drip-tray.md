@@ -22,13 +22,13 @@ Vacuum pumps are designed to move air, not liquid. When fluid gets pulled into t
 - Organic material grows mold or bacteria inside the pump
 - In extreme cases, liquid can short out electronics in cordless models
 
-This is the **#1 failure mode** of handheld vacuum sealers. Countertop chamber sealers avoid the problem by sealing bags outside the chamber, but they cost hundreds of dollars. For affordable handhelds, liquid protection is everything.
+This is the **#1 failure mode** of handheld vacuum sealers. Countertop chamber sealers avoid the [problem](/blog/vacuum-sealer-not-sealing-properly-fix) by sealing bags outside the chamber, but they cost hundreds of dollars. For affordable handhelds, liquid protection is everything.
 
 ---
 
 ## How Drip Trays / Drip Cups Work
 
-Modern handheld sealers handle liquids using a **drip cup** (sometimes called a drip tray, liquid trap, or overflow reservoir) that sits between the nozzle and the pump. The design is simple:
+Modern handheld sealers handle liquids using a **drip cup** (sometimes called a [drip tray](/blog/vacuum-sealer-with-drip-tray-liquid-protection), liquid trap, or overflow reservoir) that sits between the nozzle and the pump. The design is simple:
 
 1. You place the nozzle over the bag valve and start suction.
 2. If liquid gets pulled up through the valve, it enters the nozzle.
@@ -53,10 +53,10 @@ For genuinely wet foods (soups, stews, brines), you still need a workaround — 
 Even with a drip cup, use these techniques for wet foods:
 
 ### 1. The pre-freeze trick (most reliable)
-Pour sauces, marinades, or soups into an ice cube tray or a small container and freeze until solid. Place the frozen cube in the bag with your meat/veggies, then seal. The liquid is frozen, so nothing gets sucked up. As it thaws in the fridge or sous vide bath, it mixes with the food. This is the gold standard for marinating and sous vide with sauces.
+Pour sauces, marinades, or soups into an ice cube tray or a small container and freeze until solid. Place the frozen cube in the bag with your meat/veggies, then seal. The liquid is frozen, so nothing gets sucked up. As it thaws in the fridge or [sous vide](/blog/vacuum-sealer-for-sous-vide-liquids-marinades) bath, it mixes with the food. This is the gold standard for marinating and sous vide with sauces.
 
 ### 2. Fold the bag edge
-Fold the top 2–3 inches of the bag over the outside like a cuff before adding food. After adding food, unfold the cuff back up. The folded area keeps the zip and valve area clean.
+Fold the top 2–3 inches of the bag over the outside like a cuff before adding food. After adding food, unfold the cuff back up. The folded area keeps the zip and valve area [clean](/blog/how-to-clean-handheld-vacuum-sealer).
 
 ### 3. Use a paper towel dam
 Place a small folded piece of paper towel just inside the bag, between the food and the valve. It absorbs stray droplets before they reach the valve. Not ideal for sous vide (paper towel can touch food), but useful for freezer storage of wet items.

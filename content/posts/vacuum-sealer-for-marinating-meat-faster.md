@@ -6,13 +6,13 @@ author: "FreshLock Team"
 tags: ["Marinades", "Cooking Tips", "Meat"]
 ---
 
-Here is a secret most grill guys will not tell you: the difference between a mediocre steak and a memorable one is not the cut of meat or the price of the grill. It is how deeply the marinade penetrates. Soaking meat in a bowl of marinade for a few hours works, but it only flavors the surface. A **vacuum sealer for marinating meat** pulls flavor deep into the fibers in **minutes**.
+Here is a secret most [grill](/blog/vacuum-sealing-bbq-camping-australia) guys will not tell you: the difference between a mediocre steak and a memorable one is not the cut of meat or the price of the grill. It is how deeply the marinade penetrates. Soaking meat in a bowl of marinade for a few hours works, but it only flavors the surface. A **vacuum sealer for marinating meat** pulls flavor deep into the fibers in **minutes**.
 
 ---
 
 ## The Science Bit
 
-Meat is full of tiny air pockets between muscle fibers. When you submerge a steak in marinade at normal pressure, the air in those pockets resists the liquid — the marinade can only seep in slowly through diffusion, which is why most recipes call for 4–12 hour marinades.
+Meat is full of tiny air pockets between muscle fibers. When you submerge a steak in marinade at normal pressure, the air in those pockets resists the liquid — the marinade can only seep in slowly through diffusion, which is why most recipes call for 4–12 hour [marinades](/blog/vacuum-sealing-marinades-guide).
 
 When you pull a **strong vacuum** (around -50 to -70 kPa) around a bag of meat and marinade, the pressure change pulls trapped air out of the meat. When the seal releases (or the vacuum is broken), the marinade rushes back in to fill those pockets. The result: **deep, even flavor in 20–45 minutes**, depending on the thickness of the cut.
 
@@ -88,7 +88,7 @@ Vacuum sealing is not a preservation technique for marinated meat at room temper
 
 ---
 
-If you grill, stir-fry, bake, or sous vide often, vacuum marinating is one of those small upgrades that dramatically changes the flavor of your food without requiring more skill. The FreshLock handheld vacuum sealer is strong enough at **-60 kPa** to pull a real marinade vacuum, has a **drip cup to protect the motor from acidic marinades**, and recharges via USB-C.
+If you grill, stir-fry, bake, or [sous vide](/blog/vacuum-sealer-for-sous-vide-liquids-marinades) often, vacuum marinating is one of those small upgrades that dramatically changes the flavor of your food without requiring more skill. The FreshLock handheld vacuum sealer is strong enough at **-60 kPa** to pull a real marinade vacuum, has a **drip cup to protect the motor from acidic marinades**, and recharges via USB-C.
 
 > **Check out the FreshLock handheld vacuum sealer →**
 >

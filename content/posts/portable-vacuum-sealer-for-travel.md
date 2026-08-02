@@ -6,9 +6,9 @@ author: "FreshLock Team"
 tags: ["Travel", "Packing", "Portable"]
 ---
 
-Most people do not think of a vacuum sealer as a travel accessory. They should. A **portable vacuum sealer for travel** is one of the most useful small gadgets you can slip into a suitcase. It compresses bulky clothes, keeps valuables dry, keeps snacks fresh for weeks, and even solves that eternal problem of coming home from a trip with more stuff than you left with.
+Most people do not think of a vacuum sealer as a travel accessory. They should. A **[portable vacuum sealer](/blog/portable-vacuum-sealer-benefits) for travel** is one of the most useful small gadgets you can slip into a suitcase. It compresses bulky clothes, keeps valuables dry, keeps snacks fresh for weeks, and even solves that eternal problem of coming home from a trip with more stuff than you left with.
 
-But not all sealers travel well. The key is picking a cordless, battery-powered model small enough to justify the space.
+But not all sealers travel well. The key is picking a [cordless](/blog/battery-powered-cordless-vacuum-sealer), battery-powered model small enough to justify the space.
 
 ---
 

@@ -6,13 +6,13 @@ author: "FreshLock Team"
 tags: ["BBQ", "Camping", "Australia", "Meal Prep"]
 ---
 
-If there are two things Australians universally agree on, it's that a summer weekend isn't complete without a BBQ, and that a camping trip turns bad fast when the food goes warm and soggy in the esky.
+If there are two things Australians universally agree on, it's that a summer weekend isn't complete without a BBQ, and that a [camping](/blog/vacuum-sealing-camping-outdoor) trip turns bad fast when the food goes warm and soggy in the esky.
 
 We've all been there. You pack the esky Friday night with snags, steaks, a bag of prawns, some pre-cut onions, a tub of coleslaw and a carton of cold ones. By Saturday arvo the ice is half water, the sausages are sitting in a puddle of their own juice, the bread is squished, and you start wondering whether the chicken is still safe to cook.
 
-A vacuum sealer fixes an embarrassing number of these problems — and once you start using one for BBQs and camping, you won't go back. It marinates meat faster, it shrinks everything down to half the size, it stops raw meat leaking onto everything else, and it keeps food fresh for days longer than cling wrap or zip-lock bags.
+A vacuum sealer fixes an embarrassing number of these problems — and once you start using one for BBQs and camping, you won't go back. It [marinates](/blog/vacuum-sealer-for-marinating-meat-faster) meat faster, it shrinks everything down to half the size, it stops raw meat leaking onto everything else, and it keeps food fresh for days longer than cling wrap or zip-lock bags.
 
-We put this guide together specifically for Australian conditions: hot days, long drives, dodgy camp fridges, beach trips, four-wheel-drive weekends, fishing trips, and the classic backyard BBQ for ten mates. There's a more general [camping & outdoor sealing guide](/posts/vacuum-sealing-camping-outdoor) on the blog already, but this one is all about the BBQ and camping scenarios we actually live here.
+We put this guide together specifically for [Australian](/blog/best-handheld-vacuum-sealer-australia-2026) conditions: hot days, long drives, dodgy camp fridges, beach trips, four-wheel-drive weekends, fishing trips, and the classic backyard BBQ for ten mates. There's a more general [camping & outdoor sealing guide](/posts/vacuum-sealing-camping-outdoor) on the blog already, but this one is all about the BBQ and camping scenarios we actually live here.
 
 ---
 
@@ -34,7 +34,7 @@ For a deeper dive on the technique, our [marinades guide](/posts/vacuum-sealing-
 
 ### 2. Dramatic esky space savings
 
-Standard packing is roughly 60% food and 40% trapped air. Vacuum-sealed bags collapse tight, so they stack flat and take up far less room. Real-world numbers from our own camping trips: a weekend's worth of marinated steak, chicken thighs, pre-cut veggies, cheese, and snags shrinks from two overflowing Woolies bags into a compact stack about the size of a laptop.
+Standard packing is roughly 60% food and 40% trapped air. Vacuum-sealed bags collapse tight, so they stack flat and take up far less room. Real-world numbers from our own [camping trips](/blog/handheld-vacuum-sealer-for-camping-trips): a weekend's worth of marinated steak, chicken thighs, pre-cut veggies, cheese, and snags shrinks from two overflowing Woolies bags into a compact stack about the size of a laptop.
 
 That means either:
 - More room for ice and cold drinks (priority #1)

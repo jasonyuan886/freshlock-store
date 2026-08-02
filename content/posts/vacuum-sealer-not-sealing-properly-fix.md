@@ -6,7 +6,7 @@ author: "FreshLock Team"
 tags: ["Troubleshooting", "Maintenance", "How-To"]
 ---
 
-Nothing is more frustrating than a vacuum sealer that will not hold a seal. You portion a week of meals, seal everything, stack it in the freezer, and come back a few days later to find bags loose and freezer burn setting in. Or the pump runs but never seems to pull the bag tight. The good news: **most vacuum sealer problems are not broken parts** — they are small, fixable issues with a simple root cause.
+Nothing is more frustrating than a vacuum sealer that will not hold a seal. You portion a week of meals, seal everything, stack it in the freezer, and come back a few days later to find bags loose and freezer burn setting in. Or the pump runs but never seems to pull the bag tight. The good news: **most vacuum sealer problems are not broken parts** — they are small, fixable issues with a simple root ca[use](/blog/how-to-use-handheld-vacuum-sealer).
 
 Here is how to diagnose and fix a vacuum sealer that is not sealing properly, with specific notes for handheld valve-bag sealers like FreshLock.
 
@@ -33,10 +33,10 @@ Handheld sealers work by pressing the nozzle firmly over the bag's one-way air v
 ### Cause B: The valve or zipper is dirty
 Food crumbs, liquid residue, grease, or dust on the valve membrane or on the zip track prevent a tight closure. This is the single most common cause of bad seals.
 
-**Fix:** Wipe the valve and zipper with a clean, dry or slightly damp paper towel. Make sure both are completely dry before sealing. Pay special attention to the zip track — even a tiny grain of rice holds the track open.
+**Fix:** Wipe the valve and zipper with a [clean](/blog/how-to-clean-handheld-vacuum-sealer), dry or slightly damp paper towel. Make sure both are completely dry before sealing. Pay special attention to the zip track — even a tiny grain of rice holds the track open.
 
 ### Cause C: The drip cup is full or not seated
-Handheld sealers with a liquid trap (like FreshLock's **detachable transparent drip cup**) will lose suction if the drip cup is full, blocked with food particles, or not clicked firmly back into place after cleaning.
+Handheld sealers with a liquid trap (like [FreshLock](/blog/freshlock-vacuum-sealer-review)'s **detachable transparent drip cup**) will lose suction if the drip cup is full, blocked with food particles, or not clicked firmly back into place after cleaning.
 
 **Fix:** Pull off the drip cup, empty it, rinse with warm water, and make sure the air channel is clear. Re-seat it firmly before sealing. The drip cup uses a **mechanical drip-drain** design — if it is not properly in place, the air path is broken and suction drops dramatically.
 
@@ -75,7 +75,7 @@ Some foods naturally release gas after sealing — freshly baked bread, raw cruc
 **Fix:** For these foods, either blanch veggies before sealing, wait for baked goods to cool completely, or use a more breathable storage method. Gas release is not a seal failure — it is the food itself.
 
 ### Cause D: Old or degraded bags
-Reusable valve bags last many uses, but the zip track wears out and the valve membrane can degrade over time, especially if washed in a dishwasher.
+[Reusable](/blog/reusable-vacuum-sealer-bags-guide) valve bags last many uses, but the zip track wears out and the valve membrane can degrade over time, especially if washed in a dishwasher.
 
 **Fix:** Replace the bag. Bags are cheap; ruined food is not.
 

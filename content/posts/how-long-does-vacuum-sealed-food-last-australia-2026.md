@@ -8,9 +8,9 @@ tags: ["Food Storage", "Shelf Life", "Vacuum Sealing", "Australia"]
 
 One of the questions we get more than any other is: "Okay, so vacuum sealing makes food last longer — but *how much* longer, exactly?"
 
-It's a fair question, and the answer matters more in Australia than in many other places. Our summers are hot. Our back-seat car temperatures on the way home from the shops can hit 60 °C. Our esky on the way to a camping trip or a weekend BBQ is working overtime. Even inside the fridge, a Sydney or Brisbane summer kitchen means fridges cycle harder and food spoils faster than the US or UK food-safety numbers suggest.
+It's a fair question, and the answer matters more in [Australia](/blog/best-handheld-vacuum-sealer-australia-2026) than in many other places. Our summers are hot. Our back-seat car temperatures on the way home from the shops can hit 60 °C. Our esky on the way to a camping trip or a weekend [BBQ](/blog/vacuum-sealing-bbq-camping-australia) is working overtime. Even inside the fridge, a Sydney or Brisbane summer kitchen means fridges cycle harder and food spoils faster than the US or UK food-safety numbers suggest.
 
-In this guide we've pulled together a practical shelf-life chart for Australian households, comparing regular fridge/freezer/pantry storage against vacuum-sealed storage across the foods most of us actually buy: meat, seafood, cheese, vegetables, fruit, bread and baked goods, and dry pantry staples. We've also added a few notes specific to the Australian climate, plus common mistakes that shorten vacuum-sealed food life even when you do everything else right.
+In this guide we've pulled together a practical shelf-life chart for Australian households, comparing regular fridge/freezer/pantry storage against vacuum-sealed storage across the [foods](/blog/best-foods-to-vacuum-seal) most of us actually buy: meat, seafood, cheese, vegetables, fruit, bread and baked goods, and dry pantry staples. We've also added a few notes specific to the Australian climate, plus common mistakes that shorten vacuum-sealed food life even when you do everything else right.
 
 All numbers below are general guidelines. Always use your eyes and nose — if something looks or smells off, throw it out.
 
@@ -18,7 +18,7 @@ All numbers below are general guidelines. Always use your eyes and nose — if s
 
 ## The short answer
 
-For most foods, proper vacuum sealing extends shelf life by roughly **3–5 times** compared with conventional storage in plastic wrap, zip-lock bags or original supermarket packaging.
+For most foods, proper vacuum sealing extends [shelf life](/blog/how-long-does-vacuum-sealed-food-last) by roughly **3–5 times** compared with conventional storage in plastic wrap, zip-lock bags or original supermarket packaging.
 
 That comes from removing the oxygen that bacteria, mould and freezer burn need to do their work. It's not magic — it's just air removal. Vacuum sealing does **not** replace refrigeration or freezing, and it does not sterilise food. It slows spoilage; it doesn't stop it.
 

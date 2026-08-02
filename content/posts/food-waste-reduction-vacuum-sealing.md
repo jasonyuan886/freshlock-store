@@ -7,7 +7,7 @@ tags: ["food waste reduction", "vacuum sealing", "food preservation"]
 
 # How Vacuum Sealing Can Cut Your Food Waste by 50%
 
-The average household throws away a staggering amount of food. We're not talking about scraps and peels — we're talking about edible, usable food that simply went bad before anyone got around to eating it. The good news? Much of that waste is preventable, and **vacuum sealing is one of the most effective, affordable tools for food waste reduction** available to any home cook.
+The average household throws away a staggering amount of food. We're not talking about scraps and peels — we're talking about edible, usable food that simply went bad before anyone got around to eating it. The good news? Much of that waste is preventable, and **[vacuum seal](/blog/best-foods-to-vacuum-seal)ing is one of the most effective, affordable tools for food waste reduction** available to any home cook.
 
 In this article, we'll look at the scale of the food waste problem, break down exactly how vacuum sealing helps, walk through real scenarios where it makes the biggest difference, and show you the math on how much money — and environmental impact — you can save.
 
@@ -63,7 +63,7 @@ Let's break down the three scenarios where vacuum sealing delivers the most dram
 
 **The Vacuum Sealing Solution:** Portion the leftover chili into meal-sized vacuum bags, extract the air, and either refrigerate (extends freshness from 3–4 days to 7–10 days) or freeze (extends storage from 1–2 months in a regular container to 6+ months vacuum sealed). The clear bags let you see exactly what's inside, and the extended shelf life gives you a realistic window to eat it.
 
-**Waste Reduction Impact:** If you currently throw away leftovers once a week — say, $8 worth of food per incident — that's $416 per year. Vacuum sealing can realistically save 70–80% of that, keeping $290–$330 in your pocket.
+**Waste Reduction Impact:** If you currently throw away [leftovers](/blog/vacuum-sealer-for-leftovers-stay-fresh) once a week — say, $8 worth of food per incident — that's $416 per year. Vacuum sealing can realistically save 70–80% of that, keeping $290–$330 in your pocket.
 
 ### Scenario 2: Fresh Produce That Lasts Weeks, Not Days
 

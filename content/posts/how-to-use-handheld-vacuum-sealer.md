@@ -10,7 +10,7 @@ If you've just bought a handheld vacuum sealer — or you're thinking about gett
 
 Unlike big countertop vacuum sealers, handheld models are small, battery-powered, and work by pulling air out through a one-way valve on a special zipper bag. No heat bar, no bulky machine, no complicated setup.
 
-In this guide, we'll walk you through **exactly how to use a handheld vacuum sealer**, what foods seal best, common mistakes to avoid, and how to get the most out of your device.
+In this guide, we'll walk you through **exactly how to use a handheld vacuum sealer**, what [foods](/blog/best-foods-to-vacuum-seal) seal best, common mistakes to avoid, and how to get the most out of your device.
 
 ---
 
@@ -22,7 +22,7 @@ A handheld vacuum sealer is a compact, battery-powered pump that removes air fro
 
 - Compact — fits in a kitchen drawer
 - Cordless — use anywhere in the kitchen, pantry, or even when camping
-- Reusable bags — zipper bags can be opened, washed, and reused many times
+- [Reusable](/blog/reusable-vacuum-sealer-bags-guide) bags — zipper bags can be opened, washed, and reused many times
 - Faster — no waiting for a heat bar to warm up
 - Cheaper to start — entry bundles often include the sealer and bags for under $100 AUD
 
@@ -33,7 +33,7 @@ A handheld vacuum sealer is a compact, battery-powered pump that removes air fro
 1. **A handheld vacuum sealer** (we're partial to the FreshLock Pro, but any valve-based handheld will work with these steps)
 2. **Compatible vacuum zipper bags** with a built-in one-way air valve
 3. **The food you want to seal** — meats, vegetables, cheese, bread, dry goods, leftovers and meal prep all work
-4. **A clean, flat surface** like your kitchen bench
+4. **A [clean](/blog/how-to-clean-handheld-vacuum-sealer), flat surface** like your kitchen bench
 
 > **Important note:** Handheld pump sealers work with *valve bags*, not the smooth flat bags used by heat-bar countertop sealers. You can't seal flat bags with a handheld pump — they need the valve.
 

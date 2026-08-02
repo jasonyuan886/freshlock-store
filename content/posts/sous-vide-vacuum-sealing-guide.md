@@ -21,7 +21,7 @@ Vacuum sealing solves this by:
 - **Removing air bubbles** that cause uneven cooking
 - **Creating full water contact** around every surface of the food
 - **Preventing bag floatation** — air-filled bags rise to the surface, leaving parts exposed
-- **Locking in juices and marinades** so flavors infuse deeply during long cooks
+- **Locking in juices and [marinades](/blog/vacuum-sealing-marinades-guide)** so flavors infuse deeply during long cooks
 - **Enabling safe long cooks** — a sealed bag keeps water out and food hygienic for hours or days
 
 You do not need a chamber vacuum sealer to do sous vide well. A quality handheld vacuum sealer paired with proper zipper bags works brilliantly for almost all home sous vide applications.
@@ -138,7 +138,7 @@ Not all vacuum bags are safe for sous vide.
 
 **Overfilling the bag.** Food must be in a single layer for even cooking. Use multiple bags if needed.
 
-**Moisture in the valve.** Pat food dry and hold the bag upright while vacuuming so liquids settle at the bottom.
+**Moisture in the valve.** Pat food dry and hold the bag upright while vacuuming so [liquids](/blog/vacuum-sealer-for-sous-vide-liquids-marinades) settle at the bottom.
 
 **Float during cooking.** Check halfway through and use weights to keep everything submerged.
 

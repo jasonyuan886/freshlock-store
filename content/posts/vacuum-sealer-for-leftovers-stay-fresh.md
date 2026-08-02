@@ -17,7 +17,7 @@ A **vacuum sealer for leftovers** is the most practical fix. It adds days (somet
 Three forces work against your leftovers:
 
 1. **Oxidation.** Oxygen reacts with fats, flavors, and colors, turning things stale, brown, or "off."
-2. **Moisture loss (or gain).** Open containers and loose lids let moisture escape (drying out rice, bread, roasted veggies) or collect condensation (making cooked veggies soggy, encouraging mold).
+2. **Moisture loss (or gain).** Open [containers](/blog/vacuum-sealing-vs-containers) and loose lids let moisture escape (drying out rice, bread, roasted veggies) or collect condensation (making cooked veggies soggy, encouraging mold).
 3. **Cross-contamination of odors.** Fridges are shared spaces. Your leftover salmon will taste faintly of the cheese next to it, and vice versa.
 
 Vacuum sealing removes the air (and with it, the oxygen and the odor transfer) and creates a moisture-proof barrier. Leftovers stay in their own little environment — same moisture, same aroma, no fridge smells sneaking in.
@@ -44,7 +44,7 @@ These are conservative estimates. When in doubt, trust your nose — vacuum seal
 
 ## The Quick Leftover Sealing Routine
 
-You don't need to meal-prep on a military schedule. Build this into your post-dinner cleanup:
+You don't need to [meal-prep](/blog/vacuum-sealer-for-meal-prep-beginners-guide) on a military schedule. Build this into your post-dinner cleanup:
 
 1. **Let food cool.** 20–30 minutes on the counter, or until it stops steaming. Sealing hot food creates condensation inside the bag.
 2. **Portion into meal-sized servings.** One lunch, one dinner for two, etc. Smaller portions thaw and reheat faster.
@@ -105,7 +105,7 @@ It is a small feature, but it is the difference between a sealer that survives a
 
 ## The Math on Saved Money
 
-If a household of four throws away $30–$60 of spoiled leftovers a month (which is conservative), a $29.90 handheld vacuum sealer pays for itself in **1–2 months** purely in avoided food waste. That is before you count the takeout meals you skip because you actually have good leftovers to eat.
+If a household of four throws away $30–$60 of spoiled leftovers a month (which is conservative), a $29.90 handheld vacuum sealer pays for itself in **1–2 months** purely in avoided [food waste](/blog/food-waste-reduction-vacuum-sealing). That is before you count the takeout meals you skip because you actually have good leftovers to eat.
 
 The FreshLock handheld vacuum sealer starts at **$29.90**, pulls **-60 kPa** suction, recharges via USB-C, has a removable drip cup for wet leftovers, and fits in a kitchen drawer. It is a small tool that quietly saves money every week.
 

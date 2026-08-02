@@ -24,7 +24,7 @@ Vacuum-sealed meat lasts 2–3 weeks in the fridge and 6+ months in the freezer 
 
 It feels clean, but it's the fastest way to ruin a punnet of strawberries. Adding moisture before refrigeration accelerates mold growth dramatically. One moldy berry will contaminate the whole container in 24 hours.
 
-**Fix it:** Wash berries only right before you eat them. When you bring them home, sort through and remove any damaged or moldy fruit immediately (mold spores spread). Store in a breathable container lined with a paper towel, or vacuum seal unwashed for maximum life. Vacuum-sealed berries stay fresh 2–3 weeks unwashed.
+**Fix it:** Wash berries only right before you eat them. When you bring them home, sort through and remove any damaged or moldy fruit immediately (mold spores spread). Store in a breathable container lined with a paper towel, or [vacuum seal](/blog/best-foods-to-vacuum-seal) unwashed for maximum life. Vacuum-sealed berries stay fresh 2–3 weeks unwashed.
 
 ## Mistake #3: Keeping Bread in the Fridge
 
@@ -71,6 +71,6 @@ With proper vacuum sealing, the freezer becomes an extension of your pantry rath
 
 Almost every one of these mistakes comes down to the same thing: **air and moisture management**. Vacuum sealing solves the majority of food storage failures because it removes the air that causes oxidation, freezer burn, mold, and dehydration.
 
-You don't need to vacuum seal everything. You DO need a system that matches the right storage method to the food and the timeline. A $100 handheld vacuum sealer like the FreshLock typically pays for itself within 1–2 months in reduced food waste — and the food you do eat tastes noticeably better.
+You don't need to vacuum seal everything. You DO need a system that matches the right storage method to the food and the timeline. A $100 handheld vacuum sealer like the FreshLock typically pays for itself within 1–2 months in reduced [food waste](/blog/food-waste-reduction-vacuum-sealing) — and the food you do eat tastes noticeably better.
 
 Stop throwing away food you already paid for. Fix these seven mistakes and watch your grocery bill shrink.

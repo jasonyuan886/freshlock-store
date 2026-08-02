@@ -11,7 +11,7 @@ Meal prep is the single most effective habit for eating better, saving money, an
 
 The container matters as much as the cooking.
 
-Using a **vacuum sealer for meal prep** solves the three biggest meal prep pain points: food going bad before you eat it, freezer burn ruining texture, and portion bags leaking in your bag or car. This guide walks you through everything a beginner needs to know — why vacuum sealing works, how to choose the right device, how to portion and store meals, and a full one-week meal prep example.
+Using a **vacuum sealer for [meal prep](/blog/meal-prep-with-vacuum-sealer)** solves the three biggest meal prep pain points: food going bad before you eat it, freezer burn ruining texture, and portion bags leaking in your bag or car. This guide walks you through everything a [beginner](/blog/vacuum-sealer-for-meal-prep-beginners-guide) needs to know — why vacuum sealing works, how to choose the right device, how to portion and store meals, and a full one-week meal prep example.
 
 ---
 
@@ -33,7 +33,7 @@ Vacuum sealing removes the air before storage, addressing all three problems at 
 
 For meal prep specifically, this means:
 
-- **Prepped meals last the full week** in the fridge without quality loss.
+- **Prepped meals [last](/blog/how-long-does-vacuum-sealed-food-last) the full week** in the fridge without quality loss.
 - **Frozen prepped meals** taste like they were made yesterday, even months later.
 - **Portioned proteins** (marinated chicken, seasoned ground beef) can be prepped in bulk and frozen for months, ready to thaw and cook on demand.
 - **No leaks.** Vacuum-sealed valve bags don't pop open in your gym bag or lunch box.

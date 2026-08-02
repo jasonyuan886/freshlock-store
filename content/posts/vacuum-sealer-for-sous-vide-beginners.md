@@ -43,7 +43,7 @@ This is the big question for sous vide cooks. Liquids are the arch-nemesis of mo
 
 Two workarounds help:
 
-1. **The "freeze first" trick**: Freeze marinades or sauces in an ice cube tray, then drop the frozen cube into the bag before sealing.
+1. **The "freeze first" trick**: Freeze [marinades](/blog/vacuum-sealing-marinades-guide) or sauces in an ice cube tray, then drop the frozen cube into the bag before sealing.
 2. **Use a sealer with a drip cup**: FreshLock includes a **detachable transparent drip cup** (mechanical drip-drain) that catches any liquid pulled toward the nozzle before it reaches the motor. Empty it after sealing juicy or marinated foods, rinse, and you are done.
 
 A drip cup does not replace the freeze-first method for very wet foods, but it is cheap insurance against motor damage and makes sealing marinated steaks or brined chicken dramatically less stressful.
@@ -71,7 +71,7 @@ Do not use generic smooth zip-top bags. They have no valve, no embossed channeli
 
 For home cooks doing 1–4 sous vide meals a week, a handheld vacuum sealer is the practical, affordable choice. It delivers the tight contact you need for even cooking, handles marinades far better than you might expect when paired with a drip cup, and stores in a drawer instead of hogging counter space.
 
-The FreshLock handheld vacuum sealer starts at **$29.90**, pulls **-60 kPa** suction, charges via USB-C, and includes a removable drip cup to protect the motor from liquids. It is a smart pick for anyone getting serious about sous vide without buying into the chamber-sealer price tag.
+The FreshLock handheld vacuum sealer starts at **$29.90**, pulls **-60 kPa** suction, charges via USB-C, and includes a removable drip cup to protect the motor from [liquids](/blog/vacuum-sealer-for-sous-vide-liquids-marinades). It is a smart pick for anyone getting serious about sous vide without buying into the chamber-sealer price tag.
 
 > **Check out the FreshLock handheld vacuum sealer →**
 >

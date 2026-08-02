@@ -39,7 +39,7 @@ This is the default technique for home sous vide with liquids:
 Why this works: the liquid is solid during sealing. There is nothing to suck up. The bag gets a perfect air-free seal. The liquid melts in the bath.
 
 This works for:
-- Marinades on steak, chicken, pork
+- [Marinades](/blog/vacuum-sealing-marinades-guide) on steak, chicken, pork
 - Herb butter on fish or chicken
 - Glazes and sauces
 - Poaching liquids
@@ -87,7 +87,7 @@ This takes patience and attention, but it works for small volumes.
 
 ## The Role of a Drip Cup
 
-Even with the freeze-first method, accidents happen. Meat gives off juice. You slightly overfill. A cube starts to melt. That is where a **drip cup** earns its keep.
+Even with the freeze-first method, accidents happen. Meat gives off juice. You slightly overfill. A cube starts to melt. That is where a **[drip cup](/blog/vacuum-sealer-liquid-protection-drip-tray)** earns its keep.
 
 FreshLock's **detachable transparent drip cup** uses a **mechanical drip-drain** design: a small baffle inside the nozzle assembly redirects any liquid that gets pulled up into a removable transparent cup, while air continues to the pump. After a sous vide session with marinated food, you pop the cup off, empty it, rinse, and go. It will not let you seal a bag full of soup, but it protects the motor from the incidental splashes and juice that come with real-world sous vide cooking.
 
