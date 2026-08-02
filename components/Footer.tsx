@@ -59,7 +59,7 @@ export default function Footer() {
               <p>🚚 Free US shipping over $89</p>
               <p>🎁 Starter Kits Ship FREE</p>
               <p>↩️ 60-day returns</p>
-              <p>🛡️ 2-year warranty (unit)</p>
+              <p>🛡️ 1-year warranty (unit)</p>
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-2">
             <p>&copy; {new Date().getFullYear()} FreshLock. All rights reserved.</p>
             <p className="text-xs text-gray-400">
-              BPA-free · FCC / CE / RoHS · 2-Year Limited Warranty · Secure SSL Checkout
+              BPA-free · FCC / CE / RoHS · 1-Year Limited Warranty · Secure SSL Checkout
             </p>
           </div>
         </div>
