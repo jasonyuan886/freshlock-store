@@ -11,6 +11,8 @@ export const FREE_SHIPPING_REGIONS: Record<string, number> = {
   JP: 89,
   AU: 69,
   NZ: 69,
+  MY: 69,
+  TH: 69,
 };
 export const STARTER_KIT_SHIPS_FREE = true; // Starter kits always ship free
 

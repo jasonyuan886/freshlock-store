@@ -39,6 +39,8 @@ export default function CheckoutPage() {
     { code: 'JP', name: 'Japan' },
     { code: 'AU', name: 'Australia' },
     { code: 'NZ', name: 'New Zealand' },
+    { code: 'MY', name: 'Malaysia' },
+    { code: 'TH', name: 'Thailand' },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

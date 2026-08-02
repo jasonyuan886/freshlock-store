@@ -96,12 +96,12 @@ function FreeShippingProgress({ total }: { total: number }) {
     >
       {isFree ? (
         <p className="text-sm font-semibold text-green-700 text-center">
-          🎉 You've unlocked FREE US shipping!
+          🎉 You've unlocked FREE shipping!
         </p>
       ) : (
         <>
           <p className="text-sm font-semibold text-amber-800 mb-2">
-            🚚 Add <span className="text-accent">${away}</span> more for FREE US shipping
+            🚚 Add <span className="text-accent">${away}</span> more for FREE shipping
             <span className="text-xs text-amber-700 font-normal"> (save ${SHIPPING_FEE_UNDER.toFixed(2)})</span>
           </p>
           <div className="w-full bg-amber-200 rounded-full h-2.5 overflow-hidden">
