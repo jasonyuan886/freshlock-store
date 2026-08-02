@@ -68,7 +68,7 @@ export function generateProductSchema(product: Product, reviews?: Review[]) {
         '@type': 'OfferShippingDetails',
         shippingRate: {
           '@type': 'MonetaryAmount',
-          value: product.price >= 50 ? '0.00' : '5.99',
+          value: product.price >= 89 ? '0.00' : '5.99',
           currency: 'USD',
         },
         shippingDestination: {
@@ -95,7 +95,7 @@ export function generateProductSchema(product: Product, reviews?: Review[]) {
         '@type': 'MerchantReturnPolicy',
         applicableCountry: 'US',
         returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
-        merchantReturnDays: 60,
+        merchantReturnDays: 30,
         returnMethod: 'https://schema.org/ReturnByMail',
         returnFees: 'https://schema.org/FreeReturn',
       },
