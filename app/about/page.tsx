@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'About FreshLock — Stop Freezer Burn with Our Handheld Vacuum Sealer',
   description:
-    'FreshLock makes a cordless, one-touch handheld vacuum sealer designed to stop freezer burn and reduce food waste. -60 kPa, USB-C, BPA-free, 2-year warranty.',
+    'FreshLock makes a cordless, one-touch handheld vacuum sealer designed to stop freezer burn and reduce food waste. -60 kPa, USB-C, BPA-free, 1-year warranty.',
   alternates: {
     canonical: '/about',
     languages: {
@@ -105,7 +105,7 @@ export default function AboutPage() {
           <ul className="space-y-3 text-gray-600">
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
-              <span><strong>60-day satisfaction guarantee</strong> — not happy, send it back for a full refund.</span>
+              <span><strong>30-day satisfaction guarantee</strong> — not happy, send it back for a full refund.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
@@ -113,7 +113,7 @@ export default function AboutPage() {
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
-              <span><strong>2-year warranty</strong> on the main unit, 6-month on accessories.</span>
+              <span><strong>1-year warranty</strong> on the main unit, 6-month on accessories.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
