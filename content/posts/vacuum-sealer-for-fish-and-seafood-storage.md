@@ -1,7 +1,7 @@
 ---
 title: "Vacuum Sealer for Fish and Seafood: Stop Freezer Burn Before It Starts"
 description: "Fish and seafood are the most freezer-burn-prone foods you can buy. A vacuum sealer is the single best tool to lock in freshness."
-date: "2026-08-05"
+date: "2026-07-30"
 author: "FreshLock Team"
 tags: ["Seafood", "Freezing", "Fish Storage"]
 ---

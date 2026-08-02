@@ -1,7 +1,7 @@
 ---
 title: "How to Vacuum Seal Mason Jars: A Step-by-Step Guide"
 description: "Learn how to vacuum seal mason jars for dry goods, nuts, coffee, and leftovers using a handheld sealer and jar attachment."
-date: "2026-08-07"
+date: "2026-08-01"
 author: "FreshLock Team"
 tags: ["Mason Jars", "Food Storage", "How-To"]
 ---
