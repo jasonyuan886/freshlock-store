@@ -237,7 +237,7 @@ export const reviews: Review[] = [
     name: 'Linda C.',
     rating: 5,
     text:
-      'Bought this for freezing soup portions and leftover sauces — the drip tray is the real unsung hero. No liquid getting sucked into the motor like my old sealer. 2-year warranty gave me confidence.',
+      'Bought this for freezing soup portions and leftover sauces — the drip tray is the real unsung hero. No liquid getting sucked into the motor like my old sealer. 1-year warranty gave me confidence.',
     date: '2026-04-25',
     verified: true,
     images: ['/images/reviews/review-linda-1.jpg'],
