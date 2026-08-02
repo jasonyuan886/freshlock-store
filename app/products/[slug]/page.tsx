@@ -311,6 +311,40 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               />
             </div>
 
+            {/* Value breakdown — anchor high perceived value */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4 mb-5">
+              <p className="text-sm font-bold text-green-800 mb-2">💡 Why this is worth way more than $${product.price.toFixed(2)}</p>
+              <div className="grid grid-cols-2 gap-2 text-xs text-green-900">
+                <div className="flex items-start gap-1.5">
+                  <span className="text-green-600">✓</span>
+                  <span>Traditional countertop vacuum sealers cost <strong>$200–$400</strong>. FreshLock does the same job for a fraction.</span>
+                </div>
+                <div className="flex items-start gap-1.5">
+                  <span className="text-green-600">✓</span>
+                  <span>The average US household throws away <strong>$1,866/year</strong> in food. This pays for itself in weeks.</span>
+                </div>
+                <div className="flex items-start gap-1.5">
+                  <span className="text-green-600">✓</span>
+                  <span>USB-C rechargeable — <strong>no batteries, no power cord</strong>. 80–100 seals per charge.</span>
+                </div>
+                <div className="flex items-start gap-1.5">
+                  <span className="text-green-600">✓</span>
+                  <span>Works with <strong>any embossed valve bags</strong> — never locked into overpriced refills.</span>
+                </div>
+                <div className="flex items-start gap-1.5">
+                  <span className="text-green-600">✓</span>
+                  <span><strong>2-year warranty</strong> + 60-day returns = zero risk to try.</span>
+                </div>
+                <div className="flex items-start gap-1.5">
+                  <span className="text-green-600">✓</span>
+                  <span>Compact <strong>210 g</strong> — fits in a drawer. Take it camping, travel, anywhere.</span>
+                </div>
+              </div>
+              <p className="text-xs text-green-700 mt-3 font-medium border-t border-green-200 pt-2">
+                Total value: <span className="line-through text-green-500">$320+</span> — yours for <span className="font-bold">${product.price.toFixed(2)}</span>
+              </p>
+            </div>
+
             {/* FOMO: Stock indicator */}
             <FomoStockIndicator initialStock={15} />
 

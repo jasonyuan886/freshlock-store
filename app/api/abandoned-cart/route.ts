@@ -66,6 +66,17 @@ export async function POST(request: Request) {
             <div style="text-align:center; margin:24px 0;">
               <a href="https://www.freshlocksealer.com/checkout" style="background:#0f4c3a; color:#fff; padding:12px 32px; border-radius:8px; text-decoration:none; font-weight:bold; display:inline-block;">Complete Your Order →</a>
             </div>
+            <div style="background:#f0f7f4; border-radius:8px; padding:16px; margin:20px 0;">
+              <p style="margin:0 0 8px; font-size:14px; font-weight:bold; color:#0f4c3a;">Still on the fence? Here's what you're getting:</p>
+              <ul style="margin:0; padding-left:18px; font-size:13px; color:#333;">
+                <li style="margin-bottom:4px;">💰 Pays for itself in weeks — the avg US household wastes $1,866/year in food</li>
+                <li style="margin-bottom:4px;">📉 Same performance as $200–$400 countertop sealers, at a fraction of the cost</li>
+                <li style="margin-bottom:4px;">🛡️ 2-year warranty + 60-day returns — zero risk to try</li>
+                <li style="margin-bottom:4px;">🔋 USB-C rechargeable, no batteries or power cord needed</li>
+                <li>📦 Works with any embossed valve bags — never locked into overpriced refills</li>
+              </ul>
+            </div>
+            
             <p style="color:#666; font-size:14px;">Still have questions? Reply to this email and we'll help you out.</p>
             <p style="color:#888; font-size:12px; margin-top:32px;">FreshLock · support@freshlocksealer.com<br>You received this email because you started checkout at freshlocksealer.com</p>
           </div>

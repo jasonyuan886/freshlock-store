@@ -44,8 +44,11 @@ export default function NewsletterForm() {
 
   return (
     <div className="mt-4">
-      <p className="text-sm text-gray-300 mb-2">
-        Get vacuum sealing tips & exclusive offers
+      <p className="text-sm text-gray-300 mb-1">
+        Stop wasting food. Start saving money.
+      </p>
+      <p className="text-xs text-green-300/80 mb-2">
+        Join 500+ smart households · Tips, hacks & exclusive deals
       </p>
       <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
         <input

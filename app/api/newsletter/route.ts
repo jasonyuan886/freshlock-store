@@ -70,6 +70,17 @@ export async function POST(request: Request) {
           <p style="font-size:16px;">Thanks for subscribing!</p>
           <p>You're now on the list for exclusive tips on food preservation, vacuum sealing hacks, special offers, and new product updates.</p>
           <p>Here's a quick tip to get you started: <strong>Vacuum sealing can extend food freshness up to 5× longer</strong> compared to regular storage methods.</p>
+          
+          <div style="background:#f0f7f4; border:1px solid #0f4c3a; border-radius:8px; padding:16px; margin:16px 0;">
+            <p style="margin:0 0 8px; font-size:14px; font-weight:bold; color:#0f4c3a;">Why FreshLock owners say it's worth way more than they paid:</p>
+            <ul style="margin:0; padding-left:18px; font-size:13px; color:#333;">
+              <li style="margin-bottom:4px;">💰 The average US household wastes <strong>$1,866/year</strong> in spoiled food — FreshLock pays for itself in weeks</li>
+              <li style="margin-bottom:4px;">📉 Traditional countertop vacuum sealers cost <strong>$200–$400</strong> — FreshLock does the same job for a fraction</li>
+              <li style="margin-bottom:4px;">🔋 No batteries, no power cord — USB-C rechargeable, 80–100 seals per charge</li>
+              <li style="margin-bottom:4px;">📦 Works with <strong>any embossed valve bags</strong> — never locked into overpriced refills</li>
+              <li>🛡️ <strong>2-year warranty</strong> + 60-day returns = zero risk to try</li>
+            </ul>
+          </div>
           <div style="background:#f0f7f4; border-left:4px solid #0f4c3a; padding:16px; margin:20px 0;">
             <p style="margin:0; font-size:14px;">Ready to stop freezer burn and reduce food waste?</p>
             <p style="margin:8px 0 0;"><a href="https://www.freshlocksealer.com/products" style="color:#0f4c3a; font-weight:bold;">Shop FreshLock →</a></p>
