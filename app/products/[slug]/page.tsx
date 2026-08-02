@@ -230,7 +230,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
     },
     {
       q: 'What does the warranty cover?',
-      a: '2-year warranty on the main sealer unit, 6-month on accessories (cable, starter bags). Contact support@freshlocksealer.com for warranty claims.',
+      a: '1-year warranty on the main sealer unit, 6-month on accessories (cable, starter bags). Contact support@freshlocksealer.com for warranty claims.',
     },
   ];
 
@@ -334,7 +334,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                 </div>
                 <div className="flex items-start gap-1.5">
                   <span className="text-green-600">✓</span>
-                  <span><strong>2-year warranty</strong> + 60-day returns = zero risk to try.</span>
+                  <span><strong>1-year warranty</strong> + 30-day returns = zero risk to try.</span>
                 </div>
                 <div className="flex items-start gap-1.5">
                   <span className="text-green-600">✓</span>
@@ -384,8 +384,8 @@ export default function ProductDetailPage({ params }: { params: Params }) {
 
             <div className="flex flex-wrap gap-4 mt-4 text-xs text-gray-500">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
-              <span>↩️ 60-day hassle-free returns</span>
-              <span>🛡️ 2-year warranty</span>
+              <span>↩️ 30-day hassle-free returns</span>
+              <span>🛡️ 1-year warranty</span>
               <span>🔒 Secure SSL checkout</span>
             </div>
 
