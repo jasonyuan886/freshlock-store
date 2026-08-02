@@ -44,7 +44,7 @@ function Hero() {
                 '🔌 USB-C · 80-100 seals/charge',
                 '🔇 Under 60 dB',
                 '♻️ Works with most valve bags',
-                '🛡️ 2-year warranty',
+                '🛡️ 1-year warranty',
               ].map((b) => (
                 <span key={b} className="bg-white/10 text-white text-xs px-2.5 py-1 rounded-full border border-white/20">
                   {b}
@@ -61,7 +61,7 @@ function Hero() {
             </div>
             <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-300">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
-              <span>↩️ 60-day returns</span>
+              <span>↩️ 30-day returns</span>
               <span>🔒 Secure SSL checkout</span>
             </div>
           </div>
@@ -95,7 +95,7 @@ function AboutFreshLock() {
             Unlike bulky countertop sealers, the FreshLock Pro works on reusable embossed zipper bags fitted with a one-way air valve — <strong>no heat bar, no learning curve</strong>. A <strong>detachable transparent drip cup</strong> catches liquid overflow so soups, marinades, and juicy proteins seal cleanly, and the motor stays dry.
           </p>
           <p>
-            It is <strong>compatible with most embossed valve bags</strong> on the market, not just our own. Recharge via any USB-C cable, pull 80–100 seals per charge, and rest easy with a 2-year warranty on the unit.
+            It is <strong>compatible with most embossed valve bags</strong> on the market, not just our own. Recharge via any USB-C cable, pull 80–100 seals per charge, and rest easy with a 1-year warranty on the unit.
           </p>
         </article>
       </div>
@@ -141,8 +141,8 @@ const featureList = [
   },
   {
     icon: '🛡️',
-    title: '2-Year Warranty',
-    text: '2-year warranty on the sealer unit, 6-month on accessories. We stand behind every pump we ship.',
+    title: '1-Year Warranty',
+    text: '1-year warranty on the sealer unit, 6-month on accessories. We stand behind every pump we ship.',
   },
 ];
 
@@ -235,7 +235,7 @@ function SocialProof() {
             ['4.6 ★', 'Average Rating'],
             ['-60 kPa', 'Strong Suction'],
             ['Free', `Shipping over $${FREE_SHIPPING_THRESHOLD}`],
-            ['60-Day', 'Money-Back Returns'],
+            ['30-Day', 'Money-Back Returns'],
           ].map(([stat, label]) => (
             <div key={label}>
               <p className="text-3xl font-bold text-accent">{stat}</p>
@@ -424,7 +424,7 @@ function Cta() {
           Stop Throwing Away Good Food
         </h2>
         <p className="text-gray-300 mb-8 text-lg">
-          Free shipping over ${FREE_SHIPPING_THRESHOLD} · Starter Kits ship free · 60-day returns · 2-year warranty
+          Free shipping over ${FREE_SHIPPING_THRESHOLD} · Starter Kits ship free · 30-day returns · 1-year warranty
         </p>
         <Link href="/products/freshlock-pro" className="btn-primary text-lg">
           Get FreshLock Pro — $74.99
