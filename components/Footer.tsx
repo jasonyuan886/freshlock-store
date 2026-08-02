@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import NewsletterForm from './NewsletterForm';
 
 export default function Footer() {
   const paymentMethods = [
@@ -63,8 +64,16 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Payment badges */}
+        {/* Newsletter signup */}
         <div className="border-t border-gray-700 mt-8 pt-6">
+          <div className="max-w-md">
+            <h3 className="font-semibold text-sm mb-1">📧 Join Our Newsletter</h3>
+            <NewsletterForm />
+          </div>
+        </div>
+
+        {/* Payment badges */}
+        <div className="border-t border-gray-700 mt-6 pt-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <p className="text-xs text-gray-400">We accept:</p>

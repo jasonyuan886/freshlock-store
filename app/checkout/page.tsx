@@ -45,6 +45,21 @@ export default function CheckoutPage() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const [cartCaptured, setCartCaptured] = useState(false);
+  const handleEmailBlur = () => {
+    if (cartCaptured || !form.email || items.length === 0) return;
+    setCartCaptured(true);
+    fetch('/api/abandoned-cart', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: form.email,
+        cartItems: items,
+        cartTotal: totalPrice,
+      }),
+    }).catch(() => {});
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setProcessing(true);
@@ -177,6 +192,7 @@ export default function CheckoutPage() {
                     name="email" autoComplete="email"
                     value={form.email}
                     onChange={handleChange}
+                    onBlur={handleEmailBlur}
                     required
                     className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
                   />
@@ -259,6 +275,15 @@ export default function CheckoutPage() {
                   </select>
                 </div>
               </div>
+            </div>
+
+            {/* Trust badges */}
+            <div className="bg-white rounded-xl p-4 shadow flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-600">
+              <span className="flex items-center gap-1.5 font-medium"><span className="text-green-600 text-base">🔒</span> SSL Encrypted</span>
+              <span className="flex items-center gap-1.5 font-medium"><span className="text-blue-600 text-base">🛡️</span> PayPal Protected</span>
+              <span className="flex items-center gap-1.5 font-medium"><span className="text-orange-500 text-base">↩️</span> 60-Day Returns</span>
+              <span className="flex items-center gap-1.5 font-medium"><span className="text-purple-600 text-base">✅</span> 2-Year Warranty</span>
+              <span className="flex items-center gap-1.5 font-medium"><span className="text-green-600 text-base">🚚</span> DHL Express 5–8 Days</span>
             </div>
 
             {/* Payment */}
