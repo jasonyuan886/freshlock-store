@@ -41,7 +41,7 @@ export default function AboutPage() {
         <div className="bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10 rounded-xl p-8 shadow-sm mb-8">
           <h2 className="text-2xl font-bold text-primary mb-4">Designed in Shenzhen, Trusted Globally</h2>
           <p className="text-gray-700 leading-relaxed mb-4">
-            FreshLock is designed, manufactured and shipped by <strong>Shichiri Technology Co., Ltd. (深圳市七力科技有限公司)</strong>, a kitchen appliance engineering team based in Shenzhen — the global hardware capital where supply chains, industrial designers and electronics engineers have built the tools people actually use every day for four decades.
+            FreshLock is designed, manufactured and shipped by <strong>Qili Technology Co., Ltd. (深圳市七力科技有限公司)</strong>, a kitchen appliance engineering team based in Shenzhen — the global hardware capital where supply chains, industrial designers and electronics engineers have built the tools people actually use every day for four decades.
           </p>
           <p className="text-gray-700 leading-relaxed mb-4">
             We don't rent a fake US office or pretend to be a garage startup from California. We're a real factory operation: the same team that has produced kitchen appliances for well-known international brands now brings you FreshLock direct — no middleman markup, no "designed in Silicon Valley" marketing fluff. Just a well-built tool at a fair price.
@@ -49,7 +49,7 @@ export default function AboutPage() {
           <div className="grid sm:grid-cols-2 gap-4 mt-6 text-sm">
             <div className="bg-white rounded-lg p-4 border border-gray-100">
               <p className="font-semibold text-primary mb-1">🏭 Company</p>
-              <p className="text-gray-600">Shichiri Technology Co., Ltd.</p>
+              <p className="text-gray-600">Qili Technology Co., Ltd.</p>
               <p className="text-gray-500 text-xs mt-1">深圳市七力科技有限公司</p>
             </div>
             <div className="bg-white rounded-lg p-4 border border-gray-100">
