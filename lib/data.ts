@@ -302,7 +302,7 @@ export const faqs = [
   {
     question: 'What is your return policy?',
     answer:
-      'We offer a 60-day satisfaction guarantee. If you are not completely happy with your FreshLock, contact us within 60 days of delivery for a refund or exchange. Return shipping is free for US orders on defective items.',
+      'We offer a 30-day satisfaction guarantee. If you are not completely happy with your FreshLock, contact us within 30 days of delivery for a refund or exchange. Return shipping is free for US orders on defective items.',
   },
 ];
 
