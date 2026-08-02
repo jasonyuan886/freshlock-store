@@ -62,7 +62,7 @@ export const products: Product[] = [
       'Drip tray': 'Detachable transparent drip cup, liquid backflow protection',
       'Bag compatibility': 'Compatible with most embossed valve bags (not locked to our own bags)',
       "What's in the box": '1 FreshLock Pro sealer, 1 USB-C charging cable, starter vacuum bags, user manual',
-      'Warranty': '2-year warranty on the unit, 6-month on accessories',
+      'Warranty': '1-year warranty on the unit, 6-month on accessories',
     },
     category: 'devices',
     badge: 'New',
@@ -107,7 +107,7 @@ export const products: Product[] = [
       'Sealer suction': '-60 kPa',
       'Sealer battery': '1200 mAh, USB-C charging (~2.5 hrs), 80–100 seals per charge',
       'Sealer weight': '~210 g / 7.4 oz',
-      'Warranty': '2-year on sealer unit, 6-month on accessories; bags are reusable & recyclable',
+      'Warranty': '1-year on sealer unit, 6-month on accessories; bags are reusable & recyclable',
     },
     category: 'kits',
     badge: 'Best Value',
@@ -292,7 +292,7 @@ export const faqs = [
   {
     question: 'What is the warranty?',
     answer:
-      'FreshLock Pro comes with a 2-year warranty on the main unit and 6-month warranty on accessories (USB-C cable, starter bags). If anything goes wrong under normal use, contact support@freshlocksealer.com and we\'ll make it right.',
+      'FreshLock Pro comes with a 1-year warranty on the main unit and 6-month warranty on accessories (USB-C cable, starter bags). If anything goes wrong under normal use, contact support@freshlocksealer.com and we\'ll make it right.',
   },
   {
     question: 'What is your shipping policy?',
