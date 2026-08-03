@@ -38,7 +38,7 @@ export default function Header() {
             <Link href="/contact" className="text-gray-700 hover:text-primary transition">
               Contact
             </Link>
-            <Link href="/cart" className="relative">
+            <Link href="/cart" className="relative" aria-label="Shopping cart">
               <svg
                 className="w-6 h-6 text-gray-700 hover:text-primary transition"
                 fill="none"
@@ -62,7 +62,7 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
-            <Link href="/cart" className="relative">
+            <Link href="/cart" className="relative" aria-label="Shopping cart">
               <svg
                 className="w-6 h-6 text-gray-700"
                 fill="none"
@@ -85,6 +85,7 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-gray-700"
+              aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileMenuOpen ? (
