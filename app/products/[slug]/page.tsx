@@ -286,6 +286,18 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             shortDescription={product.shortDescription}
           />
 
+          {/* Product demo video - FreshLock实拍，保持原始比例不裁切 */}
+          <div className="flex justify-center bg-gray-50 rounded-xl py-6 mt-4">
+            <video
+              src="/videos/product-demo.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="max-h-[500px] w-auto rounded-lg shadow-md"
+            />
+          </div>
+
           <section>
             {product.badge && (
               <span className="inline-block bg-accent/10 text-accent text-sm font-semibold px-3 py-1 rounded-full mb-3">
