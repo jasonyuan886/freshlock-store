@@ -3,9 +3,11 @@
 import { useEffect, useState } from 'react';
 
 export default function FomoLiveViewers() {
+  const [mounted, setMounted] = useState(false);
   const [viewers, setViewers] = useState(0);
 
   useEffect(() => {
+    setMounted(true);
     // Initial random 8-23
     setViewers(8 + Math.floor(Math.random() * 16));
 
@@ -21,7 +23,7 @@ export default function FomoLiveViewers() {
     return () => clearInterval(interval);
   }, []);
 
-  if (!viewers) return null;
+  if (!mounted || !viewers) return null;
 
   return (
     <div className="flex items-center gap-1.5 mb-3 text-xs text-gray-500">
