@@ -24,26 +24,25 @@ function Hero() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="inline-block bg-accent/20 text-accent text-sm font-semibold px-3 py-1 rounded-full mb-4">
-              💧 Vacuum-seal soups & marinades — without killing the motor
+              🥬 Keep food fresh 5× longer — or your money back
             </span>
             <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              FreshLock Pro<br />
-              <span className="text-accent">Handheld Vacuum Sealer</span>
+              Keep Food Fresh Longer.<br />
+              <span className="text-accent">Save Money Every Week.</span>
             </h1>
             <p className="text-lg text-gray-200 mb-6 max-w-lg">
-              The only cordless handheld sealer with a{' '}
-              <strong>mechanical drip-drain cup</strong> that catches soups, marinades
-              and juicy drips <em>before</em> they hit the motor. No clogged pumps,
-              no burnt units — just -60 kPa one-touch vacuum that keeps food fresh{' '}
-              <strong>5× longer</strong>. USB-C rechargeable, works with{' '}
-              <strong>most embossed valve bags</strong> (not just ours).
+              The average family throws away <strong>$1,500 of food every year</strong>.
+              FreshLock pulls a -60 kPa vacuum in seconds, sealing out the air that makes
+              food go bad — so your groceries last <strong>5× longer</strong>, your freezer
+              stays organized, and nothing ends up in the trash. One-touch simple,
+              USB-C rechargeable, works with <strong>most valve bags</strong> (not just ours).
             </p>
             <div className="flex flex-wrap gap-2 mb-8 text-sm">
               {[
-                '💧 Mechanical drain cup (soups/marinades safe)',
+                '🥬 5× longer freshness',
+                '💰 Less food waste',
+                '👆 One-touch simple',
                 '🔌 USB-C · 80-100 seals/charge',
-                '🔇 Under 60 dB',
-                '♻️ Works with most valve bags',
                 '🛡️ 1-year warranty',
               ].map((b) => (
                 <span key={b} className="bg-white/10 text-white text-xs px-2.5 py-1 rounded-full border border-white/20">
@@ -53,10 +52,10 @@ function Hero() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/products/freshlock-pro" className="btn-primary text-lg">
-                Shop FreshLock Pro — $74.99
+                Start Saving Food — $74.99
               </Link>
               <Link href="#features" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg">
-                See Features
+                See How It Works
               </Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-300">
