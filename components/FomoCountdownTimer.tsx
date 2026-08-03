@@ -34,9 +34,11 @@ function getTimeLeft(): { hours: number; minutes: number; seconds: number; total
 }
 
 export default function FomoCountdownTimer({ variant = 'homepage' }: { variant?: 'homepage' | 'pdp' }) {
+  const [mounted, setMounted] = useState(false);
   const [timeLeft, setTimeLeft] = useState<{ hours: number; minutes: number; seconds: number } | null>(null);
 
   useEffect(() => {
+    setMounted(true);
     setTimeLeft(getTimeLeft());
     const interval = setInterval(() => {
       setTimeLeft(getTimeLeft());
@@ -44,7 +46,7 @@ export default function FomoCountdownTimer({ variant = 'homepage' }: { variant?:
     return () => clearInterval(interval);
   }, []);
 
-  if (!timeLeft) return null;
+  if (!mounted || !timeLeft) return null;
 
   const pad = (n: number) => n.toString().padStart(2, '0');
 
