@@ -27,8 +27,8 @@ function Hero() {
               🥬 Keep food fresh 5× longer — or your money back
             </span>
             <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Keep Food Fresh Longer.<br />
-              <span className="text-accent">Save Money Every Week.</span>
+              Keep Food Fresh Longer with<br />
+              <span className="text-accent">FreshLock Handheld Vacuum Sealer</span>
             </h1>
             <p className="text-lg text-gray-200 mb-6 max-w-lg">
               The average family throws away <strong>$1,500 of food every year</strong>.
@@ -52,7 +52,7 @@ function Hero() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/products/freshlock-pro" className="btn-primary text-lg">
-                Start Saving Food — $74.99
+                Shop FreshLock Pro — $74.99
               </Link>
               <Link href="#features" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg">
                 See How It Works
