@@ -295,7 +295,9 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               muted
               playsInline
               className="max-h-[500px] w-auto rounded-lg shadow-md"
-            />
+            >
+              <track kind="captions" src="/videos/product-demo.vtt" srcLang="en" label="English" default />
+            </video>
           </div>
 
           <section>
@@ -324,40 +326,74 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               />
             </div>
 
-            {/* Value breakdown — anchor high perceived value */}
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4 mb-5">
-              <p className="text-sm font-bold text-green-800 mb-2">💡 Why this is worth way more than $${product.price.toFixed(2)}</p>
-              <div className="grid grid-cols-2 gap-2 text-xs text-green-900">
-                <div className="flex items-start gap-1.5">
-                  <span className="text-green-600">✓</span>
-                  <span>Traditional countertop vacuum sealers cost <strong>$200–$400</strong>. FreshLock does the same job for a fraction.</span>
+            {/* Value breakdown - conditional based on product type */}
+            {product.slug.includes('bags') ? (
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4 mb-5">
+                <p className="text-sm font-bold text-green-800 mb-2">💡 Why these bags are worth it</p>
+                <div className="grid grid-cols-2 gap-2 text-xs text-green-900">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>90μm thick</strong> — 2× thicker than flimsy supermarket bags that puncture after one use.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>Reusable <strong>10+ times</strong> — less than $0.10 per use. Cheaper than disposable bags.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>BPA-free</strong>, freezer-safe, microwave-safe, sous-vide safe — one bag, endless uses.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>Works with <strong>ANY valve-type vacuum sealer</strong> — not locked into one brand.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>Double-track zipper with slider — <strong>foolproof airtight seal</strong> every time.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>Keeps food fresh up to <strong>5× longer</strong> — 3 days becomes 15+ days for most foods.</span>
+                  </div>
                 </div>
-                <div className="flex items-start gap-1.5">
-                  <span className="text-green-600">✓</span>
-                  <span>The average US household throws away <strong>$1,866/year</strong> in food. This pays for itself in weeks.</span>
-                </div>
-                <div className="flex items-start gap-1.5">
-                  <span className="text-green-600">✓</span>
-                  <span>USB-C rechargeable — <strong>no batteries, no power cord</strong>. 80–100 seals per charge.</span>
-                </div>
-                <div className="flex items-start gap-1.5">
-                  <span className="text-green-600">✓</span>
-                  <span>Works with <strong>any embossed valve bags</strong> — never locked into overpriced refills.</span>
-                </div>
-                <div className="flex items-start gap-1.5">
-                  <span className="text-green-600">✓</span>
-                  <span><strong>1-year warranty</strong> + 30-day returns = zero risk to try.</span>
-                </div>
-                <div className="flex items-start gap-1.5">
-                  <span className="text-green-600">✓</span>
-                  <span>Compact <strong>210 g</strong> — fits in a drawer. Take it camping, travel, anywhere.</span>
-                </div>
+                <p className="text-xs text-green-700 mt-3 font-medium border-t border-green-200 pt-2">
+                  Comparable quality bags sell for <span className="line-through text-green-500">$40+/box</span> — yours for <span className="font-bold">${product.price.toFixed(2)}</span>
+                </p>
               </div>
-              <p className="text-xs text-green-700 mt-3 font-medium border-t border-green-200 pt-2">
-                Total value: <span className="line-through text-green-500">$320+</span> — yours for <span className="font-bold">${product.price.toFixed(2)}</span>
-              </p>
-            </div>
-
+            ) : (
+              <div className="bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-4 mb-5">
+                <p className="text-sm font-bold text-green-800 mb-2">💡 Why this is worth way more than ${product.price.toFixed(2)}</p>
+                <div className="grid grid-cols-2 gap-2 text-xs text-green-900">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>Traditional countertop vacuum sealers cost <strong>$200–$400</strong>. FreshLock does the same job for a fraction.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>The average US household throws away <strong>$1,866/year</strong> in food. This pays for itself in weeks.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>USB-C rechargeable — <strong>no batteries, no power cord</strong>. 80–100 seals per charge.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>Works with <strong>any embossed valve bags</strong> — never locked into overpriced refills.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span><strong>1-year warranty</strong> + 30-day returns = zero risk to try.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
+                    <span>Compact <strong>210 g</strong> — fits in a drawer. Take it camping, travel, anywhere.</span>
+                  </div>
+                </div>
+                <p className="text-xs text-green-700 mt-3 font-medium border-t border-green-200 pt-2">
+                  Total value: <span className="line-through text-green-500">$320+</span> — yours for <span className="font-bold">${product.price.toFixed(2)}</span>
+                </p>
+              </div>
+            )}
             {/* FOMO: Stock indicator */}
             <FomoStockIndicator initialStock={15} />
 
