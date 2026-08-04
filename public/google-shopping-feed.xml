@@ -74,6 +74,7 @@
         <g:price>5.99 USD</g:price>
       </g:shipping>
       <g:shipping_weight>0.3 kg</g:shipping_weight>
+      <g:loyalty_program>freshlock_club:member:26.99 USD::::</g:loyalty_program>
     </item>
 
     <item>
@@ -96,6 +97,7 @@
         <g:price>5.99 USD</g:price>
       </g:shipping>
       <g:shipping_weight>0.4 kg</g:shipping_weight>
+      <g:loyalty_program>freshlock_club:member:35.99 USD::::</g:loyalty_program>
     </item>
 
   </channel>

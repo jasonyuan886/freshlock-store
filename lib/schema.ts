@@ -136,6 +136,14 @@ export function generateOrganizationSchema() {
       availableLanguage: ['English', 'Japanese'],
       areaServed: ['Worldwide'],
     },
+    memberProgram: [
+      {
+        '@type': 'MemberProgram',
+        name: 'FreshLock Club',
+        description: 'Join FreshLock Club for free and get 10% off all vacuum bag purchases. Members also receive exclusive offers and food storage tips.',
+        url: SITE_URL,
+      },
+    ],
   };
 }
 
