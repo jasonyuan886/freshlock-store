@@ -124,7 +124,7 @@ export function generateOrganizationSchema() {
     '@type': 'Organization',
     name: 'FreshLock',
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.svg`,
+    logo: `${SITE_URL}/logo.png`,
     description:
       'FreshLock is a handheld cordless vacuum sealer that prevents freezer burn and keeps food fresh up to 5× longer. BPA-free bags, USB-C rechargeable, compatible with most embossed valve bags.',
     email: 'support@freshlocksealer.com',
