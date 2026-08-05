@@ -110,7 +110,7 @@ export const products: Product[] = [
       'Warranty': '1-year on sealer unit, 6-month on accessories; bags are reusable & recyclable',
     },
     category: 'kits',
-    badge: 'Best Value',
+    badge: 'Top Value',
   },
   {
     slug: 'vacuum-seal-bags-30-pack',
@@ -167,7 +167,7 @@ export const products: Product[] = [
       'Pre-cut size: 26 × 34 cm — family meals, bulk buys, sous-vide, large cuts',
       'Compatible with most valve-type handheld vacuum sealers',
       'Reusable & recyclable; freezer, fridge, sous-vide and microwave safe',
-      'Best per-bag value',
+      'Great per-bag value',
     ],
     specs: {
       'Quantity': '50 bags',
@@ -272,7 +272,7 @@ export const faqs = [
   {
     question: 'Is it compatible with other brands of vacuum bags?',
     answer:
-      'Yes. FreshLock works with most embossed valve bags that have a standard one-way air valve — you are not locked into our own bags. We recommend 90 μm (or thicker) embossed PA+PE bags with a white circular valve for best results. It is not compatible with open-top embossed bags designed for heat-bar edge sealers or chamber machines.',
+      'Yes. FreshLock works with most embossed valve bags that have a standard one-way air valve — you are not locked into our own bags. We recommend 90 μm (or thicker) embossed PA+PE bags with a white circular valve for optimal results. It is not compatible with open-top embossed bags designed for heat-bar edge sealers or chamber machines.',
   },
   {
     question: 'How long does the battery last and how do I charge it?',
