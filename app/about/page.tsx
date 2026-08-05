@@ -105,7 +105,7 @@ export default function AboutPage() {
           <ul className="space-y-3 text-gray-600">
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
-              <span><strong>30-day satisfaction guarantee</strong> — not happy, send it back for a full refund.</span>
+              <span><strong>7-day return policy</strong> — not satisfied, return it within 7 days for a refund.</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-accent mt-1">✓</span>
