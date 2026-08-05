@@ -60,7 +60,7 @@ function Hero() {
             </div>
             <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-300">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
-              <span>↩️ 30-day returns</span>
+              <span>↩️ 7-day returns</span>
               <span>🔒 Secure SSL checkout</span>
             </div>
           </div>
@@ -423,7 +423,7 @@ function Cta() {
           Stop Throwing Away Good Food
         </h2>
         <p className="text-gray-300 mb-8 text-lg">
-          Free shipping over ${FREE_SHIPPING_THRESHOLD} · Starter Kits ship free · 30-day returns · 1-year warranty
+          Free shipping over ${FREE_SHIPPING_THRESHOLD} · Starter Kits ship free · 7-day returns · 1-year warranty
         </p>
         <Link href="/products/freshlock-pro" className="btn-primary text-lg">
           Get FreshLock Pro — $74.99
