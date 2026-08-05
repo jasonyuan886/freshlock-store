@@ -68,7 +68,7 @@ export async function POST(request: Request) {
         </div>
         <div style="padding:24px;">
           <p style="font-size:16px;">Thanks for subscribing!</p>
-          <p>You're now on the list for exclusive tips on food preservation, vacuum sealing hacks, special offers, and new product updates.</p>
+          <p>You're now on the list for expert tips on food preservation, vacuum sealing hacks, special offers, and new product updates.</p>
           <p>Here's a quick tip to get you started: <strong>Vacuum sealing can extend food freshness up to 5× longer</strong> compared to regular storage methods.</p>
           
           <div style="background:#f0f7f4; border:1px solid #0f4c3a; border-radius:8px; padding:16px; margin:16px 0;">
