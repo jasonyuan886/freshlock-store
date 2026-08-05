@@ -58,7 +58,7 @@ export default function Footer() {
             <div className="mt-4 text-xs text-gray-300 space-y-1">
               <p>🚚 Free US shipping over $89</p>
               <p>🎁 Starter Kits Ship FREE</p>
-              <p>↩️ 30-day returns</p>
+              <p>↩️ 7-day returns</p>
               <p>🛡️ 1-year warranty (unit)</p>
             </div>
           </div>
