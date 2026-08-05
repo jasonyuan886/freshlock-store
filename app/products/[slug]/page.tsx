@@ -64,7 +64,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!product) return {};
   const title = `${product.name} — Prevent Freezer Burn, BPA-Free`;
   const description =
-    `${product.shortDescription} Free shipping over $${FREE_SHIPPING_THRESHOLD}, Starter Kits ship free. 30-day returns, 1-year warranty on the unit.`;
+    `${product.shortDescription} Free shipping over $${FREE_SHIPPING_THRESHOLD}, Starter Kits ship free. 7-day returns, 1-year warranty on the unit.`;
   return {
     title,
     description,
@@ -263,7 +263,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           {product.badge === 'Top Value' || product.slug.includes('kit') ? (
             <span className="bg-red-50 text-red-600 border border-red-200 px-3 py-1 rounded-full text-xs font-semibold">🎁 Ships FREE</span>
           ) : null}
-          <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">↩️ 30-Day Returns</span>
+          <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">↩️ 7-Day Returns</span>
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🛡️ 1-Year Warranty</span>
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🔒 Secure SSL Checkout</span>
           <span className="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-semibold">✅ All duties & taxes included</span>
@@ -382,7 +382,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                   </div>
                   <div className="flex items-start gap-1.5">
                     <span className="text-green-600">✓</span>
-                    <span><strong>1-year warranty</strong> + 30-day returns = zero risk to try.</span>
+                    <span><strong>1-year warranty</strong> + 7-day returns = zero risk to try.</span>
                   </div>
                   <div className="flex items-start gap-1.5">
                     <span className="text-green-600">✓</span>
@@ -432,7 +432,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
 
             <div className="flex flex-wrap gap-4 mt-4 text-xs text-gray-500">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
-              <span>↩️ 30-day hassle-free returns</span>
+              <span>↩️ 7-day hassle-free returns</span>
               <span>🛡️ 1-year warranty</span>
               <span>🔒 Secure SSL checkout</span>
             </div>
