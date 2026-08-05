@@ -234,7 +234,7 @@ function SocialProof() {
             ['4.6 ★', 'Average Rating'],
             ['-60 kPa', 'Strong Suction'],
             ['Free', `Shipping over $${FREE_SHIPPING_THRESHOLD}`],
-            ['30-Day', 'Money-Back Returns'],
+            ['7-Day', 'Returns'],
           ].map(([stat, label]) => (
             <div key={label}>
               <p className="text-3xl font-bold text-accent">{stat}</p>
