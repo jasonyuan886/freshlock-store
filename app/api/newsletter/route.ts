@@ -78,7 +78,7 @@ export async function POST(request: Request) {
               <li style="margin-bottom:4px;">📉 Traditional countertop vacuum sealers cost <strong>$200–$400</strong> — FreshLock does the same job for a fraction</li>
               <li style="margin-bottom:4px;">🔋 No batteries, no power cord — USB-C rechargeable, 80–100 seals per charge</li>
               <li style="margin-bottom:4px;">📦 Works with <strong>any embossed valve bags</strong> — never locked into overpriced refills</li>
-              <li>🛡️ <strong>2-year warranty</strong> + 60-day returns = zero risk to try</li>
+              <li>🛡️ <strong>1-year warranty</strong> + 7-day returns = zero risk to try</li>
             </ul>
           </div>
           <div style="background:#f0f7f4; border-left:4px solid #0f4c3a; padding:16px; margin:20px 0;">
