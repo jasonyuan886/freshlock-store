@@ -23,7 +23,7 @@ export default function Header() {
             <Link href="/products" className="text-gray-700 hover:text-primary transition">
               Products
             </Link>
-            <Link href="/food-waste-calculator" className="text-accent hover:text-accent/80 font-semibold transition">
+            <Link href="/food-waste-calculator" className="text-accent-600 hover:text-accent-700 font-semibold transition">
               💰 Save $1,866
             </Link>
             <Link href="/blog" className="text-gray-700 hover:text-primary transition">
