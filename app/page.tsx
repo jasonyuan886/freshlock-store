@@ -23,12 +23,12 @@ function Hero() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="inline-block bg-accent/20 text-accent text-sm font-semibold px-3 py-1 rounded-full mb-4">
+            <span className="inline-block bg-accent/20 text-accent-700 text-sm font-semibold px-3 py-1 rounded-full mb-4">
               🥬 Keep food fresh 5× longer — or your money back
             </span>
             <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
               Keep Food Fresh Longer with<br />
-              <span className="text-accent">FreshLock Handheld Vacuum Sealer</span>
+              <span className="text-accent-600">FreshLock Handheld Vacuum Sealer</span>
             </h1>
             <p className="text-lg text-gray-200 mb-6 max-w-lg">
               The average family throws away <strong>$1,500 of food every year</strong>.
@@ -270,7 +270,7 @@ function Reviews() {
                 <meta itemProp="worstRating" content="1" />
               </div>
               <div className="flex items-center justify-between mb-2">
-                <div className="text-accent text-sm" aria-label={`Rated ${r.rating} out of 5`}>
+                <div className="text-accent-600 text-sm" aria-label={`Rated ${r.rating} out of 5`}>
                   <StarRating rating={r.rating} />
                 </div>
                 {r.verified && (
