@@ -267,7 +267,7 @@ export const faqs = [
   {
     question: 'Can I seal liquids, soups, and marinades?',
     answer:
-      'Yes. The FreshLock Pro has a detachable transparent drip tray (overflow cup) with liquid backflow protection that catches juices before they can reach the motor. For best results with soups and very wet foods, freeze them partially first or hold the bag upright while sealing.',
+      'Yes. The FreshLock Pro has a detachable transparent drip tray (overflow cup) with liquid backflow protection that catches juices before they can reach the motor. For optimal results with soups and very wet foods, freeze them partially first or hold the bag upright while sealing.',
   },
   {
     question: 'Is it compatible with other brands of vacuum bags?',
