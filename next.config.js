@@ -14,6 +14,14 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async redirects() {
+    return [
+      { source: '/products/starter-kit', destination: '/products/freshlock-starter-kit', permanent: true },
+      { source: '/products/vacuum-bags-small', destination: '/products/vacuum-seal-bags-30-pack', permanent: true },
+      { source: '/products/vacuum-bags-medium', destination: '/products/vacuum-seal-bags-30-pack', permanent: true },
+      { source: '/products/vacuum-bags-large', destination: '/products/vacuum-seal-bags-50-pack', permanent: true },
+    ];
+  },
 };
 
 module.exports = nextConfig;
