@@ -6,6 +6,7 @@ import type { Product } from '@/lib/types';
 import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/schema';
 import AddToCartClient from './AddToCartClient';
 import TrackViewItem from './TrackViewItem';
+import TrackViewItem from './TrackViewItem';
 import GalleryClient from './GalleryClient';
 import FrequentlyBoughtTogether from '@/components/FrequentlyBoughtTogether';
 import Image from 'next/image';
@@ -308,6 +309,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
         </nav>
 
         <TrackViewItem product={product} />
+        <TrackViewItem product={product} />
         <article className="grid md:grid-cols-2 gap-12">
           <GalleryClient
             images={product.images && product.images.length > 0 ? product.images : [product.image]}
@@ -477,6 +479,19 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               <span>↩️ 7-day hassle-free returns</span>
               <span>🛡️ 1-year warranty</span>
               <span>🔒 Secure SSL checkout</span>
+            </div>
+
+            {/* Payment method trust icons */}
+            <div className="flex items-center gap-3 mt-3 flex-wrap" aria-label="Accepted payment methods">
+              <span className="inline-flex items-center justify-center bg-white border border-gray-200 rounded px-2 py-1 text-[10px] font-bold text-blue-700" aria-label="Visa">VISA</span>
+              <span className="inline-flex items-center justify-center bg-white border border-gray-200 rounded px-2 py-1 text-[10px] font-bold text-orange-600" aria-label="Mastercard">MC</span>
+              <span className="inline-flex items-center justify-center bg-black text-white rounded px-2 py-1 text-[10px] font-bold" aria-label="Apple Pay"> Pay</span>
+              <span className="inline-flex items-center justify-center bg-white border border-gray-200 rounded px-2 py-1 text-[10px] font-bold text-gray-700" aria-label="Google Pay">G Pay</span>
+              <span className="inline-flex items-center justify-center bg-white border border-gray-200 rounded px-2 py-1 text-[10px] font-bold text-green-700" aria-label="PayPal">PayPal</span>
+              <span className="inline-flex items-center gap-1 text-[10px] text-gray-500" aria-label="SSL Secure">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" /></svg>
+                SSL Secure
+              </span>
             </div>
 
             {/* Payment method trust icons */}
