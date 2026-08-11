@@ -91,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-N16R0F2B1Y', { send_page_view: true });
+            gtag('config', 'G-N16R0F2B1Y', { send_page_view: true }, { send_page_view: true });
           `}
         </Script>
         <script
