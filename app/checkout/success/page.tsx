@@ -4,6 +4,7 @@ import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
+import { trackPurchase } from '@/lib/ga4';
 
 function CheckoutSuccessContent() {
   const searchParams = useSearchParams();
@@ -19,6 +20,14 @@ function CheckoutSuccessContent() {
         .then((data) => {
           if (data.success) {
             setOrderInfo(data);
+            // Fire purchase event
+            if (data.items && data.items.length > 0) {
+              trackPurchase(
+                data.session_id || data.order_id || 'unknown',
+                data.items.map((i: any) => ({ item_id: i.slug || i.product?.slug || '', item_name: i.name || i.product?.name || '', price: i.price || i.product?.price || 0, quantity: i.quantity || 1 })),
+                data.amount_total ? data.amount_total / 100 : 0,
+              );
+            }
             clearCart();
           }
           setLoading(false);
