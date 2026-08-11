@@ -20,6 +20,8 @@ const nextConfig = {
       { source: '/products/vacuum-bags-small', destination: '/products/vacuum-seal-bags-30-pack', permanent: true },
       { source: '/products/vacuum-bags-medium', destination: '/products/vacuum-seal-bags-30-pack', permanent: true },
       { source: '/products/vacuum-bags-large', destination: '/products/vacuum-seal-bags-50-pack', permanent: true },
+      { source: '/products/vacuum-seal-bags-25-pack', destination: '/products/vacuum-seal-bags-30-pack', permanent: true },
+      { source: '/products/freshlock-vacuum-sealer', destination: '/products/freshlock-pro', permanent: true },
     ];
   },
 };
