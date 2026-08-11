@@ -211,7 +211,9 @@ export default function ProductDetailPage({ params }: { params: Params }) {
     { name: product.name, url: `/products/${product.slug}` },
   ]);
 
-  const pdpFaqs = [
+  const isBagProduct = product.slug.includes('bags');
+
+  const sealerFaqs = [
     {
       q: 'How do I stop freezer burn?',
       a: 'Freezer burn is caused by air reaching the food surface. FreshLock removes up to 95% of the air from the bag and the one-way valve keeps it out — dramatically reducing freezer burn on meat, fish, bread, and produce.',
@@ -233,6 +235,31 @@ export default function ProductDetailPage({ params }: { params: Params }) {
       a: '1-year warranty on the main sealer unit, 6-month on accessories (cable, starter bags). Contact support@freshlocksealer.com for warranty claims.',
     },
   ];
+
+  const bagFaqs = [
+    {
+      q: 'What sizes are included in the pack?',
+      a: 'Each pack contains bags in multiple sizes — small (20×20cm) for snacks and portions, medium (25×30cm) for meals and leftovers, and large (30×35cm) for bulk items. Check the product description for the exact mix.',
+    },
+    {
+      q: 'How thick are the bags and are they BPA-free?',
+      a: 'Our bags are 90μm thick PA+PE film — 2× thicker than typical supermarket bags. They are BPA-free, food-safe, and tested for freezer, microwave, and sous-vide use.',
+    },
+    {
+      q: 'How many times can I reuse each bag?',
+      a: 'With proper care, each bag can be reused 10+ times. Just wash with warm soapy water, air dry, and reuse. The double-track zipper with slider maintains an airtight seal even after multiple uses.',
+    },
+    {
+      q: 'Are these bags dishwasher and microwave safe?',
+      a: 'Yes. The bags are top-rack dishwasher safe, microwave safe (for reheating only), freezer safe down to -20°C, and sous-vide safe up to 100°C (212°F). Always open the valve before microwaving.',
+    },
+    {
+      q: 'Will these bags work with my vacuum sealer?',
+      a: 'These bags work with ANY valve-type vacuum sealer, not just FreshLock. They use a standard one-way air valve and embossed channel design compatible with most handheld and countertop vacuum sealers.',
+    },
+  ];
+
+  const pdpFaqs = isBagProduct ? bagFaqs : sealerFaqs;
 
   return (
     <>
@@ -390,7 +417,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                   </div>
                 </div>
                 <p className="text-xs text-green-700 mt-3 font-medium border-t border-green-200 pt-2">
-                  Total value: <span className="line-through text-green-500">$320+</span> — yours for <span className="font-bold">${product.price.toFixed(2)}</span>
+                  Replaces <span className="font-bold">$200+ countertop sealers</span> — yours for <span className="font-bold">${product.price.toFixed(2)}</span>
                 </p>
               </div>
             )}
