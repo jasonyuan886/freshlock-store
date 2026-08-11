@@ -424,17 +424,30 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             {/* FOMO: Stock indicator */}
             <FomoStockIndicator initialStock={15} />
 
-            {/* Differentiator callouts */}
-            <div className="grid grid-cols-2 gap-2 mb-6">
-              <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
-                <p className="text-xs font-bold text-blue-700">💧 Seal Marinades & Juices</p>
-                <p className="text-[11px] text-blue-600 mt-1 leading-tight">Detachable drip cup catches soups, marinades & juicy meat drips — no liquid into the motor.</p>
+            {/* Differentiator callouts - conditional based on product type */}
+            {isBagProduct ? (
+              <div className="grid grid-cols-2 gap-2 mb-6">
+                <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
+                  <p className="text-xs font-bold text-blue-700">♻️ Reusable 10+ Times</p>
+                  <p className="text-[11px] text-blue-600 mt-1 leading-tight">Wash, dry, and reuse — each bag costs less than $0.10 per use. Cheaper than disposable bags.</p>
+                </div>
+                <div className="bg-orange-50 border border-orange-100 rounded-lg p-3">
+                  <p className="text-xs font-bold text-orange-700">🛡️ 90μm Heavy-Duty</p>
+                  <p className="text-[11px] text-orange-600 mt-1 leading-tight">2× thicker than supermarket bags — puncture-resistant, BPA-free, freezer/microwave/sous-vide safe.</p>
+                </div>
               </div>
-              <div className="bg-orange-50 border border-orange-100 rounded-lg p-3">
-                <p className="text-xs font-bold text-orange-700">🔥 No Heat Bar to Burn Out</p>
-                <p className="text-[11px] text-orange-600 mt-1 leading-tight">Pump-only design — zero heating element, safer around kids & lasts years longer.</p>
+            ) : (
+              <div className="grid grid-cols-2 gap-2 mb-6">
+                <div className="bg-blue-50 border border-blue-100 rounded-lg p-3">
+                  <p className="text-xs font-bold text-blue-700">💧 Seal Marinades & Juices</p>
+                  <p className="text-[11px] text-blue-600 mt-1 leading-tight">Detachable drip cup catches soups, marinades & juicy meat drips — no liquid into the motor.</p>
+                </div>
+                <div className="bg-orange-50 border border-orange-100 rounded-lg p-3">
+                  <p className="text-xs font-bold text-orange-700">🔥 No Heat Bar to Burn Out</p>
+                  <p className="text-[11px] text-orange-600 mt-1 leading-tight">Pump-only design — zero heating element, safer around kids & lasts years longer.</p>
+                </div>
               </div>
-            </div>
+            )}
 
             <p className="text-gray-600 leading-relaxed mb-8">{product.description}</p>
 
