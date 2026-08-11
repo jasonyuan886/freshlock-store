@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
+import { trackBeginCheckout } from '@/lib/ga4';
 import Image from 'next/image';
 
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
@@ -48,6 +49,16 @@ export default function CheckoutPage() {
   };
 
   const [cartCaptured, setCartCaptured] = useState(false);
+
+  // Fire begin_checkout event once on mount
+  useEffect(() => {
+    if (items.length > 0) {
+      trackBeginCheckout(
+        items.map(i => ({ item_id: i.product.slug, item_name: i.product.name, price: i.product.price, quantity: i.quantity })),
+        totalPrice + shipping,
+      );
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   const handleEmailBlur = () => {
     if (cartCaptured || !form.email || items.length === 0) return;
     setCartCaptured(true);
