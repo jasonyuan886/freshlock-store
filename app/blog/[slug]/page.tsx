@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: PageProps) {
     headline: post.title,
     description: post.description,
     datePublished: post.date,
-    author: { '@type': 'Organization', name: post.author },
+    author: { '@type': 'Person', name: post.author },
     publisher: {
       '@type': 'Organization',
       name: 'FreshLock',
