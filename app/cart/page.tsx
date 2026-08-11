@@ -2,9 +2,10 @@
 
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
+import { trackViewCart } from '@/lib/ga4';
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER, products } from '@/lib/data';
 import Image from 'next/image';
-import { useMemo } from 'react';
+import { useMemo, useEffect } from 'react';
 
 export const dynamic = 'force-dynamic';
 
