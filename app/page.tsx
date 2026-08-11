@@ -345,30 +345,6 @@ function QABlock() {
             </article>
           ))}
         </div>
-      </div>
-    </section>
-  );
-}
-
-function FaqPreview() {
-  const preview = faqs.slice(0, 4);
-  return (
-    <section className="py-20 bg-gray-50" aria-labelledby="faq-heading">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 id="faq-heading" className="section-title">Frequently Asked Questions</h2>
-        </div>
-        <div className="space-y-6">
-          {preview.map((f) => (
-            <details key={f.question} className="bg-white rounded-xl p-6 shadow-sm group">
-              <summary className="font-semibold text-primary cursor-pointer list-none flex justify-between items-center">
-                {f.question}
-                <span className="ml-4 text-accent group-open:rotate-180 transition-transform" aria-hidden="true">▾</span>
-              </summary>
-              <p className="mt-4 text-gray-600 leading-relaxed">{f.answer}</p>
-            </details>
-          ))}
-        </div>
         <div className="text-center mt-10">
           <Link href="/faq" className="text-primary font-semibold hover:underline">View all FAQs →</Link>
         </div>
@@ -448,7 +424,6 @@ export default function HomePage() {
       <SocialProof />
       <Reviews />
       <QABlock />
-      <FaqPreview />
       <BlogPreview />
       <Cta />
     </>
