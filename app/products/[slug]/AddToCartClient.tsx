@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useCart } from '@/lib/cart-context';
+import { trackAddToCart } from '@/lib/ga4';
 import type { Product } from '@/lib/types';
 
 export default function AddToCartClient({ product }: { product: Product }) {
@@ -11,6 +12,7 @@ export default function AddToCartClient({ product }: { product: Product }) {
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
+    trackAddToCart(product, quantity);
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
