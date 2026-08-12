@@ -21,13 +21,24 @@ export async function GET(request: NextRequest) {
     if (!stripe) {
       return NextResponse.redirect(new URL('/checkout', request.url));
     }
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ['line_items'],
+    });
     
     if (session.payment_status === 'paid') {
+      const items = (session.line_items?.data || []).map((item) => ({
+        name: item.description || '',
+        slug: (item.price?.product as string) || '',
+        price: item.price?.unit_amount ? item.price.unit_amount / 100 : 0,
+        quantity: item.quantity || 1,
+      }));
+
       return NextResponse.json({
         success: true,
         customer_email: session.customer_email,
         amount_total: session.amount_total,
+        session_id: sessionId,
+        items,
       });
     } else {
       return NextResponse.redirect(new URL('/checkout', request.url));
