@@ -1,6 +1,8 @@
 # FreshLock Store
 
-Australian e-commerce site for handheld vacuum sealers and vacuum bags.
+🌐 **Live Site:** [https://www.freshlocksealer.com](https://www.freshlocksealer.com)
+
+E-commerce site for handheld vacuum sealers and vacuum bags.
 
 ## Tech Stack
 
