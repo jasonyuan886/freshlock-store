@@ -63,7 +63,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const product = products.find((p) => p.slug === params.slug);
   if (!product) return {};
-  const title = `${product.name} — Prevent Freezer Burn, BPA-Free`;
+  const title = product.name;
   const description =
     `${product.shortDescription} Free shipping over $${FREE_SHIPPING_THRESHOLD}, Starter Kits ship free. 7-day returns, 1-year warranty on the unit.`;
   return {
