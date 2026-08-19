@@ -6,14 +6,11 @@ import { trackViewCart } from '@/lib/ga4';
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER, products } from '@/lib/data';
 import Image from 'next/image';
 import { useMemo, useEffect } from 'react';
-import type { Metadata } from 'next';
-
 export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.freshlocksealer.com/cart',
   },
 };
-
 
 export const dynamic = 'force-dynamic';
 
