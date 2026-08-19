@@ -4,9 +4,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.freshlocksealer.com/shipping',
   },
-  title: 'Shipping Policy — Delivery Times, Costs & Tracking',
-  description:
-    'FreshLock shipping policy: free US/CA/UK/JP shipping on orders over $89 (AU/NZ over $69), Starter Kits ship free worldwide, $5.99 flat rate under threshold, 5–8 day DHL Express delivery with tracking.',
 };
 
 export default function ShippingPage() {
