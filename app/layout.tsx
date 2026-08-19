@@ -73,6 +73,7 @@ export async function generateMetadata(): Promise<Metadata> {
       languages: {
         'en-US': 'https://www.freshlocksealer.com',
         'ja-JP': 'https://jp.freshlocksealer.com',
+        'th-TH': 'https://th.freshlocksealer.com',
         'x-default': 'https://www.freshlocksealer.com',
       },
     },
