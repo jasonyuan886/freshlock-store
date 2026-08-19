@@ -87,10 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-US">
       <head>
-        <link rel="alternate" hrefLang="en-US" href="https://www.freshlocksealer.com" />
-        <link rel="alternate" hrefLang="ja-JP" href="https://jp.freshlocksealer.com" />
-        <link rel="alternate" hrefLang="x-default" href="https://www.freshlocksealer.com" />
-        <meta name="p:domain_verify" content="35f8877a03378002c70a19e5750a86c4" />
+                                <meta name="p:domain_verify" content="35f8877a03378002c70a19e5750a86c4" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
