@@ -4,10 +4,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://www.freshlocksealer.com/returns',
   },
-};
-
-
-export const metadata: Metadata = {
   title: 'Returns & Refund Policy — 30-Day Money-Back Guarantee',
   description:
     'FreshLock offers a 30-day satisfaction guarantee. Return any unused item within 30 days for a refund or exchange. 1-year warranty on the sealer unit.',
