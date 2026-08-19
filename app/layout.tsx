@@ -1,3 +1,4 @@
+import { headers } from 'next/headers';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
@@ -12,7 +13,16 @@ const title = 'FreshLock Handheld Vacuum Sealer — Stop Freezer Burn, Stay Fres
 const description =
   'FreshLock Pro cordless handheld vacuum sealer stops freezer burn with -60 kPa suction, detachable drip tray and USB-C charging. BPA-free bags, works with most embossed valve bags. Free shipping over $89, 7-day returns.';
 
-export const metadata: Metadata = {
+export async function generateMetadata(): Promise<Metadata> {
+  const h = await headers();
+  const host = h.get('x-forwarded-host') || h.get('host') || 'www.freshlocksealer.com';
+  const proto = h.get('x-forwarded-proto') || 'https';
+  const invokePath = h.get('x-invoke-path') || '';
+  const invokeQuery = h.get('x-invoke-query') || '';
+  // Build canonical from forwarded headers or fallback to SITE_URL
+  const canonicalUrl = `${proto}://${host}${invokePath ? '/' + invokePath : ''}`;
+
+  return {
   metadataBase: new URL(SITE_URL),
   title: {
     default: title,
@@ -26,12 +36,6 @@ export const metadata: Metadata = {
     icon: '/favicon-32.png',
     apple: '/apple-touch-icon.png',
   },
-  alternates: {
-    languages: {
-      'en-US': 'https://www.freshlocksealer.com',
-      'ja-JP': 'https://jp.freshlocksealer.com',
-      'x-default': 'https://www.freshlocksealer.com',
-    },
   },
   openGraph: {
     type: 'website',
@@ -68,7 +72,16 @@ export const metadata: Metadata = {
   verification: {
     google: 's5k1bV4GOf6JitkZAj0KewRM2B2TgAO5N_6aDIZ59cM',
   },
-};
+    alternates: {
+      canonical: canonicalUrl,
+      languages: {
+        'en-US': 'https://www.freshlocksealer.com',
+        'ja-JP': 'https://jp.freshlocksealer.com',
+        'x-default': 'https://www.freshlocksealer.com',
+      },
+    },
+  };
+}
 
 const orgSchema = generateOrganizationSchema();
 const websiteSchema = generateWebsiteSchema();
