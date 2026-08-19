@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://www.freshlocksealer.com/cart',
+  },
   title: 'Your Cart',
   description:
     'Review your FreshLock cart before checkout. Free shipping over $89, Starter Kits ship free, 60-day returns, and a 2-year warranty on every sealer.',
