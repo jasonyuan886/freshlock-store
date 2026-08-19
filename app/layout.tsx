@@ -70,12 +70,6 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     alternates: {
       canonical: canonicalUrl,
-      languages: {
-        'en-US': 'https://www.freshlocksealer.com',
-        'ja-JP': 'https://jp.freshlocksealer.com',
-        'th-TH': 'https://th.freshlocksealer.com',
-        'x-default': 'https://www.freshlocksealer.com',
-      },
     },
   };
 }
@@ -91,6 +85,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="alternate" hrefLang="en-US" href="https://www.freshlocksealer.com" />
+        <link rel="alternate" hrefLang="ja-JP" href="https://jp.freshlocksealer.com" />
+        <link rel="alternate" hrefLang="th-TH" href="https://th.freshlocksealer.com" />
+        <link rel="alternate" hrefLang="x-default" href="https://www.freshlocksealer.com" />
         <Script async src="https://www.googletagmanager.com/gtag/js?id=G-N16R0F2B1Y" strategy="lazyOnload" />
         <Script id="ga4-init" strategy="lazyOnload">
           {`
@@ -120,3 +118,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
