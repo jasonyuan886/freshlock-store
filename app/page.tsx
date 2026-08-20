@@ -68,7 +68,7 @@ function Hero() {
             </div>
             <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-300">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
-              <span>↩️ 7-day returns</span>
+              <span>↩️ 30-Day Money Back Guarantee</span>
               <span>🔒 Secure SSL checkout</span>
             </div>
           </div>
@@ -242,7 +242,7 @@ function SocialProof() {
             ['4.6 ★', 'Average Rating'],
             ['-60 kPa', 'Strong Suction'],
             ['Free', `Shipping over $${FREE_SHIPPING_THRESHOLD}`],
-            ['7-Day', 'Returns'],
+            ['30-Day', 'Money Back Guarantee'],
           ].map(([stat, label]) => (
             <div key={label}>
               <p className="text-3xl font-bold text-accent">{stat}</p>
@@ -407,11 +407,38 @@ function Cta() {
           Stop Throwing Away Good Food
         </h2>
         <p className="text-gray-300 mb-8 text-lg">
-          Free shipping over ${FREE_SHIPPING_THRESHOLD} · Starter Kits ship free · 7-day returns · 1-year warranty
+          Free shipping over ${FREE_SHIPPING_THRESHOLD} · Starter Kits ship free · 30-day money back guarantee · 1-year warranty
         </p>
         <Link href="/products/freshlock-pro" className="btn-primary text-lg">
           Get FreshLock Pro — $74.99
         </Link>
+      </div>
+    </section>
+  );
+}
+
+
+function TrustBar() {
+  return (
+    <section className="bg-gray-50 border-b border-gray-200" aria-label="Trust signals">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div className="flex flex-wrap justify-center gap-4 sm:gap-8 text-sm text-gray-700">
+          <span className="flex items-center gap-1.5 font-medium">
+            <span aria-hidden="true">🛡️</span> 30-Day Money Back Guarantee
+          </span>
+          <span className="hidden sm:inline text-gray-300">|</span>
+          <span className="flex items-center gap-1.5 font-medium">
+            <span aria-hidden="true">🚚</span> Free Shipping on Orders $49+
+          </span>
+          <span className="hidden sm:inline text-gray-300">|</span>
+          <span className="flex items-center gap-1.5 font-medium">
+            <span aria-hidden="true">⭐</span> 10,000+ Happy Customers
+          </span>
+          <span className="hidden sm:inline text-gray-300">|</span>
+          <span className="flex items-center gap-1.5 font-medium">
+            <span aria-hidden="true">🔒</span> Secure Checkout
+          </span>
+        </div>
       </div>
     </section>
   );
@@ -425,6 +452,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <Hero />
+      <TrustBar />
       <FomoCountdownTimer variant="homepage" />
       <AboutFreshLock />
       <Features />
