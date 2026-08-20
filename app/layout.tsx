@@ -11,7 +11,7 @@ import { generateOrganizationSchema, generateWebsiteSchema, SITE_URL } from '@/l
 const siteName = 'FreshLock';
 const title = 'FreshLock Handheld Vacuum Sealer — Stop Freezer Burn, Stay Fresh 5× Longer';
 const description =
-  'FreshLock Pro cordless handheld vacuum sealer stops freezer burn with -60 kPa suction, detachable drip tray and USB-C charging. BPA-free bags, works with most embossed valve bags. Free shipping over $89, 7-day returns.';
+  'FreshLock vacuum sealers keep food fresh 5x longer. BPA-free, easy to use, and built for everyday kitchens. Free shipping on orders over $49. 30-day guarantee.';
 
 export async function generateMetadata(): Promise<Metadata> {
   const h = await headers();
