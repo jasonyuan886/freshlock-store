@@ -5,7 +5,7 @@ import { getAllPosts } from '@/lib/blog';
 export const metadata: Metadata = {
   title: 'Blog — Food Storage & Vacuum Sealing Tips',
   description:
-    'FreshLock Blog — Expert guides on vacuum sealing, food preservation, meal prep, reducing food waste and keeping food fresh longer with handheld vacuum sealers.',
+    'Vacuum sealing tips, food storage guides & meal prep hacks from FreshLock. Learn how to keep food fresh 5x longer, reduce waste, and save money every week.',
   alternates: { canonical: '/blog' },
 };
 
