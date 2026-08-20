@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
+  title: 'Shipping Policy — Rates, Delivery & Free Shipping',
+  description: 'FreshLock shipping policy: Free standard shipping on orders $49+. Expedited shipping available. 30-day money back guarantee. Track every order.',
   alternates: {
     canonical: 'https://www.freshlocksealer.com/shipping',
   },
@@ -12,66 +14,140 @@ export default function ShippingPage() {
       <div className="text-center mb-12">
         <h1 className="section-title">Shipping Policy</h1>
         <p className="section-subtitle">
-          Transparent rates, real tracking, and 1–2 business day processing.
+          Transparent rates, real tracking, and fast processing — know exactly when your FreshLock arrives.
         </p>
       </div>
 
       <div className="prose prose-lg max-w-none">
-        <h2>Processing Time</h2>
-        <p>
-          All orders are processed within <strong>1–2 business days</strong> (Monday–Friday, excluding major holidays). Orders placed after 2 PM ET on business days will begin processing the next business day. You will receive an order confirmation immediately, and a shipping confirmation with tracking number once your package leaves our fulfilment centre.
-        </p>
+        <h2>🚚 Shipping Rates &amp; Delivery Times</h2>
 
-        <h2>Shipping Rates (United States & Canada)</h2>
+        <h3>Domestic Shipping (United States)</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Shipping Method</th>
+              <th>Order Value</th>
+              <th>Shipping Cost</th>
+              <th>Estimated Delivery</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Standard Shipping</strong></td>
+              <td>Under $49</td>
+              <td><strong>$4.99</strong></td>
+              <td>3–5 business days</td>
+            </tr>
+            <tr>
+              <td><strong>Standard Shipping</strong></td>
+              <td>$49 and above</td>
+              <td><strong>FREE</strong></td>
+              <td>3–5 business days</td>
+            </tr>
+            <tr>
+              <td><strong>Expedited Shipping</strong></td>
+              <td>Any</td>
+              <td><strong>$9.99</strong></td>
+              <td>2–3 business days</td>
+            </tr>
+          </tbody>
+        </table>
         <ul>
-          <li><strong>Free standard shipping</strong> on all US & CA orders over <strong>$89 USD</strong> (discount applied automatically at checkout).</li>
-          <li>US & CA orders under $89 ship for a <strong>flat rate of $5.99</strong>.</li>
-          <li>All <strong>Starter Kits ship free</strong> within US/CA/UK/JP regardless of subtotal.</li>
-          <li>Delivered via USPS First Class / Priority Mail or equivalent tracked postal service.</li>
-          <li><strong>Transit time:</strong> 5–8 business days via DHL Express after dispatch (continental US; Alaska, Hawaii, and US territories may take 7–14 days).</li>
+          <li>Orders are processed and shipped within <strong>1–2 business days</strong> of purchase.</li>
+          <li>Shipping times are estimates and not guaranteed.</li>
+          <li>We ship to all 50 U.S. states. Unfortunately, we cannot ship to P.O. Boxes, APO/FPO addresses, or U.S. territories (Puerto Rico, Guam, U.S. Virgin Islands, American Samoa).</li>
         </ul>
 
-        <h2>UK, EU & Japan</h2>
-        <p>
-          Free standard shipping on UK & JP orders over <strong>$89</strong>. EU and other international orders under the threshold pay live rates calculated at checkout based on destination and package weight. Typical transit time is 7–18 business days depending on destination and customs clearance.
-        </p>
+        <h3>International Shipping</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Destination</th>
+              <th>Shipping Cost</th>
+              <th>Estimated Delivery</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Canada</td>
+              <td>$14.99</td>
+              <td>7–14 business days</td>
+            </tr>
+            <tr>
+              <td>Mexico</td>
+              <td>$19.99</td>
+              <td>10–20 business days</td>
+            </tr>
+            <tr>
+              <td>Europe (EU &amp; UK)</td>
+              <td>$24.99</td>
+              <td>10–20 business days</td>
+            </tr>
+            <tr>
+              <td>Australia &amp; New Zealand</td>
+              <td>$24.99</td>
+              <td>10–20 business days</td>
+            </tr>
+            <tr>
+              <td>Asia (Japan, South Korea, China, etc.)</td>
+              <td>$19.99</td>
+              <td>10–20 business days</td>
+            </tr>
+            <tr>
+              <td>Rest of World</td>
+              <td>$29.99</td>
+              <td>14–30 business days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><strong>Please note:</strong></p>
+        <ul>
+          <li>International shipping costs are calculated at checkout.</li>
+          <li>Customers are responsible for any <strong>customs duties, import taxes, or tariffs</strong> imposed by the destination country. These charges are not included in the shipping cost.</li>
+          <li>Delivery times are estimates and may vary due to customs processing.</li>
+        </ul>
 
-        <h2>Australia & New Zealand</h2>
-        <p>
-          Free standard shipping on AU & NZ orders over <strong>$69</strong>. Orders under the threshold ship at live rates calculated at checkout.
-        </p>
+        <h2>📦 Order Tracking</h2>
+        <ul>
+          <li>Once your order ships, you will receive a <strong>confirmation email with a tracking number</strong>.</li>
+          <li>You can track your package in real time via the link provided in the email or through our website&apos;s order tracking page.</li>
+          <li>If you have not received your tracking number within 3 business days, please contact us at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>.</li>
+        </ul>
 
-        <h2>Other Destinations</h2>
-        <p>
-          We also ship to the EU and most other countries worldwide. Shipping rates for international destinations are calculated live at checkout based on destination and package weight. Typical transit times are 7–18 business days depending on destination and customs clearance.
-        </p>
-        <p>
-          Japanese customers: please visit <a href="https://jp.freshlocksealer.com/shipping" className="text-accent hover:underline">FreshLock Japan</a> for JPY pricing and local Japanese support.
-        </p>
+        <h2>🔄 Returns &amp; Refunds — 30-Day Money Back Guarantee</h2>
+        <p>We stand behind every FreshLock product. If you&apos;re not 100% satisfied, you can return your purchase within <strong>30 days</strong> of the delivery date for a full refund.</p>
 
-        <h2>Customs, Duties & Taxes</h2>
-        <p>
-          International orders may be subject to import duties, taxes, or customs fees levied by the destination country. These charges are the responsibility of the customer and are not included in our shipping charges. Please check with your local customs office for estimates before ordering.
-        </p>
+        <h3>Return Eligibility</h3>
+        <ul>
+          <li>Product must be in its <strong>original condition</strong> and <strong>original packaging</strong>.</li>
+          <li>Product must not show signs of excessive use or damage caused by the customer.</li>
+          <li>All accessories and documentation must be included.</li>
+          <li>Return shipping is the <strong>customer&apos;s responsibility</strong> unless the product arrived defective or damaged.</li>
+        </ul>
 
-        <h2>Tracking</h2>
-        <p>
-          Every order ships with a <strong>tracking number</strong>. You will receive an email with tracking information as soon as your order is dispatched. If you do not receive a tracking email within 3 business days of ordering, please contact us at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>.
-        </p>
+        <h3>How to Initiate a Return</h3>
+        <ol>
+          <li>Email us at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a> with your order number and reason for return.</li>
+          <li>We will issue a <strong>Return Merchandise Authorization (RMA) number</strong> within 1–2 business days.</li>
+          <li>Ship the product back to the address provided in the RMA confirmation.</li>
+          <li>Once we receive and inspect the returned item, your refund will be processed to the original payment method within <strong>5–7 business days</strong>.</li>
+        </ol>
 
-        <h2>Lost or Damaged Packages</h2>
-        <p>
-          If your package arrives damaged or appears to be lost in transit, please contact us within 7 days of the estimated delivery date at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>. We will work with the carrier to resolve the issue and, where applicable, ship a replacement at no extra cost.
-        </p>
+        <h3>Damaged or Defective Products</h3>
+        <ul>
+          <li>If your product arrives damaged or is defective, contact us immediately at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>.</li>
+          <li>We will provide a <strong>prepaid return shipping label</strong> and send a replacement or issue a full refund at no additional cost.</li>
+        </ul>
 
-        <h2>PO Boxes & APO/FPO</h2>
-        <p>
-          We ship to PO boxes and APO/FPO addresses via USPS. Delivery to APO/FPO addresses may take longer due to military postal routing.
-        </p>
+        <h2>📞 Need Help?</h2>
+        <p>Have questions about shipping, delivery, or returns? We&apos;re here to help.</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a></li>
+          <li><strong>Response Time:</strong> We respond to all inquiries within 24 hours (Monday–Friday).</li>
+        </ul>
 
-        <h2>Contact Us</h2>
-        <p>
-          For shipping questions, email <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a>. We respond within 24 hours on business days.
+        <p className="text-sm text-gray-500 mt-8">
+          <em>FreshLock is committed to delivering your order quickly and safely. Thank you for choosing FreshLock — Keep It Fresh, Lock It In.</em>
         </p>
       </div>
     </div>
