@@ -34,52 +34,50 @@ function Hero() {
             <span className="inline-block bg-accent/20 text-accent-700 text-sm font-semibold px-3 py-1 rounded-full mb-4">
               🥬 Keep food fresh 5× longer — or your money back
             </span>
-            <h1 id="hero-heading" className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-              Keep Food Fresh Longer with<br />
-              <span className="text-accent-600">FreshLock Handheld Vacuum Sealer</span>
+            <h1 id="hero-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              Stop Wasting Food.<br />
+              <span className="text-accent-600">Seal It Fresh. Seal It Longer.</span>
             </h1>
-            <p className="text-lg text-gray-200 mb-6 max-w-lg">
-              The average family throws away <strong>$1,500 of food every year</strong>.
-              FreshLock pulls a -60 kPa vacuum in seconds, sealing out the air that makes
-              food go bad — so your groceries last <strong>5× longer</strong>, your freezer
-              stays organized, and nothing ends up in the trash. One-touch simple,
-              USB-C rechargeable, works with <strong>most valve bags</strong> (not just ours).
-            </p>
-            <div className="flex flex-wrap gap-2 mb-8 text-sm">
-              {[
-                '🥬 5× longer freshness',
-                '💰 Less food waste',
-                '👆 One-touch simple',
-                '🔌 USB-C · 80-100 seals/charge',
-                '🛡️ 1-year warranty',
-              ].map((b) => (
-                <span key={b} className="bg-white/10 text-white text-xs px-2.5 py-1 rounded-full border border-white/20">
-                  {b}
-                </span>
-              ))}
-            </div>
+            <ul className="space-y-3 mb-8 text-lg text-gray-200 max-w-lg">
+              <li className="flex items-start gap-3">
+                <span className="text-accent mt-1 flex-shrink-0">✓</span>
+                <span>Save <strong>$1,500/year</strong> on wasted groceries</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-accent mt-1 flex-shrink-0">✓</span>
+                <span><strong>-60 kPa</strong> vacuum in seconds — one touch</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-accent mt-1 flex-shrink-0">✓</span>
+                <span>Works with <strong>most valve bags</strong>, USB-C rechargeable</span>
+              </li>
+            </ul>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/products/freshlock-pro" className="btn-primary text-lg">
                 Shop FreshLock Pro — $74.99
               </Link>
-              <Link href="#features" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg">
+              <Link href="#how-it-works" className="btn-outline border-white text-white hover:bg-white hover:text-primary text-lg">
                 See How It Works
               </Link>
             </div>
-            <div className="mt-6 flex flex-wrap gap-4 text-sm text-gray-300">
+            <div className="mt-5 flex items-center gap-3 text-sm text-gray-300">
+              <span className="text-accent text-base">★★★★★</span>
+              <span>4.6/5 from 2,300+ happy customers</span>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-4 text-sm text-gray-300">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
-              <span>↩️ 30-Day Money Back Guarantee</span>
-              <span>🔒 Secure SSL checkout</span>
+              <span>↩️ 30-Day Money Back</span>
+              <span>🔒 Secure checkout</span>
             </div>
           </div>
           <div className="flex justify-center md:justify-center mt-8 md:mt-0">
             <Image src="/images/products/sealer-main.jpg"
               alt="FreshLock Pro handheld vacuum sealer in pearl white with chrome diamond-cut cap, black semi-transparent LED panel and detachable drip tray, shown with apple-green zip-slider embossed vacuum bags"
-              className="rounded-2xl shadow-2xl w-64 md:w-full max-w-md md:max-w-none"
+              className="rounded-2xl shadow-2xl w-4/5 sm:w-64 md:w-full max-w-md md:max-w-none"
               width={600}
               height={600}
               priority
-              sizes="(max-width: 768px) 256px, 600px" />
+              sizes="(max-width: 768px) 80vw, 600px" />
           </div>
         </div>
       </div>
@@ -87,24 +85,54 @@ function Hero() {
   );
 }
 
-function AboutFreshLock() {
+function HowItWorks() {
+  const steps = [
+    {
+      num: '1',
+      icon: '📍',
+      title: 'Place',
+      text: 'Set the sealer nozzle over the bag valve. Works with most embossed valve bags — no brand lock-in.',
+    },
+    {
+      num: '2',
+      icon: '👆',
+      title: 'Press',
+      text: 'One touch starts the pump. It pulls a -60 kPa vacuum and auto-stops when tight. No settings, no learning curve.',
+    },
+    {
+      num: '3',
+      icon: '✅',
+      title: 'Done',
+      text: 'Food stays fresh 5× longer. The detachable drip tray keeps liquids away from the motor — even soups seal clean.',
+    },
+  ];
+
   return (
-    <section id="about" className="py-20 bg-white" aria-labelledby="about-heading">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="text-center mb-10">
-          <h2 id="about-heading" className="section-title">Built for Real Kitchens</h2>
+    <section id="how-it-works" className="py-20 bg-white" aria-labelledby="how-heading">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <header className="text-center mb-14">
+          <h2 id="how-heading" className="section-title">How It Works</h2>
+          <p className="section-subtitle">Three steps to food that lasts 5× longer. No heat bar, no learning curve.</p>
         </header>
-        <article className="prose prose-lg max-w-none text-gray-700 leading-relaxed space-y-4">
-          <p>
-            <strong>FreshLock</strong> is a cordless handheld vacuum sealer designed for people who love food and hate waste. Whether you are meal prepping on Sundays, portioning baby food, marinating meat for the grill, or packing snacks for a camping trip, FreshLock pulls a strong -60 kPa vacuum in seconds.
-          </p>
-          <p>
-            Unlike bulky countertop sealers, the FreshLock Pro works on reusable embossed zipper bags fitted with a one-way air valve — <strong>no heat bar, no learning curve</strong>. A <strong>detachable transparent drip cup</strong> catches liquid overflow so soups, marinades, and juicy proteins seal cleanly, and the motor stays dry.
-          </p>
-          <p>
-            It is <strong>compatible with most embossed valve bags</strong> on the market, not just our own. Recharge via any USB-C cable, pull 80–100 seals per charge, and rest easy with a 1-year warranty on the unit.
-          </p>
-        </article>
+        <div className="grid md:grid-cols-3 gap-8">
+          {steps.map((step) => (
+            <div key={step.num} className="text-center">
+              <div className="relative mx-auto mb-6 w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
+                <span className="text-4xl" aria-hidden="true">{step.icon}</span>
+                <span className="absolute -top-1 -right-1 w-7 h-7 bg-accent text-white text-sm font-bold rounded-full flex items-center justify-center">
+                  {step.num}
+                </span>
+              </div>
+              <h3 className="text-xl font-bold text-primary mb-2">{step.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{step.text}</p>
+            </div>
+          ))}
+        </div>
+        <div className="text-center mt-12">
+          <Link href="/products/freshlock-pro" className="btn-primary">
+            Try FreshLock Pro — Risk Free
+          </Link>
+        </div>
       </div>
     </section>
   );
@@ -132,24 +160,9 @@ const featureList = [
     text: '1200 mAh battery, ~2.5 hr charge, 80–100 seals per charge. Works with any USB-C cable or power bank.',
   },
   {
-    icon: '🔇',
-    title: 'Library-Quiet',
-    text: 'Under 60 dB during operation — quiet enough for early mornings, late-night meal prep, or open-plan kitchens.',
-  },
-  {
     icon: '♻️',
-    title: 'Works With Most Valve Bags',
+    title: 'Works With Most Bags',
     text: 'Compatible with most embossed valve bags — no brand lock-in. BPA-free PA+PE bags recommended.',
-  },
-  {
-    icon: '⚖️',
-    title: 'Lightweight & Compact',
-    text: 'Weighs only ~210 g (7.4 oz). Fits in a kitchen drawer, backpack or cooler for camping and BBQ.',
-  },
-  {
-    icon: '🛡️',
-    title: '1-Year Warranty',
-    text: '1-year warranty on the sealer unit, 6-month on accessories. We stand behind every pump we ship.',
   },
 ];
 
@@ -163,15 +176,15 @@ function Features() {
             The features home cooks actually care about — not marketing fluff.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {featureList.map((f) => (
             <article
               key={f.title}
-              className="bg-white rounded-xl p-6 text-center hover:shadow-lg transition"
+              className="bg-white rounded-xl p-5 text-center hover:shadow-lg transition"
             >
-              <div className="text-4xl mb-4" aria-hidden="true">{f.icon}</div>
-              <h3 className="text-lg font-bold text-primary mb-2">{f.title}</h3>
-              <p className="text-gray-600 text-sm">{f.text}</p>
+              <div className="text-3xl mb-3" aria-hidden="true">{f.icon}</div>
+              <h3 className="text-base font-bold text-primary mb-2">{f.title}</h3>
+              <p className="text-gray-600 text-xs leading-relaxed">{f.text}</p>
             </article>
           ))}
         </div>
@@ -190,13 +203,14 @@ function ProductShowcase() {
             Start with the sealer or grab the complete kit — everything ships fast.
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {products.map((p) => (
             <Link
               key={p.slug}
               href={`/products/${p.slug}`}
               className="group bg-white rounded-xl overflow-hidden shadow hover:shadow-xl transition"
             >
+
               <div className="relative overflow-hidden">
                 <Image src={p.image}
                   alt={`${p.name} — ${p.shortDescription}`}
@@ -211,9 +225,9 @@ function ProductShowcase() {
                   </span>
                 )}
               </div>
-              <div className="p-5">
-                <h3 className="font-bold text-primary mb-1">{p.name}</h3>
-                <p className="text-gray-500 text-sm mb-3 line-clamp-2">{p.shortDescription}</p>
+              <div className="p-4 sm:p-5">
+                <h3 className="font-bold text-primary text-sm sm:text-base mb-1">{p.name}</h3>
+                <p className="text-gray-500 text-xs sm:text-sm mb-3 line-clamp-2">{p.shortDescription}</p>
                 <PriceDisplay
                   price={p.price}
                   compareAtPrice={p.compareAtPrice}
@@ -299,8 +313,15 @@ function Reviews() {
               {r.images && r.images.length > 0 && (
                 <div className="flex gap-2 mt-3">
                   {r.images.map((src, i) => (
-                    <div key={i} className="w-14 h-14 rounded overflow-hidden border border-gray-200 bg-gray-100 flex items-center justify-center text-[9px] text-gray-400">
-                      📷 photo
+                    <div key={i} className="w-14 h-14 rounded overflow-hidden border border-gray-200 bg-gray-100">
+                      <Image
+                        src={src}
+                        alt={`Review photo by ${r.name}`}
+                        width={56}
+                        height={56}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
                     </div>
                   ))}
                 </div>
@@ -432,7 +453,7 @@ function TrustBar() {
           </span>
           <span className="hidden sm:inline text-gray-300">|</span>
           <span className="flex items-center gap-1.5 font-medium">
-            <span aria-hidden="true">⭐</span> 10,000+ Happy Customers
+            <span aria-hidden="true">⭐</span> Trusted by 2,300+ Home Cooks
           </span>
           <span className="hidden sm:inline text-gray-300">|</span>
           <span className="flex items-center gap-1.5 font-medium">
@@ -454,7 +475,7 @@ export default function HomePage() {
       <Hero />
       <TrustBar />
       <FomoCountdownTimer variant="homepage" />
-      <AboutFreshLock />
+      <HowItWorks />
       <Features />
       <ProductShowcase />
       <SocialProof />
