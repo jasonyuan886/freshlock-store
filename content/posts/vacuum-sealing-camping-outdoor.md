@@ -241,3 +241,13 @@ These are practical estimates for properly vacuum-sealed food:
 Vacuum sealing isn't just a kitchen gadget trick — it's a legitimate camping and outdoor skill that makes food last longer, saves space, reduces cooler weight, and makes meal prep at camp faster and easier. Start with a handheld pump sealer and a stack of zipper bags, try it on one weekend trip, and you'll quickly figure out which of your favorite camping meals benefit most from being sealed ahead of time.
 
 The biggest advantage isn't any one feature — it's the peace of mind that your food is secure, fresh, dry, and ready to cook when you are. That means less time stressing about cooler logistics and more time enjoying the reason you went outside in the first place.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
