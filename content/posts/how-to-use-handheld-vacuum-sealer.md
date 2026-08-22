@@ -164,3 +164,6 @@ Using a handheld vacuum sealer is genuinely simple: **fill, zip, pump, store**. 
 If you're just getting started, grab a starter kit that includes the sealer plus a mix of small, medium and large bags so you can experiment with different foods right away.
 
 Have questions? Drop us a line at support@freshlocksealer.com — we're always happy to help.
+
+
+Most modern handhelds are rechargeable — learn what to look for in a [battery-powered cordless vacuum sealer](/blog/battery-powered-cordless-vacuum-sealer) before you buy.
