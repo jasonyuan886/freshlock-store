@@ -128,10 +128,67 @@ export async function PUT(request: NextRequest) {
       },
     });
     const captureData = await captureResponse.json();
+
     if (captureData.status === 'COMPLETED') {
-      return NextResponse.json({ success: true, orderId: captureData.id, status: captureData.status });
+      // Extract amount and payer info from capture response
+      let amount = 0;
+      let currency = 'USD';
+      let payerEmail = '';
+      let payerName = '';
+      let orderItems: any[] = [];
+
+      try {
+        const capture = captureData.purchase_units?.[0]?.payments?.captures?.[0];
+        if (capture?.amount) {
+          amount = parseFloat(capture.amount.value) || 0;
+          currency = capture.amount.currency_code || 'USD';
+        }
+        // Extract items from purchase unit
+        const puItems = captureData.purchase_units?.[0]?.items;
+        if (puItems && Array.isArray(puItems)) {
+          orderItems = puItems.map((item: any) => ({
+            name: item.name,
+            price: parseFloat(item.unit_amount?.value || '0'),
+            quantity: parseInt(item.quantity || '1', 10),
+          }));
+        }
+        // Payer info
+        if (captureData.payer) {
+          payerEmail = captureData.payer.email_address || '';
+          const name = captureData.payer.name;
+          if (name) {
+            payerName = [name.given_name, name.surname].filter(Boolean).join(' ');
+          }
+        }
+      } catch (e) {
+        console.error('Error parsing capture data:', e);
+      }
+
+      return NextResponse.json({
+        success: true,
+        orderId: captureData.id,
+        status: captureData.status,
+        amount: amount,
+        currency: currency,
+        payerEmail: payerEmail,
+        payerName: payerName,
+        items: orderItems,
+      });
     }
-    throw new Error('Payment not completed');
+
+    // Order might already been captured or in another state
+    if (captureData.status === 'PAYER_ACTION_REQUIRED') {
+      return NextResponse.json(
+        { error: 'Payment needs buyer approval. Please try again.' },
+        { status: 400 },
+      );
+    }
+
+    console.error('PayPal capture unexpected status:', captureData.status, JSON.stringify(captureData));
+    return NextResponse.json(
+      { error: `Payment status: ${captureData.status}. Please contact support.` },
+      { status: 400 },
+    );
   } catch (error) {
     console.error('PayPal capture error:', error);
     return NextResponse.json({ error: 'Failed to capture payment' }, { status: 500 });
