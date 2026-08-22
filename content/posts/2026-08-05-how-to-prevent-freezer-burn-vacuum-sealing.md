@@ -129,3 +129,13 @@ Prevention is the only real solution — and vacuum sealing is the most effectiv
 Freezer burn is not inevitable. By vacuum sealing your food before freezing, you can eliminate the air that causes sublimation and keep frozen food fresh for months. Whether you are stocking up on sale meat, batch cooking for [meal prep](/blog/meal-prep-with-vacuum-sealer), or preserving your garden harvest, a [portable vacuum sealer](/blog/portable-vacuum-sealer-benefits) is your best defense against freezer burn.
 
 Stop throwing away freezer-burned food. Start vacuum sealing today, and every frozen meal will taste as fresh as the day you sealed it.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
