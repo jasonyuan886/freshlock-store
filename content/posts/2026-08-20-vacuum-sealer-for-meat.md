@@ -272,3 +272,13 @@ Plastic wrap is fine for same-day or next-day use. Glass containers are great fo
 ---
 
 *Want to learn more? Read our guide on [how to vacuum seal bread without crushing it](/blog/vacuum-seal-bread) or discover [why vacuum sealing is essential for sous vide cooking](/blog/sous-vide-and-vacuum-sealing).*
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
