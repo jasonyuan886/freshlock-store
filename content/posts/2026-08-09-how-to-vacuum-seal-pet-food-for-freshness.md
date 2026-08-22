@@ -144,7 +144,7 @@ If you prepare homemade pet meals, vacuum sealing is essential for batch cooking
 | Bulk bag, no vacuum sealing (spoilage waste ~15%) | $48/month | $144/year |
 | Bulk bag + vacuum sealing (near-zero waste) | $42/month | $216/year |
 
-Vacuum sealing eliminates the spoilage waste that typically eats into bulk-buying savings. The [FreshLock handheld vacuum sealer](/products/freshlock-handheld-vacuum-sealer) pays for itself within 2–3 months of pet food savings alone.
+Vacuum sealing eliminates the spoilage waste that typically eats into bulk-buying savings. The [FreshLock handheld vacuum sealer](/products/freshlock-pro) pays for itself within 2–3 months of pet food savings alone.
 
 ---
 
@@ -168,4 +168,4 @@ Yes — use [reusable vacuum sealer bags](/blog/reusable-vacuum-sealer-bags-guid
 
 Vacuum sealing pet food is one of the most practical, high-ROI applications of a handheld vacuum sealer. It saves money on bulk purchases, eliminates food waste, and ensures your pet always eats fresh, nutritious meals. With proper portioning and labeling, you can transform a chaotic feeding routine into an organized, cost-effective system.
 
-Get started with the [FreshLock handheld vacuum sealer](/products/freshlock-handheld-vacuum-sealer) — and check out our [essential accessories guide](/blog/vacuum-sealer-accessories-essential-guide) for everything you need to build the perfect pet food storage system.
+Get started with the [FreshLock handheld vacuum sealer](/products/freshlock-pro) — and check out our [essential accessories guide](/blog/vacuum-sealer-accessories-essential-guide) for everything you need to build the perfect pet food storage system.
