@@ -109,3 +109,13 @@ The financial case for vacuum sealing nuts and seeds is compelling. A 1-pound ba
 ## Conclusion
 
 Vacuum sealing is the most effective method for preserving the freshness of nuts and seeds. By removing oxygen, blocking moisture, and protecting against light, vacuum sealing extends shelf life by 3–5 times compared to standard storage. Whether you buy in bulk to save money or grow your own nuts and seeds at harvest time, a handheld vacuum sealer pays for itself within months. Start portioning and sealing today — your future self will thank you when those walnuts still taste fresh six months from now.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
