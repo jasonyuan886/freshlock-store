@@ -1,7 +1,7 @@
 ---
-title: "How to Vacuum Seal Avocados and Guacamole: Keep Them Green Longer"
+title: "How to Vacuum Seal Avocado & Guacamole — Stop It Going Brown for Days"
 date: "2026-08-09"
-excerpt: "Avocados go brown in hours. Learn how vacuum sealing extends avocado freshness, prevents oxidation, and keeps guacamole green for days — with step-by-step methods and storage timelines."
+description: "Avocado turns brown in hours. See how vacuum sealing blocks oxygen to keep avocados and guacamole green for days — plus the one mistake that makes it worse."
 tags: ["vacuum sealing avocado", "guacamole storage", "avocado oxidation", "vacuum seal avocado freshness"]
 ---
 
