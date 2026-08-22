@@ -125,4 +125,4 @@ If stored properly for 4–5 days, the taste remains nearly identical. Beyond th
 
 Vacuum sealing is the single most effective method for preserving avocados and guacamole without chemical preservatives. By combining vacuum sealing with simple citrus pre-treatment, you can extend avocado freshness from hours to days — and freeze for months.
 
-Start preserving your avocados the right way with a [FreshLock handheld vacuum sealer](/products/freshlock-handheld-vacuum-sealer) — compact, powerful, and designed for everyday kitchen use.
+Start preserving your avocados the right way with a [FreshLock handheld vacuum sealer](/products/freshlock-pro) — compact, powerful, and designed for everyday kitchen use.
