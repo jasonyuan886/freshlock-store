@@ -144,3 +144,13 @@ Some vacuum bags are microwave safe for reheating, but always check the manufact
 
 **How long do reusable vacuum bags last?**
 With proper cleaning and care, reusable vacuum bags last 50–100+ uses. See our [reusable bag guide](/blog/reusable-vacuum-sealer-bags-guide) for maintenance tips.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
