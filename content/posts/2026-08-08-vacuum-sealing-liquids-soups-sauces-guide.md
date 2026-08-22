@@ -133,3 +133,13 @@ For more detailed reheating instructions, see our guide on [reheating vacuum sea
 ## Conclusion
 
 Vacuum sealing liquids does not have to be messy or frustrating. The freeze-first method solves 90% of liquid sealing challenges — pour, freeze, seal, store. With proper portioning and the right techniques, you can build a freezer full of ready-to-heat soups, sauces, and broths that taste as fresh as the day you made them. Combined with [reusable vacuum sealer bags](/blog/reusable-vacuum-sealer-bags-guide), this approach turns bulk cooking into an efficient, low-cost meal system that feeds you for months.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
