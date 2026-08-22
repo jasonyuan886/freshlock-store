@@ -91,3 +91,13 @@ Vacuum sealing extends shelf life 3 to 5x across the board. The real win is not 
 A good hunting season can fill a freezer with 500 to 1000 dollars worth of premium, organic protein. How you package it determines whether that investment lasts a year or rots in three months. Vacuum sealing is not optional for game meat — it is the difference between eating elk backstrap in July that tastes like October, and throwing away grey, freezer-burned leather.
 
 Get the portions right, seal them tight, label everything, and a single elk can feed your family through the off-season with zero waste. That is the whole point of the harvest.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
