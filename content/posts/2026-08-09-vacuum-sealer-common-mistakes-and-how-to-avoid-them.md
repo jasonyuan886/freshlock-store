@@ -130,6 +130,6 @@ A [handheld vacuum sealer](/blog/best-handheld-vacuum-sealer-2026) is one of the
 
 Avoiding these 10 mistakes will dramatically improve your vacuum sealing results — better seals, longer-lasting food, and fewer wasted bags. The key is developing consistent habits: always leave headspace, cool your food, use the right bags, and maintain your device.
 
-If you're looking for a reliable handheld vacuum sealer that makes proper sealing effortless, check out the [FreshLock vacuum sealer](/products/freshlock-handheld-vacuum-sealer) — designed with anti-liquid protection, washable valves, and compatibility with all standard embossed bags.
+If you're looking for a reliable handheld vacuum sealer that makes proper sealing effortless, check out the [FreshLock vacuum sealer](/products/freshlock-pro) — designed with anti-liquid protection, washable valves, and compatibility with all standard embossed bags.
 
 Ready to seal smarter? Start with the right [vacuum sealer accessories](/blog/vacuum-sealer-accessories-essential-guide) and never waste food again.
