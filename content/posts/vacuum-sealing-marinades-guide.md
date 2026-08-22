@@ -231,3 +231,13 @@ Vacuum marinating is one of those cooking hacks that sounds too good to be true 
 The barrier to entry is essentially zero if you already own a handheld vacuum sealer. No extra gadgets, no special skills, no advance planning. Just a bag, some marinade, and 20 minutes.
 
 Keep a couple of go-to marinade recipes memorized (the soy-ginger and lemon-herb ones above cover 80% of weeknight situations), stock up on vacuum zipper bags, and you'll always be able to answer the "what's for dinner?" question with something that tastes like it took way more effort than it did.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
