@@ -131,3 +131,13 @@ Always vacuum seal before freezing. Label with the date and use within 6–12 mo
 Cheese is one of the most expensive items in your grocery cart, and one of the fastest to go to waste. Vacuum sealing hard cheese is one of the highest-ROI uses for a handheld vacuum sealer — a $30 block of aged cheddar that molds in 10 days in plastic wrap can last 4–6 months vacuum sealed, with zero loss of flavor.
 
 The FreshLock handheld vacuum sealer with reusable vacuum zipper bags makes this easy. No bulky countertop machine, no special bag rolls, no learning curve. Just seal, pump, and store. Your cheese (and your wallet) will thank you.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
