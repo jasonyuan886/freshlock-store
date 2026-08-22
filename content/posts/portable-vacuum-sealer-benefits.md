@@ -143,3 +143,13 @@ You can always add a countertop model later if your needs outgrow a portable dev
 ---
 
 **Looking for the best handheld vacuum sealer?** Check out our [top-rated handheld vacuum sealers](/blog/best-handheld-vacuum-sealer-2026).
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
