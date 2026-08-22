@@ -1,14 +1,19 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/lib/cart-context';
-import { trackAddToCart } from '@/lib/ga4';
+import { trackAddToCart, trackViewItem } from '@/lib/ga4';
 import type { Product } from '@/lib/types';
 
 export default function AddToCartClient({ product }: { product: Product }) {
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
+
+  // Fire view_item event on mount
+  useEffect(() => {
+    trackViewItem(product);
+  }, [product]);
 
   const handleAddToCart = () => {
     addToCart(product, quantity);
