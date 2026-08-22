@@ -178,3 +178,13 @@ Food waste isn't a problem you can guilt your way out of. It requires tools and 
 If you're throwing away food each week — and most of us are — you're throwing away money, resources, and the environmental cost of producing food that never gets eaten. Cutting that waste by 50% is not an aspirational target. It's an achievable reality with a handheld vacuum sealer, a set of reusable bags, and the habit of sealing food before it has a chance to spoil.
 
 The FreshLock Starter Kit makes it easy to start. At $79.99, it's one of the most cost-effective investments you can make in your kitchen — and it pays for itself faster than almost any other kitchen gadget you'll own.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
