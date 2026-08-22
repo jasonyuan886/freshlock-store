@@ -1,7 +1,7 @@
 ---
-title: "How to Vacuum Seal Tomatoes: Fresh, Sauce, and Sun-Dried Methods"
+title: "How to Vacuum Seal Tomatoes (Fresh, Sauce & Sun-Dried) — No Waste"
 date: "2026-08-12"
-excerpt: "Tomatoes are notoriously short-lived. Learn three proven methods to vacuum seal tomatoes — fresh, as sauce, and sun-dried — for year-round flavor."
+description: "Tomatoes spoil fast. Three proven methods to vacuum seal fresh tomatoes, homemade sauce, and sun-dried tomatoes for year-round flavor — step by step, with freezing timelines."
 tags: ["vacuum sealing tomatoes", "vacuum seal tomato sauce", "sun-dried tomatoes storage", "preserve tomatoes vacuum sealer"]
 ---
 
