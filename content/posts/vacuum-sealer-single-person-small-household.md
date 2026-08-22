@@ -106,3 +106,13 @@ A vacuum sealer is not just for hunters and meal preppers. For a single person, 
 Get a handheld. Keep it in the drawer. Use it on grocery day. That is the whole routine.
 
 *New to vacuum sealing? Check out our [beginner's guide to using a handheld vacuum sealer](/blog/how-to-use-handheld-vacuum-sealer) or our [complete buying guide](/blog/handheld-vacuum-sealer-buying-guide-2026) for more on choosing the right tool.*
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
