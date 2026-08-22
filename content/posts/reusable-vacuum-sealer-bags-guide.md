@@ -151,3 +151,13 @@ The key is choosing high-quality, BPA-free bags designed for your specific seale
 The FreshLock Starter Kit — which includes the handheld sealer plus 30 reusable bags (10 Small, 10 Medium, 10 Large) — is available at $79.99 (regularly $104.97). With USB-C charging, a 1200mAh battery good for 80–100 seals per charge, and a lightweight 210g body, it's the complete package for anyone serious about cutting food waste and saving money through vacuum sealing.
 
 Reusable vacuum sealer bags aren't just a feel-good eco choice. They're a practical, cost-effective, and food-safe upgrade that pays for itself — one sealed bag at a time.
+
+---
+
+## Ready to Start Sealing?
+
+The **[FreshLock Pro handheld vacuum sealer](/products/freshlock-pro)** delivers -60 kPa suction in a compact 210 g body, with a removable drip tray for mess-free sealing, USB-C charging, and 80–100 seals per charge. It works with most embossed valve bags — no brand lock-in.
+
+[**Get FreshLock Pro →**](/products/freshlock-pro)
+
+Prefer an all-in-one bundle? The [**FreshLock Starter Kit**](/products/freshlock-starter-kit) includes the sealer plus 30 BPA-free vacuum bags in three sizes.
