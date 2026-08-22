@@ -1,7 +1,7 @@
 ---
-title: "How to Vacuum Seal Delicate Foods Without Crushing Them"
+title: "How to Vacuum Seal Soft Foods (Bread, Berries, Cheese) Without Crushing"
 date: "2026-08-08"
-excerpt: "Soft cheeses, berries, baked goods, and tender vegetables can get crushed during vacuum sealing. Learn proven techniques to protect delicate foods while still getting an airtight seal."
+description: "Soft bread, berries, and cheese get crushed under a standard vacuum. Five gentle techniques that give you an airtight seal while keeping delicate foods intact."
 tags: ["vacuum seal soft foods", "vacuum seal without crushing", "delicate food vacuum sealing", "protect soft foods vacuum"]
 ---
 
