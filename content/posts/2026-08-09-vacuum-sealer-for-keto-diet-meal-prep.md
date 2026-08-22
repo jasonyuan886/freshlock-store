@@ -149,4 +149,4 @@ For best results, use sous vide reheating for meats (see our [sous vacuum guide]
 
 Vacuum sealing transforms keto meal prep from a daily chore into a weekly batch session. Cook once, seal, and enjoy perfectly portioned, fresh-tasting keto meals all week long.
 
-The [FreshLock handheld vacuum sealer](/products/freshlock-handheld-vacuum-sealer) is ideal for keto meal prep — compact enough for daily use, powerful enough for freezer storage, and compatible with all standard vacuum bags. Pair it with the right [vacuum sealer accessories](/blog/vacuum-sealer-accessories-essential-guide) and start saving time, money, and macros today.
+The [FreshLock handheld vacuum sealer](/products/freshlock-pro) is ideal for keto meal prep — compact enough for daily use, powerful enough for freezer storage, and compatible with all standard vacuum bags. Pair it with the right [vacuum sealer accessories](/blog/vacuum-sealer-accessories-essential-guide) and start saving time, money, and macros today.
