@@ -86,6 +86,10 @@ export async function POST(request: NextRequest) {
                   },
                 }
               : undefined,
+            // Customer phone carried through to capture response (PayPal has no
+            // dedicated phone field in v2 orders); used for the merchant order
+            // notification / shipping label.
+            custom_id: shippingAddress?.phone ? `phone:${String(shippingAddress.phone).slice(0, 30)}` : undefined,
           },
         ],
         application_context: {
@@ -225,6 +229,74 @@ export async function PUT(request: NextRequest) {
         }
       } catch (e) {
         console.error('Email send setup error:', e);
+      }
+
+      // ---- Merchant order notification (instant alert to the store owner) ----
+      // Fires once per genuinely captured order (the idempotency guard above
+      // returns early for duplicates, so this never double-sends).
+      try {
+        const { sendEmail: sendMerchantEmail } = await import('@/lib/smtp');
+        const SMTP_PASS_M = process.env.SMTP_PASS;
+        if (SMTP_PASS_M) {
+          let mAmount = 0;
+          let mName = ''; let mEmail = ''; let mPhone = '';
+          let mAddr = ''; let mCapId = '';
+          try {
+            const puM: any = captureData.purchase_units?.[0] || {};
+            const capM = puM.payments?.captures?.[0];
+            if (capM?.amount) mAmount = parseFloat(capM.amount.value) || 0;
+            if (capM?.id) mCapId = capM.id;
+            const custId: string = puM.custom_id || capM?.custom_id || '';
+            if (custId.startsWith('phone:')) mPhone = custId.slice(6);
+            if (captureData.payer) {
+              mEmail = captureData.payer.email_address || '';
+              const pn = captureData.payer.name;
+              if (pn) mName = [pn.given_name, pn.surname].filter(Boolean).join(' ');
+            }
+            const sh = puM.shipping;
+            if (sh) {
+              if (!mName && sh.name?.full_name) mName = sh.name.full_name;
+              const a = sh.address || {};
+              mAddr = [a.address_line_1, a.admin_area_2, a.admin_area_1, a.postal_code, a.country_code]
+                .filter(Boolean).join(', ');
+            }
+          } catch {}
+          const mItemsHtml = (captureData.purchase_units?.[0]?.items || []).map((item: any) =>
+            `<tr><td style="padding:4px 0;">${item.name} &times;${item.quantity}</td><td style="padding:4px 0;text-align:right;">$${(parseFloat(item.unit_amount?.value||'0')*parseInt(item.quantity||'1')).toFixed(2)}</td></tr>`
+          ).join('');
+          const merchantHtml = `<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;color:#222;">
+            <div style="background:#b45309;padding:20px;text-align:center;"><h1 style="color:#fff;margin:0;font-size:22px;">&#128717; NEW ORDER — FreshLock</h1></div>
+            <div style="padding:20px;">
+              <table style="width:100%;border-collapse:collapse;font-size:14px;">
+                <tr><td style="padding:4px 0;color:#666;width:130px;">Order ID</td><td style="padding:4px 0;font-weight:bold;">${captureData.id}</td></tr>
+                <tr><td style="padding:4px 0;color:#666;">PayPal Capture</td><td style="padding:4px 0;">${mCapId}</td></tr>
+                <tr><td style="padding:4px 0;color:#666;">Total</td><td style="padding:4px 0;font-weight:bold;color:#0f4c3a;font-size:16px;">$${mAmount.toFixed(2)} USD</td></tr>
+                <tr><td style="padding:4px 0;color:#666;">Customer</td><td style="padding:4px 0;font-weight:bold;">${mName || '—'}</td></tr>
+                <tr><td style="padding:4px 0;color:#666;">Email</td><td style="padding:4px 0;">${mEmail || '—'}</td></tr>
+                <tr><td style="padding:4px 0;color:#666;">Phone</td><td style="padding:4px 0;">${mPhone || '— (on PayPal account / shipping label)'}</td></tr>
+                <tr><td style="padding:4px 0;color:#666;vertical-align:top;">Ship to</td><td style="padding:4px 0;">${mAddr || '—'}</td></tr>
+              </table>
+              <div style="background:#f7f7f7;border-radius:8px;padding:12px;margin:14px 0;">
+                <table style="width:100%;border-collapse:collapse;font-size:14px;">${mItemsHtml}
+                  <tr style="border-top:2px solid #b45309;"><td style="padding:6px 0;font-weight:bold;">Total</td><td style="padding:6px 0;text-align:right;font-weight:bold;">$${mAmount.toFixed(2)}</td></tr>
+                </table>
+              </div>
+              <p style="font-size:13px;color:#666;">Packing reminder: 1.5kg parcel, add 5 extra medium + 5 extra large bags. Tell the customer the white round foam in the valve must stay in place.</p>
+            </div></div>`;
+          // Store archive + owner Gmail (phone push). Fire-and-forget.
+          sendMerchantEmail({
+            host: process.env.SMTP_HOST || 'smtp.zoho.com',
+            port: Number(process.env.SMTP_PORT || 587),
+            user: process.env.SMTP_USER || 'support@freshlocksealer.com',
+            pass: SMTP_PASS_M,
+            from: `FreshLock Orders <${process.env.SMTP_USER || 'support@freshlocksealer.com'}>`,
+            to: ['support@freshlocksealer.com', 'jasonyuan866@gmail.com'],
+            subject: `NEW ORDER $${mAmount.toFixed(2)} — ${mName || 'customer'} (${captureData.id})`,
+            html: merchantHtml,
+          }).catch((e: any) => console.error('Merchant notify email error:', e));
+        }
+      } catch (e) {
+        console.error('Merchant notify setup error:', e);
       }
 
       // Extract amount and payer info from capture response
