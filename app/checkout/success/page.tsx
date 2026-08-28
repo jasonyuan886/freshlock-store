@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, Suspense } from 'react';
+import { useEffect, useState, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
@@ -16,10 +16,12 @@ function CheckoutSuccessContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const { clearCart, items: cartItems } = useCart();
+  const capturedRef = useRef(false);
 
   useEffect(() => {
     // --- PayPal flow ---
-    if (paymentMethod === 'paypal' && paypalToken) {
+    if (paymentMethod === 'paypal' && paypalToken && !capturedRef.current) {
+      capturedRef.current = true;
       // Capture the PayPal payment
       fetch('/api/paypal', {
         method: 'PUT',
