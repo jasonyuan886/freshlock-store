@@ -5,6 +5,7 @@ export async function GET() {
   const staticPages = [
     { loc: '/', changefreq: 'weekly', priority: '1.0' },
     { loc: '/products', changefreq: 'weekly', priority: '0.9' },
+    { loc: '/geo', changefreq: 'weekly', priority: '0.9' },
     { loc: '/food-waste-calculator', changefreq: 'monthly', priority: '0.8' },
     { loc: '/blog', changefreq: 'weekly', priority: '0.8' },
     { loc: '/about', changefreq: 'monthly', priority: '0.6' },
