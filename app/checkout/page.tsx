@@ -122,6 +122,7 @@ export default function CheckoutPage() {
               state: form.state,
               postalCode: form.postcode,
               country: form.country,
+              phone: form.phone,
             },
           }),
         });
