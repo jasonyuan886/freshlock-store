@@ -120,6 +120,51 @@ export async function PUT(request: NextRequest) {
       return NextResponse.json({ error: 'Order ID is required' }, { status: 400 });
     }
     const accessToken = await getAccessToken();
+
+    // Idempotency guard: if the order was already captured (e.g. success page
+    // re-render or a duplicated callback), return success WITHOUT capturing again
+    // or re-sending the confirmation email. Prevents duplicate "Order Confirmed" emails.
+    try {
+      const existingRes = await fetch(`${PAYPAL_BASE_URL}/v2/checkout/orders/${orderId}`, {
+        headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+      });
+      const existingData = await existingRes.json();
+      if (existingRes.ok && existingData.status === 'COMPLETED') {
+        let existAmount = 0; let existPayerEmail = ''; let existPayerName = ''; let existItems: any[] = [];
+        try {
+          const cap0 = existingData.purchase_units?.[0]?.payments?.captures?.[0];
+          if (cap0?.amount) existAmount = parseFloat(cap0.amount.value) || 0;
+          const pu0 = existingData.purchase_units?.[0]?.items;
+          if (pu0 && Array.isArray(pu0)) {
+            existItems = pu0.map((item: any) => ({
+              name: item.name,
+              price: parseFloat(item.unit_amount?.value || '0'),
+              quantity: parseInt(item.quantity || '1', 10),
+            }));
+          }
+          if (existingData.payer) {
+            existPayerEmail = existingData.payer.email_address || '';
+            const nm = existingData.payer.name;
+            if (nm) existPayerName = [nm.given_name, nm.surname].filter(Boolean).join(' ');
+          }
+        } catch {}
+        return NextResponse.json({
+          success: true,
+          orderId: existingData.id,
+          status: existingData.status,
+          alreadyCaptured: true,
+          amount: existAmount,
+          currency: 'USD',
+          payerEmail: existPayerEmail,
+          payerName: existPayerName,
+          items: existItems,
+        });
+      }
+    } catch (e) {
+      // If the pre-check fails for any reason, proceed to capture normally.
+      console.error('Order pre-check error:', e);
+    }
+
     const captureResponse = await fetch(`${PAYPAL_BASE_URL}/v2/checkout/orders/${orderId}/capture`, {
       method: 'POST',
       headers: {
