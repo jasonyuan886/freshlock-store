@@ -90,17 +90,28 @@ export function generateOrderNumber(paypalOrderId?: string): string {
   return `FL-${ymd}-${suffix}`;
 }
 
+// Hard timeout so a slow/blocked GitHub API can never delay the payment
+// capture response beyond a couple of seconds.
+const FETCH_TIMEOUT_MS = 8000;
+
 async function ghFetch(path: string, token: string, init?: RequestInit) {
-  return fetch(`${GITHUB_API}/repos/${ORDERS_REPO}/contents/${path}`, {
-    ...init,
-    headers: {
-      Authorization: `token ${token}`,
-      Accept: 'application/vnd.github+json',
-      'User-Agent': 'freshlock-order-persist',
-      'X-GitHub-Api-Version': '2022-11-28',
-      ...(init?.headers || {}),
-    },
-  });
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  try {
+    return await fetch(`${GITHUB_API}/repos/${ORDERS_REPO}/contents/${path}`, {
+      ...init,
+      signal: controller.signal,
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: 'application/vnd.github+json',
+        'User-Agent': 'freshlock-order-persist',
+        'X-GitHub-Api-Version': '2022-11-28',
+        ...(init?.headers || {}),
+      },
+    });
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 function orderFilePath(order: OrderRecord): string {
