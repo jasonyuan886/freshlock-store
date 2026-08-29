@@ -1,4 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { persistOrder, generateOrderNumber, type OrderRecord, type OrderAttribution } from '@/lib/orders';
+
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
 
 // PayPal API credentials
 const PAYPAL_CLIENT_ID = process.env.PAYPAL_CLIENT_ID || '';
@@ -22,6 +26,88 @@ async function getAccessToken() {
   });
   const data = await response.json();
   return data.access_token;
+}
+
+// ---- Order persistence helper ----
+// Builds an OrderRecord from a PayPal order/capture payload (+ client-supplied
+// contact/attribution) and writes it to the durable store. Never throws and is
+// safe to call on BOTH the fresh-capture branch and the alreadyCaptured branch:
+// the store dedupes by PayPal order id, so repeated callbacks never create a
+// duplicate order (and a previously failed write is healed on the next call).
+async function persistCapturedOrder(
+  paypalData: any,
+  ctx: {
+    attribution?: OrderAttribution;
+    contactEmail?: string;
+    contactName?: string;
+    contactPhone?: string;
+  },
+) {
+  try {
+    const pu = paypalData?.purchase_units?.[0] || {};
+    const cap = pu.payments?.captures?.[0] || {};
+
+    const total = parseFloat(cap.amount?.value || '0') || 0;
+    const currency = cap.amount?.currency_code || 'USD';
+
+    const items: any[] = (pu.items || []).map((it: any) => ({
+      name: it.name || 'Product',
+      price: parseFloat(it.unit_amount?.value || '0') || 0,
+      quantity: parseInt(it.quantity || '1', 10) || 1,
+      slug: it.sku || undefined,
+    }));
+    const subtotal = items.reduce((s, it) => s + it.price * it.quantity, 0);
+    const shippingCost = Math.max(0, +(total - subtotal).toFixed(2));
+
+    const payerEmail = paypalData?.payer?.email_address || ctx.contactEmail || '';
+    const payerName = paypalData?.payer?.name
+      ? [paypalData.payer.name.given_name, paypalData.payer.name.surname].filter(Boolean).join(' ')
+      : ctx.contactName || '';
+
+    // Phone: prefer explicit checkout contact, fall back to custom_id "phone:..".
+    let phone = ctx.contactPhone || '';
+    const customId: string = pu.custom_id || cap.custom_id || '';
+    if (!phone && customId.startsWith('phone:')) phone = customId.slice(6);
+
+    const sh = pu.shipping || {};
+    const sa = sh.address || {};
+
+    const order: OrderRecord = {
+      order_number: generateOrderNumber(paypalData.id),
+      paypal_order_id: paypalData.id,
+      paypal_capture_id: cap.id || undefined,
+      payment_method: 'paypal',
+      status: paypalData.status || 'COMPLETED',
+      created_at: cap.create_time || new Date().toISOString(),
+      customer: {
+        name: payerName || sh.name?.full_name || undefined,
+        email: payerEmail || undefined,
+        phone: phone || undefined,
+      },
+      shipping_address: {
+        name: sh.name?.full_name || payerName || undefined,
+        address_line_1: sa.address_line_1 || undefined,
+        city: sa.admin_area_2 || undefined,
+        state: sa.admin_area_1 || undefined,
+        postal_code: sa.postal_code || undefined,
+        country: sa.country_code || undefined,
+      },
+      items,
+      subtotal: +subtotal.toFixed(2),
+      shipping: shippingCost,
+      total,
+      currency,
+      attribution: ctx.attribution && Object.keys(ctx.attribution).length ? ctx.attribution : undefined,
+      source: 'web-paypal-capture',
+    };
+
+    const result = await persistOrder(order);
+    console.log('[orders] persist result for', paypalData.id, JSON.stringify(result));
+    return { order, result };
+  } catch (e: any) {
+    console.error('[orders] persistCapturedOrder error:', e?.message || e);
+    return { order: null, result: { persisted: false, reason: 'exception' } };
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -66,13 +152,16 @@ export async function POST(request: NextRequest) {
                 },
               },
             },
-            items: items.map((item: { name: string; price: number; quantity: number }) => ({
+            items: items.map((item: { name: string; price: number; quantity: number; slug?: string }) => ({
               name: item.name,
               unit_amount: {
                 currency_code: 'USD',
                 value: item.price.toFixed(2),
               },
               quantity: item.quantity.toString(),
+              // Carry the product slug through as SKU so capture returns it
+              // (used for GA4 item_id and the persisted order line items).
+              sku: item.slug ? String(item.slug).slice(0, 127) : undefined,
             })),
             shipping: shippingAddress
               ? {
@@ -119,7 +208,14 @@ export async function POST(request: NextRequest) {
 
 export async function PUT(request: NextRequest) {
   try {
-    const { orderId } = await request.json();
+    const reqBody = await request.json().catch(() => ({}));
+    const orderId = reqBody?.orderId;
+    // Marketing attribution (UTM / referrer) captured client-side and the
+    // checkout contact details (the PayPal v2 capture does not return the
+    // customer email in live mode) are sent by the success page alongside the
+    // order id so they can be persisted with the order.
+    const attribution: OrderAttribution = reqBody?.attribution || undefined;
+    const contact: { email?: string; name?: string; phone?: string } = reqBody?.contact || {};
     if (!orderId) {
       return NextResponse.json({ error: 'Order ID is required' }, { status: 400 });
     }
@@ -134,34 +230,49 @@ export async function PUT(request: NextRequest) {
       });
       const existingData = await existingRes.json();
       if (existingRes.ok && existingData.status === 'COMPLETED') {
-        let existAmount = 0; let existPayerEmail = ''; let existPayerName = ''; let existItems: any[] = [];
+        let existAmount = 0; let existPayerEmail = ''; let existPayerName = ''; let existItems: any[] = []; let existCaptureId = '';
         try {
           const cap0 = existingData.purchase_units?.[0]?.payments?.captures?.[0];
           if (cap0?.amount) existAmount = parseFloat(cap0.amount.value) || 0;
+          if (cap0?.id) existCaptureId = cap0.id;
           const pu0 = existingData.purchase_units?.[0]?.items;
           if (pu0 && Array.isArray(pu0)) {
             existItems = pu0.map((item: any) => ({
               name: item.name,
               price: parseFloat(item.unit_amount?.value || '0'),
               quantity: parseInt(item.quantity || '1', 10),
+              slug: item.sku || undefined,
             }));
           }
           if (existingData.payer) {
-            existPayerEmail = existingData.payer.email_address || '';
+            existPayerEmail = existingData.payer.email_address || contact.email || '';
             const nm = existingData.payer.name;
             if (nm) existPayerName = [nm.given_name, nm.surname].filter(Boolean).join(' ');
           }
         } catch {}
+        // Idempotent order persistence: the store dedupes by PayPal order id, so
+        // this never creates a duplicate. It also heals a record whose first write
+        // failed (or backfills attribution supplied on a repeat callback). Capture
+        // and emails are NOT repeated in this branch — untouched from the fix.
+        const backfill = await persistCapturedOrder(existingData, {
+          attribution,
+          contactEmail: contact.email,
+          contactName: contact.name,
+          contactPhone: contact.phone,
+        }).catch(() => null);
         return NextResponse.json({
           success: true,
           orderId: existingData.id,
+          orderNumber: backfill?.order?.order_number || generateOrderNumber(existingData.id),
+          captureId: existCaptureId,
           status: existingData.status,
           alreadyCaptured: true,
           amount: existAmount,
           currency: 'USD',
           payerEmail: existPayerEmail,
-          payerName: existPayerName,
+          payerName: existPayerName || contact.name || '',
           items: existItems,
+          persisted: backfill?.result?.persisted === true,
         });
       }
     } catch (e) {
@@ -323,7 +434,7 @@ export async function PUT(request: NextRequest) {
         }
         // Payer info
         if (captureData.payer) {
-          payerEmail = captureData.payer.email_address || '';
+          payerEmail = captureData.payer.email_address || contact.email || '';
           const name = captureData.payer.name;
           if (name) {
             payerName = [name.given_name, name.surname].filter(Boolean).join(' ');
@@ -333,15 +444,28 @@ export async function PUT(request: NextRequest) {
         console.error('Error parsing capture data:', e);
       }
 
+      // ---- Persist the captured order to the durable store (fire & await, but
+      // never fail the response on persistence errors). Deduped by PayPal order
+      // id inside persistCapturedOrder/persistOrder — safe on repeated calls.
+      const persisted = await persistCapturedOrder(captureData, {
+        attribution,
+        contactEmail: contact.email,
+        contactName: contact.name,
+        contactPhone: contact.phone,
+      }).catch((e) => { console.error('order persist await error:', e); return null; });
+
       return NextResponse.json({
         success: true,
         orderId: captureData.id,
+        orderNumber: persisted?.order?.order_number || generateOrderNumber(captureData.id),
+        captureId: captureData.purchase_units?.[0]?.payments?.captures?.[0]?.id || '',
         status: captureData.status,
         amount: amount,
         currency: currency,
-        payerEmail: payerEmail,
-        payerName: payerName,
+        payerEmail: payerEmail || contact.email || '',
+        payerName: payerName || contact.name || '',
         items: orderItems,
+        persisted: persisted?.result?.persisted === true,
       });
     }
 

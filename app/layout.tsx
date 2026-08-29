@@ -5,6 +5,7 @@ import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import FomoPurchaseNotification from '@/components/FomoPurchaseNotification';
+import AttributionTracker from '@/components/AttributionTracker';
 import { CartProvider } from '@/lib/cart-context';
 import { generateOrganizationSchema, generateWebsiteSchema, SITE_URL } from '@/lib/schema';
 
@@ -89,8 +90,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="alternate" hrefLang="ja-JP" href="https://jp.freshlocksealer.com" />
         <link rel="alternate" hrefLang="th-TH" href="https://th.freshlocksealer.com" />
         <link rel="alternate" hrefLang="x-default" href="https://www.freshlocksealer.com" />
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-N16R0F2B1Y" strategy="lazyOnload" />
-        <Script id="ga4-init" strategy="lazyOnload">
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-N16R0F2B1Y" strategy="afterInteractive" />
+        <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -109,6 +110,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="flex flex-col min-h-screen">
         <CartProvider>
+          <AttributionTracker />
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />

@@ -4,7 +4,8 @@ import { useEffect, useState, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
-import { trackPurchase } from '@/lib/ga4';
+import { trackPurchaseOnce } from '@/lib/ga4';
+import { getAttribution } from '@/lib/attribution';
 
 function CheckoutSuccessContent() {
   const searchParams = useSearchParams();
@@ -22,40 +23,74 @@ function CheckoutSuccessContent() {
     // --- PayPal flow ---
     if (paymentMethod === 'paypal' && paypalToken && !capturedRef.current) {
       capturedRef.current = true;
+
+      // Read the contact details + attribution stashed before the PayPal
+      // redirect (survives the off-site round-trip). These let the server
+      // persist the order with the customer email and UTM/referrer source.
+      let pendingContact: any = {};
+      let pendingAttribution: any = undefined;
+      try {
+        const c = localStorage.getItem('freshlock-pending-contact');
+        if (c) pendingContact = JSON.parse(c) || {};
+        const a = localStorage.getItem('freshlock-pending-attribution');
+        if (a) pendingAttribution = JSON.parse(a)?.attribution;
+      } catch {}
+      if (!pendingAttribution) {
+        try { pendingAttribution = getAttribution() || {}; } catch {}
+      }
+
       // Capture the PayPal payment
       fetch('/api/paypal', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orderId: paypalToken }),
+        body: JSON.stringify({
+          orderId: paypalToken,
+          attribution: pendingAttribution || undefined,
+          contact: {
+            email: pendingContact.email || undefined,
+            name: pendingContact.name || undefined,
+            phone: pendingContact.phone || undefined,
+          },
+        }),
       })
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
             setOrderInfo({
-              order_id: data.orderId,
+              order_id: data.orderNumber || data.orderId,
+              paypal_order_id: data.orderId,
               amount_total: data.amount * 100, // Convert to cents for compatibility
               customer_email: data.payerEmail,
               customer_name: data.payerName,
               items: data.items,
             });
 
-            // Fire GA4 purchase event
+            // Consume the pending contact/attribution once capture succeeded.
+            try {
+              localStorage.removeItem('freshlock-pending-contact');
+              localStorage.removeItem('freshlock-pending-attribution');
+            } catch {}
+
+            // Fire GA4 purchase event (idempotent per transaction id — safe on
+            // success-page refresh; safeGtag also queues if gtag.js is not ready).
             const purchaseItems = (data.items && data.items.length > 0
               ? data.items
               : cartItems.map((ci: any) => ({
                   name: ci.product?.name,
                   price: ci.product?.price,
                   quantity: ci.quantity,
+                  slug: ci.product?.slug,
                 }))
             ).map((i: any) => ({
-              item_id: i.slug || i.product?.slug || '',
+              item_id: i.slug || i.product?.slug || i.sku || '',
               item_name: i.name || i.product?.name || 'Product',
               price: i.price || i.product?.price || 0,
               quantity: i.quantity || 1,
+              item_category: 'sealer',
             }));
 
             if (purchaseItems.length > 0) {
-              trackPurchase(data.orderId || paypalToken, purchaseItems, data.amount || 0);
+              trackPurchaseOnce(data.orderId || paypalToken, purchaseItems, data.amount || 0);
             }
 
             clearCart();
@@ -78,7 +113,7 @@ function CheckoutSuccessContent() {
           if (data.success) {
             setOrderInfo(data);
             if (data.items && data.items.length > 0) {
-              trackPurchase(
+              trackPurchaseOnce(
                 data.session_id || data.order_id || 'unknown',
                 data.items.map((i: any) => ({
                   item_id: i.slug || i.product?.slug || '',
@@ -137,8 +172,14 @@ function CheckoutSuccessContent() {
       <p className="text-gray-600 mb-2">Your order has been placed successfully.</p>
 
       {orderInfo?.order_id && (
-        <p className="text-gray-500 mb-4">
-          Order ID: <strong>{orderInfo.order_id}</strong>
+        <p className="text-gray-500 mb-1">
+          Order Number: <strong>{orderInfo.order_id}</strong>
+        </p>
+      )}
+
+      {orderInfo?.paypal_order_id && (
+        <p className="text-gray-400 text-sm mb-4">
+          PayPal reference: <strong>{orderInfo.paypal_order_id}</strong>
         </p>
       )}
 

@@ -16,8 +16,16 @@ type GA4Item = {
 };
 
 function safeGtag(...args: any[]) {
-  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+  if (typeof window === 'undefined') return;
+  if (typeof window.gtag === 'function') {
     window.gtag(...args);
+  } else {
+    // gtag.js may still be loading (scripts use lazyOnload). The gtag bootstrap
+    // simply pushes arguments onto window.dataLayer, so enqueue here — the event
+    // is flushed as soon as analytics.js initialises. Prevents lost purchase
+    // events when the success page fires before the script is ready.
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push(args);
   }
 }
 
@@ -72,4 +80,20 @@ export function trackPurchase(orderId: string, items: GA4Item[], total: number) 
     value: total,
     items,
   });
+}
+
+// Fire the purchase event at most once per transaction id. The success page can
+// re-render or be refreshed after PayPal capture; GA4 does NOT dedupe repeated
+// purchase events with the same transaction_id, so we guard client-side with a
+// localStorage marker.
+export function trackPurchaseOnce(orderId: string, items: GA4Item[], total: number) {
+  if (typeof window === 'undefined') return;
+  const key = `freshlock-ga-purchase:${orderId}`;
+  try {
+    if (localStorage.getItem(key)) return;
+    localStorage.setItem(key, new Date().toISOString());
+  } catch {
+    // if storage is unavailable fall through and still fire once this render
+  }
+  trackPurchase(orderId, items, total);
 }

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
 import { trackBeginCheckout } from '@/lib/ga4';
+import { getAttribution } from '@/lib/attribution';
 import Image from 'next/image';
 
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
@@ -105,6 +106,25 @@ export default function CheckoutPage() {
           setProcessing(false);
         }
       } else if (paymentMethod === 'paypal') {
+        // Stash contact details + marketing attribution before the PayPal
+        // redirect. PayPal's v2 capture does not reliably return the payer
+        // email, and UTM data lives only in localStorage; the success page
+        // reads this after the off-site PayPal round-trip and passes it to the
+        // capture call so the order is persisted with full contact + attribution.
+        try {
+          localStorage.setItem('freshlock-pending-contact', JSON.stringify({
+            name: `${form.firstName} ${form.lastName}`.trim(),
+            email: form.email.trim(),
+            phone: form.phone.trim(),
+            ts: Date.now(),
+          }));
+          localStorage.setItem('freshlock-pending-attribution', JSON.stringify({
+            attribution: getAttribution() || {},
+            ts: Date.now(),
+          }));
+        } catch {
+          // non-fatal: capture still proceeds with PayPal-side data
+        }
         // PayPal Checkout 跳转
         const res = await fetch('/api/paypal', {
           method: 'POST',
@@ -114,6 +134,7 @@ export default function CheckoutPage() {
               name: item.product.name,
               price: item.product.price,
               quantity: item.quantity,
+              slug: item.product.slug,
             })),
             shippingAddress: {
               name: `${form.firstName} ${form.lastName}`,
