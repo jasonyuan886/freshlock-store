@@ -49,7 +49,8 @@ export const products: Product[] = [
       'Compact, lightweight design (~210 g) — fits in a kitchen drawer',
     ],
     specs: {
-      'Suction': '-60 kPa',
+      'Suction': '-60 kPa (~5 seconds per bag, removes ~95% of air)',
+      'Pump rate': '5 L/min',
       'Battery': '1200 mAh rechargeable Li-ion',
       'Charging': 'USB-C, ~2.5 hours to full charge',
       'Seals per charge': '80–100 bags',
@@ -302,7 +303,7 @@ export const faqs = [
   {
     question: 'What is your return policy?',
     answer:
-      'We offer a 7-day return policy. If you are not completely happy with your FreshLock, contact us within 7 days of delivery for a refund or exchange. Return shipping is free for US orders on defective items.',
+      'We offer a 30-day return policy. If you are not completely happy with your FreshLock, contact us within 30 days of delivery for a refund or exchange. Return shipping is free for US orders on defective items.',
   },
 ];
 

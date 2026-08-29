@@ -65,7 +65,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!product) return {};
   const title = product.name;
   const description =
-    `${product.shortDescription} Free shipping over $${FREE_SHIPPING_THRESHOLD}, Starter Kits ship free. 7-day returns, 1-year warranty on the unit.`;
+    `${product.shortDescription} Free shipping over $${FREE_SHIPPING_THRESHOLD}, Starter Kits ship free. 30-day returns, 1-year warranty on the unit.`;
   return {
     title,
     description,
@@ -412,7 +412,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                   </div>
                   <div className="flex items-start gap-1.5">
                     <span className="text-green-600">✓</span>
-                    <span><strong>1-year warranty</strong> + 7-day returns = zero risk to try.</span>
+                    <span><strong>1-year warranty</strong> + 30-day returns = zero risk to try.</span>
                   </div>
                   <div className="flex items-start gap-1.5">
                     <span className="text-green-600">✓</span>
@@ -475,7 +475,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
 
             <div className="flex flex-wrap gap-4 mt-4 text-xs text-gray-500">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
-              <span>↩️ 7-day hassle-free returns</span>
+              <span>↩️ 30-day hassle-free returns</span>
               <span>🛡️ 1-year warranty</span>
               <span>🔒 Secure SSL checkout</span>
             </div>
