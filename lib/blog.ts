@@ -46,6 +46,21 @@ function mdToHtml(md: string): string {
   html = html.replace(/^\d+\. (.+)$/gm, '<li class="ml-6 list-decimal mb-1">$1</li>');
   html = html.replace(/^> (.+)$/gm, '<blockquote class="border-l-4 border-primary-400 pl-4 italic text-gray-600 my-4">$1</blockquote>');
   html = html.replace(/^---$/gm, '<hr class="my-8 border-gray-200" />');
+  // Markdown tables (| col | col | with |---| separator) -> responsive HTML tables
+  html = html.replace(/(?:^\|.*\|\s*$\n?)+/gm, (block: string) => {
+    const lines = block.trim().split('\n').map((l) => l.trim());
+    if (lines.length < 2) return block;
+    const isSep = (l: string) => /^\|[\s:|-]+\|$/.test(l);
+    if (!isSep(lines[1])) return block;
+    const splitRow = (l: string) => l.replace(/^\||\|$/g, '').split('|').map((c) => c.trim());
+    const headers = splitRow(lines[0]);
+    const body = lines.slice(2).map(splitRow);
+    let out = '<div class="overflow-x-auto my-6"><table class="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">';
+    out += '<thead class="bg-gray-50"><tr>' + headers.map((h) => `<th class="text-left px-4 py-2 font-semibold text-gray-700">${h}</th>`).join('') + '</tr></thead>';
+    out += '<tbody>' + body.map((row) => '<tr class="border-t border-gray-100">' + row.map((c) => `<td class="px-4 py-2 text-gray-600 align-top">${c}</td>`).join('') + '</tr>').join('') + '</tbody>';
+    out += '</table></div>';
+    return out;
+  });
   const blocks = html.split(/\n{2,}/);
   html = blocks.map(block => {
     const b = block.trim();

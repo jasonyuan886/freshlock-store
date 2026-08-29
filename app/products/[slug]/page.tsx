@@ -291,7 +291,7 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           {product.badge === 'Top Value' || product.slug.includes('kit') ? (
             <span className="bg-red-50 text-red-600 border border-red-200 px-3 py-1 rounded-full text-xs font-semibold">🎁 Ships FREE</span>
           ) : null}
-          <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">↩️ 7-Day Returns</span>
+          <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">↩️ 30-Day Returns</span>
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🛡️ 1-Year Warranty</span>
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🔒 Secure SSL Checkout</span>
           <span className="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-semibold">✅ All duties & taxes included</span>
