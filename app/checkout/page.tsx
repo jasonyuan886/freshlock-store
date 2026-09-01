@@ -1,26 +1,20 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
 import { trackBeginCheckout } from '@/lib/ga4';
 import { getAttribution } from '@/lib/attribution';
 import Image from 'next/image';
-
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
-
 // NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
 // meta robots noindex is applied via vercel.json headers for /checkout.
-
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
   const shipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const total = totalPrice + shipping;
-
   const [paymentMethod, setPaymentMethod] = useState('paypal');
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState('');
-
   // 表单状态
   const [form, setForm] = useState({
     firstName: '',
@@ -33,7 +27,6 @@ export default function CheckoutPage() {
     postcode: '',
     country: 'US',
   });
-
   const COUNTRIES = [
     { code: 'US', name: 'United States' },
     { code: 'CA', name: 'Canada' },
@@ -44,13 +37,10 @@ export default function CheckoutPage() {
     { code: 'MY', name: 'Malaysia' },
     { code: 'TH', name: 'Thailand' },
   ];
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
   const [cartCaptured, setCartCaptured] = useState(false);
-
   // Fire begin_checkout event once on mount
   useEffect(() => {
     if (items.length > 0) {
@@ -73,39 +63,12 @@ export default function CheckoutPage() {
       }),
     }).catch(() => {});
   };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setProcessing(true);
     setError('');
-
     try {
-      if (paymentMethod === 'stripe') {
-        // Stripe Checkout 跳转
-        const res = await fetch('/api/checkout', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            items,
-            shippingInfo: { email: form.email },
-          }),
-        });
-
-        const data = await res.json();
-
-        if (data.url) {
-          // 跳转到 Stripe 托管结账页
-          window.location.href = data.url;
-        } else if (data.error) {
-          setError(data.error);
-          setProcessing(false);
-        } else {
-          // Demo 模式 — 未配置 Stripe 密钥
-          alert('⚠️ Stripe 尚未配置。\n请在 .env.local 中填入你的 Stripe API Key 后重试。\n\n当前为演示模式，订单已模拟提交。');
-          clearCart();
-          setProcessing(false);
-        }
-      } else if (paymentMethod === 'paypal') {
+      if (paymentMethod === 'paypal') {
         // Stash contact details + marketing attribution before the PayPal
         // redirect. PayPal's v2 capture does not reliably return the payer
         // email, and UTM data lives only in localStorage; the success page
@@ -147,9 +110,7 @@ export default function CheckoutPage() {
             },
           }),
         });
-
         const data = await res.json();
-
         if (data.approvalUrl) {
           // 跳转到 PayPal 支付页面
           window.location.href = data.approvalUrl;
@@ -160,16 +121,12 @@ export default function CheckoutPage() {
           alert('⚠️ PayPal 尚未配置。\n请在 .env.local 中填入你的 PayPal API 凭证后重试。');
           setProcessing(false);
         }
-      } else if (paymentMethod === 'afterpay') {
-        alert('Afterpay 集成需要商户账号，请联系 FreshLock 客服开通。');
-        setProcessing(false);
       }
     } catch (err: any) {
       setError(err.message || 'Payment failed');
       setProcessing(false);
     }
   };
-
   if (items.length === 0) {
     return (
       <div className="max-w-3xl mx-auto px-4 py-20 text-center">
@@ -179,17 +136,14 @@ export default function CheckoutPage() {
       </div>
     );
   }
-
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <h1 className="text-3xl font-bold text-primary mb-8">Checkout</h1>
-
       {error && (
         <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
           <p className="font-medium">Error: {error}</p>
         </div>
       )}
-
       <form onSubmit={handleSubmit}>
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Form */}
@@ -244,7 +198,6 @@ export default function CheckoutPage() {
                 </div>
               </div>
             </div>
-
             {/* Shipping */}
             <div className="bg-white rounded-xl p-6 shadow">
               <h2 className="font-bold text-primary text-lg mb-4">Shipping Address</h2>
@@ -311,7 +264,6 @@ export default function CheckoutPage() {
                 </div>
               </div>
             </div>
-
             {/* Trust badges */}
             <div className="bg-white rounded-xl p-4 shadow flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-600">
               <span className="flex items-center gap-1.5 font-medium"><span className="text-green-600 text-base">🔒</span> SSL Encrypted</span>
@@ -320,27 +272,10 @@ export default function CheckoutPage() {
               <span className="flex items-center gap-1.5 font-medium"><span className="text-purple-600 text-base">✅</span> 2-Year Warranty</span>
               <span className="flex items-center gap-1.5 font-medium"><span className="text-green-600 text-base">🚚</span> DHL Express 5–8 Days</span>
             </div>
-
             {/* Payment */}
             <div className="bg-white rounded-xl p-6 shadow">
               <h2 className="font-bold text-primary text-lg mb-4">Payment Method</h2>
               <div className="space-y-3">
-                {/* Credit/Debit Card via Stripe — disabled per Stripe ban 2026-07-30
-                <label className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition ${paymentMethod === 'stripe' ? 'border-primary bg-primary/5' : 'hover:bg-gray-50'}`}>
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="stripe"
-                    checked={paymentMethod === 'stripe'}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="accent-primary"
-                  />
-                  <div>
-                    <span className="font-medium">💳 Credit / Debit Card</span>
-                    <p className="text-xs text-gray-500 mt-0.5">Visa, Mastercard, Amex — securely processed</p>
-                  </div>
-                </label>
-                */}
                 <label className={`flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer transition ${paymentMethod === 'paypal' ? 'border-[#003087] bg-[#003087]/5' : 'hover:bg-gray-50 border-gray-200'}`}>
                   <input
                     type="radio"
@@ -358,24 +293,7 @@ export default function CheckoutPage() {
                     <p className="text-xs text-gray-600 mt-1">Pay securely with your PayPal account, or check out as a guest using Visa, Mastercard, Amex, or Discover. <strong className="text-[#003087]">Eligible purchases are covered by PayPal Buyer Protection.</strong></p>
                   </div>
                 </label>
-                {/* Afterpay — not integrated yet, hidden to avoid false promise
-                <label className={`flex items-center gap-3 p-4 border rounded-lg cursor-pointer transition ${paymentMethod === 'afterpay' ? 'border-primary bg-primary/5' : 'hover:bg-gray-50'}`}>
-                  <input
-                    type="radio"
-                    name="payment"
-                    value="afterpay"
-                    checked={paymentMethod === 'afterpay'}
-                    onChange={(e) => setPaymentMethod(e.target.value)}
-                    className="accent-primary"
-                  />
-                  <div>
-                    <span className="font-medium">🟣 Afterpay</span>
-                    <p className="text-xs text-gray-500 mt-0.5">4 interest-free payments</p>
-                  </div>
-                </label>
-                */}
               </div>
-
               {/* 安全提示 */}
               <div className="mt-4 p-3 bg-green-50 rounded-lg flex items-start gap-2">
                 <span className="text-green-600">🔒</span>
@@ -385,7 +303,6 @@ export default function CheckoutPage() {
               </div>
             </div>
           </div>
-
           {/* Order summary sidebar */}
           <div>
             <div className="bg-white rounded-xl p-6 shadow sticky top-24">
