@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import Stripe from 'stripe';
-
 function getStripe() {
   const key = process.env.STRIPE_SECRET_KEY;
   if (!key || key === 'sk_test_your_test_key_here') {
@@ -8,19 +7,19 @@ function getStripe() {
   }
   return new Stripe(key);
 }
-
 export async function POST(request: NextRequest) {
   try {
     const stripe = getStripe();
     if (!stripe) {
       return NextResponse.json(
-        { error: 'Stripe is not configured. Please add STRIPE_SECRET_KEY to environment variables.' },
-        { status: 500 },
+        {
+          error: 'Card payment is currently unavailable. Please use PayPal to complete your order.',
+          redirect: '/checkout',
+        },
+        { status: 503 },
       );
     }
-
     const { items, shippingInfo } = await request.json();
-
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ['card'],
       line_items: items.map((item: any) => ({
@@ -66,7 +65,6 @@ export async function POST(request: NextRequest) {
         },
       ],
     });
-
     return NextResponse.json({ sessionId: session.id, url: session.url });
   } catch (error: any) {
     console.error('Stripe error:', error);
