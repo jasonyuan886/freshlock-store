@@ -19,8 +19,8 @@ const DEMO_CSS = `:root{
 html{scroll-behavior:smooth}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  background:var(--ink);
-  color:var(--white);
+  background:var(--paper);
+  color:var(--ink);
   -webkit-font-smoothing:antialiased;
   overflow-x:hidden;
 }
