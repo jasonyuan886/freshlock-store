@@ -128,7 +128,7 @@ section{position:relative}
   box-shadow:0 40px 90px rgba(15,81,50,.14);
 }
 .showcase-fig img{position:relative;width:82%;border-radius:24px;transition:transform .2s linear;z-index:2}
-.how{background:var(--ink-2)}
+.how.light{background:var(--paper);color:var(--ink)}\n.how{background:var(--ink-2)}
 .how-head{padding:130px 5vw 40px;text-align:center}
 .how-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep)}
 .how-head h2{font-size:clamp(30px,4.6vw,60px);letter-spacing:-.03em;font-weight:800;margin-top:16px}
