@@ -1,18 +1,18 @@
 "use client";
 import { useEffect, useRef } from "react";
 const DEMO_CSS = `:root{
-  --ink:#f6f4ee;
-  --ink-2:#efece3;
-  --paper:#0b100e;
-  --paper-2:#101714;
+  --ink:#0b100e;
+  --ink-2:#101714;
+  --paper:#f6f4ee;
+  --paper-2:#efece3;
   --green:#2fb86b;
   --green-bright:#5eead4;
   --green-deep:#0f5132;
-  --white:#0b100e;
-  --muted-dark:rgba(11,16,14,.62);
-  --muted-light:rgba(247,250,248,.62);
-  --line-dark:rgba(11,16,14,.14);
-  --line-light:rgba(247,250,248,.12);
+  --white:#f7faf8;
+  --muted-dark:rgba(247,250,248,.62);
+  --muted-light:rgba(11,16,14,.62);
+  --line-dark:rgba(247,250,248,.14);
+  --line-light:rgba(11,16,14,.12);
   --ease:cubic-bezier(.22,.8,.24,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
