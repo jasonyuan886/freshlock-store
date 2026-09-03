@@ -242,7 +242,7 @@ section{position:relative}
 .faq-inner{max-width:840px;margin:0 auto}
 .faq-head{text-align:center;margin-bottom:60px}
 .faq-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-bright)}
-.faq-head h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.03em;font-weight:800;margin-top:16px}
+.faq-head h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.03em;font-weight:800;margin-top:16px;color:var(--white)}
 .faq-item{border-bottom:1px solid var(--line-dark)}
 .faq-item:first-of-type{border-top:1px solid var(--line-dark)}
 .faq-q{
@@ -257,7 +257,7 @@ section{position:relative}
 .faq-q .icn::after{width:2px;height:16px;transform:translate(-50%,-50%);transition:transform .35s var(--ease)}
 .faq-item.open .faq-q .icn::after{transform:translate(-50%,-50%) scaleY(0)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
-.faq-a p{color:var(--muted-light);font-size:clamp(14.5px,1.4vw,17px);line-height:1.75;padding:0 0 26px;max-width:68ch}
+.faq-a p{color:var(--muted-dark);font-size:clamp(14.5px,1.4vw,17px);line-height:1.75;padding:0 0 26px;max-width:68ch}
 footer{border-top:1px solid var(--line-dark);padding:36px 5vw;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted-light)}
 footer .logo{font-size:16px}
 @media (max-width:900px){
