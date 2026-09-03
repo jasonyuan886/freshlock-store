@@ -1,18 +1,18 @@
 "use client";
 import { useEffect, useRef } from "react";
 const DEMO_CSS = `:root{
-  --ink:#0b100e;
-  --ink-2:#101714;
-  --paper:#f6f4ee;
-  --paper-2:#efece3;
+  --ink:#f6f4ee;
+  --ink-2:#efece3;
+  --paper:#0b100e;
+  --paper-2:#101714;
   --green:#2fb86b;
   --green-bright:#5eead4;
   --green-deep:#0f5132;
-  --white:#f7faf8;
-  --muted-dark:rgba(247,250,248,.62);
-  --muted-light:rgba(11,16,14,.62);
-  --line-dark:rgba(247,250,248,.14);
-  --line-light:rgba(11,16,14,.12);
+  --white:#0b100e;
+  --muted-dark:rgba(11,16,14,.62);
+  --muted-light:rgba(247,250,248,.62);
+  --line-dark:rgba(11,16,14,.14);
+  --line-light:rgba(247,250,248,.12);
   --ease:cubic-bezier(.22,.8,.24,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -277,7 +277,7 @@ footer .logo{font-size:16px}
   .hero-actions{flex-direction:stretch}
   .btn-primary,.btn-ghost{justify-content:center}
 }
-/* === LIGHT THEME: bg overrides === */.hero.dark,.statement.dark,.showcase.dark,.features.dark,.kit.dark{background:#f6f4ee!important;color:#0b100e!important}.hero.dark h1,.hero.dark h2,.hero.dark h3,.hero.dark .hero-sub,.hero.dark .hero-trust,.statement.dark .big,.statement.dark .sub,.showcase.dark h2,.showcase.dark p,.features.dark h2,.kit.dark h2,.kit.dark p{color:#0b100e!important}.hero.dark .hero-trust b,.statement.dark .big .num{color:#0f5132!important}.hero-badge{color:#0f5132!important;border-color:rgba(15,81,50,.3)!important;background:rgba(47,184,107,.08)!important}.step-num{-webkit-text-stroke:1.5px rgba(15,81,50,.3)!important}.step-eyebrow,.features-head .tag{color:#0f5132!important}.step-card p,.step-card h3{color:#0b100e!important}.how,.how *{color:#f7faf8!important}.how-head .tag{color:var(--green-bright)!important}.how-head h2{color:#f7faf8!important}`n/* LIGHT THEME OVERRIDES */.hero.dark,.statement.dark,.showcase.dark,.features.dark,.kit.dark{background:#f6f4ee!important;color:#0b100e!important}.hero.dark h1,.hero.dark h2,.hero.dark h3,.hero.dark .hero-sub,.hero.dark .hero-trust,.statement.dark .big,.statement.dark .sub,.showcase.dark h2,.showcase.dark p,.features.dark h2,.kit.dark h2,.kit-dark p,.kit-card .cn,.kit-card .en,.kit-card .price{color:#0b100e!important}.hero.dark .hero-trust b,.statement.dark .big .num{color:#0f5132!important}.hero-badge{color:#0f5132!important;border-color:rgba(15,81,50,.3)!important;background:rgba(47,184,107,.08)!important}.step-eyebrow,.features-head .tag{color:#0f5132!important}.step-num{-webkit-text-stroke:1.5px rgba(15,81,50,.3)!important}.step-card h3,.step-card p,.step-card .note{color:#0b100e!important}.how{background:#101714!important}.how,.how *{color:#f7faf8!important}.how-head .tag{color:#5eead4!important}`n@media print{
+/* LIGHT THEME */.hero.dark,.statement.dark,.showcase.dark,.features.dark,.kit.dark{background:#f6f4ee!important;color:#0b100e!important}.hero.dark h1,.hero.dark h2,.hero.dark h3,.hero.dark .hero-sub,.hero.dark .hero-trust,.statement.dark .big,.statement.dark .sub,.showcase.dark h2,.showcase.dark p,.features.dark h2,.kit.dark h2,.kit.dark p,.kit-card .cn,.kit-card .en,.kit-card .price{color:#0b100e!important}.hero.dark .hero-trust b,.statement.dark .big .num{color:#0f5132!important}.hero-badge{color:#0f5132!important;border-color:rgba(15,81,50,.3)!important;background:rgba(47,184,107,.08)!important}.step-eyebrow,.features-head .tag{color:#0f5132!important}.step-num{-webkit-text-stroke:1.5px rgba(15,81,50,.3)!important}.step-card h3,.step-card p,.step-card .note{color:#0b100e!important}.how{background:#101714!important}.how,.how *{color:#f7faf8!important}.how-head .tag{color:#5eead4!important}`n@media print{
   nav,.progress,.scroll-hint{display:none}
   section{min-height:auto;padding:40px 0}
   .rv{opacity:1;transform:none}
@@ -294,7 +294,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </div>
 </nav>
 <!-- HERO -->
-<section class="hero dark">
+<section class="hero light">
   <div class="hero-glow"></div>
   <div class="rv in">
     <span class="hero-badge"><span class="pulse"></span>Launch Special — 15% OFF Everything</span>
@@ -319,14 +319,14 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   <div class="scroll-hint"><div class="mouse"></div>Scroll</div>
 </section>
 <!-- STATEMENT -->
-<section class="statement dark">
+<section class="statement light">
   <div>
     <h2 class="big rv">The average household throws away <span class="num" data-count="1500" data-prefix="$">$0</span> in food <em>every year.</em></h2>
     <p class="sub rv d2">Air is the enemy. Oxygen turns bread moldy, meat freezer-burned, and greens slimy — usually before the date on the pack. FreshLock removes up to 95% of it in seconds.</p>
   </div>
 </section>
 <!-- PRODUCT SHOWCASE -->
-<section class="showcase dark">
+<section class="showcase light">
   <div class="showcase-grid">
     <div>
       <div class="showcase-tag rv">Meet FreshLock Pro</div>
@@ -404,7 +404,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </div>
 </section>
 <!-- FEATURE WALL -->
-<section class="features dark">
+<section class="features light">
   <div class="features-head">
     <div class="tag rv">Why FreshLock</div>
     <h2 class="rv d1">The features home cooks actually care about.</h2>
@@ -437,7 +437,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </div>
 </section>
 <!-- KIT -->
-<section class="kit dark">
+<section class="kit light">
   <div class="kit-grid">
     <figure class="kit-fig rv">
       <img src="https://www.freshlocksealer.com/images/products/sealer-kit.jpg" alt="FreshLock Starter Kit with sealer and vacuum bags" width="640" height="640" loading="lazy">
