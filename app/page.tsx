@@ -76,7 +76,7 @@ section{position:relative}
 .btn-primary:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 50px rgba(47,184,107,.5)}
 .btn-ghost{
   display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:600;
-  padding:16px 28px;border-radius:999px;border:1px solid var(--line-dark);color:var(--white);
+  padding:16px 28px;border-radius:999px;border:1px solid var(--line-light);color:var(--ink);
   transition:border-color .25s,background .25s;
 }
 .btn-ghost:hover{border-color:var(--green);background:rgba(47,184,107,.08)}
