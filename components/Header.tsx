@@ -3,10 +3,14 @@
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
 export default function Header() {
   const { totalItems } = useCart();
+  const pathname = usePathname();
+
+  if (pathname === '/') return null;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
