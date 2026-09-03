@@ -1,12 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-export const metadata: Metadata = {
-  alternates: {
-    canonical: 'https://www.freshlocksealer.com/',
-  },
-}
-
 const DEMO_CSS = `:root{
   --ink:#0b100e;
   --ink-2:#101714;
