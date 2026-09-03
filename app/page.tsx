@@ -80,8 +80,8 @@ section{position:relative}
   transition:border-color .25s,background .25s;
 }
 .btn-ghost:hover{border-color:var(--green);background:rgba(47,184,107,.08)}
-.hero-trust{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted-dark)}
-.hero-trust b{color:var(--white)}
+.hero-trust{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted-light)}
+.hero-trust b{color:var(--ink)}
 .hero-product{
   position:absolute;right:-6vw;top:50%;transform:translateY(-50%);
   width:min(46vw,560px);z-index:2;pointer-events:none;
@@ -346,7 +346,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </div>
 </section>
 <!-- HOW IT WORKS -->
-<section class="how dark" id="how">
+<section class="how light" id="how">
   <div class="how-head">
     <div class="tag rv">How it works</div>
     <h2 class="rv d1">Three steps. About ten seconds.</h2>
