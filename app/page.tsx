@@ -277,7 +277,7 @@ footer .logo{font-size:16px}
   .hero-actions{flex-direction:stretch}
   .btn-primary,.btn-ghost{justify-content:center}
 }
-/* LIGHT THEME */.hero.dark,.statement.dark,.showcase.dark,.features.dark,.kit.dark{background:#f6f4ee!important;color:#0b100e!important}.hero.dark h1,.hero.dark h2,.hero.dark h3,.hero.dark .hero-sub,.hero.dark .hero-trust,.statement.dark .big,.statement.dark .sub,.showcase.dark h2,.showcase.dark p,.features.dark h2,.kit.dark h2,.kit.dark p,.kit-card .cn,.kit-card .en,.kit-card .price{color:#0b100e!important}.hero.dark .hero-trust b,.statement.dark .big .num{color:#0f5132!important}.hero-badge{color:#0f5132!important;border-color:rgba(15,81,50,.3)!important;background:rgba(47,184,107,.08)!important}.step-eyebrow,.features-head .tag{color:#0f5132!important}.step-num{-webkit-text-stroke:1.5px rgba(15,81,50,.3)!important}.step-card h3,.step-card p,.step-card .note{color:#0b100e!important}.how{background:#101714!important}.how,.how *{color:#f7faf8!important}.how-head .tag{color:#5eead4!important}`n@media print{
+@media print{
   nav,.progress,.scroll-hint{display:none}
   section{min-height:auto;padding:40px 0}
   .rv{opacity:1;transform:none}
