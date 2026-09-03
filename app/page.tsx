@@ -277,6 +277,7 @@ footer .logo{font-size:16px}
   .hero-actions{flex-direction:stretch}
   .btn-primary,.btn-ghost{justify-content:center}
 }
+/* === LIGHT THEME SECTION OVERRIDES === */.hero.dark,.statement.dark,.showcase.dark,.features.dark,.kit.dark{background:#f6f4ee!important;color:#0b100e!important}.hero.dark h1,.hero.dark h2,.hero.dark h3,.hero.dark .hero-sub,.hero.dark .hero-trust,.statement.dark .big,.statement.dark .sub,.showcase.dark h2,.showcase.dark p,.features.dark h2,.features-dark p,.kit.dark h2,.kit-dark p{color:#0b100e!important}.hero.dark .hero-trust b,.statement.dark .big .num{color:#0f5132!important}.hero-badge{color:#0f5132!important;border-color:rgba(15,81,50,.3)!important;background:rgba(47,184,107,.08)!important}.step-num{-webkit-text-stroke:1.5px rgba(15,81,50,.3)!important}.step-eyebrow,.how-head .tag,.features-head .tag{color:#0f5132!important}.how-head h2,.faq-head h2,.faq-q{color:#f7faf8!important}.how-head p,.faq-a p{color:rgba(247,250,248,.62)!important}
 @media print{
   nav,.progress,.scroll-hint{display:none}
   section{min-height:auto;padding:40px 0}
@@ -294,7 +295,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </div>
 </nav>
 <!-- HERO -->
-<section class="hero light">
+<section class="hero dark">
   <div class="hero-glow"></div>
   <div class="rv in">
     <span class="hero-badge"><span class="pulse"></span>Launch Special — 15% OFF Everything</span>
@@ -319,14 +320,14 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   <div class="scroll-hint"><div class="mouse"></div>Scroll</div>
 </section>
 <!-- STATEMENT -->
-<section class="statement light">
+<section class="statement dark">
   <div>
     <h2 class="big rv">The average household throws away <span class="num" data-count="1500" data-prefix="$">$0</span> in food <em>every year.</em></h2>
     <p class="sub rv d2">Air is the enemy. Oxygen turns bread moldy, meat freezer-burned, and greens slimy — usually before the date on the pack. FreshLock removes up to 95% of it in seconds.</p>
   </div>
 </section>
 <!-- PRODUCT SHOWCASE -->
-<section class="showcase light">
+<section class="showcase dark">
   <div class="showcase-grid">
     <div>
       <div class="showcase-tag rv">Meet FreshLock Pro</div>
@@ -404,7 +405,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </div>
 </section>
 <!-- FEATURE WALL -->
-<section class="features light">
+<section class="features dark">
   <div class="features-head">
     <div class="tag rv">Why FreshLock</div>
     <h2 class="rv d1">The features home cooks actually care about.</h2>
@@ -437,7 +438,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </div>
 </section>
 <!-- KIT -->
-<section class="kit light">
+<section class="kit dark">
   <div class="kit-grid">
     <figure class="kit-fig rv">
       <img src="https://www.freshlocksealer.com/images/products/sealer-kit.jpg" alt="FreshLock Starter Kit with sealer and vacuum bags" width="640" height="640" loading="lazy">
