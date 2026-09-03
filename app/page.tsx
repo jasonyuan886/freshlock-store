@@ -55,7 +55,7 @@ section{position:relative}
 }
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
-  color:var(--green-bright);border:1px solid rgba(94,234,212,.3);border-radius:999px;
+  color:var(--green-deep);border:1px solid rgba(15,81,50,.3);border-radius:999px;
   padding:7px 16px;width:max-content;margin-bottom:28px;background:rgba(94,234,212,.06);
 }
 .hero-badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--green-bright);animation:pulse 1.8s infinite}
@@ -130,7 +130,7 @@ section{position:relative}
 .showcase-fig img{position:relative;width:82%;border-radius:24px;transition:transform .2s linear;z-index:2}
 .how{background:var(--ink-2)}
 .how-head{padding:130px 5vw 40px;text-align:center}
-.how-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-bright)}
+.how-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep)}
 .how-head h2{font-size:clamp(30px,4.6vw,60px);letter-spacing:-.03em;font-weight:800;margin-top:16px}
 .how-head p{color:var(--muted-dark);margin-top:16px;font-size:clamp(15px,1.5vw,19px)}
 .step{
@@ -146,7 +146,7 @@ section{position:relative}
   box-shadow:0 40px 100px rgba(15,81,50,.12);
 }
 .step-num{font-size:clamp(64px,9vw,130px);font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(94,234,212,.5);letter-spacing:-.04em}
-.step-eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green-bright);margin:18px 0 12px}
+.step-eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green-deep);margin:18px 0 12px}
 .step-card h3{font-size:clamp(28px,3.6vw,46px);letter-spacing:-.025em;font-weight:800;line-height:1.1}
 .step-card p{margin-top:16px;color:var(--muted-dark);font-size:clamp(15px,1.4vw,18px);line-height:1.7}
 .step-visual{display:flex;justify-content:center;align-items:center;min-height:320px;position:relative}
@@ -194,7 +194,7 @@ section{position:relative}
 @keyframes spin{to{transform:rotate(360deg)}}
 .features{padding:130px 5vw}
 .features-head{text-align:center;max-width:720px;margin:0 auto 70px}
-.features-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-bright)}
+.features-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep)}
 .features-head h2{font-size:clamp(30px,4.6vw,58px);letter-spacing:-.03em;font-weight:800;margin-top:16px}
 .fwall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1280px;margin:0 auto}
 .fcard{
@@ -236,12 +236,12 @@ section{position:relative}
 .trust-bar{display:flex;gap:clamp(18px,4vw,56px);flex-wrap:wrap;justify-content:center;margin-top:56px;position:relative}
 
 .trust-bar .t{text-align:center}
-.trust-bar .t .n{font-size:clamp(24px,2.6vw,36px);font-weight:800;color:var(--green-bright)}
+.trust-bar .t .n{font-size:clamp(24px,2.6vw,36px);font-weight:800;color:var(--green-deep)}
 .trust-bar .t .l{font-size:13px;color:var(--muted-dark);margin-top:6px;letter-spacing:.04em}
 .faq{padding:130px 5vw;background:var(--ink-2)}
 .faq-inner{max-width:840px;margin:0 auto}
 .faq-head{text-align:center;margin-bottom:60px}
-.faq-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-bright)}
+.faq-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep)}
 .faq-head h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.03em;font-weight:800;margin-top:16px}
 .faq-item{border-bottom:1px solid var(--line-dark)}
 .faq-item:first-of-type{border-top:1px solid var(--line-dark)}
@@ -287,14 +287,14 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
 <nav id="nav">
   <div class="logo"><span class="dot"></span>FreshLock</div>
   <div style="display:flex;align-items:center;gap:14px">
-    <a href="/cart" aria-label="Shopping cart" style="position:relative;color:var(--ink)">
+    <a href="/cart" aria-label="Shopping cart" style="position:relative;color:#e8730e">
       <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
     </a>
     <a class="nav-cta" href="https://www.freshlocksealer.com/products/freshlock-pro" target="_blank" rel="noopener noreferrer">Shop Now — $74.99</a>
   </div>
 </nav>
 <!-- HERO -->
-<section class="hero dark">
+<section class="hero light">
   <div class="hero-glow"></div>
   <div class="rv in">
     <span class="hero-badge"><span class="pulse"></span>Launch Special — 15% OFF Everything</span>
@@ -319,7 +319,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   <div class="scroll-hint"><div class="mouse"></div>Scroll</div>
 </section>
 <!-- STATEMENT -->
-<section class="statement dark">
+<section class="statement light">
   <div>
     <h2 class="big rv">The average household throws away <span class="num" data-count="1500" data-prefix="$">$0</span> in food <em>every year.</em></h2>
     <p class="sub rv d2">Air is the enemy. Oxygen turns bread moldy, meat freezer-burned, and greens slimy — usually before the date on the pack. FreshLock removes up to 95% of it in seconds.</p>
@@ -404,7 +404,7 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </div>
 </section>
 <!-- FEATURE WALL -->
-<section class="features dark">
+<section class="features light">
   <div class="features-head">
     <div class="tag rv">Why FreshLock</div>
     <h2 class="rv d1">The features home cooks actually care about.</h2>
