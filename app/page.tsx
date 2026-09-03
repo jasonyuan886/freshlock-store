@@ -80,7 +80,7 @@ section{position:relative}
   transition:border-color .25s,background .25s;
 }
 .btn-ghost:hover{border-color:var(--green);background:rgba(47,184,107,.08)}
-.hero-trust{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted-light)}
+.hero-trust{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted-dark)}
 .hero-trust b{color:var(--ink)}
 .hero-product{
   position:absolute;right:-6vw;top:50%;transform:translateY(-50%);
@@ -120,7 +120,7 @@ section{position:relative}
 .spec{border:1px solid var(--line-light);border-radius:16px;padding:18px 20px;background:#fff;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .spec:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(15,81,50,.1)}
 .spec .k{font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--green-deep)}
-.spec .v{font-size:13.5px;color:var(--muted-light);margin-top:4px;line-height:1.45}
+.spec .v{font-size:13.5px;color:var(--muted-dark);margin-top:4px;line-height:1.45}
 .showcase-fig{position:relative;display:flex;justify-content:center}
 .showcase-fig .disc{
   position:absolute;width:88%;aspect-ratio:1;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -154,8 +154,8 @@ section{position:relative}
 .vac-stage{width:100%;max-width:380px;aspect-ratio:1;position:relative}
 .vac-bag{
   position:absolute;left:50%;top:54%;transform:translate(-50%,-50%);
-  width:62%;height:70%;border:2px solid rgba(94,234,212,.55);border-radius:14px;
-  background:linear-gradient(180deg,rgba(94,234,212,.05),rgba(94,234,212,.12));
+  width:62%;height:70%;border:3px solid rgba(94,234,212,.85);border-radius:14px;
+  background:linear-gradient(180deg,rgba(94,234,212,.15),rgba(94,234,212,.30));
   transition:all 1.2s var(--ease);overflow:hidden;
 }
 .vac-stage.running .vac-bag{border-color:var(--green-bright);box-shadow:0 0 40px rgba(94,234,212,.25) inset}
@@ -163,7 +163,7 @@ section{position:relative}
   position:absolute;left:50%;top:58%;transform:translate(-50%,-50%);
   width:46%;height:44%;border-radius:46% 46% 42% 42%;
   background:radial-gradient(circle at 38% 32%,#e8834a,#b54a2a 70%,#8f3a1f);
-  opacity:.85;transition:all 1.2s var(--ease);
+  opacity:1;transition:all 1.2s var(--ease);
 }
 .vac-stage.running .food{transform:translate(-50%,-50%) scale(.93)}
 .bag-shrink{position:absolute;inset:0;border-radius:12px;transition:all 1.2s var(--ease);
@@ -207,7 +207,7 @@ section{position:relative}
 .fcard .ic svg{width:24px;height:24px;stroke:var(--green-bright);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .fcard .fk{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1}
 .fcard .ft{font-size:15.5px;font-weight:700;margin-top:12px}
-.fcard .fd{font-size:13.5px;color:var(--muted-light);margin-top:8px;line-height:1.6}
+.fcard .fd{font-size:13.5px;color:var(--muted-dark);margin-top:8px;line-height:1.6}
 .kit{padding:130px 5vw;background:var(--paper)}
 .kit-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:6vw;align-items:center;max-width:1280px;margin:0 auto}
 .kit-fig{position:relative}
@@ -241,7 +241,7 @@ section{position:relative}
 .faq{padding:130px 5vw;background:var(--ink-2)}
 .faq-inner{max-width:840px;margin:0 auto}
 .faq-head{text-align:center;margin-bottom:60px}
-.faq-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep)}
+.faq-head .tag{font-size:13px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-bright)}
 .faq-head h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.03em;font-weight:800;margin-top:16px}
 .faq-item{border-bottom:1px solid var(--line-dark)}
 .faq-item:first-of-type{border-top:1px solid var(--line-dark)}
