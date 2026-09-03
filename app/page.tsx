@@ -1,19 +1,18 @@
 "use client";
 import { useEffect, useRef } from "react";
-
 const DEMO_CSS = `:root{
-  --ink:#0b100e;
-  --ink-2:#101714;
-  --paper:#f6f4ee;
-  --paper-2:#efece3;
+  --ink:#f6f4ee;
+  --ink-2:#efece3;
+  --paper:#0b100e;
+  --paper-2:#101714;
   --green:#2fb86b;
   --green-bright:#5eead4;
   --green-deep:#0f5132;
-  --white:#f7faf8;
-  --muted-dark:rgba(247,250,248,.62);
-  --muted-light:rgba(11,16,14,.62);
-  --line-dark:rgba(247,250,248,.14);
-  --line-light:rgba(11,16,14,.12);
+  --white:#0b100e;
+  --muted-dark:rgba(11,16,14,.62);
+  --muted-light:rgba(247,250,248,.62);
+  --line-dark:rgba(11,16,14,.14);
+  --line-light:rgba(247,250,248,.12);
   --ease:cubic-bezier(.22,.8,.24,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -33,7 +32,7 @@ nav{
   display:flex;align-items:center;justify-content:space-between;
   padding:18px 5vw;transition:background .4s var(--ease),padding .4s var(--ease);
 }
-nav.solid{background:rgba(11,16,14,.82);backdrop-filter:blur(14px);padding:12px 5vw;border-bottom:1px solid var(--line-dark)}
+nav.solid{background:rgba(246,244,238,.92);backdrop-filter:blur(14px);padding:12px 5vw;border-bottom:1px solid var(--line-light)}
 .logo{font-weight:800;letter-spacing:-.02em;font-size:20px;display:flex;align-items:center;gap:8px}
 .logo .dot{width:10px;height:10px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green)}
 .nav-cta{font-size:14px;font-weight:600;padding:9px 18px;border-radius:999px;background:var(--green);color:#04140b;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
@@ -141,10 +140,10 @@ section{position:relative}
 .step-card{
   display:grid;grid-template-columns:1fr 1fr;gap:5vw;align-items:center;
   max-width:1180px;width:100%;
-  background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+  background:linear-gradient(160deg,rgba(255,255,255,.85),rgba(255,255,255,.65));
   border:1px solid var(--line-dark);border-radius:32px;padding:clamp(28px,4.5vw,64px);
   backdrop-filter:blur(8px);
-  box-shadow:0 40px 100px rgba(0,0,0,.5);
+  box-shadow:0 40px 100px rgba(15,81,50,.12);
 }
 .step-num{font-size:clamp(64px,9vw,130px);font-weight:800;line-height:1;color:transparent;-webkit-text-stroke:1.5px rgba(94,234,212,.5);letter-spacing:-.04em}
 .step-eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green-bright);margin:18px 0 12px}
@@ -200,7 +199,7 @@ section{position:relative}
 .fwall{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1280px;margin:0 auto}
 .fcard{
   border:1px solid var(--line-dark);border-radius:22px;padding:34px 26px;
-  background:linear-gradient(170deg,rgba(255,255,255,.045),rgba(255,255,255,.015));
+  background:linear-gradient(170deg,rgba(255,255,255,.9),rgba(255,255,255,.7));
   transition:transform .35s var(--ease),border-color .35s,background .35s;
 }
 .fcard:hover{transform:translateY(-8px);border-color:rgba(94,234,212,.45);background:linear-gradient(170deg,rgba(47,184,107,.12),rgba(47,184,107,.03))}
@@ -225,7 +224,7 @@ section{position:relative}
 .kit-list li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--green);color:#04140b;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:1px}
 .kit-price{margin-top:34px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .kit-price .now{font-size:44px;font-weight:800;letter-spacing:-.03em;color:var(--green-deep)}
-.kit-price .was{font-size:22px;color:rgba(11,16,14,.38);text-decoration:line-through}
+.kit-price .was{font-size:22px;color:rgba(247,250,248,.38);text-decoration:line-through}
 .kit-price .save{font-size:13.5px;font-weight:700;background:var(--green);color:#04140b;padding:5px 12px;border-radius:999px}
 .final{min-height:88svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 8vw;overflow:hidden}
 .final-glow{position:absolute;width:100vmin;height:100vmin;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(47,184,107,.18),transparent 65%);pointer-events:none}
@@ -235,6 +234,7 @@ section{position:relative}
 .final .price-line .was{text-decoration:line-through;opacity:.55;margin-left:8px}
 .final .hero-actions{justify-content:center;position:relative}
 .trust-bar{display:flex;gap:clamp(18px,4vw,56px);flex-wrap:wrap;justify-content:center;margin-top:56px;position:relative}
+
 .trust-bar .t{text-align:center}
 .trust-bar .t .n{font-size:clamp(24px,2.6vw,36px);font-weight:800;color:var(--green-bright)}
 .trust-bar .t .l{font-size:13px;color:var(--muted-dark);margin-top:6px;letter-spacing:.04em}
@@ -283,13 +283,16 @@ footer .logo{font-size:16px}
   .rv{opacity:1;transform:none}
   body{background:#fff;color:#000}
 }`;
-
 const DEMO_HTML = `<div class="progress" id="progress"></div>
 <nav id="nav">
   <div class="logo"><span class="dot"></span>FreshLock</div>
-  <a class="nav-cta" href="https://www.freshlocksealer.com/products/freshlock-pro" target="_blank" rel="noopener noreferrer">Shop Now — $74.99</a>
+  <div style="display:flex;align-items:center;gap:14px">
+    <a href="/cart" aria-label="Shopping cart" style="position:relative;color:var(--ink)">
+      <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+    </a>
+    <a class="nav-cta" href="https://www.freshlocksealer.com/products/freshlock-pro" target="_blank" rel="noopener noreferrer">Shop Now — $74.99</a>
+  </div>
 </nav>
-
 <!-- HERO -->
 <section class="hero dark">
   <div class="hero-glow"></div>
@@ -315,7 +318,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   </figure>
   <div class="scroll-hint"><div class="mouse"></div>Scroll</div>
 </section>
-
 <!-- STATEMENT -->
 <section class="statement dark">
   <div>
@@ -323,7 +325,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     <p class="sub rv d2">Air is the enemy. Oxygen turns bread moldy, meat freezer-burned, and greens slimy — usually before the date on the pack. FreshLock removes up to 95% of it in seconds.</p>
   </div>
 </section>
-
 <!-- PRODUCT SHOWCASE -->
 <section class="showcase light">
   <div class="showcase-grid">
@@ -344,7 +345,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     </figure>
   </div>
 </section>
-
 <!-- HOW IT WORKS -->
 <section class="how dark" id="how">
   <div class="how-head">
@@ -352,7 +352,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     <h2 class="rv d1">Three steps. About ten seconds.</h2>
     <p class="rv d2">No heat bar. No settings. No learning curve.</p>
   </div>
-
   <div class="step">
     <div class="step-card">
       <div>
@@ -366,7 +365,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
       </div>
     </div>
   </div>
-
   <div class="step" id="step2">
     <div class="step-card">
       <div>
@@ -388,7 +386,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
       </div>
     </div>
   </div>
-
   <div class="step">
     <div class="step-card">
       <div>
@@ -406,7 +403,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     </div>
   </div>
 </section>
-
 <!-- FEATURE WALL -->
 <section class="features dark">
   <div class="features-head">
@@ -440,7 +436,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     </div>
   </div>
 </section>
-
 <!-- KIT -->
 <section class="kit light">
   <div class="kit-grid">
@@ -468,7 +463,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     </div>
   </div>
 </section>
-
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="faq-inner">
@@ -476,7 +470,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
       <div class="tag rv">Questions</div>
       <h2 class="rv d1">Everything you'd want to know.</h2>
     </div>
-
     <div class="faq-item rv">
       <button class="faq-q" aria-expanded="false">How does the FreshLock Pro handheld vacuum sealer work?<span class="icn" aria-hidden="true"></span></button>
       <div class="faq-a"><p>Set the detachable nozzle over the valve on an embossed vacuum bag and press the button once. The pump pulls a -60 kPa vacuum and auto-stops when the bag is tight — the whole process takes about 10 seconds. There is no heat bar and no settings to learn.</p></div>
@@ -503,7 +496,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     </div>
   </div>
 </section>
-
 <!-- FINAL CTA -->
 <section class="final dark">
   <div class="final-glow"></div>
@@ -521,12 +513,11 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     <div class="t"><div class="n">Secure</div><div class="l">Encrypted checkout</div></div>
   </div>
 </section>
-
 <footer>
   <div class="logo"><span class="dot" style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;margin-right:8px"></span>FreshLock — Qili Technology Co., Ltd.</div>
+
   <div>Immersive landing demo · 2026-09-03 · Product images from freshlocksealer.com</div>
 </footer>
-
 <script>
 (function(){
   var prog=document.getElementById('progress'),nav=document.getElementById('nav');
@@ -544,7 +535,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
-
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){
       if(e.isIntersecting){
@@ -556,7 +546,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     });
   },{threshold:.25});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-
   function runCount(el){
     if(el.dataset.done)return;el.dataset.done=1;
     var target=parseInt(el.dataset.count,10);
@@ -573,7 +562,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     }
     requestAnimationFrame(tick);
   }
-
   var stage=document.getElementById('vacStage'),step2=document.getElementById('step2');
   if(stage&&step2){
     var vio=new IntersectionObserver(function(es){
@@ -584,7 +572,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
     },{threshold:[.15,.45]});
     vio.observe(step2);
   }
-
   document.querySelectorAll('.faq-item').forEach(function(item){
     var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
     q.addEventListener('click',function(){
@@ -600,7 +587,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
       }
     });
   });
-
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click',function(ev){
       var id=a.getAttribute('href').slice(1);
@@ -610,7 +596,6 @@ const DEMO_HTML = `<div class="progress" id="progress"></div>
   });
 })();
 </script>`;
-
 const DEMO_JS = `var prog=document.getElementById('progress'),nav=document.getElementById('nav');
   function onScroll(){
     var h=document.documentElement;
@@ -626,7 +611,6 @@ const DEMO_JS = `var prog=document.getElementById('progress'),nav=document.getEl
   }
   window.addEventListener('scroll',onScroll,{passive:true});
   onScroll();
-
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){
       if(e.isIntersecting){
@@ -638,7 +622,6 @@ const DEMO_JS = `var prog=document.getElementById('progress'),nav=document.getEl
     });
   },{threshold:.25});
   document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
-
   function runCount(el){
     if(el.dataset.done)return;el.dataset.done=1;
     var target=parseInt(el.dataset.count,10);
@@ -655,7 +638,6 @@ const DEMO_JS = `var prog=document.getElementById('progress'),nav=document.getEl
     }
     requestAnimationFrame(tick);
   }
-
   var stage=document.getElementById('vacStage'),step2=document.getElementById('step2');
   if(stage&&step2){
     var vio=new IntersectionObserver(function(es){
@@ -666,7 +648,6 @@ const DEMO_JS = `var prog=document.getElementById('progress'),nav=document.getEl
     },{threshold:[.15,.45]});
     vio.observe(step2);
   }
-
   document.querySelectorAll('.faq-item').forEach(function(item){
     var q=item.querySelector('.faq-q'),a=item.querySelector('.faq-a');
     q.addEventListener('click',function(){
@@ -682,7 +663,6 @@ const DEMO_JS = `var prog=document.getElementById('progress'),nav=document.getEl
       }
     });
   });
-
   document.querySelectorAll('a[href^="#"]').forEach(function(a){
     a.addEventListener('click',function(ev){
       var id=a.getAttribute('href').slice(1);
@@ -690,14 +670,11 @@ const DEMO_JS = `var prog=document.getElementById('progress'),nav=document.getEl
       if(t){ev.preventDefault();t.scrollIntoView({behavior:'smooth'});}
     });
   });`;
-
 export default function ImmersiveHomePage() {
   const containerRef = useRef<HTMLDivElement>(null);
   const styleInjected = useRef(false);
-
   useEffect(() => {
     if (!containerRef.current) return;
-
     if (!styleInjected.current) {
       const styleEl = document.createElement("style");
       styleEl.setAttribute("data-immersive-demo", "true");
@@ -705,16 +682,13 @@ export default function ImmersiveHomePage() {
       document.head.appendChild(styleEl);
       styleInjected.current = true;
     }
-
     containerRef.current.innerHTML = DEMO_HTML;
-
     try {
       const fn = new Function(DEMO_JS);
       fn();
     } catch (e) {
       console.error("Immersive demo JS error:", e);
     }
-
     return () => {
       if (styleInjected.current) {
         const s = document.querySelector('style[data-immersive-demo="true"]');
@@ -723,6 +697,5 @@ export default function ImmersiveHomePage() {
       }
     };
   }, []);
-
   return <div ref={containerRef} />;
 }
