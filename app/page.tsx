@@ -80,7 +80,7 @@ section{position:relative}
   transition:border-color .25s,background .25s;
 }
 .btn-ghost:hover{border-color:var(--green);background:rgba(47,184,107,.08)}
-.hero-trust{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted-dark)}
+.hero-trust{margin-top:34px;display:flex;gap:26px;flex-wrap:wrap;font-size:13.5px;color:var(--muted-light)}
 .hero-trust b{color:var(--ink)}
 .hero-product{
   position:absolute;right:-6vw;top:50%;transform:translateY(-50%);
@@ -120,7 +120,7 @@ section{position:relative}
 .spec{border:1px solid var(--line-light);border-radius:16px;padding:18px 20px;background:#fff;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .spec:hover{transform:translateY(-4px);box-shadow:0 16px 34px rgba(15,81,50,.1)}
 .spec .k{font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--green-deep)}
-.spec .v{font-size:13.5px;color:var(--muted-dark);margin-top:4px;line-height:1.45}
+.spec .v{font-size:13.5px;color:var(--muted-light);margin-top:4px;line-height:1.45}
 .showcase-fig{position:relative;display:flex;justify-content:center}
 .showcase-fig .disc{
   position:absolute;width:88%;aspect-ratio:1;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);
@@ -207,7 +207,7 @@ section{position:relative}
 .fcard .ic svg{width:24px;height:24px;stroke:var(--green-bright);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .fcard .fk{font-size:clamp(28px,3vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1}
 .fcard .ft{font-size:15.5px;font-weight:700;margin-top:12px}
-.fcard .fd{font-size:13.5px;color:var(--muted-dark);margin-top:8px;line-height:1.6}
+.fcard .fd{font-size:13.5px;color:var(--muted-light);margin-top:8px;line-height:1.6}
 .kit{padding:130px 5vw;background:var(--paper)}
 .kit-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:6vw;align-items:center;max-width:1280px;margin:0 auto}
 .kit-fig{position:relative}
