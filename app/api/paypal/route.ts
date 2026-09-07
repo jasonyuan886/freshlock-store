@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { persistOrder, generateOrderNumber, type OrderRecord, type OrderAttribution } from '@/lib/orders';
+import { products } from '@/lib/data';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -113,10 +114,24 @@ async function persistCapturedOrder(
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { items, shippingAddress } = body;
+    const { items: rawItems, shippingAddress } = body;
 
-    if (!items || items.length === 0) {
+    if (!rawItems || rawItems.length === 0) {
       return NextResponse.json({ error: 'Cart is empty' }, { status: 400 });
+    }
+
+    // Never trust client-supplied prices: look up the authoritative price for
+    // each item server-side by slug so a tampered request can't check out at
+    // an arbitrary amount.
+    const priceBySlug = new Map(products.map((p) => [p.slug, p.price]));
+    const items: { name: string; price: number; quantity: number; slug?: string }[] = [];
+    for (const raw of rawItems as { name?: string; quantity: number; slug?: string }[]) {
+      const realPrice = raw.slug ? priceBySlug.get(raw.slug) : undefined;
+      if (realPrice === undefined) {
+        return NextResponse.json({ error: `Unknown product: ${raw.slug || raw.name}` }, { status: 400 });
+      }
+      const quantity = Math.max(1, Math.min(99, Math.floor(Number(raw.quantity) || 1)));
+      items.push({ name: raw.name || raw.slug!, price: realPrice, quantity, slug: raw.slug });
     }
 
     const subtotal = items.reduce(
