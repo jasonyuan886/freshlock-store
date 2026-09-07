@@ -114,7 +114,7 @@ Vacuum-sealed soups and sauces can be reheated directly from frozen:
 2. **Microwave method** — Open the bag, transfer to a microwave-safe bowl, and heat in 1-minute intervals, stirring between each
 3. **Thaw overnight** — Place the bag in the refrigerator overnight, then reheat normally the next day
 
-For more detailed reheating instructions, see our guide on [reheating vacuum sealed food safely](/blog/how-to-reheat-vacuum-sealed-food-safely).
+For more detailed reheating instructions, see our guide on [reheating vacuum sealed food safely](/blog/2026-08-06-how-to-reheat-vacuum-sealed-food-safely).
 
 ---
 

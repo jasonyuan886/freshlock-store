@@ -27,19 +27,19 @@ Before sealing, inspect grains for signs of moisture, mold, or insect activity. 
 
 ### Step 2: Portion for Your Needs
 
-Divide grains into meal-sized or weekly portions (typically 1–2 cups per bag). This prevents repeated opening and re-sealing, which introduces fresh oxygen each time. For more portioning strategies, check our [vacuum sealer portion control guide](/blog/vacuum-sealer-portion-control-and-food-budget-guide).
+Divide grains into meal-sized or weekly portions (typically 1–2 cups per bag). This prevents repeated opening and re-sealing, which introduces fresh oxygen each time. For more portioning strategies, check our [vacuum sealer portion control guide](/blog/2026-08-07-vacuum-sealer-portion-control-and-food-budget-guide).
 
 ### Step 3: Add a Moisture Absorber (Optional but Recommended)
 
-Place a small food-safe silica gel packet inside the bag, separated from the grains by a piece of parchment paper. This absorbs any residual moisture that could cause clumping or mold. This technique is also useful when [vacuum sealing dry goods for pantry storage](/blog/vacuum-sealing-dry-goods-pantry-storage-guide).
+Place a small food-safe silica gel packet inside the bag, separated from the grains by a piece of parchment paper. This absorbs any residual moisture that could cause clumping or mold. This technique is also useful when [vacuum sealing dry goods for pantry storage](/blog/2026-08-05-vacuum-sealing-dry-goods-pantry-storage-guide).
 
 ### Step 4: Vacuum Seal
 
-Place the grains in a vacuum bag, leaving enough headspace for the seal. Run the vacuum cycle. For fine grains like flour or ground oats that might get pulled into the seal area, freeze the bag for 30 minutes before sealing, or use a bag with a liquid/powder barrier strip. See our guide on [vacuum sealing liquids and powders](/blog/vacuum-sealing-liquids-soups-sauces-guide) for more techniques.
+Place the grains in a vacuum bag, leaving enough headspace for the seal. Run the vacuum cycle. For fine grains like flour or ground oats that might get pulled into the seal area, freeze the bag for 30 minutes before sealing, or use a bag with a liquid/powder barrier strip. See our guide on [vacuum sealing liquids and powders](/blog/2026-08-08-vacuum-sealing-liquids-soups-sauces-guide) for more techniques.
 
 ### Step 5: Label and Store
 
-Label each bag with the grain type, portion size, and date. Store in a cool, dark, dry location — a pantry shelf away from heat sources is ideal. For organization tips, see our [vacuum sealed food labeling guide](/blog/how-to-organize-and-label-vacuum-sealed-food).
+Label each bag with the grain type, portion size, and date. Store in a cool, dark, dry location — a pantry shelf away from heat sources is ideal. For organization tips, see our [vacuum sealed food labeling guide](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food).
 
 ---
 
@@ -58,7 +58,7 @@ Label each bag with the grain type, portion size, and date. Store in a cool, dar
 
 ## Can You Vacuum Seal Cooked Rice?
 
-Yes. Cooked rice vacuum seals well for meal prep. Let it cool completely (to prevent condensation), portion into single-serving bags, and seal. Refrigerated vacuum-sealed cooked rice lasts 5–7 days; frozen, it lasts 2–3 months. This makes it perfect for [batch cooking and weekly meal prep](/blog/batch-cooking-vacuum-sealer-weekly-meal-prep). Always reheat to 75°C (165°F) internally — see our guide on [reheating vacuum sealed food safely](/blog/how-to-reheat-vacuum-sealed-food-safely).
+Yes. Cooked rice vacuum seals well for meal prep. Let it cool completely (to prevent condensation), portion into single-serving bags, and seal. Refrigerated vacuum-sealed cooked rice lasts 5–7 days; frozen, it lasts 2–3 months. This makes it perfect for [batch cooking and weekly meal prep](/blog/2026-08-06-batch-cooking-vacuum-sealer-weekly-meal-prep). Always reheat to 75°C (165°F) internally — see our guide on [reheating vacuum sealed food safely](/blog/2026-08-06-how-to-reheat-vacuum-sealed-food-safely).
 
 ---
 
@@ -67,7 +67,7 @@ Yes. Cooked rice vacuum seals well for meal prep. Let it cool completely (to pre
 - **Sealing warm grains:** Heat creates condensation inside the bag, leading to mold. Always cool grains to room temperature before sealing.
 - **Using bags with pinholes:** Grains can puncture thin bags. Choose heavy-duty vacuum bags and check our [preventing vacuum bag punctures guide](/blog/prevent-vacuum-bag-punctures-guide).
 - **Storing in direct sunlight:** UV light degrades both the bag material and the grain quality. Keep sealed bags in a dark pantry.
-- **Skipping portion control:** Sealing large quantities means opening and re-sealing, which shortens shelf life. For more on this and other errors, see our [vacuum sealer common mistakes guide](/blog/vacuum-sealer-common-mistakes-and-how-to-avoid-them).
+- **Skipping portion control:** Sealing large quantities means opening and re-sealing, which shortens shelf life. For more on this and other errors, see our [vacuum sealer common mistakes guide](/blog/2026-08-09-vacuum-sealer-common-mistakes-and-how-to-avoid-them).
 
 ---
 
@@ -79,4 +79,4 @@ A [portable vacuum sealer](/blog/portable-vacuum-sealer-benefits) is ideal for p
 
 ## Summary
 
-Vacuum sealing rice and grains is one of the highest-ROI uses of a vacuum sealer — you can triple or quadruple shelf life with minimal effort. The key steps are portioning, adding moisture control, and storing in a cool dark place. Whether you are building an [emergency food supply](/blog/vacuum-sealing-emergency-food-storage-preparedness-guide) or just keeping your pantry organized, vacuum-sealed grains give you peace of mind and significant savings over time.
+Vacuum sealing rice and grains is one of the highest-ROI uses of a vacuum sealer — you can triple or quadruple shelf life with minimal effort. The key steps are portioning, adding moisture control, and storing in a cool dark place. Whether you are building an [emergency food supply](/blog/2026-08-07-vacuum-sealing-emergency-food-storage-preparedness-guide) or just keeping your pantry organized, vacuum-sealed grains give you peace of mind and significant savings over time.

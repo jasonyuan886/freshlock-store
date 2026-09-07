@@ -39,7 +39,7 @@ Vacuum sealing removes up to 99% of the air from the bag, dramatically slowing a
 
 ### What You'll Need
 
-- A [handheld vacuum sealer](/posts/best-handheld-vacuum-sealer-2026) (like the FreshLock, which offers portable, cordless convenience)
+- A [handheld vacuum sealer](/blog/best-handheld-vacuum-sealer-2026) (like the FreshLock, which offers portable, cordless convenience)
 - Vacuum sealer bags (smooth or textured, depending on your machine)
 - Fully dehydrated foods (cooled to room temperature)
 - Optional: oxygen absorbers for extra protection
@@ -160,6 +160,6 @@ Vacuum sealing your dehydrated foods is the single most impactful upgrade you ca
 
 Whether you're a homesteader preserving your garden harvest, a prepper building a food reserve, or simply someone who wants to reduce food waste and save money, the dehydrator + vacuum sealer combo is worth every penny.
 
-**Ready to get started?** Check out our [complete guide to choosing vacuum sealer bags](/posts/2026-08-08-choosing-vacuum-sealer-bags-complete-guide) and our [handheld vacuum sealer buying guide](/posts/handheld-vacuum-sealer-buying-guide) to find the perfect setup for your kitchen.
+**Ready to get started?** Check out our [complete guide to choosing vacuum sealer bags](/blog/2026-08-08-choosing-vacuum-sealer-bags-complete-guide) and our [handheld vacuum sealer buying guide](/blog/handheld-vacuum-sealer-buying-guide) to find the perfect setup for your kitchen.
 
-*Want more food preservation tips? Read our [guide to vacuum sealing food science](/posts/vacuum-sealing-food-science-explained) and learn [how to vacuum seal spices for maximum freshness](/posts/2026-08-11-vacuum-sealing-spices-and-seasonings-freshness-guide).*
+*Want more food preservation tips? Read our [guide to vacuum sealing food science](/blog/vacuum-sealing-food-science-explained) and learn [how to vacuum seal spices for maximum freshness](/blog/2026-08-11-vacuum-sealing-spices-and-seasonings-freshness-guide).*

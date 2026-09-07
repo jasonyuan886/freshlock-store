@@ -45,7 +45,7 @@ Chocolate should be at a stable temperature between 15–20°C (59–68°F) befo
 
 ### Step 2: Portion Appropriately
 
-Break large bars into serving-sized pieces (2–4 squares per portion). This avoids the need to open and re-seal, which introduces oxygen each time. This portioning principle applies broadly — see our [portion control guide](/blog/vacuum-sealer-portion-control-and-food-budget-guide).
+Break large bars into serving-sized pieces (2–4 squares per portion). This avoids the need to open and re-seal, which introduces oxygen each time. This portioning principle applies broadly — see our [portion control guide](/blog/2026-08-07-vacuum-sealer-portion-control-and-food-budget-guide).
 
 ### Step 3: Use Padded or Double Bags
 
@@ -57,7 +57,7 @@ If your sealer has adjustable suction (like the [FreshLock Pro](/products/freshl
 
 ### Step 5: Label and Store
 
-Label with contents and date. Store vacuum-sealed chocolate in a cool, dark place at 15–20°C (59–68°F). Avoid refrigeration unless your kitchen regularly exceeds 25°C (77°F) — temperature swings cause bloom. For labeling tips, see our [vacuum sealed food organization guide](/blog/how-to-organize-and-label-vacuum-sealed-food).
+Label with contents and date. Store vacuum-sealed chocolate in a cool, dark place at 15–20°C (59–68°F). Avoid refrigeration unless your kitchen regularly exceeds 25°C (77°F) — temperature swings cause bloom. For labeling tips, see our [vacuum sealed food organization guide](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food).
 
 ---
 
@@ -77,22 +77,22 @@ Label with contents and date. Store vacuum-sealed chocolate in a cool, dark plac
 
 ## Vacuum Sealing Chocolate for Gifts and Holidays
 
-Vacuum sealing is ideal for preserving holiday chocolate purchases (Valentine's Day, Easter, Christmas sales) for later enjoyment. Buy in bulk when prices are low, portion and vacuum seal, and enjoy fresh-tasting chocolate months later. This bulk-buying strategy works for many foods — see our [bulk food buying guide](/blog/vacuum-sealer-bulk-food-buying-guide).
+Vacuum sealing is ideal for preserving holiday chocolate purchases (Valentine's Day, Easter, Christmas sales) for later enjoyment. Buy in bulk when prices are low, portion and vacuum seal, and enjoy fresh-tasting chocolate months later. This bulk-buying strategy works for many foods — see our [bulk food buying guide](/blog/2026-08-04-vacuum-sealer-bulk-food-buying-guide).
 
 ---
 
 ## Common Mistakes to Avoid
 
-- **Vacuum sealing at high temperatures:** Warm chocolate will deform under vacuum pressure. Always cool to room temperature first. For more common errors, see our [vacuum sealer mistakes guide](/blog/vacuum-sealer-common-mistakes-and-how-to-avoid-them).
+- **Vacuum sealing at high temperatures:** Warm chocolate will deform under vacuum pressure. Always cool to room temperature first. For more common errors, see our [vacuum sealer mistakes guide](/blog/2026-08-09-vacuum-sealer-common-mistakes-and-how-to-avoid-them).
 - **Refrigerating vacuum-sealed chocolate unnecessarily:** Refrigeration causes condensation when the bag is opened, leading to sugar bloom. Store in a cool pantry instead.
 - **Sealing near strong-smelling foods:** Even inside vacuum bags, strong odors can penetrate thin plastic over time. Store chocolate separately from spices, onions, and garlic.
-- **Using damaged bags:** Even a tiny pinhole compromises the vacuum. Inspect bags before sealing — our [choosing vacuum sealer bags guide](/blog/choosing-vacuum-sealer-bags-complete-guide) covers quality selection.
+- **Using damaged bags:** Even a tiny pinhole compromises the vacuum. Inspect bags before sealing — our [choosing vacuum sealer bags guide](/blog/2026-08-08-choosing-vacuum-sealer-bags-complete-guide) covers quality selection.
 
 ---
 
 ## Can You Vacuum Seal Chocolate for Long-Term Emergency Storage?
 
-Yes. Dark chocolate is a popular component of emergency food supplies because it is calorie-dense and stores well. Vacuum-sealed dark chocolate stored at a consistent 15°C can last 3+ years while retaining most of its flavor. For building a complete emergency pantry, see our [emergency food storage guide](/blog/vacuum-sealing-emergency-food-storage-preparedness-guide).
+Yes. Dark chocolate is a popular component of emergency food supplies because it is calorie-dense and stores well. Vacuum-sealed dark chocolate stored at a consistent 15°C can last 3+ years while retaining most of its flavor. For building a complete emergency pantry, see our [emergency food storage guide](/blog/2026-08-07-vacuum-sealing-emergency-food-storage-preparedness-guide).
 
 ---
 

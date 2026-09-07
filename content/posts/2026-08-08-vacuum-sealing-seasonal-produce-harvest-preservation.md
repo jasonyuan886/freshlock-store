@@ -46,7 +46,7 @@ Blanch sliced zucchini for 3 minutes in boiling water, shock in ice water, drain
 
 ### Berries
 
-[Vacuum sealing berries](/blog/vacuum-sealing-fruits-berries-storage-guide) requires the pre-freeze method. Spread berries in a single layer on a tray, freeze until solid (2–3 hours), then transfer to vacuum bags and seal. This prevents the vacuum pressure from crushing them.
+[Vacuum sealing berries](/blog/2026-08-04-vacuum-sealing-fruits-berries-storage-guide) requires the pre-freeze method. Spread berries in a single layer on a tray, freeze until solid (2–3 hours), then transfer to vacuum bags and seal. This prevents the vacuum pressure from crushing them.
 
 ### Corn
 
@@ -117,7 +117,7 @@ With [reusable vacuum sealer bags](/blog/reusable-vacuum-sealer-bags-guide), the
 4. **Rotate stock** — Use older bags first by keeping them at the front of the freezer
 5. **Keep an inventory** — A simple list on the freezer door helps you track what you have
 
-For a complete system on organizing your freezer, see our guide on [organizing and labeling vacuum sealed food](/blog/how-to-organize-and-label-vacuum-sealed-food).
+For a complete system on organizing your freezer, see our guide on [organizing and labeling vacuum sealed food](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food).
 
 ---
 

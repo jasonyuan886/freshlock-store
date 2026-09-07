@@ -50,7 +50,7 @@ Selecting the correct bag size is essential for both food quality and cost effic
 ### Size Selection Tips
 
 1. **Leave 3 inches of headspace** — You need at least 3 inches (7.5 cm) of empty space above the food for a proper seal
-2. **Match portion to consumption** — [Portion control](/blog/vacuum-sealer-portion-control-and-food-budget-guide) means you only open one bag at a time, keeping the rest fresh
+2. **Match portion to consumption** — [Portion control](/blog/2026-08-07-vacuum-sealer-portion-control-and-food-budget-guide) means you only open one bag at a time, keeping the rest fresh
 3. **Consider bag width** — Wider bags accommodate flat, even layers of food that freeze and store more efficiently
 
 ---
@@ -109,7 +109,7 @@ Reusable bags offer the most dramatic savings. A single reusable bag costing $3�
 
 ### Use Rolls for Custom Sizing
 
-If you frequently seal items of varying sizes, purchasing vacuum sealer rolls and cutting them to length eliminates wasted bag material. This is particularly cost-effective for [bulk food buying](/blog/vacuum-sealer-bulk-food-buying-guide).
+If you frequently seal items of varying sizes, purchasing vacuum sealer rolls and cutting them to length eliminates wasted bag material. This is particularly cost-effective for [bulk food buying](/blog/2026-08-04-vacuum-sealer-bulk-food-buying-guide).
 
 ---
 

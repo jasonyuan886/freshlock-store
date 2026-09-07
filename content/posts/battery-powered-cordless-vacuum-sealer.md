@@ -84,7 +84,7 @@ Here is how the two categories actually compare for home use.
 
 The takeaway: a plug-in handheld offers slightly more raw suction and unlimited runtime, but chains you to an outlet. For the 10–30 seals most households do in a sitting, the battery operated vacuum sealer is more practical. Countertop and chamber sealers win only for high-volume or liquid-heavy workflows — which most home cooks never need.
 
-One caveat on liquids: handhelds pull air through a valve, so sauces and marinades can travel up the hose. A model with a **detachable transparent drip cup** and mechanical drain — like FreshLock's — catches liquid before it reaches the motor. For technique, see our [guide to vacuum sealing liquids, soups, and sauces](/blog/vacuum-sealing-liquids-soups-sauces-guide).
+One caveat on liquids: handhelds pull air through a valve, so sauces and marinades can travel up the hose. A model with a **detachable transparent drip cup** and mechanical drain — like FreshLock's — catches liquid before it reaches the motor. For technique, see our [guide to vacuum sealing liquids, soups, and sauces](/blog/2026-08-08-vacuum-sealing-liquids-soups-sauces-guide).
 
 ---
 
@@ -195,4 +195,4 @@ Most do, with a separate **jar sealer attachment** for standard wide- and regula
 In practice, almost nothing. "Battery operated" generally means an internal **rechargeable lithium-ion battery** charged via USB-C; "rechargeable" describes the same thing. Avoid disposable-battery models (AA/AAA) — they deliver weak suction and become an ongoing cost.
 
 ### Can you vacuum seal liquids and soups with a cordless handheld?
-With care. Handhelds pull air through a valve, so thin liquids can be drawn toward the motor. Use a model with a **detachable drip cup**, freeze liquids upright first, or leave extra headspace and seal at an angle. See our [vacuum sealing liquids guide](/blog/vacuum-sealing-liquids-soups-sauces-guide). Large batches of soup are better handled by a chamber sealer.
+With care. Handhelds pull air through a valve, so thin liquids can be drawn toward the motor. Use a model with a **detachable drip cup**, freeze liquids upright first, or leave extra headspace and seal at an angle. See our [vacuum sealing liquids guide](/blog/2026-08-08-vacuum-sealing-liquids-soups-sauces-guide). Large batches of soup are better handled by a chamber sealer.

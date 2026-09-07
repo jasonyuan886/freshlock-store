@@ -36,7 +36,7 @@ This method works best for avocados that are ripe but not overripe.
 
 1. **Cut and pit the avocado** — Slice in half, remove the pit, and leave the skin on for structural protection.
 2. **Brush with citrus juice** — Lightly coat the exposed flesh with lemon or lime juice. The citric acid lowers pH below 4.5, which inhibits PPO activity.
-3. **Blot excess moisture** — Gently pat with a paper towel. Too much liquid can interfere with the vacuum seal (see our [vacuum sealing liquids guide](/blog/vacuum-sealing-liquids-soups-sauces-guide) for moisture management tips).
+3. **Blot excess moisture** — Gently pat with a paper towel. Too much liquid can interfere with the vacuum seal (see our [vacuum sealing liquids guide](/blog/2026-08-08-vacuum-sealing-liquids-soups-sauces-guide) for moisture management tips).
 4. **Place in vacuum bag** — Put each half face-down (flesh against the bag) to minimize air pockets.
 5. **Seal** — Extract air using your handheld vacuum sealer. The bag should conform tightly around the avocado.
 
@@ -59,7 +59,7 @@ Mashed avocado is versatile for smoothies, toast, and baby food. Vacuum sealing 
 1. **Mash the avocado** — Use a fork to mash to desired consistency.
 2. **Add citrus juice** — Mix in 1 teaspoon of lemon juice per avocado.
 3. **Portion and bag** — Spread the mash flat in a vacuum bag for even sealing. Keep the layer thin (under 2 cm) for best vacuum results.
-4. **Seal and label** — Vacuum seal and write the date on the bag. Follow our [labeling guide](/blog/how-to-organize-and-label-vacuum-sealed-food) for a systematic approach.
+4. **Seal and label** — Vacuum seal and write the date on the bag. Follow our [labeling guide](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food) for a systematic approach.
 
 ---
 
@@ -87,7 +87,7 @@ Guacamole is even more prone to browning because the ingredients are mixed, expo
 
 ## Can You Freeze Vacuum-Sealed Avocados?
 
-Yes — vacuum sealing before freezing is the best way to preserve avocados long-term. Without vacuum sealing, frozen avocados suffer from [freezer burn](/blog/how-to-prevent-freezer-burn-vacuum-sealing) and texture degradation.
+Yes — vacuum sealing before freezing is the best way to preserve avocados long-term. Without vacuum sealing, frozen avocados suffer from [freezer burn](/blog/2026-08-05-how-to-prevent-freezer-burn-vacuum-sealing) and texture degradation.
 
 ### Freezing Tips
 

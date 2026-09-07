@@ -107,7 +107,7 @@ For a complete breakdown of what to vacuum seal, check our [best foods to vacuum
 Vacuum-sealed batch cooking saves money in two ways:
 
 1. **Reduced food waste** — No more throwing away spoiled meal prep. Vacuum-sealed meals last 2–3 times longer.
-2. **Bulk buying** — Buy ingredients in bulk, cook once, and portion into vacuum-sealed servings. Our [bulk food buying guide](/blog/vacuum-sealer-bulk-food-buying-guide) covers this in detail.
+2. **Bulk buying** — Buy ingredients in bulk, cook once, and portion into vacuum-sealed servings. Our [bulk food buying guide](/blog/2026-08-04-vacuum-sealer-bulk-food-buying-guide) covers this in detail.
 
 On average, a household that switches to vacuum-sealed batch cooking can save $50–100 per month on groceries by eliminating waste and taking advantage of bulk pricing.
 

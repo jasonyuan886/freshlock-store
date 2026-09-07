@@ -88,7 +88,7 @@ Vacuum seal each meal individually and grab one per day. Freshness is maintained
 |---|---|---|
 | Leftovers not eaten in time | 35% | Extends fridge life from 3 to 7–10 days |
 | Bulk purchases gone bad | 25% | Portion and freeze immediately |
-| Produce spoiled before use | 20% | [Vacuum seal fresh produce](/blog/vacuum-sealing-fruits-berries-storage-guide) for 2–3x shelf life |
+| Produce spoiled before use | 20% | [Vacuum seal fresh produce](/blog/2026-08-04-vacuum-sealing-fruits-berries-storage-guide) for 2–3x shelf life |
 | Cooked too much | 15% | Portion and freeze extras |
 | Forgotten freezer items | 5% | Clear labeling prevents mystery packages |
 

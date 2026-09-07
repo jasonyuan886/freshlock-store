@@ -153,10 +153,10 @@ Whether you're a weekend jerky maker or producing batches for gifts and events, 
 
 ## Related Reading
 
-- [How to Vacuum Seal Dry Goods for Pantry Storage](/posts/2026-08-05-vacuum-sealing-dry-goods-pantry-storage-guide) — Store your jerky spices and seasonings
-- [Vacuum Sealing Food Science Explained](/posts/2026-08-08-vacuum-sealing-food-science-explained) — Understanding oxygen and moisture dynamics
-- [Complete Vacuum Sealing Food Guide](/posts/complete-vacuum-sealing-food-guide) — Overview of all vacuum sealing applications
-- [How Long Does Vacuum Sealed Food Last?](/posts/how-long-does-vacuum-sealed-food-last) — Shelf life reference for all food types
+- [How to Vacuum Seal Dry Goods for Pantry Storage](/blog/2026-08-05-vacuum-sealing-dry-goods-pantry-storage-guide) — Store your jerky spices and seasonings
+- [Vacuum Sealing Food Science Explained](/blog/vacuum-sealing-food-science-explained) — Understanding oxygen and moisture dynamics
+- [Complete Vacuum Sealing Food Guide](/blog/complete-vacuum-sealing-food-guide) — Overview of all vacuum sealing applications
+- [How Long Does Vacuum Sealed Food Last?](/blog/how-long-does-vacuum-sealed-food-last) — Shelf life reference for all food types
 
 ---
 

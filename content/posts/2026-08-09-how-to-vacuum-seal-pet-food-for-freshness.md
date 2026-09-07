@@ -43,7 +43,7 @@ Many pet owners are shifting to homemade diets. These meals, like human [meal pr
 | Measuring cup | For consistent portioning |
 | Labels and marker | Track contents and dates |
 
-For bag selection guidance, see our [complete vacuum bag guide](/blog/choosing-vacuum-sealer-bags-complete-guide). Reusable bags are particularly cost-effective for pet food since you will be resealing frequently.
+For bag selection guidance, see our [complete vacuum bag guide](/blog/2026-08-08-choosing-vacuum-sealer-bags-complete-guide). Reusable bags are particularly cost-effective for pet food since you will be resealing frequently.
 
 ---
 
@@ -55,7 +55,7 @@ For bag selection guidance, see our [complete vacuum bag guide](/blog/choosing-v
 2. **Fill bags to 60% capacity** — Leave headspace for proper sealing. Do not overfill.
 3. **Add a desiccant packet** (optional) — A food-safe silica gel packet absorbs residual moisture inside the bag, further extending freshness.
 4. **Vacuum seal** — Use your [handheld vacuum sealer](/blog/how-to-use-handheld-vacuum-sealer) to extract all air.
-5. **Label** — Write the food type, portion size, and date on each bag. Use our [labeling system](/blog/how-to-organize-and-label-vacuum-sealed-food) for organized storage.
+5. **Label** — Write the food type, portion size, and date on each bag. Use our [labeling system](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food) for organized storage.
 
 ### Kibble Storage Timeline
 
@@ -70,7 +70,7 @@ For bag selection guidance, see our [complete vacuum bag guide](/blog/choosing-v
 
 ## Method 2: Vacuum Sealing Wet Pet Food
 
-Wet food requires extra care because of its high moisture content. Follow the same principles as [vacuum sealing liquids and sauces](/blog/vacuum-sealing-liquids-soups-sauces-guide).
+Wet food requires extra care because of its high moisture content. Follow the same principles as [vacuum sealing liquids and sauces](/blog/2026-08-08-vacuum-sealing-liquids-soups-sauces-guide).
 
 ### Step-by-Step
 
@@ -119,7 +119,7 @@ If you prepare homemade pet meals, vacuum sealing is essential for batch cooking
 ### Workflow
 
 1. **Cook a week's worth** — Prepare a large batch of your pet's recipe.
-2. **Cool completely** — Follow the same cooling rule as human [meal prep](/blog/batch-cooking-vacuum-sealer-weekly-meal-prep): wait until food reaches room temperature.
+2. **Cool completely** — Follow the same cooling rule as human [meal prep](/blog/2026-08-06-batch-cooking-vacuum-sealer-weekly-meal-prep): wait until food reaches room temperature.
 3. **Portion into daily meals** — One bag per day keeps feeding simple.
 4. **Vacuum seal and label** — Include the recipe name and date.
 5. **Store in fridge** — Use within 7–10 days. Freeze extras for up to 3 months.
@@ -168,4 +168,4 @@ Yes — use [reusable vacuum sealer bags](/blog/reusable-vacuum-sealer-bags-guid
 
 Vacuum sealing pet food is one of the most practical, high-ROI applications of a handheld vacuum sealer. It saves money on bulk purchases, eliminates food waste, and ensures your pet always eats fresh, nutritious meals. With proper portioning and labeling, you can transform a chaotic feeding routine into an organized, cost-effective system.
 
-Get started with the [FreshLock handheld vacuum sealer](/products/freshlock-pro) — and check out our [essential accessories guide](/blog/vacuum-sealer-accessories-essential-guide) for everything you need to build the perfect pet food storage system.
+Get started with the [FreshLock handheld vacuum sealer](/products/freshlock-pro) — and check out our [essential accessories guide](/blog/2026-08-06-vacuum-sealer-accessories-essential-guide) for everything you need to build the perfect pet food storage system.

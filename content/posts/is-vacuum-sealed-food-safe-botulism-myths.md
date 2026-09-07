@@ -111,4 +111,4 @@ Vacuum sealing is safe when you follow basic food safety principles: keep cold t
 
 The botulism risk is real but narrowly defined: vacuum-sealed low-acid food stored warm. If you are sealing meat for the freezer, cheese for the fridge, or spices for the pantry — 90% of home use — there is no safety concern. Vacuum sealing is one of the safest and most effective food preservation methods available.
 
-*Want to know more about specific foods? Check out our guides on [vacuum sealing cheese and deli meats](/blog/vacuum-sealing-cheese-deli-meats), [vacuum sealing fish and seafood](/blog/vacuum-sealing-fish-seafood), and [how long vacuum-sealed food lasts](/blog/vacuum-sealed-food-shelf-life-chart-2026).*
+*Want to know more about specific foods? Check out our guides on vacuum sealing cheese and deli meats, vacuum sealing fish and seafood, and how long vacuum-sealed food lasts.*
