@@ -105,7 +105,7 @@ A vacuum sealer is not just for hunters and meal preppers. For a single person, 
 
 Get a handheld. Keep it in the drawer. Use it on grocery day. That is the whole routine.
 
-*New to vacuum sealing? Check out our [beginner's guide to using a handheld vacuum sealer](/blog/how-to-use-handheld-vacuum-sealer) or our [complete buying guide](/blog/handheld-vacuum-sealer-buying-guide-2026) for more on choosing the right tool.*
+*New to vacuum sealing? Check out our [beginner's guide to using a handheld vacuum sealer](/blog/how-to-use-handheld-vacuum-sealer) or our complete buying guide for more on choosing the right tool.*
 
 ---
 

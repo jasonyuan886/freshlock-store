@@ -17,7 +17,7 @@ Protein-rich foods like chicken breast, lean beef, fish, and eggs are perishable
 
 1. **Extended shelf life:** Vacuum-sealed chicken lasts 2–3 weeks in the fridge vs. 2–3 days in regular packaging. See our [complete food shelf life guide](/blog/how-long-does-vacuum-sealed-food-last) for full details.
 2. **Portion precision:** Pre-portion protein into exact macro counts, seal individually, and grab what you need.
-3. **Freezer burn prevention:** Frozen chicken and fish are especially vulnerable to freezer burn. Vacuum sealing eliminates this. Learn more in our [freezer burn prevention guide](/blog/how-to-prevent-freezer-burn-vacuum-sealing).
+3. **Freezer burn prevention:** Frozen chicken and fish are especially vulnerable to freezer burn. Vacuum sealing eliminates this. Learn more in our [freezer burn prevention guide](/blog/2026-08-05-how-to-prevent-freezer-burn-vacuum-sealing).
 
 ---
 
@@ -67,7 +67,7 @@ Move frozen portions to the fridge the night before. Reheat using sous vide for 
 
 ## Portion Control and Macro Tracking
 
-Vacuum sealing makes portion control visual and tactile. Once you weigh and seal a portion, it stays exactly that size — no snacking creep. Use our [portion control guide](/blog/vacuum-sealer-portion-control-and-food-budget-guide) for a complete system.
+Vacuum sealing makes portion control visual and tactile. Once you weigh and seal a portion, it stays exactly that size — no snacking creep. Use our [portion control guide](/blog/2026-08-07-vacuum-sealer-portion-control-and-food-budget-guide) for a complete system.
 
 ### Quick Macro Reference (per 200g portion)
 

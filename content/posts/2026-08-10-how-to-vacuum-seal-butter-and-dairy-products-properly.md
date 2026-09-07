@@ -48,7 +48,7 @@ Butter is one of the easiest dairy products to vacuum seal successfully.
 2. **Portion:** Cut a block into sticks or tablespoons-sized pieces for easy use.
 3. **Wrap in parchment:** Place each portion in parchment paper to prevent the butter from sticking to the vacuum bag.
 4. **Vacuum seal:** Place parchment-wrapped portions in a vacuum bag and seal.
-5. **Label and store:** Fridge or freezer. See our [food labeling guide](/blog/how-to-organize-and-label-vacuum-sealed-food).
+5. **Label and store:** Fridge or freezer. See our [food labeling guide](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food).
 
 ---
 
@@ -82,7 +82,7 @@ Liquid and semi-liquid dairy products require special handling:
 - **Freezer tip:** Freeze yogurt in silicone molds first, then vacuum seal the frozen cubes.
 
 ### Heavy Cream and Milk
-- Do NOT vacuum seal liquids directly in bags — they will be sucked into the sealer. See our [liquids vacuum sealing guide](/blog/vacuum-sealing-liquids-soups-sauces-guide).
+- Do NOT vacuum seal liquids directly in bags — they will be sucked into the sealer. See our [liquids vacuum sealing guide](/blog/2026-08-08-vacuum-sealing-liquids-soups-sauces-guide).
 - **Freeze first:** Pour cream into ice cube trays, freeze, then vacuum seal the frozen cubes. This is perfect for recipe-sized portions.
 
 ---
@@ -117,7 +117,7 @@ Dairy is expensive, and waste is common. Vacuum sealing can save a typical house
 - **Cheese blocks vs. pre-shredded:** Buy blocks, shred, vacuum seal in portions. Saves 40% and avoids anti-caking additives.
 - **Reduced waste:** No more tossing moldy cheese or rancid butter.
 
-For more savings strategies, see our [food budget guide](/blog/vacuum-sealer-portion-control-and-food-budget-guide).
+For more savings strategies, see our [food budget guide](/blog/2026-08-07-vacuum-sealer-portion-control-and-food-budget-guide).
 
 ---
 

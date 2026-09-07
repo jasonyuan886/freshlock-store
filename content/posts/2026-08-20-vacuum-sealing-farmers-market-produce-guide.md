@@ -114,10 +114,10 @@ Whether you're a weekly farmers market regular or a once-a-season bulk buyer, va
 
 ## Related Reading
 
-- [How to Vacuum Seal Fresh Herbs Guide](/posts/2026-08-04-vacuum-sealing-fresh-herbs-guide) — Deep dive into herb preservation
-- [Complete Guide to Vacuum Sealing Fruits and Berries](/posts/2026-08-04-vacuum-sealing-fruits-berries-storage-guide) — Berry-specific techniques
-- [How to Prevent Freezer Burn with Vacuum Sealing](/posts/2026-08-05-how-to-prevent-freezer-burn-vacuum-sealing) — Essential freezer storage knowledge
-- [Vacuum Sealing Seasonal Produce and Harvest Preservation](/posts/2026-08-08-vacuum-sealing-seasonal-produce-harvest-preservation) — Advanced seasonal strategies
+- [How to Vacuum Seal Fresh Herbs Guide](/blog/2026-08-04-vacuum-sealing-fresh-herbs-guide) — Deep dive into herb preservation
+- [Complete Guide to Vacuum Sealing Fruits and Berries](/blog/2026-08-04-vacuum-sealing-fruits-berries-storage-guide) — Berry-specific techniques
+- [How to Prevent Freezer Burn with Vacuum Sealing](/blog/2026-08-05-how-to-prevent-freezer-burn-vacuum-sealing) — Essential freezer storage knowledge
+- [Vacuum Sealing Seasonal Produce and Harvest Preservation](/blog/2026-08-08-vacuum-sealing-seasonal-produce-harvest-preservation) — Advanced seasonal strategies
 
 ---
 

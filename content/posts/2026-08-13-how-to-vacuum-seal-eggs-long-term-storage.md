@@ -42,7 +42,7 @@ Instead, you have two options for long-term egg storage:
 
 ### Why Pre-Freeze?
 
-Raw eggs are liquid, and vacuum sealers struggle with liquids — the machine may suck the liquid into the motor. Pre-freezing solves this problem completely. For more tips on handling liquids, see our [guide to vacuum sealing soups and sauces](/blog/vacuum-sealing-liquids-soups-sauces-guide).
+Raw eggs are liquid, and vacuum sealers struggle with liquids — the machine may suck the liquid into the motor. Pre-freezing solves this problem completely. For more tips on handling liquids, see our [guide to vacuum sealing soups and sauces](/blog/2026-08-08-vacuum-sealing-liquids-soups-sauces-guide).
 
 ---
 
@@ -97,7 +97,7 @@ A [handheld vacuum sealer](/blog/best-handheld-vacuum-sealer-2026) handles all t
 - **Do not refreeze** thawed eggs — plan your portions accordingly
 - If a vacuum bag loses its seal or shows ice crystals inside, the seal has failed — use the eggs immediately or discard
 
-For more vacuum sealing safety tips, see our [common mistakes guide](/blog/vacuum-sealer-common-mistakes-and-how-to-avoid-them).
+For more vacuum sealing safety tips, see our [common mistakes guide](/blog/2026-08-09-vacuum-sealer-common-mistakes-and-how-to-avoid-them).
 
 ---
 

@@ -63,7 +63,7 @@ Vacuum sealing meat and poultry is one of the most effective ways to extend its 
 
 **Shelf life summary:** Vacuum-sealed meat lasts **1–2 weeks in the refrigerator** and **2–3 years in the freezer**, compared to 3–4 days refrigerated or 6–12 months frozen with standard storage.
 
-For step-by-step instructions, see our guide: [How to Vacuum Seal Chicken Breast](/guide/how-to-vacuum-seal-chicken-breast)
+For step-by-step instructions, see our guide: How to Vacuum Seal Chicken Breast
 
 ### Fish & Seafood
 
@@ -176,7 +176,7 @@ When you vacuum seal food for the freezer:
 3. **No oxygen means no oxidation**, preserving color, flavor, and texture
 4. **Moisture stays locked in the food**, preventing the surface dehydration that causes freezer burn
 
-For a deeper dive, see our guide: [How to Stop Freezer Burn on Meat](/guide/how-to-stop-freezer-burn-on-meat)
+For a deeper dive, see our guide: How to Stop Freezer Burn on Meat
 
 ### Other Ways to Prevent Food Waste
 
@@ -329,16 +329,16 @@ Explore the [FreshLock Pro vacuum sealer](https://www.freshlocksealer.com/produc
 
 This pillar page is your gateway to our complete vacuum sealing resource library. For in-depth, food-specific guides, check out:
 
-- [How to Vacuum Seal Chicken Breast](/guide/how-to-vacuum-seal-chicken-breast)
-- [How Long Does Vacuum Sealed Chicken Last?](/guide/how-long-does-vacuum-sealed-chicken-last)
-- [How to Stop Freezer Burn on Meat](/guide/how-to-stop-freezer-burn-on-meat)
-- [Vacuum Sealing Fish and Seafood Guide](/guide/vacuum-sealing-fish-seafood-guide)
-- [Vacuum Sealing Vegetables: Complete Guide](/guide/vacuum-sealing-vegetables-complete-guide)
-- [Vacuum Sealing Fruit: Tips and Shelf Life](/guide/vacuum-sealing-fruit-tips-shelf-life)
-- [How to Vacuum Seal Soup and Liquids](/guide/how-to-vacuum-seal-soup-liquids)
-- [Vacuum Sealing Dry Goods: Nuts, Rice, Coffee](/guide/vacuum-sealing-dry-goods-guide)
-- [Vacuum Sealing Cheese and Dairy](/guide/vacuum-sealing-cheese-dairy-guide)
-- [Best Practices for Reusing Vacuum Sealer Bags](/guide/reusing-vacuum-sealer-bags-best-practices)
+- How to Vacuum Seal Chicken Breast
+- How Long Does Vacuum Sealed Chicken Last?
+- How to Stop Freezer Burn on Meat
+- Vacuum Sealing Fish and Seafood Guide
+- Vacuum Sealing Vegetables: Complete Guide
+- Vacuum Sealing Fruit: Tips and Shelf Life
+- How to Vacuum Seal Soup and Liquids
+- Vacuum Sealing Dry Goods: Nuts, Rice, Coffee
+- Vacuum Sealing Cheese and Dairy
+- Best Practices for Reusing Vacuum Sealer Bags
 
 ---
 

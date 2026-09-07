@@ -60,7 +60,7 @@ Unlike bulky countertop vacuum sealers, handheld models are perfect for dorm lif
 - **Quiet:** Won't disturb roommates at 11 PM
 - **Easy to clean:** Wipe-down surface, no crevices
 
-The [FreshLock handheld vacuum sealer](/posts/freshlock-vacuum-sealer-review) is specifically designed for this kind of compact, cordless use — it works with both regular and reusable vacuum bags.
+The [FreshLock handheld vacuum sealer](/blog/freshlock-vacuum-sealer-review) is specifically designed for this kind of compact, cordless use — it works with both regular and reusable vacuum bags.
 
 ## 5 Meal Prep Strategies for Students with a Vacuum Sealer
 
@@ -94,7 +94,7 @@ Buy meat in bulk (it's cheaper per pound), then:
 2. Season or marinate before sealing for extra flavor
 3. Freeze flat — vacuum-sealed bags stack like books
 
-**Pro tip:** [Marinating meat in a vacuum bag](/posts/vacuum-sealer-for-marinating-meat-faster) takes 30 minutes instead of overnight. You can go from frozen-to-marinated-to-cooked the same day.
+**Pro tip:** [Marinating meat in a vacuum bag](/blog/vacuum-sealer-for-marinating-meat-faster) takes 30 minutes instead of overnight. You can go from frozen-to-marinated-to-cooked the same day.
 
 ### Strategy 4: Snack Packs
 
@@ -112,7 +112,7 @@ Seal each portion individually. Grab one on your way out the door.
 Make large batches of sauces, broths, or soup bases:
 
 1. Cool completely
-2. Pour into vacuum bags (freeze flat first to prevent liquid from being sucked into the sealer — see our [guide to vacuum sealing liquids](/posts/vacuum-seal-liquids))
+2. Pour into vacuum bags (freeze flat first to prevent liquid from being sucked into the sealer — see our [guide to vacuum sealing liquids](/blog/vacuum-seal-liquids))
 3. Stack frozen bags vertically in your mini-fridge freezer
 
 When you need a meal, thaw one bag, heat, add fresh ingredients. Done.
@@ -162,7 +162,7 @@ All of these work perfectly with vacuum-sealed meals.
 - Follow the 2-hour rule: don't leave perishable food at room temperature for more than 2 hours
 - When reheating, ensure internal temperature reaches 165°F (74°C)
 - Never re-seal a bag that's been opened and partially consumed — use a new bag
-- Check out our [complete food safety guide](/posts/is-vacuum-sealed-food-safe-botulism-myths) for more details
+- Check out our [complete food safety guide](/blog/is-vacuum-sealed-food-safe-botulism-myths) for more details
 
 ## The Best Foods for Student Vacuum Sealing
 
@@ -207,6 +207,6 @@ A vacuum sealer isn't just a kitchen gadget — it's a **money-saving system** t
 
 At under $80 with reusable bags, the investment pays for itself within the first month. You'll waste less food, eat more intentionally, and have meals ready when hunger hits — instead of defaulting to expensive takeout.
 
-**Ready to start?** Check out our [beginner's guide to using a handheld vacuum sealer](/posts/how-to-use-handheld-vacuum-sealer) and our [complete meal prep guide](/posts/vacuum-sealer-meal-prep-guide) to build your system.
+**Ready to start?** Check out our [beginner's guide to using a handheld vacuum sealer](/blog/how-to-use-handheld-vacuum-sealer) and our [complete meal prep guide](/blog/vacuum-sealer-meal-prep-guide) to build your system.
 
-*Need more tips? Read about [vacuum sealing for small kitchens](/posts/2026-08-15-vacuum-sealer-for-small-kitchens-apartments-guide) and [how to reheat vacuum-sealed food safely](/posts/2026-08-06-how-to-reheat-vacuum-sealed-food-safely).*
+*Need more tips? Read about [vacuum sealing for small kitchens](/blog/2026-08-15-vacuum-sealer-for-small-kitchens-apartments-guide) and [how to reheat vacuum-sealed food safely](/blog/2026-08-06-how-to-reheat-vacuum-sealed-food-safely).*

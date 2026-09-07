@@ -80,7 +80,7 @@ Cook your 5 meals in sequence. Here is a sample Sunday cooking schedule:
 | Thursday | Stir-fry | Wok or skillet, high heat | 8 min |
 | Friday | Casserole | Oven at 375°F | 20 min |
 
-For reheating safety tips, see our [guide to reheating vacuum sealed food](/blog/how-to-reheat-vacuum-sealed-food-safely).
+For reheating safety tips, see our [guide to reheating vacuum sealed food](/blog/2026-08-06-how-to-reheat-vacuum-sealed-food-safely).
 
 ---
 
@@ -138,4 +138,4 @@ A weekly vacuum sealing meal prep system takes 4–5 hours of Sunday effort and 
 
 Start with the sample menu above, adjust to your family's preferences, and within two weeks you will have a system that runs on autopilot.
 
-For more meal prep inspiration, explore our [beginner's meal prep guide](/blog/vacuum-sealer-for-meal-prep-beginners-guide) and our [batch cooking guide](/blog/batch-cooking-vacuum-sealer-weekly-meal-prep).
+For more meal prep inspiration, explore our [beginner's meal prep guide](/blog/vacuum-sealer-for-meal-prep-beginners-guide) and our [batch cooking guide](/blog/2026-08-06-batch-cooking-vacuum-sealer-weekly-meal-prep).

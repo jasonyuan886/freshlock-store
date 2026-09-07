@@ -111,7 +111,7 @@ The table below compares the most popular vacuum sealer brands across the factor
 
 **Anova** — The premium countertop pick. Anova's vacuum sealers feature app connectivity, precise vacuum control, and a 2-year warranty. At $150–$200, they're aimed at serious home cooks and sous-vide enthusiasts who need precision and power. The thermal seal system and plug-in design mean they're not portable.
 
-For a deeper dive, see our head-to-head comparison: [FreshLock vs. FoodSaver →](/compare/freshlock-vs-foodsaver)
+For a deeper dive, see our head-to-head comparison: FreshLock vs. FoodSaver →
 
 ---
 
@@ -148,7 +148,7 @@ All FreshLock bags are designed for **multiple uses**—simply wash with warm so
 - **USB-C cable**: The FreshLock Pro includes a USB-C charging cable. Any standard USB-C cable works as a replacement.
 - **Marinating canister** (if available): Vacuum-marinating infuses flavor in minutes instead of hours. Check the [accessories page](https://www.freshlocksealer.com/collections/accessories) for compatible options.
 
-For a complete guide to choosing vacuum sealer bags, see: [Best Vacuum Sealer Bags →](/compare/best-vacuum-sealer-bags)
+For a complete guide to choosing vacuum sealer bags, see: Best Vacuum Sealer Bags →
 
 ---
 
@@ -306,8 +306,8 @@ You get commercial-grade suction in a pocket-sized device, reusable bags that sa
 
 ### Related Guides
 
-- [FreshLock vs. FoodSaver: Head-to-Head Comparison →](/compare/freshlock-vs-foodsaver)
-- [Best Vacuum Sealer Bags: Complete Guide →](/compare/best-vacuum-sealer-bags)
+- FreshLock vs. FoodSaver: Head-to-Head Comparison →
+- Best Vacuum Sealer Bags: Complete Guide →
 
 ---
 

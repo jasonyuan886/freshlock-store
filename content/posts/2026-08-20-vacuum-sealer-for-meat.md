@@ -271,7 +271,7 @@ Plastic wrap is fine for same-day or next-day use. Glass containers are great fo
 
 ---
 
-*Want to learn more? Read our guide on [how to vacuum seal bread without crushing it](/blog/vacuum-seal-bread) or discover [why vacuum sealing is essential for sous vide cooking](/blog/sous-vide-and-vacuum-sealing).*
+*Want to learn more? Read our guide on [how to vacuum seal bread without crushing it](/blog/2026-08-20-vacuum-seal-bread) or discover [why vacuum sealing is essential for sous vide cooking](/blog/2026-08-20-sous-vide-and-vacuum-sealing).*
 
 ---
 

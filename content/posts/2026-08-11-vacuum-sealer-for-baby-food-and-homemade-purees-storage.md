@@ -19,7 +19,7 @@ Key benefits for baby food:
 - **Nutrient preservation:** Vitamin C and B vitamins degrade rapidly in the presence of oxygen. Vacuum sealing slows this loss significantly.
 - **Flavor and color retention:** Purees stay vibrant instead of browning.
 - **Extended shelf life:** Refrigerated vacuum-sealed purees last 5–7 days vs. 1–3 days standard. Frozen vacuum-sealed purees last 3–4 months vs. 1–2 months.
-- **Batch efficiency:** Make a month's supply in one cooking session — perfect for [batch cooking with a vacuum sealer](/blog/batch-cooking-vacuum-sealer-weekly-meal-prep).
+- **Batch efficiency:** Make a month's supply in one cooking session — perfect for [batch cooking with a vacuum sealer](/blog/2026-08-06-batch-cooking-vacuum-sealer-weekly-meal-prep).
 
 ---
 
@@ -31,7 +31,7 @@ Steam or roast vegetables and fruits until very soft, then blend to the desired 
 
 ### Step 2: Portion into Serving Sizes
 
-Portion purees into single-serving quantities (typically 2–4 tablespoons for early eaters, increasing with age). You can use ice cube trays to freeze individual portions first, then transfer frozen cubes to vacuum bags for sealing. This method is covered in more detail in our [vacuum sealing liquids and soups guide](/blog/vacuum-sealing-liquids-soups-sauces-guide).
+Portion purees into single-serving quantities (typically 2–4 tablespoons for early eaters, increasing with age). You can use ice cube trays to freeze individual portions first, then transfer frozen cubes to vacuum bags for sealing. This method is covered in more detail in our [vacuum sealing liquids and soups guide](/blog/2026-08-08-vacuum-sealing-liquids-soups-sauces-guide).
 
 ### Step 3: Pre-Freeze (Critical for Liquids)
 
@@ -46,11 +46,11 @@ This prevents liquid from being pulled into the seal area and ensures a clean, t
 
 ### Step 4: Label with Contents and Date
 
-Label each bag with the puree type, date made, and portion size. For a complete labeling system, see our [vacuum sealed food organization guide](/blog/how-to-organize-and-label-vacuum-sealed-food).
+Label each bag with the puree type, date made, and portion size. For a complete labeling system, see our [vacuum sealed food organization guide](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food).
 
 ### Step 5: Store
 
-Store frozen purees at -18°C (0°F) or below. Organize by date with oldest in front — our [freezer organization tips](/blog/vacuum-sealer-freezer-organization-tips) will help you maximize space.
+Store frozen purees at -18°C (0°F) or below. Organize by date with oldest in front — our [freezer organization tips](/blog/2026-08-04-vacuum-sealer-freezer-organization-tips) will help you maximize space.
 
 ---
 
@@ -68,7 +68,7 @@ Store frozen purees at -18°C (0°F) or below. Organize by date with oldest in f
 
 ## Safe Reheating of Vacuum-Sealed Baby Food
 
-Always reheat baby food until steaming hot (75°C / 165°F), then let it cool to a safe serving temperature. Never serve partially reheated purees to babies. For detailed reheating protocols, see our guide on [reheating vacuum sealed food safely](/blog/how-to-reheat-vacuum-sealed-food-safely).
+Always reheat baby food until steaming hot (75°C / 165°F), then let it cool to a safe serving temperature. Never serve partially reheated purees to babies. For detailed reheating protocols, see our guide on [reheating vacuum sealed food safely](/blog/2026-08-06-how-to-reheat-vacuum-sealed-food-safely).
 
 Methods:
 - **Stovetop:** Place frozen cubes in a small saucepan over low heat, stirring constantly.
@@ -79,7 +79,7 @@ Methods:
 
 ## Common Mistakes to Avoid
 
-- **Sealing warm puree:** Always cool to room temperature first. Warm food creates condensation that leads to mold and weak seals. See more in our [vacuum sealer mistakes guide](/blog/vacuum-sealer-common-mistakes-and-how-to-avoid-them).
+- **Sealing warm puree:** Always cool to room temperature first. Warm food creates condensation that leads to mold and weak seals. See more in our [vacuum sealer mistakes guide](/blog/2026-08-09-vacuum-sealer-common-mistakes-and-how-to-avoid-them).
 - **Skipping the pre-freeze step:** Liquid purees will be sucked into the vacuum channel, ruining the seal and wasting food. Always pre-freeze.
 - **Reusing bags for meat purees:** Meat-based purees can contaminate bags. Use fresh bags or follow our [reusable vacuum bag safety guide](/blog/reusable-vacuum-sealer-bags-guide).
 - **Storing too long:** Even vacuum-sealed baby food has limits. When in doubt, throw it out. Check our [how long vacuum sealed food lasts guide](/blog/how-long-does-vacuum-sealed-food-last) for reference.

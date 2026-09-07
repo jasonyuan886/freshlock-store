@@ -259,4 +259,4 @@ Skip the vacuum sealing and you're not really doing sous vide — you're just co
 
 ---
 
-*Explore more: learn [how to vacuum seal bread without crushing it](/blog/vacuum-seal-bread) for meal prep, or compare [the best meat storage methods](/blog/vacuum-sealer-for-meat) to keep your proteins fresh longer.*
+*Explore more: learn [how to vacuum seal bread without crushing it](/blog/2026-08-20-vacuum-seal-bread) for meal prep, or compare [the best meat storage methods](/blog/2026-08-20-vacuum-sealer-for-meat) to keep your proteins fresh longer.*

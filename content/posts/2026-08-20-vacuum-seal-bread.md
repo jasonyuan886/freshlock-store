@@ -197,7 +197,7 @@ Whether you're a home baker batch-cooking sourdough, a family buying in bulk, or
 
 ---
 
-*Did you find this guide helpful? Share it with a fellow bread lover, and check out our other guides on [best meat storage methods](/blog/vacuum-sealer-for-meat) and [sous vide vacuum sealing essentials](/blog/sous-vide-and-vacuum-sealing).*
+*Did you find this guide helpful? Share it with a fellow bread lover, and check out our other guides on [best meat storage methods](/blog/2026-08-20-vacuum-sealer-for-meat) and [sous vide vacuum sealing essentials](/blog/2026-08-20-sous-vide-and-vacuum-sealing).*
 
 ---
 

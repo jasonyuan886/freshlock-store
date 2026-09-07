@@ -42,7 +42,7 @@ This is the most reliable technique for soft, wet foods.
 | Grapes | 3 hours | Skin intact, no bursting |
 | Peach slices | 3 hours | Firm slices, no collapse |
 
-For more on preserving fruits, see our [fruits and berries storage guide](/blog/vacuum-sealing-fruits-berries-storage-guide).
+For more on preserving fruits, see our [fruits and berries storage guide](/blog/2026-08-04-vacuum-sealing-fruits-berries-storage-guide).
 
 ---
 
@@ -96,7 +96,7 @@ This removes approximately 70–80% of the air instead of 95%, but it preserves 
 - **Delicate herbs** — Full vacuum can bruise tender leaves; partial vacuum protects them
 - **Sponge cake** — Full vacuum collapses the air pockets; partial vacuum preserves the crumb
 
-For herbs specifically, see our [fresh herbs vacuum sealing guide](/blog/vacuum-sealing-fresh-herbs-guide) for specialized techniques.
+For herbs specifically, see our [fresh herbs vacuum sealing guide](/blog/2026-08-04-vacuum-sealing-fresh-herbs-guide) for specialized techniques.
 
 ---
 
@@ -144,7 +144,7 @@ If your sealer is having trouble creating a vacuum at all, check our [troublesho
 
 ## Money-Saving Tip: Buy Soft Foods on Sale
 
-Delicate foods like berries and soft cheese go on sale frequently when they are approaching their sell-by date. With vacuum sealing techniques that prevent crushing, you can buy sale-priced berries at 50–70% off, freeze them individually, vacuum seal, and enjoy them for months. This approach is especially powerful for [portion control and budget management](/blog/vacuum-sealer-portion-control-and-food-budget-guide).
+Delicate foods like berries and soft cheese go on sale frequently when they are approaching their sell-by date. With vacuum sealing techniques that prevent crushing, you can buy sale-priced berries at 50–70% off, freeze them individually, vacuum seal, and enjoy them for months. This approach is especially powerful for [portion control and budget management](/blog/2026-08-07-vacuum-sealer-portion-control-and-food-budget-guide).
 
 ---
 

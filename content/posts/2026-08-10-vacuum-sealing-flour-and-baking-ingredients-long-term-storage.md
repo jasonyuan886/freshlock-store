@@ -19,7 +19,7 @@ Baking ingredients face three main threats in storage:
 2. **Moisture:** Sugar clumps, flour cakes, and yeast loses potency when humidity creeps in.
 3. **Pests:** Pantry moths and weevils can chew through paper and plastic bags but cannot survive in a vacuum-sealed environment.
 
-Vacuum sealing addresses all three by removing air, creating a moisture barrier, and eliminating pest access. For more on dry goods storage, see our [pantry storage guide](/blog/vacuum-sealing-dry-goods-pantry-storage-guide).
+Vacuum sealing addresses all three by removing air, creating a moisture barrier, and eliminating pest access. For more on dry goods storage, see our [pantry storage guide](/blog/2026-08-05-vacuum-sealing-dry-goods-pantry-storage-guide).
 
 ---
 
@@ -41,7 +41,7 @@ Whole wheat and nut flours contain more oils, making them especially prone to ra
 1. **Sift first:** Remove any lumps or debris. This also aerates the flour for better sealing.
 2. **Portion:** Divide into recipe-sized portions (250g, 500g, 1kg) to avoid repeated opening.
 3. **Use a barrier:** Place flour in a ziplock bag first, then vacuum seal the bag inside a vacuum bag. This prevents fine flour particles from being sucked into the sealer mechanism.
-4. **Add a label:** Include flour type, weight, and date. See our [food labeling guide](/blog/how-to-organize-and-label-vacuum-sealed-food).
+4. **Add a label:** Include flour type, weight, and date. See our [food labeling guide](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food).
 5. **Store:** Room temperature is fine for white flour. Freeze whole wheat and nut flours for maximum shelf life.
 
 ---
@@ -74,7 +74,7 @@ Yeast is highly sensitive to oxygen and moisture. Vacuum sealing can extend acti
 | Cocoa powder | 1–2 years | 3+ years | Keep away from light |
 | Chocolate chips | 1 year | 1.5–2 years | Watch for bloom (white film) |
 | Vanilla extract | Indefinite | Not recommended | Alcohol content preserves it |
-| Nuts (for baking) | 3–6 months | 1–2 years | See our [nuts storage guide](/blog/vacuum-sealing-nuts-and-seeds-long-term-storage-guide) |
+| Nuts (for baking) | 3–6 months | 1–2 years | See our [nuts storage guide](/blog/2026-08-07-vacuum-sealing-nuts-and-seeds-long-term-storage-guide) |
 | Butter | 1–3 months (fridge) | 6+ months (freezer) | Wrap in parchment first |
 
 ---
@@ -90,7 +90,7 @@ Yeast is highly sensitive to oxygen and moisture. Vacuum sealing can extend acti
 
 ## Pest Prevention Bonus
 
-One of the most underappreciated benefits of vacuum sealing baking ingredients is pest prevention. Pantry moths can chew through plastic bags, cardboard, and even thin plastic containers. Vacuum-sealed bags are impenetrable to insects, and the lack of oxygen kills any eggs that might already be in the flour. For a comprehensive pest-proofing strategy, combine vacuum sealing with our [dry goods storage guide](/blog/vacuum-sealing-dry-goods-pantry-storage-guide).
+One of the most underappreciated benefits of vacuum sealing baking ingredients is pest prevention. Pantry moths can chew through plastic bags, cardboard, and even thin plastic containers. Vacuum-sealed bags are impenetrable to insects, and the lack of oxygen kills any eggs that might already be in the flour. For a comprehensive pest-proofing strategy, combine vacuum sealing with our [dry goods storage guide](/blog/2026-08-05-vacuum-sealing-dry-goods-pantry-storage-guide).
 
 ---
 

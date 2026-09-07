@@ -63,7 +63,7 @@ Vacuum sealing takes minutes. Place food in a bag, press a button, done. There i
 
 ### 4. You Store Cheese, Nuts, and Dry Goods
 
-Vacuum sealing dramatically extends the life of [cheese](/blog/vacuum-sealer-for-cheese-storage), [nuts and seeds](/blog/vacuum-sealing-nuts-and-seeds-long-term-storage-guide), and [dry pantry goods](/blog/vacuum-sealing-dry-goods-pantry-storage-guide) without the complexity of canning.
+Vacuum sealing dramatically extends the life of [cheese](/blog/vacuum-sealer-for-cheese-storage), [nuts and seeds](/blog/2026-08-07-vacuum-sealing-nuts-and-seeds-long-term-storage-guide), and [dry pantry goods](/blog/2026-08-05-vacuum-sealing-dry-goods-pantry-storage-guide) without the complexity of canning.
 
 ---
 
@@ -75,7 +75,7 @@ If you are processing 50+ pounds of tomatoes, apples, or cucumbers at once, cann
 
 ### 2. You Want Shelf-Stable Emergency Food
 
-Canned food does not require electricity. If power outages are a concern, canning is the safer choice. That said, vacuum sealing has its own role in [emergency food storage](/blog/vacuum-sealing-emergency-food-storage-preparedness-guide) when combined with freezing.
+Canned food does not require electricity. If power outages are a concern, canning is the safer choice. That said, vacuum sealing has its own role in [emergency food storage](/blog/2026-08-07-vacuum-sealing-emergency-food-storage-preparedness-guide) when combined with freezing.
 
 ### 3. You Make Jams, Jellies, and Pickles
 
@@ -89,7 +89,7 @@ Absolutely — and many experienced home preservers do exactly that:
 
 - **Vacuum seal** meats, cheeses, meal prep portions, and freezer items
 - **Can** tomatoes, fruit preserves, pickles, and shelf-stable sauces
-- **Vacuum seal** dry goods like [rice and grains](/blog/how-to-vacuum-seal-rice-and-grains-long-term-storage) for pantry storage
+- **Vacuum seal** dry goods like [rice and grains](/blog/2026-08-11-how-to-vacuum-seal-rice-and-grains-long-term-storage) for pantry storage
 - **Can** low-acid vegetables using a pressure canner
 
 This hybrid approach gives you the best of both worlds: freezer convenience for daily meals and shelf-stable jars for long-term pantry storage.

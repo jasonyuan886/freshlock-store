@@ -82,7 +82,7 @@ A standard upright freezer drawer holds approximately:
 - **Ziploc freezer bags:** 12–15 bags (but irregular shapes waste space)
 - **Vacuum sealed bags (flat):** 25–30 bags (2–3x more portions)
 
-That is a 2–3x increase in storage capacity just by switching from containers to flat vacuum bags. For [bulk buyers](/blog/vacuum-sealer-bulk-food-buying-guide), this means you can stock up on a month's worth of protein in the same freezer that previously held two weeks' worth.
+That is a 2–3x increase in storage capacity just by switching from containers to flat vacuum bags. For [bulk buyers](/blog/2026-08-04-vacuum-sealer-bulk-food-buying-guide), this means you can stock up on a month's worth of protein in the same freezer that previously held two weeks' worth.
 
 ---
 
@@ -116,6 +116,6 @@ The system only works if you maintain it. Two simple habits keep it running:
 
 ## Conclusion
 
-An organized freezer saves money three ways: it prevents food waste, eliminates duplicate purchases, and makes [bulk buying](/blog/vacuum-sealer-bulk-food-buying-guide) practical. Vacuum sealed bags are the key tool — flat, transparent, stackable, and airtight. With a simple zoning system, consistent labeling, and a 30-second weekly inventory check, your freezer becomes an organized food bank instead of a frozen junk drawer.
+An organized freezer saves money three ways: it prevents food waste, eliminates duplicate purchases, and makes [bulk buying](/blog/2026-08-04-vacuum-sealer-bulk-food-buying-guide) practical. Vacuum sealed bags are the key tool — flat, transparent, stackable, and airtight. With a simple zoning system, consistent labeling, and a 30-second weekly inventory check, your freezer becomes an organized food bank instead of a frozen junk drawer.
 
 [Get organized with FreshLock →](/products/freshlock-starter-kit)

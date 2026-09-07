@@ -135,7 +135,7 @@ Bins keep packages standing upright, making labels visible at a glance. They als
 
 ## Pantry Organization for Vacuum-Sealed Dry Goods
 
-For vacuum-sealed [dry goods and pantry items](/blog/vacuum-sealing-dry-goods-pantry-storage-guide), use clear storage containers on shelves:
+For vacuum-sealed [dry goods and pantry items](/blog/2026-08-05-vacuum-sealing-dry-goods-pantry-storage-guide), use clear storage containers on shelves:
 
 1. **Group by type** — Grains on one shelf, beans on another, snacks on a third
 2. **Label the shelf edge** — Use a label maker or tape to mark shelf sections

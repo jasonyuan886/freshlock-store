@@ -45,11 +45,11 @@ For small quantities, use small vacuum bags or vacuum-seal mason jars with attac
 
 ### Step 3: Portion for Usage
 
-Divide bulk spices into two portions: a small "working" portion for immediate use and a larger "storage" portion for vacuum sealing. This prevents repeated opening of sealed bags. This approach is similar to the strategy in our [vacuum sealer portion control guide](/blog/vacuum-sealer-portion-control-and-food-budget-guide).
+Divide bulk spices into two portions: a small "working" portion for immediate use and a larger "storage" portion for vacuum sealing. This prevents repeated opening of sealed bags. This approach is similar to the strategy in our [vacuum sealer portion control guide](/blog/2026-08-07-vacuum-sealer-portion-control-and-food-budget-guide).
 
 ### Step 4: Add a Silica Gel Packet
 
-Place a small food-grade silica gel packet inside the bag (not in direct contact with the spice) to absorb trace moisture. This is especially important for hygroscopic spices like onion powder, garlic powder, and chili powder. The same technique is recommended when [vacuum sealing dry goods for pantry storage](/blog/vacuum-sealing-dry-goods-pantry-storage-guide).
+Place a small food-grade silica gel packet inside the bag (not in direct contact with the spice) to absorb trace moisture. This is especially important for hygroscopic spices like onion powder, garlic powder, and chili powder. The same technique is recommended when [vacuum sealing dry goods for pantry storage](/blog/2026-08-05-vacuum-sealing-dry-goods-pantry-storage-guide).
 
 ### Step 5: Seal and Store
 
@@ -59,7 +59,7 @@ Vacuum seal the bag, label it with the spice name and date, and store in a cool,
 
 ## Vacuum Sealing Homemade Seasoning Blends
 
-If you make your own seasoning blends (taco seasoning, BBQ rub, curry powder), vacuum sealing is especially valuable because the grinding and mixing process releases volatile oils immediately. Seal blends in small portions within hours of mixing for maximum flavor retention. These blends make excellent gifts and are great to prep ahead when [batch cooking for weekly meals](/blog/batch-cooking-vacuum-sealer-weekly-meal-prep).
+If you make your own seasoning blends (taco seasoning, BBQ rub, curry powder), vacuum sealing is especially valuable because the grinding and mixing process releases volatile oils immediately. Seal blends in small portions within hours of mixing for maximum flavor retention. These blends make excellent gifts and are great to prep ahead when [batch cooking for weekly meals](/blog/2026-08-06-batch-cooking-vacuum-sealer-weekly-meal-prep).
 
 ---
 
@@ -79,16 +79,16 @@ For spices you use daily, mason jars with vacuum seals are more practical. For b
 
 ## Common Mistakes to Avoid
 
-- **Sealing moist or freshly toasted spices:** Wait until completely cool and dry. For more on this and other errors, see our [vacuum sealer mistakes guide](/blog/vacuum-sealer-common-mistakes-and-how-to-avoid-them).
+- **Sealing moist or freshly toasted spices:** Wait until completely cool and dry. For more on this and other errors, see our [vacuum sealer mistakes guide](/blog/2026-08-09-vacuum-sealer-common-mistakes-and-how-to-avoid-them).
 - **Using the wrong bag type for powders:** Fine spice powders can be pulled into the vacuum channel. Use bags with a powder barrier or place spices in a small inner bag before vacuum sealing the outer bag.
 - **Storing sealed spices in sunlight:** UV light degrades spice color and flavor even inside vacuum bags. Store in opaque containers or dark cabinets.
-- **Not labeling clearly:** Spice blends look similar. Always label with contents and date — our [vacuum sealed food organization guide](/blog/how-to-organize-and-label-vacuum-sealed-food) has a complete labeling system.
+- **Not labeling clearly:** Spice blends look similar. Always label with contents and date — our [vacuum sealed food organization guide](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food) has a complete labeling system.
 
 ---
 
 ## Best Equipment for Spice Storage
 
-A [portable vacuum sealer](/blog/portable-vacuum-sealer-benefits) with jar attachment capabilities is the most versatile option for spice storage. The [FreshLock Pro](/products/freshlock-pro) works with both vacuum bags and mason jar adapters, making it ideal for both bulk storage and daily-use spices. For choosing the right bags, see our [complete vacuum sealer bag guide](/blog/choosing-vacuum-sealer-bags-complete-guide).
+A [portable vacuum sealer](/blog/portable-vacuum-sealer-benefits) with jar attachment capabilities is the most versatile option for spice storage. The [FreshLock Pro](/products/freshlock-pro) works with both vacuum bags and mason jar adapters, making it ideal for both bulk storage and daily-use spices. For choosing the right bags, see our [complete vacuum sealer bag guide](/blog/2026-08-08-choosing-vacuum-sealer-bags-complete-guide).
 
 ---
 

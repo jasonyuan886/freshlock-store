@@ -86,7 +86,7 @@ For dried fruit you eat daily, vacuum seal a large batch and transfer a week's s
 
 ## What Not to Vacuum Seal
 
-A few pantry items don't benefit: **fresh garlic in oil** (botulism risk — see our [food safety guide](/blog/is-vacuum-sealed-food-safe-botulism-myths)), **soft cheeses** (texture changes — see [cheese sealing](/blog/vacuum-sealing-cheese-deli-meats)), and **coffee beans for daily use** (vacuum removes flavor-contributing CO2).
+A few pantry items don't benefit: **fresh garlic in oil** (botulism risk — see our [food safety guide](/blog/is-vacuum-sealed-food-safe-botulism-myths)), **soft cheeses** (texture changes — see cheese sealing), and **coffee beans for daily use** (vacuum removes flavor-contributing CO2).
 
 ## The Bottom Line
 
@@ -94,4 +94,4 @@ Spices, nuts, and dried fruit are not cheap. A jar of good smoked paprika, a bag
 
 If you already vacuum seal meat for the freezer, adding spices and nuts is a no-brainer.
 
-*Looking for more pantry storage tips? Check out our guides on [vacuum sealing cheese and deli meats](/blog/vacuum-sealing-cheese-deli-meats) and [how long vacuum-sealed food actually lasts](/blog/vacuum-sealed-food-shelf-life-chart-2026).*
+*Looking for more pantry storage tips? Check out our guides on vacuum sealing cheese and deli meats and how long vacuum-sealed food actually lasts.*

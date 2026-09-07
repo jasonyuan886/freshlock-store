@@ -33,11 +33,11 @@ Because mushrooms are soft and moisture-rich, vacuum sealing them directly can c
 2. Freeze for 1–2 hours until firm but not fully frozen solid.
 3. Transfer to vacuum bags and seal.
 
-This method preserves the shape and texture of the mushrooms while still removing air effectively. For more techniques on protecting delicate items, see our guide on [vacuum sealing delicate foods without crushing](/blog/vacuum-sealing-delicate-foods-without-crushing).
+This method preserves the shape and texture of the mushrooms while still removing air effectively. For more techniques on protecting delicate items, see our guide on [vacuum sealing delicate foods without crushing](/blog/2026-08-08-vacuum-sealing-delicate-foods-without-crushing).
 
 ### Step 3: Label and Store
 
-Always label bags with the contents and date. Check out our [vacuum sealed food organization guide](/blog/how-to-organize-and-label-vacuum-sealed-food) for a complete labeling system.
+Always label bags with the contents and date. Check out our [vacuum sealed food organization guide](/blog/2026-08-07-how-to-organize-and-label-vacuum-sealed-food) for a complete labeling system.
 
 ---
 
@@ -69,7 +69,7 @@ Dried mushrooms (porcini, shiitake, morels) are ideal candidates for vacuum seal
 ## Common Mistakes to Avoid
 
 - **Sealing wet mushrooms:** Excess water causes ice crystals in the freezer and promotes bacterial growth in the fridge. Always dry mushrooms thoroughly before sealing.
-- **Skipping the pre-freeze step for fresh mushrooms:** Direct vacuum sealing crushes soft mushrooms and extracts liquid into the seal area, causing failed seals. See more common errors in our [vacuum sealer mistakes guide](/blog/vacuum-sealer-common-mistakes-and-how-to-avoid-them).
+- **Skipping the pre-freeze step for fresh mushrooms:** Direct vacuum sealing crushes soft mushrooms and extracts liquid into the seal area, causing failed seals. See more common errors in our [vacuum sealer mistakes guide](/blog/2026-08-09-vacuum-sealer-common-mistakes-and-how-to-avoid-them).
 - **Reusing bags for mushrooms:** Mushroom spores can linger in bag pores. Use fresh bags or follow our [reusable vacuum bag safety guide](/blog/reusable-vacuum-sealer-bags-guide).
 - **Storing vacuum-sealed fresh mushrooms at room temperature:** Vacuum sealing does not make shelf-stable what was previously perishable. Fresh mushrooms must still be refrigerated or frozen.
 
@@ -77,7 +77,7 @@ Dried mushrooms (porcini, shiitake, morels) are ideal candidates for vacuum seal
 
 ## Can You Vacuum Seal Cooked Mushrooms?
 
-Yes. Cooked mushrooms (sautéed, roasted, or in sauces) vacuum seal very well because cooking reduces their moisture content. Let them cool completely before sealing, then refrigerate for up to 5 days or freeze for up to 3 months. This makes them perfect for batch cooking — check out our [batch cooking with vacuum sealer guide](/blog/batch-cooking-vacuum-sealer-weekly-meal-prep) for meal prep strategies.
+Yes. Cooked mushrooms (sautéed, roasted, or in sauces) vacuum seal very well because cooking reduces their moisture content. Let them cool completely before sealing, then refrigerate for up to 5 days or freeze for up to 3 months. This makes them perfect for batch cooking — check out our [batch cooking with vacuum sealer guide](/blog/2026-08-06-batch-cooking-vacuum-sealer-weekly-meal-prep) for meal prep strategies.
 
 ---
 

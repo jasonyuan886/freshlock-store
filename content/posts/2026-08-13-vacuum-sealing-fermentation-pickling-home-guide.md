@@ -104,7 +104,7 @@ Once fermentation is complete, vacuum sealing is the best way to store your ferm
 - **Keep vegetables submerged** — anything exposed to air can grow mold
 - **Label everything** — include the start date and expected completion date
 
-For more food safety tips, see our guide to [common vacuum sealer mistakes](/blog/vacuum-sealer-common-mistakes-and-how-to-avoid-them).
+For more food safety tips, see our guide to [common vacuum sealer mistakes](/blog/2026-08-09-vacuum-sealer-common-mistakes-and-how-to-avoid-them).
 
 ---
 
@@ -130,7 +130,7 @@ Fermentation projects are typically small-batch — a jar or two at a time. A ha
 - The rechargeable battery means no cord management
 - Reusable bags make small-batch fermentation affordable
 
-For more on choosing vacuum bags, see our [complete bag selection guide](/blog/choosing-vacuum-sealer-bags-complete-guide).
+For more on choosing vacuum bags, see our [complete bag selection guide](/blog/2026-08-08-choosing-vacuum-sealer-bags-complete-guide).
 
 ---
 
@@ -140,4 +140,4 @@ Vacuum sealing transforms home fermentation from a slow, mold-prone process into
 
 Start with a simple batch of vacuum-sealed sauerkraut — once you taste the difference, you will never go back to the traditional method.
 
-For more food preservation guides, explore our [complete vacuum sealing food guide](/blog/complete-vacuum-sealing-food-guide) and our [guide to vacuum sealing seasonal produce](/blog/vacuum-sealing-seasonal-produce-harvest-preservation).
+For more food preservation guides, explore our [complete vacuum sealing food guide](/blog/complete-vacuum-sealing-food-guide) and our [guide to vacuum sealing seasonal produce](/blog/2026-08-08-vacuum-sealing-seasonal-produce-harvest-preservation).

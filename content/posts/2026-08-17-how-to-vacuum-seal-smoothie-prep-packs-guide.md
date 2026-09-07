@@ -143,4 +143,4 @@ The key is the upfront batch-prep session. Once your freezer is stocked with a w
 
 ---
 
-*Looking for more meal prep ideas? Check out our guides on [batch cooking with a vacuum sealer](/blog/batch-cooking-vacuum-sealer-weekly-meal-prep), [high-protein meal prep](/blog/high-protein-meal-prep-vacuum-sealer-fitness-guide), and [how to vacuum seal pet food](/blog/how-to-vacuum-seal-pet-food-for-freshness).*
+*Looking for more meal prep ideas? Check out our guides on [batch cooking with a vacuum sealer](/blog/2026-08-06-batch-cooking-vacuum-sealer-weekly-meal-prep), [high-protein meal prep](/blog/2026-08-10-high-protein-meal-prep-vacuum-sealer-fitness-guide), and [how to vacuum seal pet food](/blog/2026-08-09-how-to-vacuum-seal-pet-food-for-freshness).*
