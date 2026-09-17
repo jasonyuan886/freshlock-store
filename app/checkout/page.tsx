@@ -118,7 +118,7 @@ export default function CheckoutPage() {
           setError(data.error);
           setProcessing(false);
         } else {
-          alert('⚠️ PayPal 尚未配置。\n请在 .env.local 中填入你的 PayPal API 凭证后重试。');
+          alert('Payment service is temporarily unavailable. Please try again later or contact support@freshlocksealer.com.');
           setProcessing(false);
         }
       }
@@ -268,8 +268,8 @@ export default function CheckoutPage() {
             <div className="bg-white rounded-xl p-4 shadow flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-600">
               <span className="flex items-center gap-1.5 font-medium"><span className="text-green-600 text-base">🔒</span> SSL Encrypted</span>
               <span className="flex items-center gap-1.5 font-medium"><span className="text-blue-600 text-base">🛡️</span> PayPal Protected</span>
-              <span className="flex items-center gap-1.5 font-medium"><span className="text-orange-500 text-base">↩️</span> 60-Day Returns</span>
-              <span className="flex items-center gap-1.5 font-medium"><span className="text-purple-600 text-base">✅</span> 2-Year Warranty</span>
+              <span className="flex items-center gap-1.5 font-medium"><span className="text-orange-500 text-base">↩️</span> 30-Day Returns</span>
+              <span className="flex items-center gap-1.5 font-medium"><span className="text-purple-600 text-base">✅</span> 1-Year Warranty</span>
               <span className="flex items-center gap-1.5 font-medium"><span className="text-green-600 text-base">🚚</span> DHL Express 5–8 Days</span>
             </div>
             {/* Payment */}
@@ -384,7 +384,7 @@ export default function CheckoutPage() {
                 <span>Visa / MC / Amex / Discover / PayPal</span>
               </div>
               <p className="text-xs text-gray-400 text-center mt-2">
-                Free shipping over $89 · Starter Kits ship free · 60-day returns · 2-year warranty
+                Free shipping over $89 · Starter Kits ship free · 30-day returns · 1-year warranty
               </p>
             </div>
           </div>
