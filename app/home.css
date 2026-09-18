@@ -47,7 +47,7 @@ section{position:relative}
   overflow:hidden;padding:120px 5vw 60px;
 }
 .hero-glow{
-  position:absolute;inside:0;width:120vmin;height:120vmin;left:50%;top:46%;transform:translate(-50%,-50%);
+  position:absolute;inset:0;width:120vmin;height:120vmin;left:50%;top:46%;transform:translate(-50%,-50%);
   background:radial-gradient(circle,rgba(47,184,107,.22) 0%,rgba(47,184,107,.07) 38%,transparent 68%);
   pointer-events:none;
 }

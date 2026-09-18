@@ -240,11 +240,7 @@ export default function HomePage() {
     <div className="t"><div className="n">Secure</div><div className="l">Encrypted checkout</div></div>
   </div>
 </section>
-<footer>
-  <div className="logo"><span className="dot" style={{width: "8px", height: "8px", borderRadius: "50%", background: "var(--green)", display: "inline-block", marginRight: "8px"}}></span>FreshLock — Qili Technology Co., Ltd.</div>
-
-  <div>Immersive landing demo · 2026-09-03 · Product images from freshlocksealer.com</div>
-</footer>
+{/* footer由layout提供 */}
       <HomeInteractions />
     </>
   );
