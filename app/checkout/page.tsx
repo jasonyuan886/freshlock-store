@@ -187,14 +187,17 @@ export default function CheckoutPage() {
                   />
                 </div>
                 <div className="sm:col-span-2">
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Phone <span className="text-red-500">*</span></label>
                   <input
                     type="tel"
                     name="phone" autoComplete="tel"
                     value={form.phone}
                     onChange={handleChange}
+                    required
+                    placeholder="Required for delivery notifications"
                     className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
                   />
+                  <p className="text-xs text-gray-500 mt-1">Required for shipping & delivery notifications</p>
                 </div>
               </div>
             </div>
