@@ -502,3 +502,13 @@ export async function PUT(request: NextRequest) {
     return NextResponse.json({ error: 'Failed to capture payment' }, { status: 500 });
   }
 }
+
+
+// GET /api/paypal/config — returns PayPal client ID for frontend SDK loading
+export async function GET(request: NextRequest) {
+  const url = new URL(request.url);
+  if (url.searchParams.get('clientId') === 'true' || url.pathname.endsWith('/config')) {
+    return NextResponse.json({ clientId: PAYPAL_CLIENT_ID });
+  }
+  return NextResponse.json({ error: 'Not found' }, { status: 404 });
+}
