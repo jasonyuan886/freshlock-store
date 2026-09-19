@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 declare global {
   interface Window {
@@ -38,116 +38,112 @@ export default function PayPalButtons({
 }: PayPalButtonsProps) {
   const buttonsRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
+  const [sdkReady, setSdkReady] = useState(false);
 
+  // Stabilize callbacks so they don't cause infinite re-renders
+  const handleSuccess = useCallback(
+    (orderId: string) => onSuccess(orderId),
+    [onSuccess]
+  );
+  const handleError = useCallback(
+    (msg: string) => onError(msg),
+    [onError]
+  );
+
+  // Load PayPal SDK once
   useEffect(() => {
-    if (!buttonsRef.current) return;
+    const clientId =
+      process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ||
+      'AXN5OatqRTqARNS8Op_oHXqtvokFlvzlppWEsmoQdSAXFvnfxnU7RRfk-tG0hVeZRsxzZ1KXf4mCFooh';
 
-    const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || 'AXN5OatqRTqARNS8Op_oHXqtvokFlvzlppWEsmoQdSAXFvnfxnU7RRfk-tG0hVeZRsxzZ1KXf4mCFooh';
     if (!clientId) {
-      onError('PayPal is not configured.');
+      handleError('PayPal is not configured.');
       setLoading(false);
       return;
     }
 
-    const renderButtons = () => {
-      if (!window.paypal || !buttonsRef.current) return;
-      buttonsRef.current.innerHTML = '';
+    // If already loaded globally, use it
+    if (window.paypal) {
+      setSdkReady(true);
+      return;
+    }
 
-      try {
-        window.paypal
-          .Buttons({
-            style: {
-              layout: 'vertical',
-              color: 'gold',
-              shape: 'pill',
-              label: 'paypal',
-              tagline: false,
-            },
-            fundingSource: window.paypal.FUNDING.PAYPAL,
-            createOrder: async () => {
-              const res = await fetch('/api/paypal', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                  items: items.map((item) => ({
-                    name: item.product.name,
-                    price: item.product.price,
-                    quantity: item.quantity,
-                    slug: item.product.slug,
-                  })),
-                  shippingAddress: shippingInfo,
-                }),
-              });
-              const data = await res.json();
-              if (data.orderId) return data.orderId;
-              throw new Error(data.error || 'Failed to create order');
-            },
-            onApprove: async (_data: any, actions: any) => {
-              const res = await fetch('/api/paypal', {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ orderId: actions.orderID }),
-              });
-              const data = await res.json();
-              if (data.success) {
-                onSuccess(data.orderId);
-              } else {
-                onError(data.error || 'Payment capture failed.');
-              }
-            },
-            onCancel: () => {},
-            onError: (err: any) => {
-              console.error('PayPal Buttons error:', err);
-              onError('Payment error. Please try again or contact support.');
-            },
-          })
-          .render(buttonsRef.current);
-      } catch (err) {
-        console.error('PayPal render error:', err);
-        onError('Failed to load PayPal buttons.');
-      }
+    // Check if script already in DOM
+    const existing = document.querySelector('script[src*="paypal.com/sdk/js"]');
+    if (existing) {
+      // Wait for it to initialize
+      const t = setInterval(() => {
+        if (window.paypal) { clearInterval(t); setSdkReady(true); }
+      }, 200);
+      setTimeout(() => { clearInterval(t); if (!window.paypal) { handleError('PayPal SDK timeout.'); setLoading(false); } }, 10000);
+      return;
+    }
+
+    // Inject script
+    const script = document.createElement('script');
+    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture&components=buttons&commit=true`;
+    script.async = true;
+    script.onload = () => {
+      // Give SDK a moment to set window.paypal
+      const t = setInterval(() => {
+        if (window.paypal) { clearInterval(t); setSdkReady(true); }
+      }, 200);
+      setTimeout(() => { clearInterval(t); if (!window.paypal) { handleError('PayPal SDK failed to initialize.'); setLoading(false); } }, 10000);
+    };
+    script.onerror = () => {
+      handleError('Failed to load PayPal SDK.');
       setLoading(false);
     };
+    document.head.appendChild(script);
+  }, [handleError]);
 
-    const loadSdkAndRender = () => {
-      if (window.paypal) {
-        renderButtons();
-      } else {
-        // SDK script loaded but paypal object not ready yet — poll briefly
-        const timer = setInterval(() => {
-          if (window.paypal) {
-            clearInterval(timer);
-            renderButtons();
-          }
-        }, 200);
-        setTimeout(() => {
-          clearInterval(timer);
-          if (!window.paypal) {
-            onError('PayPal SDK failed to initialize.');
-            setLoading(false);
-          }
-        }, 10000);
-      }
-    };
+  // Render buttons when SDK is ready
+  useEffect(() => {
+    if (!sdkReady || !buttonsRef.current || !window.paypal) return;
 
-    const existingScript = document.querySelector<HTMLScriptElement>(
-      'script[src*="paypal.com/sdk/js"]'
-    );
+    buttonsRef.current.innerHTML = '';
 
-    if (existingScript) {
-      loadSdkAndRender();
-    } else {
-      const script = document.createElement('script');
-      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture&components=buttons`;
-      script.async = true;
-      script.onload = loadSdkAndRender;
-      script.onerror = () => {
-        onError('Failed to load PayPal SDK.');
-        setLoading(false);
-      };
-      document.head.appendChild(script);
+    try {
+      window.paypal
+        .Buttons({
+          style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal', tagline: false },
+          fundingSource: window.paypal.FUNDING.PAYPAL,
+          createOrder: async () => {
+            const res = await fetch('/api/paypal', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                items: items.map((i) => ({ name: i.product.name, price: i.product.price, quantity: i.quantity, slug: i.product.slug })),
+                shippingAddress: shippingInfo,
+              }),
+            });
+            const data = await res.json();
+            if (data.orderId) return data.orderId;
+            throw new Error(data.error || 'Failed to create order');
+          },
+          onApprove: async (_data: any, actions: any) => {
+            const res = await fetch('/api/paypal', {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ orderId: actions.orderID }),
+            });
+            const data = await res.json();
+            if (data.success) handleSuccess(data.orderId);
+            else handleError(data.error || 'Payment capture failed.');
+          },
+          onCancel: () => {},
+          onError: (err: any) => {
+            console.error('PayPal Buttons error:', err);
+            handleError('Payment error. Please try again.');
+          },
+        })
+        .render(buttonsRef.current);
+    } catch (err) {
+      console.error('PayPal render error:', err);
+      handleError('Failed to render PayPal buttons.');
     }
-  }, [items, totalPrice, shipping, shippingInfo, onSuccess, onError]);
+    setLoading(false);
+  }, [sdkReady, items, totalPrice, shipping, shippingInfo, handleSuccess, handleError]);
 
   if (loading) {
     return (
