@@ -109,14 +109,11 @@ export default function PayPalButtons({
       setLoading(false);
     };
 
-    const existingScript = document.querySelector<HTMLScriptElement>(
-      'script[src*="paypal.com/sdk/js"]'
-    );
-
-    if (existingScript) {
+    const loadSdkAndRender = () => {
       if (window.paypal) {
         renderButtons();
       } else {
+        // SDK script loaded but paypal object not ready yet — poll briefly
         const timer = setInterval(() => {
           if (window.paypal) {
             clearInterval(timer);
@@ -131,11 +128,19 @@ export default function PayPalButtons({
           }
         }, 10000);
       }
+    };
+
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[src*="paypal.com/sdk/js"]'
+    );
+
+    if (existingScript) {
+      loadSdkAndRender();
     } else {
       const script = document.createElement('script');
       script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture&components=buttons`;
       script.async = true;
-      script.onload = renderButtons;
+      script.onload = loadSdkAndRender;
       script.onerror = () => {
         onError('Failed to load PayPal SDK.');
         setLoading(false);
