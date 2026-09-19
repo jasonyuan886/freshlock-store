@@ -6,7 +6,6 @@ import { trackBeginCheckout } from '@/lib/ga4';
 import { getAttribution } from '@/lib/attribution';
 import Image from 'next/image';
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
-import PayPalButtons from '@/components/PayPalButtons';
 // NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
 // meta robots noindex is applied via vercel.json headers for /checkout.
 export default function CheckoutPage() {
@@ -70,8 +69,7 @@ export default function CheckoutPage() {
     setError('');
     try {
       if (paymentMethod === 'paypal') {
-        // PayPal Smart Buttons handle payment inline — no redirect needed.
-        // Stash contact details + attribution for the capture callback.
+        // Stash contact info for after redirect
         try {
           localStorage.setItem('freshlock-pending-contact', JSON.stringify({
             name: `${form.firstName} ${form.lastName}`.trim(),
@@ -83,10 +81,29 @@ export default function CheckoutPage() {
             attribution: getAttribution() || {},
             ts: Date.now(),
           }));
-        } catch {
-          // non-fatal
+        } catch { /* non-fatal */ }
+        // Create PayPal order and redirect
+        const res = await fetch('/api/paypal', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            items: items.map(i => ({ name: i.product.name, price: i.product.price, quantity: i.quantity })),
+            shipping: shipping,
+            shippingInfo: {
+              name: `${form.firstName} ${form.lastName}`.trim(),
+              address: form.address, city: form.city, state: form.state,
+              postalCode: form.postcode, country: form.country, phone: form.phone,
+            }
+          })
+        });
+        const data = await res.json();
+        if (data.approvalUrl) {
+          window.location.href = data.approvalUrl;
+        } else {
+          setError(data.error || 'Failed to create PayPal order');
+          setProcessing(false);
         }
-        return; // PayPalButtons component handles the rest
+        return;
       }
     } catch (err: any) {
       setError(err.message || 'Payment failed');
@@ -271,29 +288,10 @@ export default function CheckoutPage() {
                 </p>
               </div>
 
-              {/* PayPal Smart Buttons — inline payment, no redirect */}
               {paymentMethod === 'paypal' && (
-                <div className="mt-4">
-                  <PayPalButtons
-                    items={items}
-                    totalPrice={totalPrice}
-                    shipping={shipping}
-                    shippingInfo={{
-                      name: `${form.firstName} ${form.lastName}`.trim(),
-                      address: form.address,
-                      city: form.city,
-                      state: form.state,
-                      postalCode: form.postcode,
-                      country: form.country,
-                      phone: form.phone,
-                    }}
-                    onSuccess={(orderId) => {
-                      clearCart();
-                      window.location.href = `/checkout/success?payment_method=paypal&order_id=${orderId}`;
-                    }}
-                    onError={(msg) => setError(msg)}
-                  />
-                </div>
+                <p className="mt-3 text-sm text-gray-500">
+                  You will be redirected to PayPal to complete your payment securely.
+                </p>
               )}
             </div>
           </div>
@@ -387,3 +385,4 @@ export default function CheckoutPage() {
     </div>
   );
 }
+
