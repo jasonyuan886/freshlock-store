@@ -44,7 +44,7 @@ export default function PayPalButtons({
     let cancelled = false;
 
     // Step 1: Fetch PayPal client ID from backend (server has PAYPAL_CLIENT_ID)
-    fetch('/api/paypal/config')
+    fetch('/api/paypal?clientId=true')
       .then((r) => r.json())
       .then((data) => {
         if (cancelled) return;
