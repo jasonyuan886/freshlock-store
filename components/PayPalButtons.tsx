@@ -41,120 +41,107 @@ export default function PayPalButtons({
 
   useEffect(() => {
     if (!buttonsRef.current) return;
-    let cancelled = false;
 
-    // Step 1: Fetch PayPal client ID from backend (server has PAYPAL_CLIENT_ID)
-    fetch('/api/paypal?clientId=true')
-      .then((r) => r.json())
-      .then((data) => {
-        if (cancelled) return;
-        const clientId = data.clientId;
-        if (!clientId) {
-          onError('PayPal is not configured.');
-          setLoading(false);
-          return;
-        }
+    const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
+    if (!clientId) {
+      onError('PayPal is not configured.');
+      setLoading(false);
+      return;
+    }
 
-        // Step 2: Load PayPal SDK script
-        const existingScript = document.querySelector<HTMLScriptElement>(
-          'script[src*="paypal.com/sdk/js"]'
-        );
+    const renderButtons = () => {
+      if (!window.paypal || !buttonsRef.current) return;
+      buttonsRef.current.innerHTML = '';
 
-        const onSdkReady = () => {
-          if (cancelled || !buttonsRef.current) return;
-          buttonsRef.current.innerHTML = '';
-
-          try {
-            window.paypal
-              .Buttons({
-                style: {
-                  layout: 'vertical',
-                  color: 'gold',
-                  shape: 'pill',
-                  label: 'paypal',
-                  tagline: false,
-                },
-                fundingSource: window.paypal.FUNDING.PAYPAL,
-                createOrder: async () => {
-                  const res = await fetch('/api/paypal', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                      items: items.map((item) => ({
-                        name: item.product.name,
-                        price: item.product.price,
-                        quantity: item.quantity,
-                        slug: item.product.slug,
-                      })),
-                      shippingAddress: shippingInfo,
-                    }),
-                  });
-                  const data = await res.json();
-                  if (data.orderId) return data.orderId;
-                  throw new Error(data.error || 'Failed to create order');
-                },
-                onApprove: async (_data: any, actions: any) => {
-                  const res = await fetch('/api/paypal', {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ orderId: actions.orderID }),
-                  });
-                  const data = await res.json();
-                  if (data.success) {
-                    onSuccess(data.orderId);
-                  } else {
-                    onError(data.error || 'Payment capture failed.');
-                  }
-                },
-                onCancel: () => {},
-                onError: (err: any) => {
-                  console.error('PayPal Buttons error:', err);
-                  onError('Payment error. Please try again or contact support.');
-                },
-              })
-              .render(buttonsRef.current);
-          } catch (err) {
-            console.error('PayPal render error:', err);
-            onError('Failed to load PayPal buttons.');
-          }
-          setLoading(false);
-        };
-
-        if (existingScript) {
-          if (window.paypal) {
-            onSdkReady();
-          } else {
-            const checkReady = setInterval(() => {
-              if (window.paypal) {
-                clearInterval(checkReady);
-                onSdkReady();
+      try {
+        window.paypal
+          .Buttons({
+            style: {
+              layout: 'vertical',
+              color: 'gold',
+              shape: 'pill',
+              label: 'paypal',
+              tagline: false,
+            },
+            fundingSource: window.paypal.FUNDING.PAYPAL,
+            createOrder: async () => {
+              const res = await fetch('/api/paypal', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                  items: items.map((item) => ({
+                    name: item.product.name,
+                    price: item.product.price,
+                    quantity: item.quantity,
+                    slug: item.product.slug,
+                  })),
+                  shippingAddress: shippingInfo,
+                }),
+              });
+              const data = await res.json();
+              if (data.orderId) return data.orderId;
+              throw new Error(data.error || 'Failed to create order');
+            },
+            onApprove: async (_data: any, actions: any) => {
+              const res = await fetch('/api/paypal', {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ orderId: actions.orderID }),
+              });
+              const data = await res.json();
+              if (data.success) {
+                onSuccess(data.orderId);
+              } else {
+                onError(data.error || 'Payment capture failed.');
               }
-            }, 200);
-            setTimeout(() => {
-              clearInterval(checkReady);
-              if (!window.paypal) setLoading(false);
-            }, 10000);
-          }
-        } else {
-          const script = document.createElement('script');
-          script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture&components=buttons`;
-          script.async = true;
-          script.onload = onSdkReady;
-          script.onerror = () => {
-            onError('Failed to load PayPal SDK.');
-            setLoading(false);
-          };
-          document.head.appendChild(script);
-        }
-      })
-      .catch(() => {
-        if (!cancelled) {
-          onError('Failed to load PayPal configuration.');
-          setLoading(false);
-        }
-      });
+            },
+            onCancel: () => {},
+            onError: (err: any) => {
+              console.error('PayPal Buttons error:', err);
+              onError('Payment error. Please try again or contact support.');
+            },
+          })
+          .render(buttonsRef.current);
+      } catch (err) {
+        console.error('PayPal render error:', err);
+        onError('Failed to load PayPal buttons.');
+      }
+      setLoading(false);
+    };
 
-    return () => { cancelled = true; };
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[src*="paypal.com/sdk/js"]'
+    );
+
+    if (existingScript) {
+      if (window.paypal) {
+        renderButtons();
+      } else {
+        const timer = setInterval(() => {
+          if (window.paypal) {
+            clearInterval(timer);
+            renderButtons();
+          }
+        }, 200);
+        setTimeout(() => {
+          clearInterval(timer);
+          if (!window.paypal) {
+            onError('PayPal SDK failed to initialize.');
+            setLoading(false);
+          }
+        }, 10000);
+      }
+    } else {
+      const script = document.createElement('script');
+      script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture&components=buttons`;
+      script.async = true;
+      script.onload = renderButtons;
+      script.onerror = () => {
+        onError('Failed to load PayPal SDK.');
+        setLoading(false);
+      };
+      document.head.appendChild(script);
+    }
   }, [items, totalPrice, shipping, shippingInfo, onSuccess, onError]);
 
   if (loading) {
