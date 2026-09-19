@@ -6,6 +6,7 @@ import { trackBeginCheckout } from '@/lib/ga4';
 import { getAttribution } from '@/lib/attribution';
 import Image from 'next/image';
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
+import PayPalButtons from '@/components/PayPalButtons';
 // NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
 // meta robots noindex is applied via vercel.json headers for /checkout.
 export default function CheckoutPage() {
@@ -69,11 +70,8 @@ export default function CheckoutPage() {
     setError('');
     try {
       if (paymentMethod === 'paypal') {
-        // Stash contact details + marketing attribution before the PayPal
-        // redirect. PayPal's v2 capture does not reliably return the payer
-        // email, and UTM data lives only in localStorage; the success page
-        // reads this after the off-site PayPal round-trip and passes it to the
-        // capture call so the order is persisted with full contact + attribution.
+        // PayPal Smart Buttons handle payment inline — no redirect needed.
+        // Stash contact details + attribution for the capture callback.
         try {
           localStorage.setItem('freshlock-pending-contact', JSON.stringify({
             name: `${form.firstName} ${form.lastName}`.trim(),
@@ -86,41 +84,9 @@ export default function CheckoutPage() {
             ts: Date.now(),
           }));
         } catch {
-          // non-fatal: capture still proceeds with PayPal-side data
+          // non-fatal
         }
-        // PayPal Checkout 跳转
-        const res = await fetch('/api/paypal', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            items: items.map(item => ({
-              name: item.product.name,
-              price: item.product.price,
-              quantity: item.quantity,
-              slug: item.product.slug,
-            })),
-            shippingAddress: {
-              name: `${form.firstName} ${form.lastName}`,
-              address: form.address,
-              city: form.city,
-              state: form.state,
-              postalCode: form.postcode,
-              country: form.country,
-              phone: form.phone,
-            },
-          }),
-        });
-        const data = await res.json();
-        if (data.approvalUrl) {
-          // 跳转到 PayPal 支付页面
-          window.location.href = data.approvalUrl;
-        } else if (data.error) {
-          setError(data.error);
-          setProcessing(false);
-        } else {
-          alert('Payment service is temporarily unavailable. Please try again later or contact support@freshlocksealer.com.');
-          setProcessing(false);
-        }
+        return; // PayPalButtons component handles the rest
       }
     } catch (err: any) {
       setError(err.message || 'Payment failed');
@@ -304,6 +270,31 @@ export default function CheckoutPage() {
                   Your payment information is encrypted and secure. We never store your card details.
                 </p>
               </div>
+
+              {/* PayPal Smart Buttons — inline payment, no redirect */}
+              {paymentMethod === 'paypal' && (
+                <div className="mt-4">
+                  <PayPalButtons
+                    items={items}
+                    totalPrice={totalPrice}
+                    shipping={shipping}
+                    shippingInfo={{
+                      name: `${form.firstName} ${form.lastName}`.trim(),
+                      address: form.address,
+                      city: form.city,
+                      state: form.state,
+                      postalCode: form.postcode,
+                      country: form.country,
+                      phone: form.phone,
+                    }}
+                    onSuccess={(orderId) => {
+                      clearCart();
+                      window.location.href = `/checkout/success?payment_method=paypal&order_id=${orderId}`;
+                    }}
+                    onError={(msg) => setError(msg)}
+                  />
+                </div>
+              )}
             </div>
           </div>
           {/* Order summary sidebar */}
