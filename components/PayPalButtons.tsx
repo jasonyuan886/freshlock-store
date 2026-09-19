@@ -42,7 +42,7 @@ export default function PayPalButtons({
   useEffect(() => {
     if (!buttonsRef.current) return;
 
-    const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
+    const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || 'AXN5OatqRTqARNS8Op_oHXqtvokFlvzlppWEsmoQdSAXFvnfxnU7RRfk-tG0hVeZRsxzZ1KXf4mCFooh';
     if (!clientId) {
       onError('PayPal is not configured.');
       setLoading(false);
