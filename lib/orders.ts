@@ -62,6 +62,8 @@ export type OrderRecord = {
   items: OrderItemRecord[];
   subtotal?: number;
   shipping?: number;
+  discount?: number;
+  coupon_code?: string;
   total: number;
   currency: string;
   attribution?: OrderAttribution;

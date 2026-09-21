@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { persistOrder, generateOrderNumber, type OrderRecord, type OrderAttribution } from '@/lib/orders';
 import { products } from '@/lib/data';
 import { sendServerPurchaseEvent } from '@/lib/ga4-server';
+import { lookupCoupon } from '@/lib/coupons';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -59,17 +60,31 @@ async function persistCapturedOrder(
       slug: it.sku || undefined,
     }));
     const subtotal = items.reduce((s, it) => s + it.price * it.quantity, 0);
-    const shippingCost = Math.max(0, +(total - subtotal).toFixed(2));
 
     const payerEmail = paypalData?.payer?.email_address || ctx.contactEmail || '';
     const payerName = paypalData?.payer?.name
       ? [paypalData.payer.name.given_name, paypalData.payer.name.surname].filter(Boolean).join(' ')
       : ctx.contactName || '';
 
-    // Phone: prefer explicit checkout contact, fall back to custom_id "phone:..".
+    // Phone + coupon code: prefer explicit checkout contact for phone, fall
+    // back to parsing custom_id (format "phone:<n>|coupon:<code>", either
+    // segment optional).
     let phone = ctx.contactPhone || '';
+    let couponCodeUsed = '';
     const customId: string = pu.custom_id || cap.custom_id || '';
-    if (!phone && customId.startsWith('phone:')) phone = customId.slice(6);
+    for (const segment of customId.split('|')) {
+      if (!phone && segment.startsWith('phone:')) phone = segment.slice(6);
+      if (segment.startsWith('coupon:')) couponCodeUsed = segment.slice(7);
+    }
+
+    // Re-derive discount from the coupon code rather than trusting anything
+    // PayPal echoes back — the coupon's percentOff is the single source of
+    // truth (same lookup the order-creation step used to size the actual
+    // charge), so this stays consistent even if PayPal's response shape
+    // omits the amount breakdown.
+    const appliedCoupon = couponCodeUsed ? lookupCoupon(couponCodeUsed) : null;
+    const discountAmount = appliedCoupon ? +(subtotal * appliedCoupon.percentOff).toFixed(2) : 0;
+    const shippingCost = Math.max(0, +(total - subtotal + discountAmount).toFixed(2));
 
     const sh = pu.shipping || {};
     const sa = sh.address || {};
@@ -97,6 +112,8 @@ async function persistCapturedOrder(
       items,
       subtotal: +subtotal.toFixed(2),
       shipping: shippingCost,
+      discount: discountAmount > 0 ? discountAmount : undefined,
+      coupon_code: couponCodeUsed || undefined,
       total,
       currency,
       attribution: ctx.attribution && Object.keys(ctx.attribution).length ? ctx.attribution : undefined,
@@ -115,7 +132,7 @@ async function persistCapturedOrder(
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { items: rawItems, shippingAddress } = body;
+    const { items: rawItems, shippingAddress, couponCode } = body;
 
     if (!rawItems || rawItems.length === 0) {
       return NextResponse.json({ error: 'Cart is empty' }, { status: 400 });
@@ -139,8 +156,13 @@ export async function POST(request: NextRequest) {
       (sum: number, item: { price: number; quantity: number }) => sum + item.price * item.quantity,
       0,
     );
+    // Free-shipping threshold is evaluated on the pre-discount subtotal, so a
+    // coupon never strips away free shipping the cart would otherwise earn.
     const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
-    const total = subtotal + shipping;
+    // Never trust a client-supplied discount — look the code up server-side.
+    const coupon = lookupCoupon(couponCode);
+    const discount = coupon ? +(subtotal * coupon.percentOff).toFixed(2) : 0;
+    const total = +(subtotal - discount + shipping).toFixed(2);
 
     const accessToken = await getAccessToken();
 
@@ -166,6 +188,9 @@ export async function POST(request: NextRequest) {
                   currency_code: 'USD',
                   value: shipping.toFixed(2),
                 },
+                ...(discount > 0
+                  ? { discount: { currency_code: 'USD', value: discount.toFixed(2) } }
+                  : {}),
               },
             },
             items: items.map((item: { name: string; price: number; quantity: number; slug?: string }) => ({
@@ -191,10 +216,15 @@ export async function POST(request: NextRequest) {
                   },
                 }
               : undefined,
-            // Customer phone carried through to capture response (PayPal has no
-            // dedicated phone field in v2 orders); used for the merchant order
-            // notification / shipping label.
-            custom_id: shippingAddress?.phone ? `phone:${String(shippingAddress.phone).slice(0, 30)}` : undefined,
+            // Customer phone + applied coupon carried through to the capture
+            // response (PayPal has no dedicated fields for either in v2
+            // orders); used for the merchant notification and order record.
+            custom_id: (() => {
+              const parts: string[] = [];
+              if (shippingAddress?.phone) parts.push(`phone:${String(shippingAddress.phone).slice(0, 30)}`);
+              if (coupon) parts.push(`coupon:${coupon.code}`);
+              return parts.length ? parts.join('|').slice(0, 127) : undefined;
+            })(),
           },
         ],
         application_context: {
@@ -389,7 +419,9 @@ export async function PUT(request: NextRequest) {
             if (capM?.amount) mAmount = parseFloat(capM.amount.value) || 0;
             if (capM?.id) mCapId = capM.id;
             const custId: string = puM.custom_id || capM?.custom_id || '';
-            if (custId.startsWith('phone:')) mPhone = custId.slice(6);
+            for (const seg of custId.split('|')) {
+              if (seg.startsWith('phone:')) mPhone = seg.slice(6);
+            }
             if (captureData.payer) {
               mEmail = captureData.payer.email_address || '';
               const pn = captureData.payer.name;
