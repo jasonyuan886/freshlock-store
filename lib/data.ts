@@ -26,7 +26,7 @@ export const products: Product[] = [
     description:
       'The FreshLock Pro is a cordless handheld vacuum sealer designed to stop freezer burn before it starts. Attach the nozzle to the valve on any compatible embossed valve bag, press one button, and the quiet pump pulls air out in seconds — creating an airtight seal that keeps food fresh up to 5× longer. A detachable drip tray catches liquid overflow so soups, marinades, and juicy meats seal cleanly without damaging the motor. No heat bar, no complicated setup. Recharge via USB-C and take it anywhere — kitchen drawer, fridge, pantry, or campsite.',
     shortDescription:
-      'Cordless handheld vacuum sealer with -60 kPa suction, detachable drip tray, USB-C charging, and BPA-free starter bags. Stops freezer burn — compatible with most embossed valve bags.',
+      'Cordless handheld vacuum sealer with -60 kPa suction. Seals valve-lid Mason jars airtight, stops freezer burn — compatible with most embossed valve bags.',
     image: '/images/products/sealer-main.jpg',
     images: [
       '/images/products/sealer-main.jpg',
@@ -44,6 +44,7 @@ export const products: Product[] = [
       'Detachable drip tray with liquid backflow protection for soups, marinades, and juicy foods',
       'One-touch operation — no heat bar, no complicated settings',
       'Compatible with most embossed valve bags (not locked to our own bags)',
+      'Also seals Mason jars airtight — works with valve-style jar lids (not standard flat lids)',
       'Cordless & portable — USB-C rechargeable, 80–100 seals per charge',
       'Quiet motor under 60 dB — about as loud as a library',
       'Compact, lightweight design (~210 g) — fits in a kitchen drawer',
@@ -62,6 +63,7 @@ export const products: Product[] = [
       'Operating temperature': '-20 °C to 100 °C (freezer, sous vide, microwave-safe bags — open zipper first)',
       'Drip tray': 'Detachable transparent drip cup, liquid backflow protection',
       'Bag compatibility': 'Compatible with most embossed valve bags (not locked to our own bags)',
+      'Jar compatibility': 'Mason jars with a valve-style vacuum lid (not standard flat/screw lids)',
       "What's in the box": '1 FreshLock Pro sealer, 1 USB-C charging cable, starter vacuum bags, user manual',
       'Warranty': '1-year warranty on the unit, 6-month on accessories',
     },
@@ -274,6 +276,11 @@ export const faqs = [
     question: 'Is it compatible with other brands of vacuum bags?',
     answer:
       'Yes. FreshLock works with most embossed valve bags that have a standard one-way air valve — you are not locked into our own bags. We recommend 90 μm (or thicker) embossed PA+PE bags with a white circular valve for optimal results. It is not compatible with open-top embossed bags designed for heat-bar edge sealers or chamber machines.',
+  },
+  {
+    question: 'Can I use it to vacuum seal Mason jars?',
+    answer:
+      'Yes, but only with a Mason jar lid that has a built-in one-way air valve (the same style of valve as FreshLock bags) — set the sealer nozzle over the valve and press the button, same as sealing a bag. It will not work with a standard flat/screw-on canning lid, which has no valve for the nozzle to draw air through.',
   },
   {
     question: 'How long does the battery last and how do I charge it?',
