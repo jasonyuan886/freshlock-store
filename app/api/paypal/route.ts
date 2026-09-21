@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { persistOrder, generateOrderNumber, type OrderRecord, type OrderAttribution } from '@/lib/orders';
 import { products } from '@/lib/data';
+import { sendServerPurchaseEvent } from '@/lib/ga4-server';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -275,6 +276,21 @@ export async function PUT(request: NextRequest) {
           contactName: contact.name,
           contactPhone: contact.phone,
         }).catch(() => null);
+        // Server-side purchase event — independent of the buyer's browser, so
+        // it fires reliably even on a repeat/idempotent capture callback.
+        sendServerPurchaseEvent({
+          orderId: existingData.id,
+          items: existItems.map((it) => ({
+            item_id: it.slug || '',
+            item_name: it.name || 'Product',
+            price: it.price || 0,
+            quantity: it.quantity || 1,
+            item_category: 'sealer',
+          })),
+          value: existAmount,
+          currency: 'USD',
+          cookieHeader: request.headers.get('cookie'),
+        }).catch(() => {});
         return NextResponse.json({
           success: true,
           orderId: existingData.id,
@@ -443,6 +459,7 @@ export async function PUT(request: NextRequest) {
         if (puItems && Array.isArray(puItems)) {
           orderItems = puItems.map((item: any) => ({
             name: item.name,
+            slug: item.sku || undefined,
             price: parseFloat(item.unit_amount?.value || '0'),
             quantity: parseInt(item.quantity || '1', 10),
           }));
@@ -468,6 +485,23 @@ export async function PUT(request: NextRequest) {
         contactName: contact.name,
         contactPhone: contact.phone,
       }).catch((e) => { console.error('order persist await error:', e); return null; });
+
+      // Server-side purchase event — fires here regardless of ad blockers,
+      // browser privacy settings, or the tab closing before client-side
+      // gtag.js on the success page would have sent it.
+      sendServerPurchaseEvent({
+        orderId: captureData.id,
+        items: orderItems.map((it) => ({
+          item_id: it.slug || '',
+          item_name: it.name || 'Product',
+          price: it.price || 0,
+          quantity: it.quantity || 1,
+          item_category: 'sealer',
+        })),
+        value: amount,
+        currency,
+        cookieHeader: request.headers.get('cookie'),
+      }).catch(() => {});
 
       return NextResponse.json({
         success: true,
