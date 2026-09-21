@@ -101,6 +101,7 @@ export const products: Product[] = [
       'Detachable drip tray for mess-free sealing of liquids and marinades',
       'USB-C charging cable + quick-start guide included',
       'Works with most embossed valve bags — not locked to our own bags',
+      'Sealer also seals Mason jars airtight — works with valve-style jar lids (not standard flat lids)',
       'Comes in retail gift-ready box',
     ],
     specs: {
@@ -110,6 +111,7 @@ export const products: Product[] = [
       'Sealer suction': '-60 kPa',
       'Sealer battery': '1200 mAh, USB-C charging (~2.5 hrs), 80–100 seals per charge',
       'Sealer weight': '~210 g / 7.4 oz',
+      'Jar compatibility': 'Mason jars with a valve-style vacuum lid (not standard flat/screw lids)',
       'Warranty': '1-year on sealer unit, 6-month on accessories; bags are reusable & recyclable',
     },
     category: 'kits',
