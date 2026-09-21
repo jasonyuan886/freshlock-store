@@ -46,7 +46,7 @@ export const products: Product[] = [
       'Detachable drip tray with liquid backflow protection for soups, marinades, and juicy foods',
       'One-touch operation — no heat bar, no complicated settings',
       'Compatible with most embossed valve bags (not locked to our own bags)',
-      'Also seals Mason jars and food storage containers airtight — works with any lid that has a matching one-way vacuum valve (33 mm inner / 40 mm outer nozzle fit)',
+      'Also seals Mason jars and food storage containers airtight — works with any lid that has a one-way vacuum valve no wider than 33 mm, on a flat sealing surface at least 40 mm across',
       'Cordless & portable — USB-C rechargeable, 80–100 seals per charge',
       'Quiet motor under 60 dB — about as loud as a library',
       'Compact, lightweight design (~210 g) — fits in a kitchen drawer',
@@ -66,7 +66,7 @@ export const products: Product[] = [
       'Drip tray': 'Detachable transparent drip cup, liquid backflow protection',
       'Bag compatibility': 'Compatible with most embossed valve bags (not locked to our own bags)',
       'Jar compatibility': 'Mason jars with a valve-style vacuum lid (not standard flat/screw lids)',
-      'Nozzle size': '33 mm inner diameter / 40 mm outer diameter — fits any Mason jar lid or food storage container lid with a matching one-way vacuum valve; not size-limited beyond the valve fitting',
+      'Nozzle size': '33 mm inner diameter (max valve opening) / 40 mm outer diameter (min flat sealing surface) — works with any Mason jar lid or food storage container lid whose valve fits within that, on a large-enough flush surface',
       "What's in the box": '1 FreshLock Pro sealer, 1 USB-C charging cable, starter vacuum bags, user manual',
       'Warranty': '1-year warranty on the unit, 6-month on accessories',
     },
@@ -287,7 +287,7 @@ export const faqs = [
   {
     question: 'Can I use it to vacuum seal Mason jars or food storage containers?',
     answer:
-      "Yes — for both, as long as the lid has a built-in one-way air valve (the same style of valve as FreshLock bags). The FreshLock Pro nozzle is 33 mm inner / 40 mm outer diameter, so any Mason jar lid or food container lid with a valve in that range works — set the nozzle over the valve and press the button, same as sealing a bag. It will not work with a standard flat/screw-on lid or container with no valve, regardless of size.",
+      "Yes — for both, as long as the lid has a built-in one-way air valve (the same style of valve as FreshLock bags). The FreshLock Pro nozzle needs a valve opening no wider than 33 mm, sitting on a flat sealing surface at least 40 mm across (a bit larger is fine — a smaller flat area won't seal flush and can leak). Set the nozzle over the valve and press the button, same as sealing a bag. It will not work with a standard flat/screw-on lid or container with no valve, regardless of size.",
   },
   {
     question: 'How long does the battery last and how do I charge it?',
