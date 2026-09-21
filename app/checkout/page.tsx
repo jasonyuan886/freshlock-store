@@ -89,7 +89,7 @@ export default function CheckoutPage() {
           body: JSON.stringify({
             items: items.map(i => ({ slug: i.product.slug, name: i.product.name, price: i.product.price, quantity: i.quantity })),
             shipping: shipping,
-            shippingInfo: {
+            shippingAddress: {
               name: `${form.firstName} ${form.lastName}`.trim(),
               address: form.address, city: form.city, state: form.state,
               postalCode: form.postcode, country: form.country, phone: form.phone,
