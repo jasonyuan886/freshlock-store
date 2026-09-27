@@ -1,5 +1,6 @@
 ---
-title: "Vacuum Sealing Homemade Jerky: The Ultimate Guide to Dehydrated Meat Storage"
+title: "Vacuum Sealing Jerky: How Long It Lasts"
+description: "Vacuum-sealed homemade jerky keeps 6-12 months instead of 1-2 weeks. See the exact dehydration targets and sealing steps that get you there."
 date: 2026-08-20
 excerpt: "Complete guide to vacuum sealing homemade jerky for maximum shelf life. Learn dehydration times, moisture targets, storage methods, and how to keep your jerky fresh for up to 1 year."
 tags:

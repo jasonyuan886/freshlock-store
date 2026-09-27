@@ -1,5 +1,6 @@
 ---
-title: "Vacuum Sealing Fresh Herbs: Make Them Last 3x Longer"
+title: "Vacuum Sealing Fresh Herbs: How to Make Them Last Longer"
+description: "Fresh herbs last 2-3 days in a plastic bag. Vacuum sealing can extend that 2-3x. Here are the prep steps, timelines, and mistakes to avoid."
 date: "2026-08-04"
 excerpt: "Stop throwing away wilted herbs. Learn how vacuum sealing keeps basil, cilantro, parsley, and mint fresh for weeks instead of days."
 tags: ["vacuum sealing herbs", "preserve fresh herbs", "herb storage tips", "food preservation"]

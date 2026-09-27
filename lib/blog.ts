@@ -82,7 +82,12 @@ export function getAllPosts(): BlogPost[] {
     return {
       slug: file.replace(/\.md$/, ''),
       title: data.title || 'Untitled',
-      description: data.description || '',
+      // 2026-09-27：旧文章的 frontmatter 用的是 excerpt，新文章用 description。
+      // 这里原本只读 description，于是 **75 篇(共154篇)线上根本不渲染
+      // <meta name="description"> 标签**，Google 只能自己从正文截一段当摘要。
+      // 这正是这批页面 CTR 只有 0.5-2%(排名却在 5-7 位)的直接原因。
+      // 加上 excerpt 回退，一处改动同时修好这 75 篇。
+      description: data.description || data.excerpt || '',
       date: data.date || '',
       author: data.author || 'Jason Yuan',
       tags: Array.isArray(data.tags) ? data.tags : [],

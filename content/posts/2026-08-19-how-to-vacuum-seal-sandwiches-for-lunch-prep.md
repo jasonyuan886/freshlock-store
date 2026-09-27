@@ -1,5 +1,6 @@
 ---
-title: "How to Vacuum Seal Sandwiches for Lunch Prep (Without Squishing the Bread)"
+title: "How to Vacuum Seal Sandwiches Without Squishing Bread"
+description: "Full vacuum pressure crushes soft bread. Use the pulse method instead: here is how to seal a week of sandwiches flat in under 30 minutes, no squishing."
 date: 2026-08-19
 excerpt: "Learn the best technique for vacuum sealing sandwiches so they stay fresh, crisp, and perfectly shaped in lunch boxes — no squished bread, no soggy fillings."
 tags: ["vacuum sealing sandwiches", "lunch prep", "meal prep", "school lunch ideas", "food storage"]

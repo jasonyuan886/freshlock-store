@@ -1,5 +1,6 @@
 ---
 title: "How to Vacuum Seal Eggs for Long-Term Storage"
+description: "Never vacuum seal whole eggs in the shell. Here are the two methods that actually work, and how to get storage from weeks to months."
 date: "2026-08-13"
 excerpt: "Eggs are a kitchen staple that spoil fast. Learn how to vacuum seal whole eggs, egg whites, and scrambled egg mix for months of extended freshness."
 tags: ["vacuum seal eggs", "egg storage long term", "preserving eggs vacuum sealer", "freeze dried eggs"]

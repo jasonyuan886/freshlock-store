@@ -1,5 +1,6 @@
 ---
-title: "Vacuum Sealing Nuts and Seeds: Long-Term Storage Guide"
+title: "Vacuum Sealing Nuts and Seeds: Stop Rancidity Fast"
+description: "Walnuts go rancid in two weeks at room temperature. Vacuum sealing removes the oxygen that causes it. Here is how long each nut and seed actually lasts."
 date: "2026-08-07"
 excerpt: "Nuts and seeds go rancid fast due to their high oil content. Learn how vacuum sealing extends shelf life by 5x, prevents oxidation, and saves money on bulk purchases."
 tags: ["vacuum sealing nuts", "storing seeds long term", "food preservation science", "prevent rancid nuts"]

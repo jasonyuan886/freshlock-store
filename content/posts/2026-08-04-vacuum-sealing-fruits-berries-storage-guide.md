@@ -1,5 +1,6 @@
 ---
-title: "Vacuum Sealing Fruits and Berries: Complete Storage Guide"
+title: "Vacuum Sealing Berries: How Long They Actually Last"
+description: "Strawberries mold by Wednesday, raspberries last 3 days. Vacuum sealing extends berry freshness 2-3x in the fridge. Fridge and freezer times for each berry."
 date: "2026-08-04"
 excerpt: "Strawberries mold in days. Blueberries shrivel in a week. Learn how vacuum sealing extends fruit freshness and lets you buy seasonal berries in bulk."
 tags: ["vacuum sealing fruit", "vacuum seal berries", "fruit preservation", "berry storage tips"]

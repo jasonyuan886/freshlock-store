@@ -1,5 +1,6 @@
 ---
-title: "Vacuum Sealing Mushrooms: Fresh and Dried Storage Guide"
+title: "Vacuum Sealing Mushrooms: Fresh vs Dried Storage"
+description: "Fresh mushrooms spoil in 3-5 days. Vacuum sealing slows oxidation, but you must pre-freeze them first. Here is the exact process for fresh and dried."
 date: "2026-08-10"
 excerpt: "Learn how to vacuum seal both fresh and dried mushrooms to maximize shelf life, preserve texture, and prevent spoilage. Complete guide with storage times, prep steps, and common mistakes."
 tags: ["vacuum sealing mushrooms", "mushroom storage", "dried mushrooms preservation", "vacuum sealer food storage"]

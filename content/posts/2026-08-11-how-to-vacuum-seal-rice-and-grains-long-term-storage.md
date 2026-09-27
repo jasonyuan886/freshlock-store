@@ -1,5 +1,6 @@
 ---
-title: "How to Vacuum Seal Rice and Grains for Long-Term Storage"
+title: "Vacuum Sealing Rice and Grains: 2–5 Year Storage"
+description: "Oxygen, moisture, and weevils cut grain shelf life to 6–12 months. Here is the step-by-step process that extends rice, oats, and quinoa to 2–5 years."
 date: "2026-08-11"
 excerpt: "Learn how to vacuum seal rice, quinoa, oats, and other grains to extend shelf life from months to years. Complete guide with prep steps, storage times, and moisture control tips."
 tags: ["vacuum sealing rice", "grain storage", "long-term food storage", "vacuum sealer pantry"]
