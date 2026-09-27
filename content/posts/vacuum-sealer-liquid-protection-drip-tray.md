@@ -103,6 +103,39 @@ Do not put the main sealer body in water — it has electronics inside.
 
 ---
 
+## Mechanical Drip-Drain vs. Simple Reservoirs
+
+Not all drip cups are created equal.
+
+A **simple reservoir** is just a hollow cup below the nozzle. Any liquid that falls in stays there. It works, but under strong suction, fine droplets and mist can still be pulled past the cup and into the pump.
+
+A **mechanical drip-drain** design (like FreshLock's) uses internal baffles, channels, and sometimes a small one-way valve to separate liquid from airflow more effectively. The air is forced to change direction sharply; heavier liquid droplets cannot make the turn and fall into the cup, while air continues around the baffle. This is dramatically more effective at catching stray liquid before it can reach the motor.
+
+---
+
+## Why Cheap Handhelds Skip the Drip Tray
+
+It adds a few dollars to the bill of materials and a few parts to the assembly. For race-to-the-bottom $15–$20 Amazon units, every penny counts. The result is a sealer that dies 2–6 months after purchase when enough residue has built up in the pump.
+
+Buying a $20 sealer every 6 months is more expensive over time than buying a $30–$40 sealer with a drip tray that lasts 3–5 years.
+
+---
+
+## Signs of Liquid Damage (Before It's Too Late)
+
+If you have been using your sealer without a drip tray (or forgetting to empty it), watch for these symptoms:
+
+- Suction feels weaker than when new
+- Unusual smell from the nozzle when running
+- Gurgling or sputtering sounds during sealing
+- Visible liquid in the nozzle after sealing
+- Battery draining faster than usual
+- Pump sound changes pitch
+
+If you catch it early, you may be able to clean the pump path: remove the cup and filter, wipe everything accessible, let it dry completely for 24 hours, and cross your fingers. If the damage is done, replacement is usually the only option.
+
+---
+
 ## Features to Look For
 
 When shopping for a sealer with liquid protection:
