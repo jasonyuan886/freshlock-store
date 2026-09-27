@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { trackAddToCart } from '@/lib/ga4';
 import { useCart } from '@/lib/cart-context';
 import Link from 'next/link';
 import type { Product } from '@/lib/types';
@@ -42,9 +43,17 @@ export default function FrequentlyBoughtTogether({
 
   const handleAddAll = async () => {
     setAdding(true);
+    // 2026-09-27: 这里原来只调 addToCart，**没有发 GA4 的 add_to_cart 事件**，
+    // 于是通过"常一起购买"组合加购的行为在 GA4 里完全看不见。
+    // 症状是漏斗出现了不可能的数字：近14天 begin_checkout(7) 反而多于 add_to_cart(6)
+    // ——有人没加购就结账了。真相是他们从这个组件加的购，只是没被记录。
+    // 后果不只是数字难看：加购率是判断产品页好不好的主要依据，这个口径缺了一块，
+    // 就会把"组件其实有效"误判成"产品页转化差"，进而改错地方。
     addToCart(mainProduct, 1);
+    trackAddToCart(mainProduct, 1);
     for (const it of selectedItems) {
       addToCart(it.product, 1);
+      trackAddToCart(it.product, 1);
     }
     setAdding(false);
     setAdded(true);
