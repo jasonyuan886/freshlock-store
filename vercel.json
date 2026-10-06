@@ -1,0 +1,28 @@
+{
+  "headers": [
+    {
+      "source": "/(images|media|videos)/((?!.*\\.(xml|txt)$).*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/(api|checkout|cart)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "private, no-cache, no-store, max-age=0, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/((products|blog|about|faq|contact|returns|shipping|terms|privacy|tools|food-waste-calculator))(/.*)?",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, s-maxage=900, stale-while-revalidate=86400" }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, s-maxage=900, stale-while-revalidate=86400" }
+      ]
+    }
+  ]
+}

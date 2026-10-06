@@ -1,4 +1,3 @@
-import { headers } from 'next/headers';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
@@ -16,13 +15,7 @@ const title = 'FreshLock Handheld Vacuum Sealer — Stop Freezer Burn, Stay Fres
 const description =
   'FreshLock vacuum sealers keep food fresh 5x longer. BPA-free, easy to use, and built for everyday kitchens. Free shipping on orders over $89. 30-day guarantee.';
 
-export async function generateMetadata(): Promise<Metadata> {
-  const h = await headers();
-  const host = h.get('x-forwarded-host') || h.get('host') || 'www.freshlocksealer.com';
-  const proto = h.get('x-forwarded-proto') || 'https';
-  const canonicalUrl = `${proto}://${host}`;
-
-  return {
+export const metadata: Metadata = {
     metadataBase: new URL(SITE_URL),
     title: {
       default: title,
@@ -33,7 +26,10 @@ export async function generateMetadata(): Promise<Metadata> {
       'handheld vacuum sealer, cordless vacuum sealer, portable vacuum sealer, food vacuum sealer, vacuum seal bags, reusable vacuum bags, BPA-free, USB-C, meal prep, freezer burn prevention, food storage, sous vide, FreshLock',
     applicationName: siteName,
     icons: {
-      icon: '/favicon-32.png',
+      icon: [
+        { url: '/favicon.ico', sizes: 'any' },
+        { url: '/favicon-32.png', type: 'image/png', sizes: '32x32' },
+      ],
       apple: '/apple-touch-icon.png',
     },
     openGraph: {
@@ -72,10 +68,9 @@ export async function generateMetadata(): Promise<Metadata> {
       google: 's5k1bV4GOf6JitkZAj0KewRM2B2TgAO5N_6aDIZ59cM',
     },
     alternates: {
-      canonical: canonicalUrl,
+      canonical: SITE_URL,
     },
-  };
-}
+};
 
 const orgSchema = generateOrganizationSchema();
 const websiteSchema = generateWebsiteSchema();
