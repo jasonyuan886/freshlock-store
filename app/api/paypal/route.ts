@@ -384,7 +384,7 @@ export async function PUT(request: NextRequest) {
                   </table>
                 </div>
                 <h3>What's Next?</h3>
-                <ul><li>📦 We'll prepare your order within 1-2 business days</li><li>🚚 Standard shipping takes 5-8 business days</li><li>📧 You'll receive a tracking number via email</li></ul>
+                <ul><li>📦 We'll prepare your order within 1-2 business days</li><li>🚚 Standard shipping takes 7–15 days</li><li>📧 You'll receive a tracking number via email</li></ul>
                 <p style="color:#666;font-size:14px;margin-top:24px;">Questions? Reply to this email or contact support@freshlocksealer.com</p>
               </div></div>`;
             sendEmail({

@@ -36,19 +36,19 @@ export default function ShippingPage() {
               <td><strong>Standard Shipping</strong></td>
               <td>Under $49</td>
               <td><strong>$4.99</strong></td>
-              <td>3–5 business days</td>
+              <td>7–15 days</td>
             </tr>
             <tr>
               <td><strong>Standard Shipping</strong></td>
               <td>$49 and above</td>
               <td><strong>FREE</strong></td>
-              <td>3–5 business days</td>
+              <td>7–15 days</td>
             </tr>
             <tr>
               <td><strong>Expedited Shipping</strong></td>
               <td>Any</td>
               <td><strong>$9.99</strong></td>
-              <td>2–3 business days</td>
+              <td>7–15 days</td>
             </tr>
           </tbody>
         </table>
@@ -71,32 +71,32 @@ export default function ShippingPage() {
             <tr>
               <td>Canada</td>
               <td>$14.99</td>
-              <td>7–14 business days</td>
+              <td>7–15 days</td>
             </tr>
             <tr>
               <td>Mexico</td>
               <td>$19.99</td>
-              <td>10–20 business days</td>
+              <td>7–15 days</td>
             </tr>
             <tr>
               <td>Europe (EU &amp; UK)</td>
               <td>$24.99</td>
-              <td>10–20 business days</td>
+              <td>7–15 days</td>
             </tr>
             <tr>
               <td>Australia &amp; New Zealand</td>
               <td>$24.99</td>
-              <td>10–20 business days</td>
+              <td>7–15 days</td>
             </tr>
             <tr>
               <td>Asia (Japan, South Korea, China, etc.)</td>
               <td>$19.99</td>
-              <td>10–20 business days</td>
+              <td>7–15 days</td>
             </tr>
             <tr>
               <td>Rest of World</td>
               <td>$29.99</td>
-              <td>14–30 business days</td>
+              <td>7–15 days</td>
             </tr>
           </tbody>
         </table>
