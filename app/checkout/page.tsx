@@ -290,7 +290,7 @@ export default function CheckoutPage() {
               <span className="flex items-center gap-1.5 font-medium"><span className="text-blue-600 text-base">🛡️</span> PayPal Protected</span>
               <span className="flex items-center gap-1.5 font-medium"><span className="text-orange-500 text-base">↩️</span> 30-Day Returns</span>
               <span className="flex items-center gap-1.5 font-medium"><span className="text-purple-600 text-base">✅</span> 1-Year Warranty</span>
-              <span className="flex items-center gap-1.5 font-medium"><span className="text-green-600 text-base">🚚</span> DHL Express 5–8 Days</span>
+              <span className="flex items-center gap-1.5 font-medium"><span className="text-green-600 text-base">🚚</span> DHL Express 7–15 Days</span>
             </div>
             {/* Payment */}
             <div className="bg-white rounded-xl p-6 shadow">

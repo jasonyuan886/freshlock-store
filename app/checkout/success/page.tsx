@@ -161,7 +161,7 @@ function CheckoutSuccessContent() {
         <h2 className="font-bold text-primary mb-3">What's Next?</h2>
         <ul className="space-y-2 text-gray-600">
           <li>📦 We'll prepare your order within 1-2 business days</li>
-          <li>🚚 Standard shipping takes 3-7 business days</li>
+          <li>🚚 Standard shipping takes 7–15 days</li>
           <li>📧 You'll receive a tracking number via email</li>
         </ul>
       </div>

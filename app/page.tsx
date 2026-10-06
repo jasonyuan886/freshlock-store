@@ -501,7 +501,7 @@ footer .logo{font-size:16px}
     </div>
     <div className="faq-item rv">
       <button className="faq-q" aria-expanded="false">What are the shipping and return policies?<span className="icn" aria-hidden="true"></span></button>
-      <div className="faq-a"><p>US shipping is free on orders over $89 and delivery typically takes 2 to 5 business days. Every order is covered by a 30-day money-back guarantee — if FreshLock does not work for you, contact support for a full refund.</p></div>
+      <div className="faq-a"><p>US shipping is free on orders over $89 and delivery typically takes 7–15 days. Every order is covered by a 30-day money-back guarantee — if FreshLock does not work for you, contact support for a full refund.</p></div>
     </div>
   </div>
 </section>

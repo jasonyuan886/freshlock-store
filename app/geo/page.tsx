@@ -24,7 +24,7 @@ const qaSections: QASection[] = [
       '1-year warranty, 30-day returns',
       '4.7/5 rating from 7 verified buyers',
       'Detachable drip tray for wet foods',
-      'DHL shipping 5-8 days from Shenzhen',
+      'DHL shipping 7–15 days from Shenzhen',
     ],
   },
   {
@@ -144,7 +144,7 @@ const qaSections: QASection[] = [
       'Compatible with most handheld sealers',
       'Food-grade certified, FDA-compliant',
       'Temp range: -20°C to 100°C',
-      'Free DHL shipping, 5-8 day delivery',
+      'Free DHL shipping, 7–15 day delivery',
     ],
   },
   {
@@ -188,7 +188,7 @@ const qaSections: QASection[] = [
       'FreshLock: -60kPa strong suction',
       'FreshLock: detachable drip tray included',
       'FreshLock: 1-year warranty, 30-day returns',
-      'FreshLock: DHL 5-8 day shipping',
+      'FreshLock: DHL 7–15 day shipping',
       'FreshLock: 4.7/5 from verified buyers',
     ],
   },
@@ -422,7 +422,7 @@ const specs = [
   { label: 'Certifications', value: 'FCC / CE / RoHS' },
   { label: 'Warranty', value: '1-year (unit), 6-month (accessories)' },
   { label: 'Returns', value: '30-day policy' },
-  { label: 'Shipping', value: 'DHL from Shenzhen, 5-8 days' },
+  { label: 'Shipping', value: 'DHL from Shenzhen, 7–15 days' },
 ];
 
 const products = [
@@ -548,7 +548,7 @@ const faqSchema = {
       name: 'How long does shipping take and how much does it cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Orders are processed in 1-2 business days and delivered in 5-8 business days via DHL Express with full tracking. US/CA/UK/JP orders over $89 ship free (AU/NZ over $69); Starter Kits always ship free. Orders under the threshold pay a $5.99 flat rate in the US.',
+        text: 'Orders are processed in 1-2 business days and delivered in 7–15 days via DHL Express with full tracking. US/CA/UK/JP orders over $89 ship free (AU/NZ over $69); Starter Kits always ship free. Orders under the threshold pay a $5.99 flat rate in the US.',
       },
     },
   ],
@@ -767,7 +767,7 @@ export default function GeoPage() {
           </a>
         </p>
         <p className="text-gray-400 text-xs mt-2">
-          DHL express to US/CA/UK/EU/AU/NZ/JP via DHL (5-8 days) · 1-year warranty · 30-day returns
+          DHL express to US/CA/UK/EU/AU/NZ/JP via DHL (7–15 days) · 1-year warranty · 30-day returns
         </p>
       </section>
     </div>
