@@ -44,6 +44,7 @@ export const products: Product[] = [
     features: [
       '-60 kPa strong suction — pulls air through the bag valve in seconds',
       'Detachable drip tray with liquid backflow protection for soups, marinades, and juicy foods',
+      'Side drain port with detachable tube — overflow liquid is routed out of the cup instead of pooling toward the pump',
       'One-touch operation — no heat bar, no complicated settings',
       'Compatible with most embossed valve bags (not locked to our own bags)',
       'Also seals Mason jars and food storage containers airtight — works with any lid that has a one-way vacuum valve no wider than 33 mm, on a flat sealing surface at least 40 mm across',
@@ -64,6 +65,7 @@ export const products: Product[] = [
       'Material': 'ABS body, BPA-free food-safe bags, food-grade silicone nozzle',
       'Operating temperature': '-20 °C to 100 °C (freezer, sous vide, microwave-safe bags — open zipper first)',
       'Drip tray': 'Detachable transparent drip cup, liquid backflow protection',
+      'Drain port': 'Side outlet with detachable tube, routes overflow away from the pump',
       'Bag compatibility': 'Compatible with most embossed valve bags (not locked to our own bags)',
       'Jar compatibility': 'Mason jars with a valve-style vacuum lid (not standard flat/screw lids)',
       'Nozzle size': '33 mm inner diameter (max valve opening) / 40 mm outer diameter (min flat sealing surface) — works with any Mason jar lid or food storage container lid whose valve fits within that, on a large-enough flush surface',
@@ -277,7 +279,7 @@ export const faqs = [
   {
     question: 'Can I seal liquids, soups, and marinades?',
     answer:
-      'Yes. The FreshLock Pro has a detachable transparent drip tray (overflow cup) with liquid backflow protection that catches juices before they can reach the motor. For optimal results with soups and very wet foods, freeze them partially first or hold the bag upright while sealing.',
+      'Yes. Juices from marinated meat, sauces and other wet foods are caught by the detachable transparent drip cup before they can travel toward the pump, and a side drain port with the included tube routes any overflow out of the cup rather than letting it pool inside. Most low-cost handheld pumps have no liquid protection at all, which is why they often fail within months of sealing wet food. For pure liquids such as soup or broth we still recommend freezing the portion until the surface is firm before sealing — not only to protect the unit, but because liquid pulled up against the valve prevents a proper airtight seal.',
   },
   {
     question: 'Is it compatible with other brands of vacuum bags?',
