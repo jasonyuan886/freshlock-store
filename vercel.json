@@ -13,7 +13,7 @@
       ]
     },
     {
-      "source": "/((products|blog|about|faq|contact|returns|shipping|terms|privacy|tools|food-waste-calculator))(/.*)?",
+      "source": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy|tools|food-waste-calculator)(/.*)?",
       "headers": [
         { "key": "Cache-Control", "value": "public, s-maxage=900, stale-while-revalidate=86400" }
       ]
