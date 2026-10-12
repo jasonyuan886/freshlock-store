@@ -24,7 +24,7 @@ export const products: Product[] = [
     compareAtPrice: 89.99,
     discountBadge: 'Save 17%',
     description:
-      'The FreshLock Pro is a cordless handheld vacuum sealer designed to stop freezer burn before it starts. Attach the nozzle to the valve on any compatible embossed valve bag, press one button, and the quiet pump pulls air out in seconds — creating an airtight seal that keeps food fresh up to 5× longer. A detachable drip tray catches liquid overflow so soups, marinades, and juicy meats seal cleanly without damaging the motor. No heat bar, no complicated setup. Recharge via USB-C and take it anywhere — kitchen drawer, fridge, pantry, or campsite. Note: vacuum sealing extends refrigerated and frozen storage life — it is not a substitute for heat canning.',,
+      'The FreshLock Pro is a cordless handheld vacuum sealer designed to stop freezer burn before it starts. Attach the nozzle to the valve on any compatible embossed valve bag, press one button, and the quiet pump pulls air out in seconds — creating an airtight seal that keeps food fresh up to 5× longer. A detachable drip tray catches liquid overflow so soups, marinades, and juicy meats seal cleanly without damaging the motor. No heat bar, no complicated setup. Recharge via USB-C and take it anywhere — kitchen drawer, fridge, pantry, or campsite. Note: vacuum sealing extends refrigerated and frozen storage life — it is not a substitute for heat canning.',
     shortDescription:
       'Cordless handheld vacuum sealer with -60 kPa suction. Seals valve-lid Mason jars airtight, stops freezer burn — compatible with most embossed valve bags.',
     image: '/images/products/sealer-main.jpg',
@@ -275,11 +275,11 @@ export const faqs = [
     question: 'Does it prevent freezer burn?',
     answer:
       'Yes. Freezer burn is caused by air reaching the food surface and dehydrating it. By removing up to 95% of the air from the bag, FreshLock dramatically slows oxidation and ice-crystal formation, keeping meat, fish, vegetables, and leftovers fresh-tasting for months in the freezer instead of weeks.',
+  },
   {
     question: 'Is vacuum sealing the same as canning?',
     answer:
       'No — and the difference matters for safety. Vacuum sealing removes air to slow spoilage during refrigerated or frozen storage; it does not make food shelf-stable. Heat canning (water bath for acidic foods, pressure canning for low-acid foods) is the USDA-approved method for room-temperature storage. Never store vacuum-sealed low-acid foods — garlic in oil, raw vegetables, fresh meats — at room temperature. Always refrigerate or freeze vacuum-sealed food.',
-  },
   },
   {
     question: 'Can I seal liquids, soups, and marinades?',
