@@ -308,7 +308,6 @@ export default function ProductDetailPage({ params }: { params: Params }) {
         </nav>
 
         <TrackViewItem product={product} />
-        <TrackViewItem product={product} />
         <article className="grid md:grid-cols-2 gap-12">
           <GalleryClient
             images={product.images && product.images.length > 0 ? product.images : [product.image]}
