@@ -200,7 +200,6 @@ export const products: Product[] = [
     name: 'FreshLock Mason Jar Vacuum Lids — 50 Pack (25 Wide + 25 Regular Mouth)',
     price: 19.99,
     compareAtPrice: '24.99',
-    discountBadge: 'Save 20%',
     description: `Stop throwing away stale snacks, soggy crackers, and dried-out brown sugar. These food-grade stainless mason jar lids with a one-way air valve turn any standard mason jar into a vacuum container.
 
 **What's inside**
@@ -241,14 +240,12 @@ These lids are marked "Do not reheat". They are for vacuum-sealed refrigerated o
       compatibleWith: 'FreshLock Pro and most hose-type handheld vacuum sealers',
     },
     category: 'bags',
-    badge: 'Best Value',
   },
   {
     slug: 'freshlock-pro-lids-bundle',
     name: 'FreshLock Pro + 50 Lids Complete Jar-Sealing Kit',
     price: 84.99,
     compareAtPrice: '94.98',
-    discountBadge: 'Save $10',
     description: `The complete jar-sealing setup in one box: our FreshLock Pro handheld vacuum sealer with both jar hose sizes, and a 50-pack of one-way air valve mason jar lids (25 wide-mouth + 25 regular-mouth).
 
 Seal berries, nuts, coffee, brown sugar, herbs, leftovers and meal-prep ingredients in seconds. No bags needed for dry goods — the jar is the container.
@@ -286,7 +283,6 @@ Buying the kit saves $10 versus purchasing the sealer and lids separately.`,
       compatibleWith: 'All standard mason jars (Ball, Kerr, Bernardin and generics)',
     },
     category: 'kits',
-    badge: 'Complete Kit',
   },
 ];
 
