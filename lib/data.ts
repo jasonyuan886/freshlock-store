@@ -24,7 +24,7 @@ export const products: Product[] = [
     compareAtPrice: 89.99,
     discountBadge: 'Save 17%',
     description:
-      'The FreshLock Pro is a cordless handheld vacuum sealer designed to stop freezer burn before it starts. Attach the nozzle to the valve on any compatible embossed valve bag, press one button, and the quiet pump pulls air out in seconds — creating an airtight seal that keeps food fresh up to 5× longer. A detachable drip tray catches liquid overflow so soups, marinades, and juicy meats seal cleanly without damaging the motor. No heat bar, no complicated setup. Recharge via USB-C and take it anywhere — kitchen drawer, fridge, pantry, or campsite. Note: vacuum sealing extends refrigerated and frozen storage life — it is not a substitute for heat canning.',
+      'The FreshLock Pro is a cordless handheld vacuum sealer designed to stop freezer burn before it starts. Attach the nozzle to the valve on any compatible embossed valve bag, press one button, and the quiet pump pulls air out in seconds — creating an airtight seal that helps food stay fresh longer (refrigerate or freeze sealed food for best results). A detachable drip tray catches liquid overflow so soups, marinades, and juicy meats seal cleanly without damaging the motor. No heat bar, no complicated setup. Recharge via USB-C and take it anywhere — kitchen drawer, fridge, pantry, or campsite. Note: vacuum sealing extends refrigerated and frozen storage life — it is not a substitute for heat canning.',
     shortDescription:
       'Cordless handheld vacuum sealer with -60 kPa suction. Seals valve-lid Mason jars airtight, stops freezer burn — compatible with most embossed valve bags.',
     image: '/images/products/sealer-main.jpg',
