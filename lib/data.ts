@@ -214,7 +214,7 @@ Place a lid on the jar (no band needed), press your FreshLock Pro's hose attachm
 Works with FreshLock Pro and most handheld vacuum sealers that have a jar hose attachment.
 
 **Important safety note**
-These lids are marked "Do not reheat". They are for vacuum-sealed refrigerated or frozen storage only — not a substitute for heat canning or pressure canning. Never use for oven, microwave, or boiling-water processing.`,
+These lids are NOT for heated environments. No boiling-water (steam) canning, no oven, no microwave, no heat processing of any kind — the vacuum seal and the lid itself are only for refrigerated or frozen storage. Vacuum sealing is not a substitute for proper canning.`,
     shortDescription:
       '50 one-way air valve mason jar lids — 25 wide-mouth + 25 regular-mouth. Reusable, food-grade, works with FreshLock Pro and most hose-type handheld sealers.',
     image: '/images/products/lids-main.jpg',
@@ -230,7 +230,7 @@ These lids are marked "Do not reheat". They are for vacuum-sealed refrigerated o
       'Reusable: reseal after every opening',
       'Food-grade stainless steel, BPA-free silicone ring',
       'Works with FreshLock Pro and most hose-type handheld sealers',
-      'Safety: do not reheat — refrigerated/frozen storage only, not for canning',
+      'Safety: not for heating or steam canning — refrigerated/frozen storage only',
     ],
     specs: {
       size: '25 × wide-mouth (86 mm) + 25 × regular-mouth (70 mm)',
@@ -256,7 +256,7 @@ Seal berries, nuts, coffee, brown sugar, herbs, leftovers and meal-prep ingredie
 - 25 regular-mouth valve lids (70 mm)
 
 **Safety note**
-Lids are marked "Do not reheat". Vacuum sealing extends refrigerated and frozen storage life — it is not a substitute for heat canning. Never process sealed jars in boiling water, oven, or microwave.
+These lids are NOT for heated environments — no boiling-water (steam) canning, oven, or microwave. Vacuum sealing extends refrigerated and frozen storage life; it is not a substitute for proper canning, and sealed jars must stay refrigerated or frozen.
 
 Buying the kit saves $10 versus purchasing the sealer and lids separately.`,
     shortDescription:
@@ -273,7 +273,7 @@ Buying the kit saves $10 versus purchasing the sealer and lids separately.`,
       'Hose attachment included — both wide and regular mouth',
       'Save $10 vs buying separately',
       'One-touch operation, USB-C rechargeable',
-      'Safety: lids not for reheating or canning — fridge/freezer storage only',
+      'Safety: lids not for heating or steam canning — fridge/freezer storage only',
     ],
     specs: {
       size: 'Sealer + 25 × wide-mouth (86 mm) + 25 × regular-mouth (70 mm) lids',
