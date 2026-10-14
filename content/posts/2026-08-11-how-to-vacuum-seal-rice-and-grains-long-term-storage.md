@@ -1,7 +1,7 @@
 ---
 title: "How to Vacuum Seal Rice and Grains for Long-Term Storage"
 date: "2026-08-11"
-excerpt: "Learn how to vacuum seal rice, quinoa, oats, and other grains to extend shelf life from months to years. Complete guide with prep steps, storage times, and moisture control tips."
+excerpt: "Learn how to vacuum seal rice, quinoa, oats, and other grains to extend shelf life well beyond ordinary pantry storage — with honest limits for cooked rice. Complete guide with prep steps, storage times, and moisture control tips."
 tags: ["vacuum sealing rice", "grain storage", "long-term food storage", "vacuum sealer pantry"]
 dateModified: "2026-10-14"
 ---
