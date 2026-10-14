@@ -195,6 +195,87 @@ export const products: Product[] = [
     category: 'bags',
     badge: 'Value Pack',
   },
+  {
+    slug: 'lids-50-pack',
+    name: 'FreshLock Mason Jar Vacuum Lids — 50 Pack (25 Wide + 25 Regular Mouth)',
+    description:
+      'One-way air valve mason jar lids: 25 wide-mouth (86 mm) + 25 regular-mouth (70 mm). Seal jars with your FreshLock Pro or any hose-type handheld vacuum sealer.',
+    longDescription: `Stop throwing away stale snacks, soggy crackers, and dried-out brown sugar. These food-grade stainless mason jar lids with a one-way air valve turn any standard mason jar into a vacuum container.
+
+**What's inside**
+- 25 × wide-mouth lids (86 mm) for quart and half-gallon jars
+- 25 × regular-mouth lids (70 mm) for pint and half-pint jars
+- Food-grade stainless steel with BPA-free silicone sealing ring
+
+**How it works**
+Place a lid on the jar (no band needed), press your FreshLock Pro's hose attachment over the valve, and pump until the indicator dimples. The valve lets air out and stops it coming back. Reuse each lid again and again — reseal after every opening.
+
+**Compatibility**
+Works with FreshLock Pro and most handheld vacuum sealers that have a jar hose attachment (including FoodSaver-style hose adapters).
+
+**Important safety note**
+These lids are marked "Do not reheat". They are for vacuum-sealed **refrigerated or frozen** storage only — they are not a substitute for heat canning or pressure canning, and should never be used for oven, microwave, or boiling-water processing.
+
+At roughly one lid per day, a 50-pack covers months of daily kitchen sealing — and costs less than a single week of wasted groceries for most households.`,
+    price: 19.99,
+    compareAt: 24.99,
+    image: '/images/products/lids-main.jpg',
+    images: [
+      '/images/products/lids-main.jpg',
+      '/images/products/lids-freshness.jpg',
+      '/images/products/lids-valve-tech.jpg',
+      '/images/products/lids-compatibility.jpg',
+    ],
+    features: [
+      '50 lids: 25 wide-mouth (86 mm) + 25 regular-mouth (70 mm)',
+      'One-way air valve — pumps out air, blocks it from returning',
+      'Reusable: reseal after every opening',
+      'Food-grade stainless steel, BPA-free silicone ring',
+      'Works with FreshLock Pro and most hose-type handheld sealers',
+      'Safety: do not reheat — refrigerated/frozen storage only, not for canning',
+    ],
+    stock: 500,
+    category: 'lids',
+    badge: 'Best Value',
+  },
+  {
+    slug: 'freshlock-pro-lids-bundle',
+    name: 'FreshLock Pro + 50 Lids Complete Jar-Sealing Kit',
+    description:
+      'Everything to start vacuum-sealing mason jars: FreshLock Pro handheld sealer with jar hose attachment, plus 25 wide-mouth and 25 regular-mouth valve lids.',
+    longDescription: `The complete jar-sealing setup in one box: our FreshLock Pro handheld vacuum sealer with both jar hose sizes, and a 50-pack of one-way air valve mason jar lids (25 wide-mouth + 25 regular-mouth).
+
+Seal berries, nuts, coffee, brown sugar, herbs, leftovers and meal-prep ingredients in seconds. No bags needed for dry goods — the jar is the container.
+
+**Kit contents**
+- FreshLock Pro handheld vacuum sealer (USB-C rechargeable, hose attachment for both jar mouth sizes included)
+- 25 × wide-mouth valve lids (86 mm)
+- 25 × regular-mouth valve lids (70 mm)
+
+**Safety note**
+Lids are marked "Do not reheat". Vacuum sealing extends refrigerated and frozen storage life — it is not a substitute for heat canning. Never process sealed jars in boiling water, oven, or microwave.
+
+Buying the kit saves $10 versus purchasing the sealer and lids separately.`,
+    price: 84.99,
+    compareAt: 94.98,
+    image: '/images/products/sealer-main.jpg',
+    images: [
+      '/images/products/sealer-main.jpg',
+      '/images/products/lids-main.jpg',
+      '/images/products/lids-compatibility.jpg',
+      '/images/products/lids-valve-tech.jpg',
+    ],
+    features: [
+      'FreshLock Pro sealer + full 50-lid pack in one kit',
+      'Hose attachment included — both wide and regular mouth',
+      'Save $10 vs buying separately',
+      'One-touch operation, USB-C rechargeable',
+      'Safety: lids not for reheating or canning — fridge/freezer storage only',
+    ],
+    stock: 300,
+    category: 'bundle',
+    badge: 'Complete Kit',
+  },
 ];
 
 // Reviews — dates spread across ~60 days, mix of ratings, "Verified Buyer" label,
