@@ -106,7 +106,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="bg-primary-50 rounded-xl p-6 text-center">
             <h3 className="text-xl font-bold text-gray-900 mb-2">Ready to try vacuum sealing?</h3>
             <p className="text-gray-600 mb-4">
-              The FreshLock handheld vacuum sealer keeps food fresh up to 5× longer with one-touch valve sealing.
+              The FreshLock handheld vacuum sealer helps food stay fresh longer with one-touch valve sealing — refrigerate or freeze sealed food, and check freshness before eating.
             </p>
             <Link
               href="/products/freshlock-starter-kit"
