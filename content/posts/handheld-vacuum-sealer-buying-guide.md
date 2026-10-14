@@ -56,4 +56,4 @@ Before you order, answer four questions: What food will I pack? Which exact pack
 ### Sources
 
 - FreshLock Pro product page and FAQ linked above; checked 2026-10-14. These are seller statements, not independent tests.
-- USDA FSIS, Leftovers and Food Safety, linked in稿A: packaging does not replace safe handling.
+- USDA FSIS, Leftovers and Food Safety (https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/leftovers-and-food-safety): packaging does not replace safe handling.
