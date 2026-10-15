@@ -29,6 +29,7 @@ export const products: Product[] = [
       'Cordless handheld vacuum sealer with -60 kPa suction. Seals valve-lid Mason jars airtight, stops freezer burn — compatible with most embossed valve bags.',
     image: '/images/products/sealer-main.jpg',
     images: [
+      '/images/products/sealer-real.jpg',
       '/images/products/sealer-main.jpg',
       '/images/products/sealer-angled.jpg',
       '/images/products/sealer-kit.jpg',
@@ -263,6 +264,7 @@ Buying the kit saves $10 versus purchasing the sealer and lids separately.`,
       'Everything to start vacuum-sealing mason jars: FreshLock Pro handheld sealer with jar hose attachment, plus 25 wide-mouth and 25 regular-mouth valve lids.',
     image: '/images/products/sealer-main.jpg',
     images: [
+      '/images/products/sealer-real.jpg',
       '/images/products/sealer-main.jpg',
       '/images/products/lids-main.jpg',
       '/images/products/lids-compatibility.jpg',
