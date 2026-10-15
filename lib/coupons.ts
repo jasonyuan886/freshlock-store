@@ -26,5 +26,15 @@ export function lookupCoupon(rawCode: string | undefined | null): Coupon | null 
   const code = rawCode.trim().toUpperCase();
   if (!code) return null;
   const found = COUPONS.find((c) => c.code === code && c.active);
-  return found || null;
+  if (found) return found;
+  // Affiliate channel codes: any FL-{PARTNER}10 pattern gets 10% off.
+  // Partner attribution happens in GA4 (affiliate_landing_view / affiliate_cta_click
+  // events carry the partner param), so codes don't need per-partner rows here.
+  // Onboard a new partner by giving them their own /go/{partner} link — no code
+  // table change needed. Deactivate the whole affiliate channel by removing this
+  // block.
+  if (/^FL-[A-Z0-9-]{2,24}10$/.test(code)) {
+    return { code, percentOff: 0.1, active: true, description: 'Affiliate partner code (10% off)' };
+  }
+  return null;
 }
