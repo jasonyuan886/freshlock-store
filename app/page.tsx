@@ -317,7 +317,7 @@ footer .logo{font-size:16px}
     <a className="btn-ghost" href="#how">See How It Works</a>
   </div>
   <div className="hero-trust rv in d4">
-    <span>★★★★★ <b>4.6/5</b> from 2,300+ home cooks</span>
+    <span>🫙 Mason-jar ready — hose kit included (wide &amp; regular mouth)</span>
     <span>🚚 Free US shipping over <b>$89</b></span>
     <span>↩️ 30-day money back</span>
   </div>
