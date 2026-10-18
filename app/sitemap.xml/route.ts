@@ -1,4 +1,5 @@
 import { getAllPosts } from '@/lib/blog';
+import { products } from '@/lib/data';
 
 export async function GET() {
   const today = new Date().toISOString().split('T')[0];
@@ -16,12 +17,8 @@ export async function GET() {
     { loc: '/privacy', changefreq: 'yearly', priority: '0.3' },
     { loc: '/terms', changefreq: 'yearly', priority: '0.3' },
   ];
-  const productPages = [
-    '/products/freshlock-pro',
-    '/products/freshlock-starter-kit',
-    '/products/vacuum-seal-bags-30-pack',
-    '/products/vacuum-seal-bags-50-pack',
-  ];
+  // Dynamic: always in sync with lib/data.ts products (never a stale hardcoded list)
+  const productPages = products.map((p) => `/products/${p.slug}`);
 
   const posts = getAllPosts();
   const blogUrls = posts.map(p => ({
