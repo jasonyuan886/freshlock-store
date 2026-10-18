@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Shipping Policy — Rates, Delivery & Free Shipping',
-  description: 'FreshLock shipping policy: Free standard shipping on orders $49+. Expedited shipping available. 30-day money back guarantee. Track every order.',
+  description: 'FreshLock shipping policy: Free standard shipping on orders $89+. Expedited shipping available. 30-day money back guarantee. Track every order.',
   alternates: {
     canonical: 'https://www.freshlocksealer.com/shipping',
   },
@@ -34,13 +34,13 @@ export default function ShippingPage() {
           <tbody>
             <tr>
               <td><strong>Standard Shipping</strong></td>
-              <td>Under $49</td>
-              <td><strong>$4.99</strong></td>
+              <td>Under $89</td>
+              <td><strong>$5.99</strong></td>
               <td>7–15 days</td>
             </tr>
             <tr>
               <td><strong>Standard Shipping</strong></td>
-              <td>$49 and above</td>
+              <td>$89 and above</td>
               <td><strong>FREE</strong></td>
               <td>7–15 days</td>
             </tr>

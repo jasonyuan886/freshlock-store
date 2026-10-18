@@ -3,7 +3,7 @@ import HomeInteractions from "./HomeInteractions";
 
 export const metadata: Metadata = {
   title: "FreshLock Pro — Handheld Vacuum Sealer",
-  description: "One touch. Five times longer freshness. The cordless handheld vacuum sealer that pulls a powerful -60 kPa in seconds — no heat bar, no learning curve.",
+  description: "One touch. Freshness measured in weeks, not days. The cordless handheld vacuum sealer that pulls a powerful -60 kPa in seconds — no heat bar, no learning curve.",
 };
 
 export default function HomePage() {
@@ -309,7 +309,7 @@ footer .logo{font-size:16px}
     <span className="hero-badge"><span className="pulse"></span>Launch Special — 15% OFF with code FRESHLOCK15</span>
   </div>
   <h1 className="rv in d1">Stop Wasting Food.<br/>Seal It <span className="em">Fresh.</span> Seal It Longer.</h1>
-  <p className="hero-sub rv in d2">One touch. Five times longer freshness. The cordless handheld vacuum sealer that pulls a powerful -60 kPa in seconds — no heat bar, no learning curve.</p>
+  <p className="hero-sub rv in d2">One touch. Freshness measured in weeks, not days. The cordless handheld vacuum sealer that pulls a powerful -60 kPa in seconds — no heat bar, no learning curve.</p>
   <div className="hero-actions rv in d3">
     <a className="btn-primary" href="https://www.freshlocksealer.com/products/freshlock-pro" target="_blank" rel="noopener noreferrer">Shop FreshLock Pro — $74.99
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -330,7 +330,7 @@ footer .logo{font-size:16px}
 
 <section className="statement light">
   <div>
-    <h2 className="big rv">The average household throws away <span className="num" data-count="1500" data-prefix="$">$0</span> in food <em>every year.</em></h2>
+    <h2 className="big rv">The average household throws away <span className="num" data-count="1500" data-prefix="$">$1,500</span> in food <em>every year.</em></h2>
     <p className="sub rv d2">Air is the enemy. Oxygen turns bread moldy, meat freezer-burned, and greens slimy — usually before the date on the pack. FreshLock removes up to 95% of it in seconds.</p>
   </div>
 </section>
@@ -400,8 +400,8 @@ footer .logo{font-size:16px}
       <div>
         <div className="step-num">03</div>
         <div className="step-eyebrow">Done</div>
-        <h3>Fresh for 5× longer.</h3>
-        <p>Meat, fish, produce — even soups — stay fresh months longer. No ice crystals, no oxidation, no wasted groceries.</p>
+        <h3>Fresh for weeks, not days.</h3>
+        <p>Meat, fish, produce — even soups — stay fresh months longer. Less freezer burn, less oxidation, less wasted food.</p>
       </div>
       <div className="step-visual">
         <div className="done-mark">
@@ -421,8 +421,8 @@ footer .logo{font-size:16px}
   <div className="fwall">
     <div className="fcard rv">
       <div className="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/></svg></div>
-      <div className="fk">5×</div>
-      <div className="ft">Longer freshness</div>
+      <div className="fk">2–3 wks</div>
+      <div className="ft">Berries &amp; herbs, refrigerated*</div>
       <div className="fd">Removes up to 95% of air — no ice crystals, no oxidation.</div>
     </div>
     <div className="fcard rv d1">
