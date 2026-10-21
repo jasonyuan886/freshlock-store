@@ -53,6 +53,7 @@ export function generateProductSchema(product: Product, reviews?: Review[]) {
     image: (product.images || [product.image]).map(absoluteUrl),
     description: product.description,
     sku: product.slug,
+    mpn: product.mpn || undefined,
     brand: {
       '@type': 'Brand',
       name: 'FreshLock',
@@ -85,8 +86,8 @@ export function generateProductSchema(product: Product, reviews?: Review[]) {
           },
           transitTime: {
             '@type': 'QuantitativeValue',
-            minValue: 5,
-            maxValue: 8,
+            minValue: 7,
+            maxValue: 15,
             unitCode: 'DAY',
           },
         },
