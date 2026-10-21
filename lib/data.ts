@@ -19,6 +19,7 @@ export const STARTER_KIT_SHIPS_FREE = true; // Starter kits always ship free
 export const products: Product[] = [
   {
     slug: 'freshlock-pro',
+    mpn: 'FL-PRO-01',
     name: 'FreshLock Pro Handheld Vacuum Sealer',
     price: 74.99,
     compareAtPrice: 89.99,
@@ -198,6 +199,7 @@ export const products: Product[] = [
   },
   {
     slug: 'lids-50-pack',
+    mpn: 'FL-LID-50',
     name: 'FreshLock Mason Jar Vacuum Lids — 50 Pack (25 Wide + 25 Regular Mouth)',
     price: 19.99,
     compareAtPrice: 24.99,
@@ -244,6 +246,7 @@ These lids are NOT for heated environments. No boiling-water (steam) canning, no
   },
   {
     slug: 'freshlock-pro-lids-bundle',
+    mpn: 'FL-KIT-01',
     name: 'FreshLock Pro + 50 Lids Complete Jar-Sealing Kit',
     price: 84.99,
     compareAtPrice: 94.98,

@@ -1,5 +1,6 @@
 export interface Product {
   slug: string;
+  mpn?: string;
   name: string;
   price: number;
   compareAtPrice?: number;
