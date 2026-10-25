@@ -54,7 +54,7 @@ export async function POST(request: NextRequest) {
               },
             },
           ]
-        : shipping_options: [
+        : [
         {
           shipping_rate_data: {
             type: 'fixed_amount',
