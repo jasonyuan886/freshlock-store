@@ -390,14 +390,14 @@ export default function CheckoutPage() {
                   <label className="flex items-start gap-2 mb-2 cursor-pointer" onClick={() => setShippingMethod('standard')}>
                     <input type="radio" name="shipMethod" checked={shippingMethod === 'standard'} onChange={() => setShippingMethod('standard')} className="mt-1" />
                     <span className="text-sm">
-                      <span className="font-medium">Standard</span> <span className="text-gray-500">(7\u201315 business days)</span><br />
+                      <span className="font-medium">Standard</span> <span className="text-gray-500">(7–15 business days)</span><br />
                       <span className="text-gray-600">{standardShipping === 0 ? 'FREE (orders $89+)' : `$${standardShipping.toFixed(2)}`}</span>
                     </span>
                   </label>
                   <label className="flex items-start gap-2 cursor-pointer" onClick={() => setShippingMethod('faster')}>
                     <input type="radio" name="shipMethod" checked={shippingMethod === 'faster'} onChange={() => setShippingMethod('faster')} className="mt-1" />
                     <span className="text-sm">
-                      <span className="font-medium">Faster Air</span> <span className="text-gray-500">(7\u201310 business days)</span><br />
+                      <span className="font-medium">Faster Air</span> <span className="text-gray-500">(7–10 business days)</span><br />
                       <span className="text-gray-600">{form.country === 'US' ? '$15.00 (US)' : '$10.00 (International)'}</span>
                     </span>
                   </label>
