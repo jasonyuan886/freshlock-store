@@ -40,7 +40,21 @@ export async function POST(request: NextRequest) {
       shipping_address_collection: {
         allowed_countries: ['US', 'CA', 'GB', 'AU', 'NZ'],
       },
-      shipping_options: [
+      shipping_options: shippingMethod === 'faster'
+        ? [
+            {
+              shipping_rate_data: {
+                type: 'fixed_amount',
+                fixed_amount: { amount: shippingCountry === 'US' ? 1500 : 1000, currency: 'usd' },
+                display_name: 'Faster Air (7-10 business days)',
+                delivery_estimate: {
+                  minimum: { unit: 'business_day', value: 7 },
+                  maximum: { unit: 'business_day', value: 10 },
+                },
+              },
+            },
+          ]
+        : shipping_options: [
         {
           shipping_rate_data: {
             type: 'fixed_amount',
