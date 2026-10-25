@@ -1,6 +1,9 @@
 import { Product, Review } from './types';
 
 // Free shipping threshold for US orders (USD)
+export const AIR_SHIPPING_US = 15;
+export const AIR_SHIPPING_INTERNATIONAL = 10;
+
 export const FREE_SHIPPING_THRESHOLD = 89;
 export const SHIPPING_FEE_UNDER = 5.99;
 // International free-shipping tiers
