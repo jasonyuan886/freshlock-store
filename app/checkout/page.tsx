@@ -5,15 +5,15 @@ import { useCart } from '@/lib/cart-context';
 import { trackBeginCheckout } from '@/lib/ga4';
 import { getAttribution } from '@/lib/attribution';
 import Image from 'next/image';
-import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER } from '@/lib/data';
+import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER , AIR_SHIPPING_US, AIR_SHIPPING_INTERNATIONAL } from '@/lib/data';
 // NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
 // meta robots noindex is applied via vercel.json headers for /checkout.
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
   // Free-shipping threshold is evaluated on the pre-discount subtotal (matches
   // the server), so applying a coupon never strips away free shipping.
-  const shipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const [paymentMethod, setPaymentMethod] = useState('paypal');
+  const [shippingMethod, setShippingMethod] = useState('standard');
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState('');
   // Promo code: display-only client state. The server re-validates the code
@@ -70,6 +70,11 @@ export default function CheckoutPage() {
     { code: 'MY', name: 'Malaysia' },
     { code: 'TH', name: 'Thailand' },
   ];
+
+  // Shipping: Standard (free over threshold, else $5.99) or Faster Air (US $15 / others $10)
+  const standardShipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
+  const airShipping = form.country === 'US' ? AIR_SHIPPING_US : AIR_SHIPPING_INTERNATIONAL;
+  const shipping = shippingMethod === 'faster' ? airShipping : standardShipping;
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -122,6 +127,8 @@ export default function CheckoutPage() {
           body: JSON.stringify({
             items: items.map(i => ({ slug: i.product.slug, name: i.product.name, price: i.product.price, quantity: i.quantity })),
             shipping: shipping,
+            shippingMethod: shippingMethod,
+            shippingCountry: form.country,
             couponCode: appliedCoupon?.code || undefined,
             shippingAddress: {
               name: `${form.firstName} ${form.lastName}`.trim(),
@@ -377,6 +384,23 @@ export default function CheckoutPage() {
                 <div className="flex justify-between">
                   <span className="text-gray-500">Subtotal</span>
                   <span>${totalPrice.toFixed(2)}</span>
+                </div>
+                {/* Shipping method selector */}
+                <div className="mb-3">
+                  <label className="flex items-start gap-2 mb-2 cursor-pointer" onClick={() => setShippingMethod('standard')}>
+                    <input type="radio" name="shipMethod" checked={shippingMethod === 'standard'} onChange={() => setShippingMethod('standard')} className="mt-1" />
+                    <span className="text-sm">
+                      <span className="font-medium">Standard</span> <span className="text-gray-500">(7\u201315 business days)</span><br />
+                      <span className="text-gray-600">{standardShipping === 0 ? 'FREE (orders $89+)' : `$${standardShipping.toFixed(2)}`}</span>
+                    </span>
+                  </label>
+                  <label className="flex items-start gap-2 cursor-pointer" onClick={() => setShippingMethod('faster')}>
+                    <input type="radio" name="shipMethod" checked={shippingMethod === 'faster'} onChange={() => setShippingMethod('faster')} className="mt-1" />
+                    <span className="text-sm">
+                      <span className="font-medium">Faster Air</span> <span className="text-gray-500">(7\u201310 business days)</span><br />
+                      <span className="text-gray-600">{form.country === 'US' ? '$15.00 (US)' : '$10.00 (International)'}</span>
+                    </span>
+                  </label>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Shipping</span>
