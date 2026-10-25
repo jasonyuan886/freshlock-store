@@ -22,32 +22,6 @@ export default function CheckoutPage() {
   const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; percentOff: number; description: string } | null>(null);
   const [couponChecking, setCouponChecking] = useState(false);
   const [couponError, setCouponError] = useState('');
-  const discount = appliedCoupon ? +(totalPrice * appliedCoupon.percentOff).toFixed(2) : 0;
-  const total = +(totalPrice - discount + shipping).toFixed(2);
-  const handleApplyCoupon = async () => {
-    const code = couponInput.trim();
-    if (!code) return;
-    setCouponChecking(true);
-    setCouponError('');
-    try {
-      const res = await fetch('/api/coupon', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ code }),
-      });
-      const data = await res.json();
-      if (data.valid) {
-        setAppliedCoupon({ code: data.code, percentOff: data.percentOff, description: data.description });
-      } else {
-        setAppliedCoupon(null);
-        setCouponError('Invalid or expired code');
-      }
-    } catch {
-      setCouponError('Could not check code, try again');
-    } finally {
-      setCouponChecking(false);
-    }
-  };
   // 表单状态
   const [form, setForm] = useState({
     firstName: '',
@@ -75,6 +49,33 @@ export default function CheckoutPage() {
   const standardShipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const airShipping = form.country === 'US' ? AIR_SHIPPING_US : AIR_SHIPPING_INTERNATIONAL;
   const shipping = shippingMethod === 'faster' ? airShipping : standardShipping;
+
+  const discount = appliedCoupon ? +(totalPrice * appliedCoupon.percentOff).toFixed(2) : 0;
+  const total = +(totalPrice - discount + shipping).toFixed(2);
+  const handleApplyCoupon = async () => {
+    const code = couponInput.trim();
+    if (!code) return;
+    setCouponChecking(true);
+    setCouponError('');
+    try {
+      const res = await fetch('/api/coupon', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code }),
+      });
+      const data = await res.json();
+      if (data.valid) {
+        setAppliedCoupon({ code: data.code, percentOff: data.percentOff, description: data.description });
+      } else {
+        setAppliedCoupon(null);
+        setCouponError('Invalid or expired code');
+      }
+    } catch {
+      setCouponError('Could not check code, try again');
+    } finally {
+      setCouponChecking(false);
+    }
+  };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
