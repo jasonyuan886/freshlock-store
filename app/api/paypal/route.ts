@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { persistOrder, generateOrderNumber, type OrderRecord, type OrderAttribution } from '@/lib/orders';
-import { products } from '@/lib/data';
+import { products, AIR_SHIPPING_US, AIR_SHIPPING_INTERNATIONAL } from '@/lib/data';
 import { sendServerPurchaseEvent } from '@/lib/ga4-server';
 import { lookupCoupon } from '@/lib/coupons';
 
@@ -132,7 +132,7 @@ async function persistCapturedOrder(
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { items: rawItems, shippingAddress, couponCode } = body;
+    const { items: rawItems, shippingAddress, couponCode, shippingMethod, shippingCountry } = body;
 
     if (!rawItems || rawItems.length === 0) {
       return NextResponse.json({ error: 'Cart is empty' }, { status: 400 });
@@ -158,7 +158,10 @@ export async function POST(request: NextRequest) {
     );
     // Free-shipping threshold is evaluated on the pre-discount subtotal, so a
     // coupon never strips away free shipping the cart would otherwise earn.
-    const shipping = subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
+    const isAir = shippingMethod === 'faster';
+  const shipping = isAir
+    ? (shippingCountry === 'US' ? AIR_SHIPPING_US : AIR_SHIPPING_INTERNATIONAL)
+    : (subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER);
     // Never trust a client-supplied discount — look the code up server-side.
     const coupon = lookupCoupon(couponCode);
     const discount = coupon ? +(subtotal * coupon.percentOff).toFixed(2) : 0;
