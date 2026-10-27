@@ -7,6 +7,21 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
+function extractFaq(html: string): { q: string; a: string }[] | null {
+  const parts = html.split(/<h2[^>]*>FAQ<\/h2>/i);
+  if (parts.length < 2) return null;
+  const section = parts[1].split(/<h2[^>]*>/i)[0];
+  const items: { q: string; a: string }[] = [];
+  const re = /<p><strong[^>]*>([^<]+)<\/strong><\/p>\s*<p[^>]*>([\s\S]*?)<\/p>/g;
+  let m;
+  while ((m = re.exec(section)) !== null) {
+    const q = m[1].trim();
+    const a = m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    if (q && a) items.push({ q, a });
+  }
+  return items.length >= 2 ? items : null;
+}
+
 export async function generateStaticParams() {
   const posts = getAllPosts();
   return posts.map(p => ({ slug: p.slug }));
@@ -45,6 +60,19 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const relatedPosts = getRelatedPosts(slug, 3);
 
+  const faqItems = extractFaq(post.content);
+  const faqJsonLd = faqItems
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqItems.map(item => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
+      }
+    : null;
+
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -66,6 +94,12 @@ export default async function BlogPostPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <Link href="/blog" className="text-primary-600 hover:text-primary-800 text-sm font-medium inline-flex items-center mb-6">
           ← Back to all articles
