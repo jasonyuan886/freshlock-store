@@ -471,6 +471,13 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               <p className="text-emerald-800 text-xs mt-1 leading-relaxed">The average household throws away $1,866 of food a year. Vacuum sealing stops most of that waste — this $89 tool beats a year of throwing groceries out.</p>
             </div>
 
+            {/* 2026-10-28 trust row: free shipping + guarantees exist as policies but were invisible at the decision point */}
+            <div className="flex flex-wrap gap-x-4 gap-y-1 my-3 text-xs text-gray-700">
+              <span>✓ Free shipping on orders $89+</span>
+              <span>✓ 30-day satisfaction guarantee</span>
+              <span>✓ 1-year warranty</span>
+            </div>
+
             <div id="purchase">
               <FomoCountdownTimer variant="pdp" />
               <AddToCartClient product={product} />
