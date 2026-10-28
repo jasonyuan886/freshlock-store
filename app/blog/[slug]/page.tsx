@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const relatedPosts = getRelatedPosts(slug, 3);
 
-  const faqItems = extractFaq(post.content);
+  const faqItems = extractFaq(post.content ?? '');
   const faqJsonLd = faqItems
     ? {
         '@context': 'https://schema.org',
