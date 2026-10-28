@@ -5,7 +5,7 @@ import { useCart } from '@/lib/cart-context';
 import { trackViewCart } from '@/lib/ga4';
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER, products } from '@/lib/data';
 import Image from 'next/image';
-import { useMemo, useEffect } from 'react';
+import { useMemo, useEffect, useRef } from 'react';
 
 export const dynamic = 'force-dynamic';
 
@@ -119,6 +119,23 @@ function FreeShippingProgress({ total }: { total: number }) {
 
 export default function CartPage() {
   const { items, updateQuantity, removeFromCart, totalPrice, addToCart } = useCart();
+  // GA4 view_cart: fire once per cart-page visit, after the cart finishes
+  // hydrating from localStorage (items is [] on first render).
+  const cartViewTracked = useRef(false);
+  useEffect(() => {
+    if (cartViewTracked.current || items.length === 0) return;
+    cartViewTracked.current = true;
+    trackViewCart(
+      items.map((i) => ({
+        item_id: i.product.slug,
+        item_name: i.product.name,
+        price: i.product.price,
+        quantity: i.quantity,
+        item_category: i.product.category || 'sealer',
+      })),
+      totalPrice,
+    );
+  }, [items.length]); // eslint-disable-line react-hooks/exhaustive-deps
   const shipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const total = totalPrice + shipping;
   const cartSlugs = useMemo(() => items.map((i) => i.product.slug), [items]);
