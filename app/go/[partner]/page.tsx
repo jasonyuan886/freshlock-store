@@ -76,7 +76,7 @@ export default function PartnerLanding() {
         >
           Get FreshLock Pro &mdash; $69.99
         </Link>
-        <p className="text-xs text-gray-400 mt-3">30-day returns &middot; PayPal secure checkout</p>
+        <p className="text-xs text-gray-400 mt-3">14-day returns &middot; PayPal secure checkout</p>
       </section>
 
       <section className="max-w-3xl mx-auto px-5 pb-10">

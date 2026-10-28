@@ -11,7 +11,7 @@ export default function ReturnsPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center mb-10">
         <h1 className="section-title">Returns &amp; Refund Policy</h1>
-        <p className="section-subtitle">30-day satisfaction guarantee — backed by our 1-year warranty.</p>
+        <p className="section-subtitle">14-day returns — backed by our 1-year warranty. (Buyer pays return shipping.)</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -19,7 +19,7 @@ export default function ReturnsPage() {
           <section>
             <div className="bg-accent/10 border-l-4 border-accent p-4 rounded">
               <p className="text-gray-900 font-semibold">
-                🎉 30-Day Satisfaction Guarantee — If you&apos;re not completely happy with your FreshLock purchase within 30 days of delivery, we&apos;ll make it right.
+                🎉 14-Day Return Guarantee — If you&apos;re not completely happy with your FreshLock purchase within 14 days of delivery, we&apos;ll make it right.
               </p>
             </div>
           </section>
@@ -27,7 +27,7 @@ export default function ReturnsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">1. Return Window (Change of Mind)</h2>
             <p className="text-gray-600 leading-relaxed">
-              You may return most new, unused items within <strong>30 days of delivery</strong> for a full refund or exchange, no questions asked. Items must be in their original packaging, undamaged, and in resalable condition, with all accessories and documentation included.
+              You may return most new, unused items within <strong>14 days of delivery</strong> for a full refund or exchange,  Return shipping costs are the responsibility of the customer unless the item is defective or incorrect. Items must be in their original packaging, undamaged, and in resalable condition, with all accessories and documentation included.
             </p>
           </section>
 
