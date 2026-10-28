@@ -34,6 +34,16 @@ function extractFaq(html: string): { q: string; a: string }[] | null {
     }
   }
 
+  // Format C: <p><strong>Question</strong> Answer-in-same-paragraph</p> (EN site rendering)
+  if (items.length < 2) {
+    const reC = /<p[^>]*><strong[^>]*>([^<]+)<\/strong>\s*([\s\S]*?)<\/p>/g;
+    while ((m = reC.exec(section)) !== null) {
+      const q = m[1].trim();
+      const a = clean(m[2]);
+      if (q && a) items.push({ q, a });
+    }
+  }
+
   return items.length >= 2 ? items : null;
 }
 
