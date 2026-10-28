@@ -8,17 +8,32 @@ interface PageProps {
 }
 
 function extractFaq(html: string): { q: string; a: string }[] | null {
-  const parts = html.split(/<h2[^>]*>FAQ<\/h2>/i);
+  // Match "FAQ" heading even when it carries a suffix, e.g. "FAQ：パンの真空密封"
+  const parts = html.split(/<h2[^>]*>FAQ[^<]*<\/h2>/i);
   if (parts.length < 2) return null;
   const section = parts[1].split(/<h2[^>]*>/i)[0];
   const items: { q: string; a: string }[] = [];
-  const re = /<p><strong[^>]*>([^<]+)<\/strong><\/p>\s*<p[^>]*>([\s\S]*?)<\/p>/g;
-  let m;
-  while ((m = re.exec(section)) !== null) {
+  const clean = (v: string) => v.replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
+
+  // Format A: <p><strong>Question</strong></p><p>Answer</p>
+  const reA = /<p[^>]*><strong[^>]*>([^<]+)<\/strong><\/p>\s*<p[^>]*>([\s\S]*?)<\/p>/g;
+  let m: RegExpExecArray | null;
+  while ((m = reA.exec(section)) !== null) {
     const q = m[1].trim();
-    const a = m[2].replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const a = clean(m[2]);
     if (q && a) items.push({ q, a });
   }
+
+  // Format B: <h3>Question</h3><p>Answer</p>
+  if (items.length < 2) {
+    const reB = /<h3[^>]*>([^<]+)<\/h3>\s*<p[^>]*>([\s\S]*?)<\/p>/g;
+    while ((m = reB.exec(section)) !== null) {
+      const q = m[1].trim();
+      const a = clean(m[2]);
+      if (q && a) items.push({ q, a });
+    }
+  }
+
   return items.length >= 2 ? items : null;
 }
 
