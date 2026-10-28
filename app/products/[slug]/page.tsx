@@ -465,6 +465,12 @@ export default function ProductDetailPage({ params }: { params: Params }) {
               </ul>
             </section>
 
+            {/* 2026-10-28 ROI anchor (conversion diag D1): price needs a payback frame */}
+            <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 my-4">
+              <p className="text-emerald-900 font-semibold text-sm">Pays for itself in 2-4 months.</p>
+              <p className="text-emerald-800 text-xs mt-1 leading-relaxed">The average household throws away $1,866 of food a year. Vacuum sealing stops most of that waste — this $89 tool beats a year of throwing groceries out.</p>
+            </div>
+
             <div id="purchase">
               <FomoCountdownTimer variant="pdp" />
               <AddToCartClient product={product} />
