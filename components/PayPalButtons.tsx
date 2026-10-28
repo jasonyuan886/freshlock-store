@@ -39,8 +39,10 @@ export default function PayPalButtons({
   const buttonsRef = useRef<HTMLDivElement>(null);
   const [loading, setLoading] = useState(true);
   const [sdkReady, setSdkReady] = useState(false);
+  const [cardEligible, setCardEligible] = useState(false);
+  const [cardSubmitting, setCardSubmitting] = useState(false);
+  const cardFieldsRef = useRef<any>(null);
 
-  // Stabilize callbacks so they don't cause infinite re-renders
   const handleSuccess = useCallback(
     (orderId: string) => onSuccess(orderId),
     [onSuccess]
@@ -50,54 +52,58 @@ export default function PayPalButtons({
     [onError]
   );
 
-  // Load PayPal SDK once
+  const createOrder = useCallback(async () => {
+    const res = await fetch('/api/paypal', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        items: items.map((i) => ({ name: i.product.name, price: i.product.price, quantity: i.quantity, slug: i.product.slug })),
+        shippingAddress: shippingInfo,
+      }),
+    });
+    const data = await res.json();
+    if (data.orderId) return data.orderId;
+    throw new Error(data.error || 'Failed to create order');
+  }, [items, shippingInfo]);
+
+  const captureOrder = useCallback(async (orderId: string) => {
+    const res = await fetch('/api/paypal', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ orderId }),
+    });
+    const data = await res.json();
+    if (data.success) handleSuccess(data.orderId || orderId);
+    else handleError(data.error || 'Payment failed');
+  }, [handleSuccess, handleError]);
+
+  // Load PayPal SDK once (buttons + card-fields; NO enable-funding=googlepay — it 400s the whole SDK)
   useEffect(() => {
     const clientId =
-      process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID ||
-      'AXN5OatqRTqARNS8Op_oHXqtvokFlvzlppWEsmoQdSAXFvnfxnU7RRfk-tG0hVeZRsxzZ1KXf4mCFooh';
-
+      process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || '';
     if (!clientId) {
-      handleError('PayPal is not configured.');
+      handleError('Payment system is not configured.');
       setLoading(false);
       return;
     }
 
-    // If already loaded globally, use it
-    if (window.paypal) {
-      setSdkReady(true);
-      return;
-    }
-
-    // Check if script already in DOM
-    const existing = document.querySelector('script[src*="paypal.com/sdk/js"]');
-    if (existing) {
-      // Wait for it to initialize
-      const t = setInterval(() => {
-        if (window.paypal) { clearInterval(t); setSdkReady(true); }
-      }, 200);
-      setTimeout(() => { clearInterval(t); if (!window.paypal) { handleError('PayPal SDK timeout.'); setLoading(false); } }, 10000);
-      return;
-    }
-
-    // Inject script
     const script = document.createElement('script');
-    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture&components=buttons&commit=true`;
+    script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture&components=buttons,card-fields&commit=true`;
     script.async = true;
     script.onload = () => {
-      // Give SDK a moment to set window.paypal
       const t = setInterval(() => {
         if (window.paypal) { clearInterval(t); setSdkReady(true); }
       }, 200);
-      setTimeout(() => { clearInterval(t); if (!window.paypal) { handleError('PayPal SDK failed to initialize.'); setLoading(false); } }, 10000);
+      setTimeout(() => { clearInterval(t); if (!window.paypal) { handleError('Payment SDK failed to initialize.'); setLoading(false); } }, 10000);
     };
     script.onerror = () => {
-      handleError('Failed to load PayPal SDK.');
+      handleError('Failed to load payment system.');
       setLoading(false);
     };
     document.head.appendChild(script);
   }, [handleError]);
 
-  // Render buttons when SDK is ready
+  // Render PayPal button + inline card fields
   useEffect(() => {
     if (!sdkReady || !buttonsRef.current || !window.paypal) return;
 
@@ -106,52 +112,116 @@ export default function PayPalButtons({
     try {
       window.paypal
         .Buttons({
-          style: { layout: 'vertical', color: 'gold', shape: 'pill', label: 'paypal', tagline: false },
+          style: { layout: 'vertical', color: 'black', shape: 'pill', label: 'paypal', tagline: false },
           fundingSource: window.paypal.FUNDING.PAYPAL,
-          createOrder: async () => {
-            const res = await fetch('/api/paypal', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({
-                items: items.map((i) => ({ name: i.product.name, price: i.product.price, quantity: i.quantity, slug: i.product.slug })),
-                shippingAddress: shippingInfo,
-              }),
-            });
-            const data = await res.json();
-            if (data.orderId) return data.orderId;
-            throw new Error(data.error || 'Failed to create order');
+          createOrder,
+          onApprove: async (_d: any, actions: any) => {
+            await captureOrder(actions.orderID);
           },
-          onApprove: async (_data: any, actions: any) => {
-            const res = await fetch('/api/paypal', {
-              method: 'PUT',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ orderId: actions.orderID }),
-            });
-            const data = await res.json();
-            if (data.success) handleSuccess(data.orderId);
-            else handleError(data.error || 'Payment capture failed.');
-          },
-          onCancel: () => {},
           onError: (err: any) => {
-            console.error('PayPal Buttons error:', err);
-            handleError('Payment error. Please try again.');
+            console.error('PayPal button error', err);
+            handleError('PayPal payment failed. Please try again or use the card form below.');
           },
         })
-        .render(buttonsRef.current);
-    } catch (err) {
-      console.error('PayPal render error:', err);
-      handleError('Failed to render PayPal buttons.');
+        .render(buttonsRef.current)
+        .catch((e: any) => console.error('render paypal button', e));
+    } catch (e) {
+      console.error('paypal buttons init', e);
     }
+
+    // Inline card fields (CardFields / ACDC) — no PayPal account needed, no redirect
+    try {
+      const cf = window.paypal.CardFields?.({
+        createOrder,
+        onApprove: async (data: any) => {
+          setCardSubmitting(false);
+          await captureOrder(data.orderID);
+        },
+        onError: (err: any) => {
+          setCardSubmitting(false);
+          console.error('CardFields error', err);
+          handleError('Card payment failed. Check your card details and try again.');
+        },
+      });
+      if (cf && cf.isEligible && cf.isEligible()) {
+        cardFieldsRef.current = cf;
+        setCardEligible(true);
+        setTimeout(() => {
+          try {
+            cf.NumberField({ placeholder: 'Card number' }).render('#fl-card-number');
+            cf.ExpiryField({ placeholder: 'MM / YY' }).render('#fl-card-expiry');
+            cf.CVVField({ placeholder: 'CVV' }).render('#fl-card-cvv');
+          } catch (e) {
+            console.error('card fields render', e);
+            setCardEligible(false);
+          }
+        }, 50);
+      }
+    } catch (e) {
+      console.error('cardfields init', e);
+    }
+
     setLoading(false);
-  }, [sdkReady, items, totalPrice, shipping, shippingInfo, handleSuccess, handleError]);
+  }, [sdkReady, createOrder, captureOrder, handleError]);
 
-  if (loading) {
-    return (
-      <div className="py-4 text-center text-gray-500 text-sm">
-        Loading PayPal...
-      </div>
-    );
-  }
+  const submitCard = async () => {
+    if (!cardFieldsRef.current) return;
+    setCardSubmitting(true);
+    try {
+      await cardFieldsRef.current.submit({
+        // Cardholder name + billing address from the shipping form to lower decline rate
+        cardholderName: shippingInfo.name || '',
+        billingAddress: {
+          streetAddress: shippingInfo.address || '',
+          locality: shippingInfo.city || '',
+          region: shippingInfo.state || '',
+          postalCode: shippingInfo.postalCode || '',
+          countryCodeAlpha2: (shippingInfo.country || 'US').slice(0, 2).toUpperCase(),
+        },
+      });
+    } catch (e) {
+      setCardSubmitting(false);
+      handleError('Could not submit card payment. Please try again.');
+    }
+  };
 
-  return <div ref={buttonsRef} className="min-h-[50px]" />;
+  return (
+    <div className="w-full">
+      {loading && <p className="text-sm text-gray-500">Loading secure payment options…</p>}
+
+      {/* PayPal account button (kept as secondary) */}
+      <div ref={buttonsRef} className="min-h-[40px]" />
+
+      {cardEligible && (
+        <div className="mt-4">
+          <div className="flex items-center gap-3 my-3">
+            <div className="flex-1 h-px bg-gray-200" />
+            <span className="text-xs text-gray-500">or pay with card</span>
+            <div className="flex-1 h-px bg-gray-200" />
+          </div>
+
+          <div className="space-y-2">
+            <div id="fl-card-number" className="h-10 border border-gray-300 rounded-md bg-white" />
+            <div className="grid grid-cols-2 gap-2">
+              <div id="fl-card-expiry" className="h-10 border border-gray-300 rounded-md bg-white" />
+              <div id="fl-card-cvv" className="h-10 border border-gray-300 rounded-md bg-white" />
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={submitCard}
+            disabled={cardSubmitting}
+            className="mt-3 w-full h-11 rounded-md bg-gray-900 text-white font-semibold text-sm disabled:opacity-60"
+          >
+            {cardSubmitting ? 'Processing…' : `Pay $${(totalPrice + shipping).toFixed(2)}`}
+          </button>
+
+          <p className="mt-2 text-[11px] text-gray-500">
+            Cards processed securely by PayPal. No PayPal account needed.
+          </p>
+        </div>
+      )}
+    </div>
+  );
 }
