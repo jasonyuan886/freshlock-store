@@ -10,6 +10,7 @@ import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER , AIR_SHIPPING_US, AIR_SHIP
 // meta robots noindex is applied via vercel.json headers for /checkout.
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
+  const checkoutTracked = useRef(false);
   // Free-shipping threshold is evaluated on the pre-discount subtotal (matches
   // the server), so applying a coupon never strips away free shipping.
   const [paymentMethod, setPaymentMethod] = useState('paypal');
@@ -82,13 +83,19 @@ export default function CheckoutPage() {
   const [cartCaptured, setCartCaptured] = useState(false);
   // Fire begin_checkout event once on mount
   useEffect(() => {
-    if (items.length > 0) {
-      trackBeginCheckout(
-        items.map(i => ({ item_id: i.product.slug, item_name: i.product.name, price: i.product.price, quantity: i.quantity })),
-        totalPrice + shipping,
-      );
-    }
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+    if (items.length === 0 || checkoutTracked.current) return;
+    checkoutTracked.current = true;
+    trackBeginCheckout(
+      items.map((i) => ({
+        item_id: i.product.slug,
+        item_name: i.product.name,
+        price: i.product.price,
+        quantity: i.quantity,
+        item_category: i.product.category || 'sealer',
+      })),
+      totalPrice,
+    );
+  }, [items.length, totalPrice]); // eslint-disable-line react-hooks/exhaustive-deps
   const handleEmailBlur = () => {
     if (cartCaptured || !form.email || items.length === 0) return;
     setCartCaptured(true);
