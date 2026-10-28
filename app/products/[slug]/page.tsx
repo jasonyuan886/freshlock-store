@@ -81,7 +81,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
       url: `${SITE_URL}/products/${product.slug}`,
       title,
       description,
-      images: product.images.map((src) => ({
+      images: [product.image, ...product.images].map((src) => ({
         url: src,
         width: 1200,
         height: 630,
