@@ -21,6 +21,8 @@ const COUPONS: Coupon[] = [
   { code: 'FRESHLOCK15', percentOff: 0.15, active: true, description: 'Follow @freshlocksealer on TikTok — 15% off' },
   // 2026-10-29 袁总亲令：Wild Moon Acres（农场达人 Kristina）粉丝专属 15% 券
   { code: 'KRISTINA15', percentOff: 0.15, active: true, description: 'Wild Moon Acres partner — 15% off for followers' },
+  // 2026-10-29 补：21:32 发给 Kristina 的信里承诺的码是 WILDMOON15（60 天有效），与 KRISTINA15 同权，防达人粉丝 checkout 翻车
+  { code: 'WILDMOON15', percentOff: 0.15, active: true, description: 'Wild Moon Acres partner — 15% off for followers (as emailed 2026-10-29, valid 60 days)' },
 ];
 
 export function lookupCoupon(rawCode: string | undefined | null): Coupon | null {
