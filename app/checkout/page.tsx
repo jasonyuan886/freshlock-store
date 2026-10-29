@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
 import { trackBeginCheckout } from '@/lib/ga4';
 import { getAttribution } from '@/lib/attribution';
+import dynamic from 'next/dynamic';
+const PayPalButtons = dynamic(() => import('@/components/PayPalButtons'), { ssr: false });
 import Image from 'next/image';
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER , AIR_SHIPPING_US, AIR_SHIPPING_INTERNATIONAL } from '@/lib/data';
 // NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
@@ -109,6 +111,14 @@ export default function CheckoutPage() {
       }),
     }).catch(() => {});
   };
+  const handlePaymentSuccess = (orderId: string) => {
+    window.location.href = `/checkout/success?token=${encodeURIComponent(orderId)}&payment_method=paypal`;
+  };
+  const handlePaymentError = (msg: string) => {
+    setError(msg);
+    setProcessing(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setProcessing(true);
@@ -461,6 +471,27 @@ export default function CheckoutPage() {
                 <span>Total</span>
                 <span>${total.toFixed(2)} USD</span>
               </div>
+              {paymentMethod === 'paypal' ? (
+                <div className="mt-6">
+                  <PayPalButtons
+                    items={items}
+                    totalPrice={total}
+                    shipping={shipping}
+                    shippingInfo={{
+                      name: `${form.firstName} ${form.lastName}`.trim(),
+                      address: form.address,
+                      city: form.city,
+                      state: form.state,
+                      postalCode: form.postcode,
+                      country: form.country,
+                      phone: form.phone,
+                    }}
+                    contactEmail={form.email}
+                    onSuccess={handlePaymentSuccess}
+                    onError={handlePaymentError}
+                  />
+                </div>
+              ) : (
               <button
                 type="submit"
                 disabled={processing}
@@ -478,13 +509,14 @@ export default function CheckoutPage() {
                   `Pay $${total.toFixed(2)} USD`
                 )}
               </button>
+              )}
               <div className="mt-3 flex flex-wrap gap-2 justify-center text-[10px] text-gray-400">
                 <span>🔒 SSL Secure Checkout</span>
                 <span>·</span>
                 <span>Visa / MC / Amex / Discover / PayPal</span>
               </div>
               <p className="text-xs text-gray-400 text-center mt-2">
-                Free shipping over $89 · Starter Kits ship free · 30-day returns · 1-year warranty
+                Free shipping over $89 · Starter Kits ship free · 14-day returns · 1-year warranty
               </p>
             </div>
           </div>
