@@ -34,3 +34,7 @@ yarn-error.log*
 next-env.d.ts
 .env*
 scripts/service-account.json
+
+# 20261029: 误提交过 505MB 二进制，GitHub 100MB 限制导致 push 被拒
+node_modules.bak/
+node_modules.bak
