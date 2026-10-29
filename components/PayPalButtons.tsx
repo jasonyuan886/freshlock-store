@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { getAttribution } from '@/lib/attribution';
 
 declare global {
   interface Window {
@@ -25,7 +24,6 @@ interface PayPalButtonsProps {
     country: string;
     phone?: string;
   };
-  contactEmail?: string;
   onSuccess: (orderId: string) => void;
   onError: (message: string) => void;
 }
@@ -35,7 +33,6 @@ export default function PayPalButtons({
   totalPrice,
   shipping,
   shippingInfo,
-  contactEmail,
   onSuccess,
   onError,
 }: PayPalButtonsProps) {
@@ -55,21 +52,6 @@ export default function PayPalButtons({
     [onError]
   );
 
-  // Stash contact+attribution (mirrors the redirect flow) and return the payload
-  const buildOrderPayload = useCallback(() => {
-    const attribution = getAttribution();
-    const contact = {
-      name: shippingInfo.name || '',
-      email: contactEmail || '',
-      phone: shippingInfo.phone || '',
-    };
-    try {
-      localStorage.setItem('freshlock-pending-contact', JSON.stringify(contact));
-      localStorage.setItem('freshlock-pending-attribution', JSON.stringify(attribution));
-    } catch (e) {}
-    return { contact, attribution };
-  }, [shippingInfo, contactEmail]);
-
   const createOrder = useCallback(async () => {
     const res = await fetch('/api/paypal', {
       method: 'POST',
@@ -85,16 +67,15 @@ export default function PayPalButtons({
   }, [items, shippingInfo]);
 
   const captureOrder = useCallback(async (orderId: string) => {
-    const { contact, attribution } = buildOrderPayload();
     const res = await fetch('/api/paypal', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ orderId, contact, attribution }),
+      body: JSON.stringify({ orderId }),
     });
     const data = await res.json();
     if (data.success) handleSuccess(data.orderId || orderId);
     else handleError(data.error || 'Payment failed');
-  }, [buildOrderPayload, handleSuccess, handleError]);
+  }, [handleSuccess, handleError]);
 
   // Load PayPal SDK once (buttons + card-fields; NO enable-funding=googlepay — it 400s the whole SDK)
   useEffect(() => {
@@ -186,9 +167,9 @@ export default function PayPalButtons({
   const submitCard = async () => {
     if (!cardFieldsRef.current) return;
     setCardSubmitting(true);
-    buildOrderPayload();
     try {
       await cardFieldsRef.current.submit({
+        // Cardholder name + billing address from the shipping form to lower decline rate
         cardholderName: shippingInfo.name || '',
         billingAddress: {
           streetAddress: shippingInfo.address || '',
@@ -208,7 +189,7 @@ export default function PayPalButtons({
     <div className="w-full">
       {loading && <p className="text-sm text-gray-500">Loading secure payment options…</p>}
 
-      {/* PayPal account button */}
+      {/* PayPal account button (kept as secondary) */}
       <div ref={buttonsRef} className="min-h-[40px]" />
 
       {cardEligible && (
