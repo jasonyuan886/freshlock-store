@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
 import { trackBeginCheckout } from '@/lib/ga4';
