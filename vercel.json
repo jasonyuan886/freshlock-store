@@ -1,27 +1,151 @@
 {
+  "redirects": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "utm_source"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "utm_medium"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "utm_campaign"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "fbclid"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "gclid"
+        }
+      ],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "has": [
+        {
+          "type": "query",
+          "key": "utm_source"
+        }
+      ],
+      "destination": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "permanent": true
+    },
+    {
+      "source": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "has": [
+        {
+          "type": "query",
+          "key": "utm_medium"
+        }
+      ],
+      "destination": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "permanent": true
+    },
+    {
+      "source": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "has": [
+        {
+          "type": "query",
+          "key": "utm_campaign"
+        }
+      ],
+      "destination": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "permanent": true
+    },
+    {
+      "source": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "has": [
+        {
+          "type": "query",
+          "key": "fbclid"
+        }
+      ],
+      "destination": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "permanent": true
+    },
+    {
+      "source": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "has": [
+        {
+          "type": "query",
+          "key": "gclid"
+        }
+      ],
+      "destination": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy)(/.*)?",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(images|media|videos)/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/(api|checkout|cart)/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "private, no-cache, no-store, max-age=0, must-revalidate" }
+        {
+          "key": "Cache-Control",
+          "value": "private, no-cache, no-store, max-age=0, must-revalidate"
+        }
       ]
     },
     {
       "source": "/(products|blog|about|faq|contact|returns|shipping|terms|privacy|tools|food-waste-calculator)(/.*)?",
       "headers": [
-        { "key": "Cache-Control", "value": "public, s-maxage=900, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=900, stale-while-revalidate=86400"
+        }
       ]
     },
     {
       "source": "/",
       "headers": [
-        { "key": "Cache-Control", "value": "public, s-maxage=900, stale-while-revalidate=86400" }
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=900, stale-while-revalidate=86400"
+        }
       ]
     }
   ]
