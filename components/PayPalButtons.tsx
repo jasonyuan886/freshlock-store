@@ -220,10 +220,10 @@ export default function PayPalButtons({
           </div>
 
           <div className="space-y-2">
-            <div id="fl-card-number" className="h-10 border border-gray-300 rounded-md bg-white" />
+            <div id="fl-card-number" className="min-h-10 border border-gray-300 rounded-md bg-white" />
             <div className="grid grid-cols-2 gap-2">
-              <div id="fl-card-expiry" className="h-10 border border-gray-300 rounded-md bg-white" />
-              <div id="fl-card-cvv" className="h-10 border border-gray-300 rounded-md bg-white" />
+              <div id="fl-card-expiry" className="min-h-10 border border-gray-300 rounded-md bg-white" />
+              <div id="fl-card-cvv" className="min-h-10 border border-gray-300 rounded-md bg-white" />
             </div>
           </div>
 
@@ -233,7 +233,7 @@ export default function PayPalButtons({
             disabled={cardSubmitting}
             className="mt-3 w-full h-11 rounded-md bg-gray-900 text-white font-semibold text-sm disabled:opacity-60"
           >
-            {cardSubmitting ? 'Processing…' : `Pay $${(totalPrice + shipping).toFixed(2)}`}
+            {cardSubmitting ? 'Processing…' : `Pay $${totalPrice.toFixed(2)}`}
           </button>
 
           <p className="mt-2 text-[11px] text-gray-500">
