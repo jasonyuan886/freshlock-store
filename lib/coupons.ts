@@ -20,8 +20,7 @@ export type Coupon = {
 const COUPONS: Coupon[] = [
   { code: 'FRESHLOCK15', percentOff: 0.15, active: true, description: 'Follow @freshlocksealer on TikTok — 15% off' },
   // 2026-10-30 袁总令：黑五（11-28）双档券——11-24 起生效，12-02 后我来手动关 active
-  { code: 'BLACKFRIDAY25', percentOff: 0.25, active: true, description: 'Black Friday deal - 25% off, Nov 24 - Dec 1' },
-  { code: 'BLACKFRIDAY30', percentOff: 0.30, active: true, description: 'Black Friday VIP - 30% off first 500 orders' },
+  { code: 'BLACKFRIDAY15', percentOff: 0.15, active: true, description: 'Black Friday deal - 15% off, Nov 24 - Dec 1' },
   // 2026-10-29 袁总亲令：Wild Moon Acres（农场达人 Kristina）粉丝专属 15% 券
   { code: 'KRISTINA15', percentOff: 0.15, active: true, description: 'Wild Moon Acres partner — 15% off for followers' },
   // 2026-10-29 补：21:32 发给 Kristina 的信里承诺的码是 WILDMOON15（60 天有效），与 KRISTINA15 同权，防达人粉丝 checkout 翻车

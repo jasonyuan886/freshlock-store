@@ -26,7 +26,7 @@ export default function BlackFridayBanner() {
     <div className="w-full bg-black text-center py-2.5 px-4">
       <Link href="/checkout" className="no-underline">
         <span className="text-yellow-400 font-bold text-sm sm:text-base tracking-wide">
-          ⚡ BLACK FRIDAY: 30% OFF — CODE BLACKFRIDAY30
+          ⚡ BLACK FRIDAY: 15% OFF — CODE BLACKFRIDAY15
         </span>
         {left > 0 && (
           <span className="ml-2 text-yellow-300 font-bold text-sm sm:text-base">
