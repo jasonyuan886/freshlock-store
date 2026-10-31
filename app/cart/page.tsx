@@ -242,6 +242,9 @@ export default function CartPage() {
             <span>Total</span>
             <span>${total.toFixed(2)} USD</span>
           </div>
+          <p className="text-sm text-center text-gray-500 -mt-1">
+            Have a discount code? Apply it on the next page (checkout).
+          </p>
           <Link href="/checkout" className="btn-primary w-full block text-center">
             Proceed to Checkout
           </Link>
