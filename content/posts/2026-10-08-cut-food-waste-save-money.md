@@ -18,9 +18,9 @@ The average American family throws away roughly **$100–$125 of food per month*
 
 That waste has one common cause: **oxygen and moisture getting to food faster than your schedule does**.
 
-## The $25 fix
+## The $75 fix
 
-A handheld vacuum sealer (the FreshLock Pro kit runs about $25 with bags and the mason-jar hose) attacks the problem at the source:
+A handheld vacuum sealer (the FreshLock Pro kit runs about $75 with bags and the mason-jar hose) attacks the problem at the source:
 
 - Berries: 5 days → 2–3 weeks
 - Herbs: 4 days → 2 weeks
