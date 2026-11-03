@@ -41,7 +41,7 @@ Setup is genuinely zero: charge it, and you're sealing within two minutes of ope
 
 | | FreshLock Pro | Countertop sealer ($100+) | Squeeze-and-pray bags |
 |---|---|---|---|
-| Price | ~$25–30 | $100–250 | $5/box |
+| Price | ~$75 | $100–250 | $5/box |
 | Jar sealing | ✅ built-in hose | Needs extra accessory | ❌ |
 | Storage space | Drawer | Countertop | Drawer |
 | 60-day use rate | Daily | (varies) | Daily but ineffective |

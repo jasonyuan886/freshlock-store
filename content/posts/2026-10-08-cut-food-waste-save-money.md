@@ -1,14 +1,14 @@
 ---
 slug: cut-food-waste-save-money
-title: "Food Prices Are Still High. Here's the $25 Kitchen Tool That Pays for Itself in 8 Weeks."
-description: "The average household throws away $1,500 of food a year. The fix isn't eating less — it's a $25 vacuum sealer and five habits."
+title: "Food Prices Are Still High. Here's the $75 Kitchen Tool That Pays for Itself in 8 Weeks."
+description: "The average household throws away $1,500 of food a year. The fix isn't eating less — it's a $75 vacuum sealer and five habits."
 keywords: ["how to save money on groceries", "reduce food waste", "food waste cost per household", "vacuum sealer save money", "grocery budget tips"]
 
 date: "2026-10-08"
 author: "FreshLock Team"
 ---
 
-# Food Prices Are Still High. Here's the $25 Kitchen Tool That Pays for Itself in 8 Weeks.
+# Food Prices Are Still High. Here's the $75 Kitchen Tool That Pays for Itself in 8 Weeks.
 
 The USDA's latest numbers say what your receipt already knows: groceries aren't getting cheaper. What most households miss is that they're paying for food twice — once at the store, and again when it goes bad before they eat it.
 

@@ -19,7 +19,7 @@ The rule for cooking gifts: if it doesn't survive daily use by February, it was 
 
 ## Under $30
 
-6. **FreshLock Pro handheld vacuum sealer kit** — jars, bags, marinade duty, $25. The rare gift that pays the recipient back in grocery savings.
+6. **FreshLock reusable vacuum bags (50-pack)** — the refill for anyone who already owns a sealer, or the low-commitment entry into vacuum storage, $19.99. The rare gift that pays the recipient back in grocery savings.
 7. **Carbon steel wok (flat-bottom)** — better nonstick than teflon once seasoned, and it's $25.
 8. **Digital scale with baker's percentages mode** — the gateway gift to serious baking.
 9. **Mandoline with cut glove** — terrifying without the glove, transformative with it.
@@ -51,6 +51,6 @@ The rule for cooking gifts: if it doesn't survive daily use by February, it was 
 
 ## The honest top pick
 
-If you can only buy one thing on this list: the **FreshLock Pro kit at ~$25**. It's cheap enough to be a stocking stuffer, useful enough to be opened in January, and it saves the recipient money all year — which makes you the rare gift-giver whose present keeps performing.
+If you can only buy one thing on this list and have a slightly bigger budget: the **FreshLock Pro kit** (currently $74.99, marked down from $89.99). It's useful enough to be opened in January and saves the recipient money all year — which makes you the rare gift-giver whose present keeps performing.
 
 [Grab the FreshLock Pro gift kit →]

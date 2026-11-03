@@ -18,7 +18,7 @@ Here's exactly how to do it, and the five foods where the difference is dramatic
 
 - Standard or wide-mouth mason jars with NEW lids (a used lid that has been flexed won't hold vacuum)
 - A handheld vacuum sealer with the jar attachment hose — the **FreshLock Pro** kit includes the hose and both mouth sizes
-- 60 seconds per jar
+- About 10–20 seconds per jar
 
 ## The 4-step process
 
