@@ -9,13 +9,16 @@ import Image from 'next/image';
 export default function Header() {
   const { totalItems } = useCart();
   const pathname = usePathname();
-
-  if (pathname === '/') return null;
+  // Hooks must be called unconditionally on every render, so this has to stay
+  // above the early return below (it used to sit after it, which desynced
+  // React's hook order whenever the user navigated to or away from "/").
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  if (pathname === '/') return null;
+
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="w-full bg-white shadow-sm sticky top-0 z-50">
+      <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
