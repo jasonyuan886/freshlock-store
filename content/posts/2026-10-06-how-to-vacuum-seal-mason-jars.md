@@ -10,22 +10,22 @@ author: "FreshLock Team"
 
 # How to Vacuum Seal Mason Jars: 5 Foods That Stay Fresh 3x Longer
 
-Mason jars are the most underused food-storage container in your kitchen. They're cheap, endlessly reusable, freezer-safe — and with one $25 tool, they become a vacuum-sealing system that keeps food fresh three times longer than a twist of the lid.
+Mason jars are the most underused food-storage container in your kitchen. They're cheap, endlessly reusable, freezer-safe — and with one $75 tool, they become a vacuum-sealing system that keeps food fresh three times longer than a twist of the lid.
 
 Here's exactly how to do it, and the five foods where the difference is dramatic.
 
 ## What you need
 
-- Standard or wide-mouth mason jars with NEW lids (a used lid that has been flexed won't hold vacuum)
-- A handheld vacuum sealer with the jar attachment hose — the **FreshLock Pro** kit includes the hose and both mouth sizes
+- Standard or wide-mouth mason jars (any brand — Ball, Kerr, generic)
+- **FreshLock one-way valve lids** — the vacuum only works with a valve lid, not a regular flat or screw-on lid. The **FreshLock Pro** kit includes the valve lids and the jar hose, in both mouth sizes
 - About 10–20 seconds per jar
 
 ## The 4-step process
 
 1. **Fill** the jar, leaving 1–2 cm of headspace. Food should be below the rim.
-2. **Lid on, band off.** Place a flat lid on top. Do NOT screw the band on — the air needs an escape route during pumping.
-3. **Pump.** Press the sealer nozzle onto the lid center and run the FreshLock Pro until the motor pitch changes and the indicator dimples (about 10–20 seconds).
-4. **Seal the deal.** Screw the band on finger-tight only. Done — the lid is now vacuum-locked.
+2. **Press on a FreshLock valve lid.** No band needed — just press the valve lid on firmly so it sits flat on the rim. The one-way valve in the center is where the air will leave.
+3. **Pump.** Press the sealer nozzle onto the valve port and run the FreshLock Pro until the motor pitch changes and the indicator dimples (about 10–20 seconds).
+4. **Done.** The valve seals itself as soon as you lift the nozzle — the lid stays vacuum-locked with nothing else to tighten.
 
 ## The 5 foods where vacuum sealing pays for itself
 
@@ -41,14 +41,14 @@ Here's exactly how to do it, and the five foods where the difference is dramatic
 
 ## Common mistakes (and why your jar "didn't work")
 
-- **Reused lids.** A lid can only be vacuum-sealed once. Keep a supply of new flats.
+- **Using a regular flat or screw-on lid.** This is the big one. A standard mason-jar lid has no valve, so there's no way for the air to leave or for the vacuum to hold. You need a one-way valve lid — that's the "our lids" part of the system.
+- **Lid not pressed on firmly.** If the valve lid sits crooked, air leaks back in around the rim. Press it down flat before you pump.
 - **Overfilling.** Food above the rim stops the lid from seating evenly.
-- **Twisting the band on first.** The band goes on AFTER pumping, and only finger-tight.
 - **Ignoring the dimple.** A sealed lid has a visible concave center. No dimple = no vacuum.
 
 ## Bottom line
 
-If you already own mason jars, a handheld sealer is the highest-leverage $25 in kitchen storage. The FreshLock Pro kit covers both jar sizes and works on bags too — but honestly, once you've tasted a two-week-old strawberry that still snaps, the jars win.
+If you already own mason jars, a handheld sealer is the highest-leverage $75 in kitchen storage. The FreshLock Pro kit covers both jar sizes and works on bags too — but honestly, once you've tasted a two-week-old strawberry that still snaps, the jars win.
 
 ## Keep reading
 

@@ -102,7 +102,7 @@ export default function PartnerLanding() {
         <div className="space-y-4 text-gray-700">
           <div>
             <p className="font-semibold">How is it different from FoodSaver?</p>
-            <p>At this price, it&apos;s the only handheld that includes the complete mason-jar hose kit. Open bag ecosystem, too &mdash; any one-way valve bag works.</p>
+            <p>At this price, the kit includes the complete mason-jar hose and valve-lid set &mdash; jars and bags both work out of the box. Open bag ecosystem, too &mdash; any one-way valve bag works.</p>
           </div>
           <div>
             <p className="font-semibold">What if I don&apos;t like it?</p>

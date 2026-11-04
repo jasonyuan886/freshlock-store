@@ -317,7 +317,7 @@ footer .logo{font-size:16px}
     <a className="btn-ghost" href="#how">See How It Works</a>
   </div>
   <div className="hero-trust rv in d4">
-    <span>🫙 Mason-jar ready — hose kit incl. (needs one-way valve lids)</span>
+    <span>🫙 Mason-jar ready — valve lids &amp; hose kit included</span>
     <span>🚚 Free US shipping over <b>$89</b></span>
     <span>↩️ 30-day money back</span>
   </div>

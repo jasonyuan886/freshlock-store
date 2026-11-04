@@ -391,7 +391,7 @@ export const faqs = [
   {
     question: 'Can I use it to vacuum seal Mason jars or food storage containers?',
     answer:
-      "Yes — for both, as long as the lid has a built-in one-way air valve (the same style of valve as FreshLock bags). The FreshLock Pro nozzle needs a valve opening no wider than 33 mm, sitting on a flat sealing surface at least 40 mm across (a bit larger is fine — a smaller flat area won't seal flush and can leak). Set the nozzle over the valve and press the button, same as sealing a bag. It will not work with a standard flat/screw-on lid or container with no valve, regardless of size.",
+      "Yes — for both, as long as the lid has a built-in one-way air valve (the same style of valve as FreshLock bags). The FreshLock Pro nozzle needs a valve opening no wider than 33 mm, sitting on a flat sealing surface at least 40 mm across (a bit larger is fine — a smaller flat area won't seal flush and can leak). Set the nozzle over the valve and press the button, same as sealing a bag. It will not work with a standard flat/screw-on lid or container with no valve, regardless of size. Mason jars work great — the FreshLock kit includes one-way valve lids in both wide-mouth and regular-mouth sizes, plus the jar hose, so jars are ready to seal right out of the box.",
   },
   {
     question: 'How long does the battery last and how do I charge it?',
