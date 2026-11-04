@@ -11,6 +11,18 @@ export default function HomeInteractions() {
     const prog = document.getElementById("progress") as HTMLElement | null;
     const nav = document.getElementById("nav") as HTMLElement | null;
 
+    // The homepage nav is position:fixed at top:0, while the black-friday
+    // banner sits in normal flow above <main>. Keep the nav glued to the
+    // banner's bottom edge and let it settle at top:0 once the banner scrolls
+    // away, otherwise a banner-height gap opens above the nav.
+    const banner = document.getElementById("bf-banner") as HTMLElement | null;
+    function syncNavTop() {
+      if (!nav) return;
+      const bh = banner ? banner.offsetHeight : 0;
+      const scrollTop = document.documentElement.scrollTop || window.scrollY || 0;
+      nav.style.top = Math.max(0, bh - scrollTop) + "px";
+    }
+
     // --- Scroll: progress bar + nav solid + parallax ---
     function onScroll() {
       const h = document.documentElement;
@@ -20,6 +32,7 @@ export default function HomeInteractions() {
         if (h.scrollTop > 60) nav.classList.add("solid");
         else nav.classList.remove("solid");
       }
+      syncNavTop();
       const p = document.getElementById("parallax1") as HTMLElement | null;
       if (p) {
         const r = p.getBoundingClientRect();
@@ -28,21 +41,13 @@ export default function HomeInteractions() {
       }
     }
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-
-    // The homepage nav is position:fixed at top:0, but the black-friday
-    // banner sits in normal flow above <main>. Measure the banner and push
-    // the nav down so they never overlap (banner height changes with wrapping).
-    const banner = document.getElementById("bf-banner") as HTMLElement | null;
-    function syncNavTop() {
-      if (!nav) return;
-      nav.style.top = (banner ? banner.offsetHeight : 0) + "px";
-    }
-    syncNavTop();
     window.addEventListener("resize", syncNavTop);
     if (banner && typeof ResizeObserver !== "undefined") {
       new ResizeObserver(syncNavTop).observe(banner);
     }
+    onScroll();
+
+
 
     // --- IntersectionObserver for .rv elements ---
     function runCount(el: HTMLElement) {
