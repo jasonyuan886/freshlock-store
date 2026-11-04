@@ -199,7 +199,6 @@ export default function PayPalButtons({
             label: 'paypal',
             tagline: false,
           },
-          fundingSource: window.paypal.FUNDING.PAYPAL,
           createOrder,
           onApprove: async (_d: any, actions: any) => {
             await captureOrder(actions.orderID);
@@ -212,7 +211,10 @@ export default function PayPalButtons({
           },
         })
         .render(buttonsRef.current)
-        .catch((e: any) => console.error('render paypal button', e));
+        .catch((e: any) => {
+          console.error('render paypal button', e);
+          handleError('PayPal button could not load. Please use the card form below.');
+        });
     } catch (e) {
       console.error('paypal buttons init', e);
     }
