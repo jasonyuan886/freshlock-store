@@ -125,8 +125,15 @@ export default function PayPalButtons({
   // Render PayPal button + inline card fields
   useEffect(() => {
     if (!sdkReady || !buttonsRef.current || !window.paypal) return;
+    // 防 StrictMode 重复挂载：SDK render 只许跑一次，卡字段容器每次先清空
+    if ((window as any).__fl_pp_rendered) return;
+    (window as any).__fl_pp_rendered = true;
 
     buttonsRef.current.innerHTML = '';
+    ['fl-card-number', 'fl-card-expiry', 'fl-card-cvv'].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.innerHTML = '';
+    });
 
     try {
       window.paypal
