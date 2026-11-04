@@ -73,6 +73,27 @@ export default function PayPalButtons({
     } catch (e) {}
   }, []);
 
+  // Block checkout until the buyer has actually supplied a deliverable address.
+  // PayPal calls createOrder the moment the button is clicked, so without this
+  // guard an empty form produces an empty shippingAddress, the server rejects
+  // the order and PayPal surfaces the generic "payment failed" error.
+  const validateShipping = useCallback(() => {
+    const si = latest.current.shippingInfo;
+    const missing: string[] = [];
+    if (!si.name || !si.name.trim()) missing.push('full name');
+    if (!si.address || !si.address.trim()) missing.push('street address');
+    if (!si.city || !si.city.trim()) missing.push('city');
+    if (!si.state || !si.state.trim()) missing.push('state / province');
+    if (!si.postalCode || !si.postalCode.trim()) missing.push('ZIP / postal code');
+    if (!si.country) missing.push('country');
+    if (!(latest.current.contactEmail || '').trim()) missing.push('email');
+    if (missing.length) {
+      handleError(`Please complete your order details first: ${missing.join(', ')}.`);
+      return false;
+    }
+    return true;
+  }, [handleError]);
+
   // Stash contact+attribution (mirrors the redirect flow) and return the payload
   const buildOrderPayload = useCallback(() => {
     const si = latest.current.shippingInfo;
@@ -91,6 +112,7 @@ export default function PayPalButtons({
   }, []);
 
   const createOrder = useCallback(async () => {
+    if (!validateShipping()) throw new Error('Incomplete shipping details');
     const cartItems = latest.current.items;
     const si = latest.current.shippingInfo;
     const res = await fetch('/api/paypal', {
@@ -109,7 +131,7 @@ export default function PayPalButtons({
     const data = await res.json();
     if (data.orderId) return data.orderId;
     throw new Error(data.error || 'Failed to create order');
-  }, []);
+  }, [validateShipping]);
 
   const captureOrder = useCallback(
     async (orderId: string) => {
@@ -200,6 +222,15 @@ export default function PayPalButtons({
             tagline: false,
           },
           createOrder,
+          onClick: (_data: any, actions: any) => {
+            if (!validateShipping()) return actions.reject();
+            return actions.resolve();
+          },
+          onCancel: () => {
+            handleError(
+              'PayPal checkout was cancelled. You can try again, or use the card form below.'
+            );
+          },
           onApprove: async (_d: any, actions: any) => {
             await captureOrder(actions.orderID);
           },
@@ -255,9 +286,10 @@ export default function PayPalButtons({
     }
 
     setLoading(false);
-  }, [sdkReady, createOrder, captureOrder, handleError]);
+  }, [sdkReady, createOrder, captureOrder, handleError, validateShipping]);
 
   const submitCard = async () => {
+    if (!validateShipping()) return;
     if (!cardFieldsRef.current) {
       handleError('Card form is not ready yet. Please refresh the page and try again.');
       return;

@@ -10,6 +10,19 @@ import Image from 'next/image';
 import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER , AIR_SHIPPING_US, AIR_SHIPPING_INTERNATIONAL } from '@/lib/data';
 // NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
 // meta robots noindex is applied via vercel.json headers for /checkout.
+const EMPTY_CHECKOUT_FORM = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  address: '',
+  city: '',
+  state: '',
+  postcode: '',
+  country: 'US',
+};
+const CHECKOUT_FORM_KEY = 'freshlock-checkout-form';
+
 export default function CheckoutPage() {
   const { items, totalPrice, clearCart } = useCart();
   const checkoutTracked = useRef(false);
@@ -26,16 +39,16 @@ export default function CheckoutPage() {
   const [couponChecking, setCouponChecking] = useState(false);
   const [couponError, setCouponError] = useState('');
   // 表单状态
-  const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    address: '',
-    city: '',
-    state: '',
-    postcode: '',
-    country: 'US',
+  // Restore the address the buyer already typed. Without this, any reload or
+  // PayPal round-trip wiped the form and the next Pay click submitted an empty
+  // shipping address, which the server rejects.
+  const [form, setForm] = useState<typeof EMPTY_CHECKOUT_FORM>(() => {
+    if (typeof window === 'undefined') return EMPTY_CHECKOUT_FORM;
+    try {
+      const raw = window.localStorage.getItem(CHECKOUT_FORM_KEY);
+      if (raw) return { ...EMPTY_CHECKOUT_FORM, ...JSON.parse(raw) };
+    } catch (e) {}
+    return EMPTY_CHECKOUT_FORM;
   });
   const COUNTRIES = [
     { code: 'US', name: 'United States' },
@@ -80,7 +93,11 @@ export default function CheckoutPage() {
     }
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const next = { ...form, [e.target.name]: e.target.value };
+    setForm(next);
+    try {
+      window.localStorage.setItem(CHECKOUT_FORM_KEY, JSON.stringify(next));
+    } catch (err) {}
   };
   const [cartCaptured, setCartCaptured] = useState(false);
   // Fire begin_checkout event once on mount
@@ -112,6 +129,9 @@ export default function CheckoutPage() {
     }).catch(() => {});
   };
   const handlePaymentSuccess = (orderId: string) => {
+    try {
+      window.localStorage.removeItem(CHECKOUT_FORM_KEY);
+    } catch (e) {}
     window.location.href = `/checkout/success?token=${encodeURIComponent(orderId)}&payment_method=paypal`;
   };
   const handlePaymentError = (msg: string) => {
