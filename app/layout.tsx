@@ -106,12 +106,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
-      <body className="w-full flex flex-col min-h-screen">
+      <body className="w-full min-h-screen">
         <CartProvider>
           <AttributionTracker />
           <Header />
           <BlackFridayBanner />
-          <main className="w-full flex-1">{children}</main>
+          <main className="w-full min-h-[60vh]">{children}</main>
           <Footer />
           <FomoPurchaseNotification />
         </CartProvider>
