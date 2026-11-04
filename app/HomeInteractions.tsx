@@ -30,6 +30,20 @@ export default function HomeInteractions() {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
+    // The homepage nav is position:fixed at top:0, but the black-friday
+    // banner sits in normal flow above <main>. Measure the banner and push
+    // the nav down so they never overlap (banner height changes with wrapping).
+    const banner = document.getElementById("bf-banner") as HTMLElement | null;
+    function syncNavTop() {
+      if (!nav) return;
+      nav.style.top = (banner ? banner.offsetHeight : 0) + "px";
+    }
+    syncNavTop();
+    window.addEventListener("resize", syncNavTop);
+    if (banner && typeof ResizeObserver !== "undefined") {
+      new ResizeObserver(syncNavTop).observe(banner);
+    }
+
     // --- IntersectionObserver for .rv elements ---
     function runCount(el: HTMLElement) {
       if (el.dataset.done) return;

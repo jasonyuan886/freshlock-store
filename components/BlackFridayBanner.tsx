@@ -23,7 +23,7 @@ export default function BlackFridayBanner() {
   const s = Math.floor((left % 60000) / 1000);
 
   return (
-    <div className="w-full bg-black text-center py-2.5 px-4">
+    <div id="bf-banner" className="w-full bg-black text-center py-2.5 px-4">
       <Link href="/checkout" className="no-underline">
         <span className="text-yellow-400 font-bold text-sm sm:text-base tracking-wide">
           ⚡ BLACK FRIDAY: 15% OFF — CODE BLACKFRIDAY15
