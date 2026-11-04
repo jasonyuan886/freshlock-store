@@ -207,7 +207,7 @@ export default function CheckoutPage() {
         </div>
       )}
       <form onSubmit={handleSubmit}>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className="grid lg:grid-cols-3 gap-8 [&>*]:min-w-0">
           {/* Form */}
           <div className="lg:col-span-2 space-y-8">
             {/* Contact */}
