@@ -306,7 +306,7 @@ footer .logo{font-size:16px}
 <section className="hero light">
   <div className="hero-glow"></div>
   <div className="rv in">
-    <span className="hero-badge"><span className="pulse"></span>Launch Special — 15% OFF with code FRESHLOCK15</span>
+    <span className="hero-badge"><span className="pulse"></span>Black Friday is ON — $10 OFF with code BLACKFRIDAY10</span>
   </div>
   <h1 className="rv in d1">Stop Wasting Food.<br/>Seal It <span className="em">Fresh.</span> Seal It Longer.</h1>
   <p className="hero-sub rv in d2">One touch. Freshness measured in weeks, not days. The cordless handheld vacuum sealer that pulls a powerful -60 kPa in seconds — no heat bar, no learning curve.</p>
