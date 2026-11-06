@@ -1,30 +1,24 @@
-// Server-authoritative coupon codes. Never trust a discount amount/percent
-// sent from the client — always look the code up here and recompute.
-//
-// FRESHLOCK15: "follow our TikTok, get 15% off" growth incentive. Uses the
-// brand name rather than the channel name (TIKTOK15) so the code itself
-// reinforces brand recall, per 2026-09-21 request. Landed cost on the hero
-// SKUs (device ~35rmb, starter kit device+30 bags ~60rmb, +domestic freight
-// <20rmb) is a small fraction of the $75-95 retail price, so 15% off leaves
-// a large margin over hard product cost — see 2026-09-21 discussion.
-// Honor-system code (no TikTok follow verification, matches how small DTC
-// brands typically run this), shared in bio/video captions.
-
 export type Coupon = {
   code: string;
-  percentOff: number; // 0-1
+  percentOff?: number; // 0-1，与 amountOff 二选一
+  amountOff?: number;  // 固定金额立减（2026-11-06 袁总令：黑五用优惠券不用折扣券）
+  minSubtotal?: number; // 可选：折前小计门槛（未达则不可用）
   active: boolean;
+  notBefore?: string; // YYYY-MM-DD（含）UTC 日期闸门
+  notAfter?: string;  // YYYY-MM-DD（不含）到期自动失效
   description: string;
 };
 
 const COUPONS: Coupon[] = [
-  { code: 'FRESHLOCK15', percentOff: 0.15, active: true, description: 'Follow @freshlocksealer on TikTok — 15% off' },
-  // 2026-10-30 袁总令：黑五（11-28）双档券——11-24 起生效，12-02 后我来手动关 active
-  { code: 'BLACKFRIDAY15', percentOff: 0.15, active: true, description: 'Black Friday deal - 15% off, Nov 24 - Dec 1' },
-  // 2026-10-29 袁总亲令：Wild Moon Acres（农场达人 Kristina）粉丝专属 15% 券
-  { code: 'KRISTINA15', percentOff: 0.15, active: true, description: 'Wild Moon Acres partner — 15% off for followers' },
+  { code: 'FRESHLOCK15', percentOff: 0.15, active: true, description: 'Save 15% on your order' },
+  { code: 'KRISTINA15', percentOff: 0.15, active: true, description: 'Thanks for visiting our farm stand' },
   // 2026-10-29 补：21:32 发给 Kristina 的信里承诺的码是 WILDMOON15（60 天有效），与 KRISTINA15 同权，防达人粉丝 checkout 翻车
   { code: 'WILDMOON15', percentOff: 0.15, active: true, description: 'Wild Moon Acres partner — 15% off for followers (as emailed 2026-10-29, valid 60 days)' },
+  // 2026-11-06 袁总令「直接给优惠券不要折扣券」：BLACKFRIDAY15 停用，换固定金额双档
+  { code: 'BLACKFRIDAY15', percentOff: 0.15, active: false, description: 'Replaced by fixed-amount BLACKFRIDAY10/25 (2026-11-06)' },
+  // 黑五固定金额券：11-24 自动生效、12-02 自动失效，无需人工开关
+  { code: 'BLACKFRIDAY10', amountOff: 10, active: true, notBefore: '2026-11-24', notAfter: '2026-12-02', description: 'Black Friday deal — $10 off any order, Nov 24 - Dec 1' },
+  { code: 'BLACKFRIDAY25', amountOff: 25, minSubtotal: 129, active: true, notBefore: '2026-11-24', notAfter: '2026-12-02', description: 'Black Friday deal — $25 off orders over $129, Nov 24 - Dec 1' },
 ];
 
 export function lookupCoupon(rawCode: string | undefined | null): Coupon | null {
@@ -32,7 +26,13 @@ export function lookupCoupon(rawCode: string | undefined | null): Coupon | null 
   const code = rawCode.trim().toUpperCase();
   if (!code) return null;
   const found = COUPONS.find((c) => c.code === code && c.active);
-  if (found) return found;
+  if (found) {
+    // 日期闸门：UTC 日期自动生效/失效（袁总令 11-24 起生效，替代手动开关 active）
+    const today = new Date().toISOString().slice(0, 10);
+    if (found.notBefore && today < found.notBefore) return null;
+    if (found.notAfter && today >= found.notAfter) return null;
+    return found;
+  }
   // Affiliate channel codes: any FL-{PARTNER}10 pattern gets 10% off.
   // Partner attribution happens in GA4 (affiliate_landing_view / affiliate_cta_click
   // events carry the partner param), so codes don't need per-partner rows here.
@@ -43,4 +43,12 @@ export function lookupCoupon(rawCode: string | undefined | null): Coupon | null 
     return { code, percentOff: 0.1, active: true, description: 'Affiliate partner code (10% off)' };
   }
   return null;
+}
+
+// 折扣计算唯一口径：服务端实扣与 checkout 显示共用，percent/amount 二选一，
+// minSubtotal 未达返回 0（调用方决定是否视为券不可用）
+export function couponDiscount(c: Coupon, subtotal: number): number {
+  if (c.minSubtotal && subtotal < c.minSubtotal) return 0;
+  const d = c.percentOff ? subtotal * c.percentOff : Math.min(c.amountOff || 0, subtotal);
+  return +d.toFixed(2);
 }
