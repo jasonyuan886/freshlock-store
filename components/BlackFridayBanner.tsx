@@ -6,7 +6,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-const DEAL_START = new Date('2026-11-24T00:00:00-08:00').getTime();
+const DEAL_START = new Date('2026-11-06T06:00:00-08:00').getTime(); // 袁总令 11-06 提前开闸
 const DEAL_END = new Date('2026-12-01T23:59:59-08:00').getTime();
 const pad = (n: number) => (n < 10 ? '0' + n : '' + n);
 
