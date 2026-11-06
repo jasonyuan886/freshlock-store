@@ -65,7 +65,7 @@ section{position:relative}
 .hero-badge{
   display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
   color:var(--green-deep);border:1px solid rgba(15,81,50,.3);border-radius:999px;
-  padding:7px 16px;width:max-content;margin-bottom:28px;background:rgba(94,234,212,.06);
+  padding:7px 16px;width:max-content;max-width:100%;flex-wrap:wrap;margin-bottom:28px;background:rgba(94,234,212,.06);
 }
 .hero-badge .pulse{width:7px;height:7px;border-radius:50%;background:var(--green-bright);animation:pulse 1.8s infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(94,234,212,.5)}70%{box-shadow:0 0 0 9px rgba(94,234,212,0)}100%{box-shadow:0 0 0 0 rgba(94,234,212,0)}}
@@ -306,7 +306,7 @@ footer .logo{font-size:16px}
 <section className="hero light">
   <div className="hero-glow"></div>
   <div className="rv in">
-    <span className="hero-badge"><span className="pulse"></span>Black Friday is ON — $10 OFF with code BLACKFRIDAY10</span>
+    <span className="hero-badge"><span className="pulse"></span>Black Friday is ON — $10 OFF</span>
   </div>
   <h1 className="rv in d1">Stop Wasting Food.<br/>Seal It <span className="em">Fresh.</span> Seal It Longer.</h1>
   <p className="hero-sub rv in d2">One touch. Freshness measured in weeks, not days. The cordless handheld vacuum sealer that pulls a powerful -60 kPa in seconds — no heat bar, no learning curve.</p>
