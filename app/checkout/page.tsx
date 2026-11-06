@@ -7,7 +7,7 @@ import { getAttribution } from '@/lib/attribution';
 import dynamic from 'next/dynamic';
 const PayPalButtons = dynamic(() => import('@/components/PayPalButtons'), { ssr: false });
 import Image from 'next/image';
-import { FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER , AIR_SHIPPING_US, AIR_SHIPPING_INTERNATIONAL } from '@/lib/data';
+import {FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER, AIR_SHIPPING_US} from '@/lib/data';
 // NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
 // meta robots noindex is applied via vercel.json headers for /checkout.
 const EMPTY_CHECKOUT_FORM = {
@@ -63,7 +63,7 @@ export default function CheckoutPage() {
 
   // Shipping: Standard (free over threshold, else $5.99) or Faster Air (US $15 / others $10)
   const standardShipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
-  const airShipping = form.country === 'US' ? AIR_SHIPPING_US : AIR_SHIPPING_INTERNATIONAL;
+  const airShipping = AIR_SHIPPING_US; // 统一 $10 全球
   const shipping = shippingMethod === 'faster' ? airShipping : standardShipping;
 
   const discount = appliedCoupon ? +(totalPrice * appliedCoupon.percentOff).toFixed(2) : 0;
@@ -435,8 +435,8 @@ export default function CheckoutPage() {
                   <label className="flex items-start gap-2 cursor-pointer" onClick={() => setShippingMethod('faster')}>
                     <input type="radio" name="shipMethod" checked={shippingMethod === 'faster'} onChange={() => setShippingMethod('faster')} className="mt-1" />
                     <span className="text-sm">
-                      <span className="font-medium">Faster Air</span> <span className="text-gray-500">(7–10 business days)</span><br />
-                      <span className="text-gray-600">{form.country === 'US' ? '$15.00 (US)' : '$10.00 (International)'}</span>
+                      <span className="font-medium">Faster Air</span> <span className="text-gray-500">(3–7 business days)</span><br />
+                      <span className="text-gray-600">$10.00 flat worldwide</span>
                     </span>
                   </label>
                 </div>
