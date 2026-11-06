@@ -16,7 +16,9 @@ export async function POST(request: NextRequest) {
   return NextResponse.json({
     valid: true,
     code: coupon.code,
-    percentOff: coupon.percentOff,
+    percentOff: coupon.percentOff ?? null,
+    amountOff: coupon.amountOff ?? null,
+    minSubtotal: coupon.minSubtotal ?? null,
     description: coupon.description,
   });
 }
