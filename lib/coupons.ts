@@ -16,9 +16,9 @@ const COUPONS: Coupon[] = [
   { code: 'WILDMOON15', percentOff: 0.15, active: true, description: 'Wild Moon Acres partner — 15% off for followers (as emailed 2026-10-29, valid 60 days)' },
   // 2026-11-06 袁总令「直接给优惠券不要折扣券」：BLACKFRIDAY15 停用，换固定金额双档
   { code: 'BLACKFRIDAY15', percentOff: 0.15, active: false, description: 'Replaced by fixed-amount BLACKFRIDAY10/25 (2026-11-06)' },
-  // 黑五固定金额券：11-24 自动生效、12-02 自动失效，无需人工开关
-  { code: 'BLACKFRIDAY10', amountOff: 10, active: true, notBefore: '2026-11-24', notAfter: '2026-12-02', description: 'Black Friday deal — $10 off any order, Nov 24 - Dec 1' },
-  { code: 'BLACKFRIDAY25', amountOff: 25, minSubtotal: 129, active: true, notBefore: '2026-11-24', notAfter: '2026-12-02', description: 'Black Friday deal — $25 off orders over $129, Nov 24 - Dec 1' },
+  // 黑五固定金额券：2026-11-06 袁总令提前开闸（原 11-24 生效作废）；12-02 自动失效
+  { code: 'BLACKFRIDAY10', amountOff: 10, active: true, notAfter: '2026-12-02', description: 'Black Friday deal — $10 off any order (ends Dec 1)' },
+  { code: 'BLACKFRIDAY25', amountOff: 25, minSubtotal: 129, active: true, notAfter: '2026-12-02', description: 'Black Friday deal — $25 off orders over $129 (ends Dec 1)' },
 ];
 
 export function lookupCoupon(rawCode: string | undefined | null): Coupon | null {
