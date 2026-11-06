@@ -21,7 +21,7 @@ export default function ShippingPage() {
       <div className="prose prose-lg max-w-none">
         <h2>🚚 Shipping Rates &amp; Delivery Times</h2>
 
-        <h3>Domestic Shipping (United States)</h3>
+        <h3>Shipping Rates — Two Simple Standards, Worldwide</h3>
         <table>
           <thead>
             <tr>
@@ -36,75 +36,28 @@ export default function ShippingPage() {
               <td><strong>Standard Shipping</strong></td>
               <td>Under $89</td>
               <td><strong>$5.99</strong></td>
-              <td>7–15 days</td>
+              <td>7–15 business days</td>
             </tr>
             <tr>
               <td><strong>Standard Shipping</strong></td>
               <td>$89 and above</td>
               <td><strong>FREE</strong></td>
-              <td>7–15 days</td>
+              <td>7–15 business days</td>
             </tr>
             <tr>
-              <td><strong>Expedited Shipping</strong></td>
+              <td><strong>Faster Air</strong></td>
               <td>Any</td>
-              <td><strong>$9.99</strong></td>
-              <td>7–15 days</td>
+              <td><strong>$10.00</strong></td>
+              <td>3–7 business days</td>
             </tr>
           </tbody>
         </table>
+        <p>Two flat standards apply to <strong>every destination we ship to</strong> — no zone tables, no surprises at checkout.</p>
         <ul>
           <li>Orders are processed and shipped within <strong>1–2 business days</strong> of purchase.</li>
           <li>Shipping times are estimates and not guaranteed.</li>
-          <li>We ship to all 50 U.S. states. Unfortunately, we cannot ship to P.O. Boxes, APO/FPO addresses, or U.S. territories (Puerto Rico, Guam, U.S. Virgin Islands, American Samoa).</li>
-        </ul>
-
-        <h3>International Shipping</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Destination</th>
-              <th>Shipping Cost</th>
-              <th>Estimated Delivery</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Canada</td>
-              <td>$14.99</td>
-              <td>7–15 days</td>
-            </tr>
-            <tr>
-              <td>Mexico</td>
-              <td>$19.99</td>
-              <td>7–15 days</td>
-            </tr>
-            <tr>
-              <td>Europe (EU &amp; UK)</td>
-              <td>$24.99</td>
-              <td>7–15 days</td>
-            </tr>
-            <tr>
-              <td>Australia &amp; New Zealand</td>
-              <td>$24.99</td>
-              <td>7–15 days</td>
-            </tr>
-            <tr>
-              <td>Asia (Japan, South Korea, China, etc.)</td>
-              <td>$19.99</td>
-              <td>7–15 days</td>
-            </tr>
-            <tr>
-              <td>Rest of World</td>
-              <td>$29.99</td>
-              <td>7–15 days</td>
-            </tr>
-          </tbody>
-        </table>
-        <p><strong>Please note:</strong></p>
-        <ul>
-          <li>International shipping costs are calculated at checkout.</li>
-          <li>Customers are responsible for any <strong>customs duties, import taxes, or tariffs</strong> imposed by the destination country. These charges are not included in the shipping cost.</li>
-          <li>Delivery times are estimates and may vary due to customs processing.</li>
+          <li>U.S. orders ship to all 50 states. Unfortunately, we cannot ship to P.O. Boxes, APO/FPO addresses, or U.S. territories (Puerto Rico, Guam, U.S. Virgin Islands, American Samoa).</li>
+          <li>International orders: customers are responsible for any <strong>customs duties, import taxes, or tariffs</strong> imposed by the destination country. These charges are not included in the shipping cost. Delivery times may vary due to customs processing.</li>
         </ul>
 
         <h2>📦 Order Tracking</h2>
