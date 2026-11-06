@@ -416,7 +416,7 @@ export const faqs = [
   {
     question: 'What is your shipping policy?',
     answer:
-      'Free standard shipping on US/CA/UK/JP orders over $89, and AU/NZ orders over $69. All Starter Kits ship free within US/CA/UK/JP regardless of subtotal. Orders under the free-shipping threshold pay a $5.99 flat rate (US) or live calculated rate (international). Orders are processed within 1–2 business days and delivered in 7–15 days via DHL Express with full tracking. Tracking is included with every order.',
+      'Free standard shipping worldwide on orders over $89; under $89, a flat $5.99. Express air is a flat $10 (3–7 business days) versus 7–15 days standard. Every order is processed within 1–2 business days and ships with full tracking.',
   },
   {
     question: 'What is your return policy?',
