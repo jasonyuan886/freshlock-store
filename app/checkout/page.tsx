@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 const PayPalButtons = dynamic(() => import('@/components/PayPalButtons'), { ssr: false });
 import Image from 'next/image';
 import {FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER, AIR_SHIPPING_US} from '@/lib/data';
+import { couponDiscount } from '@/lib/coupons';
 // NOTE: this page uses 'use client', so we rely on <head> via next/head if needed.
 // meta robots noindex is applied via vercel.json headers for /checkout.
 const EMPTY_CHECKOUT_FORM = {
@@ -35,7 +36,7 @@ export default function CheckoutPage() {
   // Promo code: display-only client state. The server re-validates the code
   // and computes the real charge independently in /api/paypal.
   const [couponInput, setCouponInput] = useState('');
-  const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; percentOff: number; description: string } | null>(null);
+  const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; percentOff?: number; amountOff?: number; minSubtotal?: number; description: string } | null>(null);
   const [couponChecking, setCouponChecking] = useState(false);
   const [couponError, setCouponError] = useState('');
   // 表单状态
@@ -66,7 +67,7 @@ export default function CheckoutPage() {
   const airShipping = AIR_SHIPPING_US; // 统一 $10 全球
   const shipping = shippingMethod === 'faster' ? airShipping : standardShipping;
 
-  const discount = appliedCoupon ? +(totalPrice * appliedCoupon.percentOff).toFixed(2) : 0;
+  const discount = appliedCoupon ? couponDiscount(appliedCoupon, totalPrice) : 0;
   const total = +(totalPrice - discount + shipping).toFixed(2);
   const handleApplyCoupon = async () => {
     const code = couponInput.trim();
@@ -81,7 +82,12 @@ export default function CheckoutPage() {
       });
       const data = await res.json();
       if (data.valid) {
-        setAppliedCoupon({ code: data.code, percentOff: data.percentOff, description: data.description });
+        if (data.minSubtotal && totalPrice < data.minSubtotal) {
+          setAppliedCoupon(null);
+          setCouponError(`This code requires a subtotal of $${data.minSubtotal}+`);
+        } else {
+          setAppliedCoupon({ code: data.code, percentOff: data.percentOff ?? undefined, amountOff: data.amountOff ?? undefined, minSubtotal: data.minSubtotal ?? undefined, description: data.description });
+        }
       } else {
         setAppliedCoupon(null);
         setCouponError('Invalid or expired code');
