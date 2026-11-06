@@ -47,7 +47,7 @@ export default function ShippingPage() {
             <tr>
               <td><strong>Faster Air</strong></td>
               <td>Any</td>
-              <td><strong>$10.00</strong></td>
+              <td><strong>$29.99</strong></td>
               <td>3–7 business days</td>
             </tr>
           </tbody>
