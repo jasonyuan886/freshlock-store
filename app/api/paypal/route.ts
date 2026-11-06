@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { persistOrder, generateOrderNumber, type OrderRecord, type OrderAttribution } from '@/lib/orders';
-import { products, AIR_SHIPPING_US, AIR_SHIPPING_INTERNATIONAL } from '@/lib/data';
+import {products, AIR_SHIPPING_US} from '@/lib/data';
 import { sendServerPurchaseEvent } from '@/lib/ga4-server';
 import { lookupCoupon } from '@/lib/coupons';
 
@@ -159,8 +159,9 @@ export async function POST(request: NextRequest) {
     // Free-shipping threshold is evaluated on the pre-discount subtotal, so a
     // coupon never strips away free shipping the cart would otherwise earn.
     const isAir = shippingMethod === 'faster';
+  // 2026-11-06 袁总令：运费统一两个标准——快速档全球一口价 $10（3-7 工作日）
   const shipping = isAir
-    ? (shippingCountry === 'US' ? AIR_SHIPPING_US : AIR_SHIPPING_INTERNATIONAL)
+    ? AIR_SHIPPING_US
     : (subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER);
     // Never trust a client-supplied discount — look the code up server-side.
     const coupon = lookupCoupon(couponCode);
