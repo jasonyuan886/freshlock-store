@@ -11,6 +11,18 @@ description: "Does vacuum sealing rice actually work? Yes - when you do it right
 
 Rice is one of the most-stored foods on earth — and one of the most-stored *wrongly*. A 10kg bag of rice sitting open in the pantry loses quality within months, invites pantry moths, and absorbs every smell in the kitchen. Vacuum sealing fixes all three problems at once. But there are two mistakes that make vacuum-sealed rice go bad faster than the bag it came in, and most guides skip both.
 
+---
+
+## Key Takeaways
+
+- **Dry and cool first** — sealing warm or humid rice creates the mold conditions you're trying to prevent.
+- **White rice vs brown rice are different games**: vacuum-sealed white rice lasts 5–10 years; brown rice only 6–12 months (its oils go rancid).
+- **Freeze new rice for 72 hours before sealing** to kill pantry moth eggs — sealing alone doesn't.
+- **Portion into 1–2kg bags**, not one giant bag you re-open weekly.
+- **Add a 100–300cc oxygen absorber** per bag for true long-term storage (15–20+ years on white rice).
+
+---
+
 ## Does Vacuum Sealing Rice Work?
 
 Yes — with one critical condition: the rice must be **completely dry and cool** before sealing. Sealing warm rice or rice with any residual moisture creates a humid microclimate inside the bag. That warmth and moisture is exactly what mold and bacteria need. People who say "vacuum sealing ruined my rice" almost always sealed it warm from a sunlit pantry or right after buying from a humid store.
