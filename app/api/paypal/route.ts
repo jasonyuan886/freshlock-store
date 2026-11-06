@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { persistOrder, generateOrderNumber, type OrderRecord, type OrderAttribution } from '@/lib/orders';
 import {products, AIR_SHIPPING_US} from '@/lib/data';
 import { sendServerPurchaseEvent } from '@/lib/ga4-server';
-import { lookupCoupon } from '@/lib/coupons';
+import { lookupCoupon, couponDiscount } from '@/lib/coupons';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -83,7 +83,7 @@ async function persistCapturedOrder(
     // charge), so this stays consistent even if PayPal's response shape
     // omits the amount breakdown.
     const appliedCoupon = couponCodeUsed ? lookupCoupon(couponCodeUsed) : null;
-    const discountAmount = appliedCoupon ? +(subtotal * appliedCoupon.percentOff).toFixed(2) : 0;
+    const discountAmount = appliedCoupon ? couponDiscount(appliedCoupon, subtotal) : 0;
     const shippingCost = Math.max(0, +(total - subtotal + discountAmount).toFixed(2));
 
     const sh = pu.shipping || {};
@@ -165,7 +165,7 @@ export async function POST(request: NextRequest) {
     : (subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER);
     // Never trust a client-supplied discount — look the code up server-side.
     const coupon = lookupCoupon(couponCode);
-    const discount = coupon ? +(subtotal * coupon.percentOff).toFixed(2) : 0;
+    const discount = coupon ? couponDiscount(coupon, subtotal) : 0;
     const total = +(subtotal - discount + shipping).toFixed(2);
 
     const accessToken = await getAccessToken();
