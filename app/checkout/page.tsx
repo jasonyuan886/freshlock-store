@@ -522,7 +522,7 @@ export default function CheckoutPage() {
                     <input type="radio" name="shipMethod" checked={shippingMethod === 'faster'} onChange={() => setShippingMethod('faster')} className="mt-1" />
                     <span className="text-sm">
                       <span className="font-medium">Faster Air</span> <span className="text-gray-500">(3–7 business days)</span><br />
-                      <span className="text-gray-600">$29.99 flat worldwide</span>
+                      <span className="text-gray-600">$10.00 flat worldwide</span>
                     </span>
                   </label>
                 </div>
