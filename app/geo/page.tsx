@@ -548,7 +548,7 @@ const faqSchema = {
       name: 'How long does shipping take and how much does it cost?',
       acceptedAnswer: {
         '@type': 'Answer',
-      'Orders are processed in 1-2 business days and delivered in 7–15 days via DHL Express with full tracking. Standard shipping is free worldwide on orders over $89 (flat $5.99 under); express air is a flat $10 (3–7 business days).',
+        text: 'Orders are processed in 1-2 business days and delivered in 7–15 days via DHL Express with full tracking. Standard shipping is free worldwide on orders over $89 (flat $5.99 under); express air is a flat $10 (3–7 business days).',
       },
     },
   ],
