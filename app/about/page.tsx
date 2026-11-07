@@ -89,7 +89,7 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-3 gap-6 mb-8">
           {[
             { icon: '🌱', title: 'Reduce Food Waste', text: 'Vacuum sealing extends fridge, freezer and pantry life by up to 5× — saving groceries and money.' },
-        text: 'Free standard shipping worldwide on orders over $89; flat $5.99 under. Express air $10 flat, 3–7 days.',
+            { icon: '🚚', title: 'Fast, Tracked Shipping', text: 'Free standard shipping worldwide on orders over $89; flat $5.99 under $89. Express air $10 flat, 3–7 days.' },
             { icon: '♻️', title: 'Compatible & Reusable', text: 'Works with most embossed valve bags. Bags are washable and reusable for dry goods.' },
           ].map((v) => (
             <div key={v.title} className="bg-white rounded-xl p-6 shadow-sm text-center">
