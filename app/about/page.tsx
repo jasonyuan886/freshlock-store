@@ -27,16 +27,9 @@ export default function AboutPage() {
       <div className="prose prose-lg max-w-none">
         <div className="bg-white rounded-xl p-8 shadow-sm mb-8">
           <h2 className="text-2xl font-bold text-primary mb-4">Our Story</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            FreshLock started with a simple observation: too much good food goes to waste. From weeknight leftovers and bulk-cooked meals to seasonal produce and marinating meats, people were throwing away good food because it spoiled before they could enjoy it — even in the fridge or freezer, thanks to freezer burn.
-          </p>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Traditional vacuum sealers were bulky, corded, and relied on heat bars that burned bags and made the process intimidating. We set out to build something simpler: a compact, cordless, handheld vacuum pump that pairs with embossed valve bags. Just press the nozzle onto the valve, tap a button, and watch the air disappear in seconds — no heat, no fuss, no wasted bags.
-          </p>
-          <p className="text-gray-600 leading-relaxed">
-            Today FreshLock is used by home cooks around the world — busy parents batch-cooking on weekends, campers keeping food fresh on the road, and anyone who wants their grocery dollar to stretch further.
-          </p>
-        </div>
+            FreshLock started with three words: "can't finish it." One pack of steak. Two people. Can't finish it. A bag sealed by a traditional vacuum sealer, once opened, never seals back — the rest sits open in the fridge, slowly going off, or gets thrown out with the bag.
+            We noticed that most households don't cook a full table of dishes every day. More often it's — open a bag, eat part of it, save the rest for later. Traditional vacuum sealers weren't built for this; they're designed for "seal everything at once," not "open and reseal anytime." So FreshLock is handheld: with our one-way valve bags, open, take what you need, and reseal in seconds — the same bag can be used again and again. Eat what you want, seal the rest. Still vacuum.
+            Vacuum freshness itself is nothing new — sealers have existed for decades. What makes FreshLock different is that it makes vacuuming simple: no countertop machine, seal anytime. And one thing most vacuum sealers on the market can't do: drain. In wet mode, excess juice exits through the drain tube instead of being sucked into the motor — marinated meat, juicy stews, and wet ingredients seal directly. Convenient. Reusable. Draining. Those three words describe FreshLock better than "freshness."</div>
 
         <div className="bg-gradient-to-br from-primary/5 to-accent/5 border border-primary/10 rounded-xl p-8 shadow-sm mb-8">
           <h2 className="text-2xl font-bold text-primary mb-4">Designed in Shenzhen, Trusted Globally</h2>
