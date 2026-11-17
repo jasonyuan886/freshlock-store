@@ -518,7 +518,7 @@ footer .logo{font-size:16px}
   <div className="trust-bar rv d3">
     <div className="t"><div className="n">2 sizes</div><div className="l">wide &amp; regular mouth hose kit</div></div>
     <div className="t"><div className="n">30 days</div><div className="l">Money-back guarantee</div></div>
-    <div className="t"><div className="n">2–5 days</div><div className="l">US delivery</div></div>
+    <div className="t"><div className="n">7–15 days</div><div className="l">Standard US delivery</div></div>
     <div className="t"><div className="n">Secure</div><div className="l">Encrypted checkout</div></div>
   </div>
 </section>

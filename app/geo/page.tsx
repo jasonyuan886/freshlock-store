@@ -466,7 +466,7 @@ const productSchema = {
       deliveryTime: {
         '@type': 'ShippingDeliveryTime',
         handlingTime: { '@type': 'QuantitativeValue', minValue: 1, maxValue: 2, unitCode: 'DAY' },
-        transitTime: { '@type': 'QuantitativeValue', minValue: 5, maxValue: 8, unitCode: 'DAY' },
+        transitTime: { '@type': 'QuantitativeValue', minValue: 7, maxValue: 15, unitCode: 'DAY', unitText: 'business days' },
       },
     },
     hasMerchantReturnPolicy: {
@@ -475,7 +475,7 @@ const productSchema = {
       returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
       merchantReturnDays: 30,
       returnMethod: 'https://schema.org/ReturnByMail',
-      returnFees: 'https://schema.org/FreeReturn',
+      returnFees: 'https://schema.org/ReturnFeesCustomerResponsibility',
     },
   },
   aggregateRating: {

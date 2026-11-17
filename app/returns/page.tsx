@@ -11,7 +11,7 @@ export default function ReturnsPage() {
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
       <div className="text-center mb-10">
         <h1 className="section-title">Returns &amp; Refund Policy</h1>
-        <p className="section-subtitle">14-day returns — backed by our 1-year warranty. (Buyer pays return shipping.)</p>
+        <p className="section-subtitle">30-day returns — backed by our 1-year warranty. (Buyer pays return shipping for change-of-mind returns.)</p>
       </div>
 
       <div className="prose prose-lg max-w-none">
@@ -19,7 +19,7 @@ export default function ReturnsPage() {
           <section>
             <div className="bg-accent/10 border-l-4 border-accent p-4 rounded">
               <p className="text-gray-900 font-semibold">
-                🎉 14-Day Return Guarantee — If you&apos;re not completely happy with your FreshLock purchase within 14 days of delivery, we&apos;ll make it right.
+                🎉 30-Day Money-Back Guarantee — If you&apos;re not completely happy with your FreshLock purchase within 30 days of delivery, we&apos;ll make it right.
               </p>
             </div>
           </section>
@@ -27,7 +27,7 @@ export default function ReturnsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">1. Return Window (Change of Mind)</h2>
             <p className="text-gray-600 leading-relaxed">
-              You may return most new, unused items within <strong>14 days of delivery</strong> for a full refund or exchange,  Return shipping costs are the responsibility of the customer unless the item is defective or incorrect. Items must be in their original packaging, undamaged, and in resalable condition, with all accessories and documentation included.
+              You may return most new, unused items within <strong>30 days of delivery</strong> for a full refund or exchange. Return shipping costs are the responsibility of the customer unless the item is defective or incorrect. Items must be in their original packaging, undamaged, and in resalable condition, with all accessories and documentation included.
             </p>
           </section>
 
@@ -59,7 +59,7 @@ export default function ReturnsPage() {
             <h2 className="text-2xl font-bold text-primary mb-3">4. Return Shipping Costs</h2>
             <ul className="list-disc pl-6 space-y-2 text-gray-600">
               <li><strong>Change-of-mind returns:</strong> You are responsible for the cost of return shipping. Original outbound shipping costs are non-refundable unless the return is due to our error.</li>
-              <li><strong>Faulty, damaged, or incorrect items:</strong> If the item arrives defective, damaged, or is not what you ordered, we will cover all return shipping costs and provide a prepaid USPS return label — just contact us within 14 days of delivery with photos of the issue.</li>
+              <li><strong>Faulty, damaged, or incorrect items:</strong> If the item arrives defective, damaged, or is not what you ordered, we will cover all return shipping costs and provide a prepaid USPS return label — just contact us within 30 days of delivery — and within 14 days for fastest resolution — with photos of the issue. (This 14-day defect report step sits inside, and does not replace, the 30-day return window.)</li>
             </ul>
           </section>
 
@@ -84,7 +84,7 @@ export default function ReturnsPage() {
           <section>
             <h2 className="text-2xl font-bold text-primary mb-3">7. Defective, Damaged or Incorrect Items</h2>
             <p className="text-gray-600 leading-relaxed">
-              If you receive a defective, damaged, or incorrect item, please contact us within <strong>14 days of delivery</strong> at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a> with your order number and clear photos of the issue. We will arrange a replacement, repair, or full refund at no additional cost to you, including return shipping.
+              If you receive a defective, damaged, or incorrect item, please contact us within <strong>30 days of delivery</strong> (reporting within 14 days gets fastest resolution) at <a href="mailto:support@freshlocksealer.com" className="text-accent hover:underline">support@freshlocksealer.com</a> with your order number and clear photos of the issue. We will arrange a replacement, repair, or full refund at no additional cost to you, including return shipping.
             </p>
           </section>
 

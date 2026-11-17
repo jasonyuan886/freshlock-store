@@ -65,7 +65,9 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!product) return {};
   const title = product.name;
   const description =
-    `${product.shortDescription} Free shipping over $${FREE_SHIPPING_THRESHOLD}, Starter Kits ship free. 30-day returns, 1-year warranty on the unit.`;
+    product.slug === 'freshlock-pro'
+      ? 'Cordless handheld vacuum sealer, -60 kPa suction for embossed valve bags and Mason-jar lids. Drip tray, USB-C, quiet motor. 30-day returns, 1-year warranty.'
+      : `${product.shortDescription} Free shipping over $${FREE_SHIPPING_THRESHOLD}, Starter Kits ship free. 30-day returns, 1-year warranty on the unit.`;
   return {
     title,
     description,
@@ -294,7 +296,6 @@ export default function ProductDetailPage({ params }: { params: Params }) {
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">↩️ 30-Day Returns</span>
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🛡️ 1-Year Warranty</span>
           <span className="bg-green-50 text-green-700 border border-green-200 px-3 py-1 rounded-full text-xs font-semibold">🔒 Secure SSL Checkout</span>
-          <span className="bg-blue-50 text-blue-700 border border-blue-200 px-3 py-1 rounded-full text-xs font-semibold">✅ All duties & taxes included</span>
         </div>
 
         <nav className="text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
