@@ -114,13 +114,13 @@ export async function POST(request: Request) {
               <ul style="margin:0; padding-left:18px; font-size:13px; color:#333;">
                 <li style="margin-bottom:4px;">💰 Pays for itself in weeks — the avg US household wastes $1,866/year in food</li>
                 <li style="margin-bottom:4px;">📉 Same performance as $200–$400 countertop sealers, at a fraction of the cost</li>
-                <li style="margin-bottom:4px;">🛡️ 2-year warranty + 60-day returns — zero risk to try</li>
+                <li style="margin-bottom:4px;">🛡️ 1-year warranty + 30-day returns — zero risk to try</li>
                 <li style="margin-bottom:4px;">🔋 USB-C rechargeable, no batteries or power cord needed</li>
                 <li>📦 Works with any embossed valve bags — never locked into overpriced refills</li>
               </ul>
             </div>
             
-            <p style="color:#666; font-size:14px;">Still have questions? Reply to this email and we'll help you out.</p>
+            <p style="color:#666; font-size:14px;">Still have questions? Reply to this email or WhatsApp us at <a href="https://wa.me/8618316990301" style="color:#0f4c3a; font-weight:bold;">+86 183 1699 0301</a> — fastest replies, Mon&ndash;Sun.</p>
             <p style="color:#888; font-size:12px; margin-top:32px;">FreshLock · support@freshlocksealer.com<br>You received this email because you started checkout at freshlocksealer.com</p>
           </div>
         </div>

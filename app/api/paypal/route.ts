@@ -389,7 +389,7 @@ export async function PUT(request: NextRequest) {
                 </div>
                 <h3>What's Next?</h3>
                 <ul><li>📦 We'll prepare your order within 1-2 business days</li><li>🚚 Standard shipping takes 7–15 days</li><li>📧 You'll receive a tracking number via email</li></ul>
-                <p style="color:#666;font-size:14px;margin-top:24px;">Questions? Reply to this email or contact support@freshlocksealer.com</p>
+                <p style="color:#666;font-size:14px;margin-top:24px;">Questions? Reply to this email, contact support@freshlocksealer.com, or WhatsApp <a href="https://wa.me/8618316990301" style="color:#0f4c3a; font-weight:bold;">+86 183 1699 0301</a></p>
               </div></div>`;
             sendEmail({
               host: process.env.SMTP_HOST || 'smtp.zoho.com',
