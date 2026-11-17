@@ -94,6 +94,12 @@ export async function POST(request: Request) {
           <div style="padding:24px;">
             <p style="font-size:16px;">Hi there,</p>
             <p>We noticed you left some items in your cart. Don't worry — they're still there, ready for you!</p>
+            <div style="background:#fff3cd; border:1px solid #ffe08a; border-radius:8px; padding:16px; margin:20px 0;">
+              <p style="margin:0 0 8px; font-size:15px;"><strong>Two things you probably missed:</strong></p>
+              <p style="margin:0 0 6px; font-size:14px;">🎁 <strong>Code BLACKFRIDAY10</strong> takes <strong>$10 off any order</strong> — no minimum. (Ends Dec 1.)</p>
+              <p style="margin:0 0 6px; font-size:14px;">💵 The price you see is the price you pay — <strong>all taxes and duties are already included</strong>. Nothing gets added at checkout.</p>
+              <p style="margin:0; font-size:13px; color:#666;">Ordering $129+? Use <strong>BLACKFRIDAY25</strong> for $25 off — same Dec 1 deadline.</p>
+            </div>
             <div style="background:#f0f7f4; border-radius:8px; padding:16px; margin:20px 0;">
               <table style="width:100%; border-collapse:collapse;">
                 ${itemsHtml}
@@ -127,7 +133,7 @@ export async function POST(request: Request) {
         pass: SMTP_PASS,
         from: fromHeader,
         to: [email],
-        subject: '🛒 Your FreshLock cart is waiting for you!',
+        subject: 'Your cart is still fresh — and there's a $10 code inside you probably missed',
         html: recoveryHtml,
       });
 
