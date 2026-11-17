@@ -133,7 +133,7 @@ export async function POST(request: Request) {
         pass: SMTP_PASS,
         from: fromHeader,
         to: [email],
-        subject: 'Your cart is still fresh — and there's a $10 code inside you probably missed',
+        subject: "Your cart is still fresh — and there's a $10 code inside you probably missed",
         html: recoveryHtml,
       });
 
