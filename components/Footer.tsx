@@ -46,6 +46,7 @@ export default function Footer() {
               <li><Link href="/shipping" className="text-gray-300 hover:text-white transition">Shipping Info</Link></li>
             </ul>
             <p className="text-gray-400 text-xs mt-3">support@freshlocksealer.com</p>
+            <p className="text-gray-400 text-xs mt-1">WhatsApp: <a href="https://wa.me/8618316990301" className="underline hover:text-white">+86 183 1699 0301</a></p>
           </div>
 
           {/* Legal */}
