@@ -107,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="w-full min-h-screen">
+        <JpVisitorBanner />
         <CartProvider>
           <AttributionTracker />
           <Header />

@@ -1,39 +1,25 @@
-import { NextResponse } from 'next/server'
-import type { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server';
 
-const SITE_URL = 'https://www.freshlocksealer.com'
-const WWW_HOST = 'www.freshlocksealer.com'
+const JP_BASE = 'https://jp.freshlocksealer.com';
+const SHARED_EXACT = new Set(['/', '/contact', '/shipping', '/returns', '/faq', '/about', '/privacy', '/terms', '/cart']);
+const SHARED_PRODUCTS = new Set(['/products/freshlock-pro', '/products/freshlock-starter-kit', '/products/vacuum-seal-bags-30-pack', '/products/vacuum-seal-bags-50-pack']);
 
-export async function middleware(request: NextRequest) {
-  const url = request.nextUrl
-  const host = request.headers.get('host') || ''
-  
-  // Redirect non-www to www
-  if (host === 'freshlocksealer.com') {
-    return NextResponse.redirect(`${SITE_URL}${url.pathname}`, 301)
+export function middleware(req: NextRequest) {
+  const res = NextResponse.next();
+  const path = req.nextUrl.pathname;
+
+  const jaPath = SHARED_EXACT.has(path) || SHARED_PRODUCTS.has(path) ? path : null;
+  const self = `https://www.freshlocksealer.com${path}`;
+  const links = [`<${self}>; rel="alternate"; hreflang="en"`, `<${self}>; rel="alternate"; hreflang="x-default"`];
+  if (jaPath) links.push(`<${JP_BASE}${jaPath}>; rel="alternate"; hreflang="ja"`);
+  res.headers.set('Link', links.join(', '));
+
+  if (req.headers.get('x-vercel-ip-country') === 'JP') {
+    res.cookies.set('jp_visitor', '1', { maxAge: 60 * 60 * 24 * 30, sameSite: 'lax' });
   }
-  
-  // Skip static assets
-  if (url.pathname.startsWith('/_next') || 
-      url.pathname.includes('.') ||
-      url.pathname.startsWith('/api')) {
-    return NextResponse.next()
-  }
-
-  // Set canonical header
-  const path = url.pathname === '/' ? '' : url.pathname
-  const canonical = `${SITE_URL}${path}`
-  const response = NextResponse.next()
-  response.headers.set('x-canonical-url', canonical)
-
-  // Noindex utility pages (checkout, cart, success)
-  if (url.pathname.startsWith('/checkout') || url.pathname.startsWith('/cart')) {
-    response.headers.set('X-Robots-Tag', 'noindex, nofollow')
-  }
-
-  return response
+  return res;
 }
 
 export const config = {
-  matcher: ['/((?!_next|favicon|images|logo|api).*)'],
-}
+  matcher: ['/((?!api|_next|favicon.ico|robots.txt|sitemap.xml|llms.txt|google-shopping-feed.xml).*)'],
+};
