@@ -5,6 +5,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import BlackFridayBanner from '../components/BlackFridayBanner';
+import JpVisitorBanner from '@/components/JpVisitorBanner';
 import Footer from '@/components/Footer';
 import FomoPurchaseNotification from '@/components/FomoPurchaseNotification';
 import AttributionTracker from '@/components/AttributionTracker';

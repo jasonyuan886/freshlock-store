@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:paypal": "node --test tests/paypal-onapprove-contract.test.mjs"
   },
   "dependencies": {
     "@stripe/react-stripe-js": "^6.7.0",

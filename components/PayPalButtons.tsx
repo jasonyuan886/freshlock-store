@@ -9,6 +9,10 @@ declare global {
   }
 }
 
+interface PayPalApprovalData {
+  orderID: string;
+}
+
 interface PayPalButtonsProps {
   items: Array<{
     product: { name: string; price: number; slug: string };
@@ -231,8 +235,8 @@ export default function PayPalButtons({
               'PayPal checkout was cancelled. You can try again, or use the card form below.'
             );
           },
-          onApprove: async (_d: any, actions: any) => {
-            await captureOrder(actions.orderID);
+          onApprove: async (data: PayPalApprovalData) => {
+            await captureOrder(data.orderID);
           },
           onError: (err: any) => {
             console.error('PayPal button error', err);
@@ -254,7 +258,7 @@ export default function PayPalButtons({
     try {
       const cf = window.paypal.CardFields?.({
         createOrder,
-        onApprove: async (data: any) => {
+        onApprove: async (data: PayPalApprovalData) => {
           setCardSubmitting(false);
           await captureOrder(data.orderID);
         },
