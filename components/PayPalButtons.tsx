@@ -36,6 +36,44 @@ interface PayPalButtonsProps {
   onError: (message: string) => void;
 }
 
+const SDK_LOAD_TIMEOUT_MS = 15_000;
+const CREATE_ORDER_TIMEOUT_MS = 50_000;
+const CAPTURE_ORDER_TIMEOUT_MS = 90_000;
+
+// One deadline covers both response headers and the JSON body. Reject before
+// aborting so a fetch/mock that reacts synchronously to abort cannot turn the
+// timeout into an unrelated parse/network error.
+async function fetchJsonWithTimeout(
+  input: string,
+  init: RequestInit,
+  timeoutMs: number,
+): Promise<{ response: Response; data: any }> {
+  const controller = new AbortController();
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeout = setTimeout(() => {
+      const error = new Error(`Payment request timed out after ${timeoutMs}ms`);
+      error.name = 'TimeoutError';
+      reject(error);
+      controller.abort();
+    }, timeoutMs);
+  });
+
+  try {
+    const response = await Promise.race([
+      fetch(input, { ...init, signal: controller.signal }),
+      timeoutPromise,
+    ]);
+    const data = await Promise.race([response.json(), timeoutPromise]).catch((error) => {
+      if (error?.name === 'TimeoutError') throw error;
+      return null;
+    });
+    return { response, data };
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
+}
+
 export default function PayPalButtons({
   items,
   totalPrice,
@@ -130,7 +168,7 @@ export default function PayPalButtons({
     if (!validateShipping()) throw new Error('Incomplete shipping details');
     const cartItems = latest.current.items;
     const si = latest.current.shippingInfo;
-    const res = await fetch('/api/paypal', {
+    const { data } = await fetchJsonWithTimeout('/api/paypal', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -145,10 +183,9 @@ export default function PayPalButtons({
         shippingCountry: si.country,
         couponCode: latest.current.couponCode || undefined,
       }),
-    });
-    const data = await res.json();
-    if (data.orderId) return data.orderId;
-    throw new Error(data.error || 'Failed to create order');
+    }, CREATE_ORDER_TIMEOUT_MS);
+    if (data?.orderId) return data.orderId;
+    throw new Error(data?.error || 'Failed to create order');
   }, [validateShipping]);
 
   const captureOrder = useCallback(
@@ -159,7 +196,7 @@ export default function PayPalButtons({
       const capture = (async () => {
         try {
           const payload = buildOrderPayload();
-          const res = await fetch('/api/paypal', {
+          const { response: res, data } = await fetchJsonWithTimeout('/api/paypal', {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -167,8 +204,7 @@ export default function PayPalButtons({
               contact: payload.contact,
               attribution: payload.attribution,
             }),
-          });
-          const data = await res.json().catch(() => null);
+          }, CAPTURE_ORDER_TIMEOUT_MS);
           if (!data) {
             handleError('Payment could not be verified because the server returned an invalid response. Please contact support before retrying.');
             return;
@@ -180,8 +216,12 @@ export default function PayPalButtons({
             }
             handleSuccess(data.orderId || orderId);
           } else handleError(data.error || 'Payment failed. Please contact support before retrying.');
-        } catch (e) {
-          handleError('Unable to verify payment due to a network error. Please check your connection or contact support before retrying.');
+        } catch (e: any) {
+          if (e?.name === 'TimeoutError') {
+            handleError('Payment verification timed out. Please refresh the page to check your order status or contact support before attempting another payment.');
+          } else {
+            handleError('Unable to verify payment due to a network error. Please check your connection or contact support before retrying.');
+          }
         } finally {
           captureInFlightRef.current.delete(orderId);
           setCardProcessing(false);
@@ -212,26 +252,56 @@ export default function PayPalButtons({
     const script = document.createElement('script');
     script.src = `https://www.paypal.com/sdk/js?client-id=${clientId}&currency=USD&intent=capture&components=buttons,card-fields&commit=true`;
     script.async = true;
+    let loadTimeout: ReturnType<typeof setTimeout> | undefined;
+    let pollInterval: ReturnType<typeof setInterval> | undefined;
+    let cancelled = false;
+
+    const clearSdkTimers = () => {
+      if (loadTimeout) clearTimeout(loadTimeout);
+      if (pollInterval) clearInterval(pollInterval);
+      loadTimeout = undefined;
+      pollInterval = undefined;
+    };
+    const markSdkReady = () => {
+      if (cancelled) return;
+      clearSdkTimers();
+      setSdkReady(true);
+    };
+
     script.onload = () => {
-      const t = setInterval(() => {
-        if (window.paypal) {
-          clearInterval(t);
-          setSdkReady(true);
-        }
+      if (cancelled) return;
+      if (window.paypal) {
+        markSdkReady();
+        return;
+      }
+      pollInterval = setInterval(() => {
+        if (window.paypal) markSdkReady();
       }, 200);
-      setTimeout(() => {
-        clearInterval(t);
-        if (!window.paypal) {
-          handleError('Payment SDK failed to initialize.');
-          setLoading(false);
-        }
-      }, 10000);
     };
     script.onerror = () => {
-      handleError('Failed to load payment system.');
+      if (cancelled) return;
+      clearSdkTimers();
+      handleError('Failed to load payment system. Please check your connection and refresh the page.');
       setLoading(false);
     };
+    // Start the deadline with the request itself: some network failures fire
+    // neither onload nor onerror, which previously left checkout loading forever.
+    loadTimeout = setTimeout(() => {
+      if (cancelled) return;
+      clearSdkTimers();
+      script.onload = null;
+      script.onerror = null;
+      handleError('Payment system took too long to load. Please check your connection and refresh the page to try again.');
+      setLoading(false);
+    }, SDK_LOAD_TIMEOUT_MS);
     document.head.appendChild(script);
+
+    return () => {
+      cancelled = true;
+      clearSdkTimers();
+      script.onload = null;
+      script.onerror = null;
+    };
   }, [handleError]);
 
   // 2) Render the PayPal button + inline card fields exactly once per mount.

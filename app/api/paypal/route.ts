@@ -398,6 +398,19 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
       }
     }
 
+    if (!captureResponse.ok) {
+      const debugId = typeof captureData?.debug_id === 'string' ? captureData.debug_id : undefined;
+      console.error('PayPal capture rejected:', captureResponse.status, debugId || 'no-debug-id');
+      return NextResponse.json(
+        {
+          error: 'PayPal could not capture the payment. Please refresh the page to check your order status or contact support.',
+          paypalStatus: captureResponse.status,
+          debugId,
+        },
+        { status: 502 },
+      );
+    }
+
     if (!captureData) {
       return NextResponse.json(
         { error: 'PayPal returned an unreadable capture response. Please contact support before retrying.' },
