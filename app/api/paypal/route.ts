@@ -17,9 +17,31 @@ const PAYPAL_BASE_URL = process.env.PAYPAL_MODE === 'live'
 const FREE_SHIPPING_THRESHOLD = 89;
 const SHIPPING_FEE_UNDER = 5.99;
 
+// Coalesce duplicate callbacks within this server instance. PayPal-Request-Id
+// below provides the cross-request/cross-instance capture idempotency key.
+const captureInFlight = new Map<string, Promise<any>>();
+const PAYPAL_FETCH_TIMEOUT_MS = 20_000;
+
+async function paypalFetchJson(
+  input: string,
+  init: RequestInit = {},
+): Promise<{ response: Response; data: any }> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), PAYPAL_FETCH_TIMEOUT_MS);
+  try {
+    const response = await fetch(input, { ...init, signal: controller.signal });
+    // Keep the abort timer alive until the response body is fully consumed.
+    // fetch() can resolve after headers while the JSON body remains stalled.
+    const data = await response.json().catch(() => null);
+    return { response, data };
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 async function getAccessToken() {
   const auth = Buffer.from(`${PAYPAL_CLIENT_ID}:${PAYPAL_SECRET}`).toString('base64');
-  const response = await fetch(`${PAYPAL_BASE_URL}/v1/oauth2/token`, {
+  const { data } = await paypalFetchJson(`${PAYPAL_BASE_URL}/v1/oauth2/token`, {
     method: 'POST',
     headers: {
       'Authorization': `Basic ${auth}`,
@@ -27,7 +49,6 @@ async function getAccessToken() {
     },
     body: 'grant_type=client_credentials',
   });
-  const data = await response.json();
   return data.access_token;
 }
 
@@ -129,6 +150,71 @@ async function persistCapturedOrder(
   }
 }
 
+async function getCompletedOrder(orderId: string, accessToken: string) {
+  const { response, data } = await paypalFetchJson(`${PAYPAL_BASE_URL}/v2/checkout/orders/${orderId}`, {
+    headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+  });
+  return response.ok && data?.status === 'COMPLETED' ? data : null;
+}
+
+function isOrderAlreadyCaptured(data: any) {
+  return data?.details?.some((detail: any) => detail?.issue === 'ORDER_ALREADY_CAPTURED');
+}
+
+async function completedOrderResponse(
+  existingData: any,
+  attribution: OrderAttribution,
+  contact: { email?: string; name?: string; phone?: string },
+) {
+  let existAmount = 0;
+  let existPayerEmail = contact.email || '';
+  let existPayerName = contact.name || '';
+  let existItems: any[] = [];
+  let existCaptureId = '';
+  try {
+    const cap0 = existingData.purchase_units?.[0]?.payments?.captures?.[0];
+    if (cap0?.amount) existAmount = parseFloat(cap0.amount.value) || 0;
+    if (cap0?.id) existCaptureId = cap0.id;
+    const pu0 = existingData.purchase_units?.[0]?.items;
+    if (Array.isArray(pu0)) {
+      existItems = pu0.map((item: any) => ({
+        name: item.name,
+        price: parseFloat(item.unit_amount?.value || '0'),
+        quantity: parseInt(item.quantity || '1', 10),
+        slug: item.sku || undefined,
+      }));
+    }
+    if (existingData.payer?.email_address) existPayerEmail = existingData.payer.email_address;
+    const nm = existingData.payer?.name;
+    if (nm) existPayerName = [nm.given_name, nm.surname].filter(Boolean).join(' ') || existPayerName;
+  } catch {}
+
+  // Persistence remains idempotent and can heal a previously failed write.
+  // Customer/merchant emails and GA4 are deliberately NOT repeated here.
+  const backfill = await persistCapturedOrder(existingData, {
+    attribution,
+    contactEmail: contact.email,
+    contactName: contact.name,
+    contactPhone: contact.phone,
+  }).catch(() => null);
+
+  return NextResponse.json({
+    success: true,
+    orderId: existingData.id,
+    orderNumber: backfill?.order?.order_number || generateOrderNumber(existingData.id),
+    captureId: existCaptureId,
+    status: existingData.status,
+    alreadyCaptured: true,
+    amount: existAmount,
+    currency: 'USD',
+    payerEmail: existPayerEmail,
+    payerName: existPayerName,
+    items: existItems,
+    persisted: backfill?.result?.persisted === true,
+    confirmationEmailStatus: 'unavailable',
+  });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -170,7 +256,7 @@ export async function POST(request: NextRequest) {
 
     const accessToken = await getAccessToken();
 
-    const paypalOrder = await fetch(`${PAYPAL_BASE_URL}/v2/checkout/orders`, {
+    const { data: orderData } = await paypalFetchJson(`${PAYPAL_BASE_URL}/v2/checkout/orders`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
@@ -241,7 +327,6 @@ export async function POST(request: NextRequest) {
       }),
     });
 
-    const orderData = await paypalOrder.json();
     const approveLink = orderData.links?.find((link: { rel: string }) => link.rel === 'approve');
 
     if (!approveLink) {
@@ -257,120 +342,148 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PUT(request: NextRequest) {
+  const reqBody = await request.json().catch(() => ({}));
+  const orderId = reqBody?.orderId;
+  if (!orderId) {
+    return NextResponse.json({ error: 'Order ID is required' }, { status: 400 });
+  }
+
+  const pending = captureInFlight.get(orderId);
+  if (pending) {
+    try { await pending; } catch {}
+  }
+
+  const capture = capturePayPalOrder(request, reqBody);
+  captureInFlight.set(orderId, capture);
   try {
-    const reqBody = await request.json().catch(() => ({}));
-    const orderId = reqBody?.orderId;
-    // Marketing attribution (UTM / referrer) captured client-side and the
-    // checkout contact details (the PayPal v2 capture does not return the
-    // customer email in live mode) are sent by the success page alongside the
-    // order id so they can be persisted with the order.
-    const attribution: OrderAttribution = reqBody?.attribution || undefined;
-    const contact: { email?: string; name?: string; phone?: string } = reqBody?.contact || {};
-    if (!orderId) {
-      return NextResponse.json({ error: 'Order ID is required' }, { status: 400 });
-    }
+    return await capture;
+  } finally {
+    if (captureInFlight.get(orderId) === capture) captureInFlight.delete(orderId);
+  }
+}
+
+async function capturePayPalOrder(request: NextRequest, reqBody: any) {
+  const orderId = reqBody.orderId;
+  const attribution: OrderAttribution = reqBody?.attribution || undefined;
+  const contact: { email?: string; name?: string; phone?: string } = reqBody?.contact || {};
+  try {
     const accessToken = await getAccessToken();
 
-    // Idempotency guard: if the order was already captured (e.g. success page
-    // re-render or a duplicated callback), return success WITHOUT capturing again
-    // or re-sending the confirmation email. Prevents duplicate "Order Confirmed" emails.
+    // A sequential refresh or a request that waited on our in-flight lock
+    // resolves here without another capture or repeated side effects.
     try {
-      const existingRes = await fetch(`${PAYPAL_BASE_URL}/v2/checkout/orders/${orderId}`, {
-        headers: { 'Authorization': `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
-      });
-      const existingData = await existingRes.json();
-      if (existingRes.ok && existingData.status === 'COMPLETED') {
-        let existAmount = 0; let existPayerEmail = ''; let existPayerName = ''; let existItems: any[] = []; let existCaptureId = '';
-        try {
-          const cap0 = existingData.purchase_units?.[0]?.payments?.captures?.[0];
-          if (cap0?.amount) existAmount = parseFloat(cap0.amount.value) || 0;
-          if (cap0?.id) existCaptureId = cap0.id;
-          const pu0 = existingData.purchase_units?.[0]?.items;
-          if (pu0 && Array.isArray(pu0)) {
-            existItems = pu0.map((item: any) => ({
-              name: item.name,
-              price: parseFloat(item.unit_amount?.value || '0'),
-              quantity: parseInt(item.quantity || '1', 10),
-              slug: item.sku || undefined,
-            }));
-          }
-          if (existingData.payer) {
-            existPayerEmail = existingData.payer.email_address || contact.email || '';
-            const nm = existingData.payer.name;
-            if (nm) existPayerName = [nm.given_name, nm.surname].filter(Boolean).join(' ');
-          }
-        } catch {}
-        // Idempotent order persistence: the store dedupes by PayPal order id, so
-        // this never creates a duplicate. It also heals a record whose first write
-        // failed (or backfills attribution supplied on a repeat callback). Capture
-        // and emails are NOT repeated in this branch — untouched from the fix.
-        const backfill = await persistCapturedOrder(existingData, {
-          attribution,
-          contactEmail: contact.email,
-          contactName: contact.name,
-          contactPhone: contact.phone,
-        }).catch(() => null);
-        // Server-side purchase event — independent of the buyer's browser, so
-        // it fires reliably even on a repeat/idempotent capture callback.
-        sendServerPurchaseEvent({
-          orderId: existingData.id,
-          items: existItems.map((it) => ({
-            item_id: it.slug || '',
-            item_name: it.name || 'Product',
-            price: it.price || 0,
-            quantity: it.quantity || 1,
-            item_category: 'sealer',
-          })),
-          value: existAmount,
-          currency: 'USD',
-          cookieHeader: request.headers.get('cookie'),
-        }).catch(() => {});
-        return NextResponse.json({
-          success: true,
-          orderId: existingData.id,
-          orderNumber: backfill?.order?.order_number || generateOrderNumber(existingData.id),
-          captureId: existCaptureId,
-          status: existingData.status,
-          alreadyCaptured: true,
-          amount: existAmount,
-          currency: 'USD',
-          payerEmail: existPayerEmail,
-          payerName: existPayerName || contact.name || '',
-          items: existItems,
-          persisted: backfill?.result?.persisted === true,
-        });
-      }
+      const existingData = await getCompletedOrder(orderId, accessToken);
+      if (existingData) return completedOrderResponse(existingData, attribution, contact);
     } catch (e) {
-      // If the pre-check fails for any reason, proceed to capture normally.
+      // If the pre-check fails, capture remains the authoritative next step.
       console.error('Order pre-check error:', e);
     }
 
-    const captureResponse = await fetch(`${PAYPAL_BASE_URL}/v2/checkout/orders/${orderId}/capture`, {
+    const { response: captureResponse, data: captureData } = await paypalFetchJson(`${PAYPAL_BASE_URL}/v2/checkout/orders/${orderId}/capture`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${accessToken}`,
         'Content-Type': 'application/json',
+        'PayPal-Request-Id': `freshlock-capture-${orderId}`,
       },
     });
-    const captureData = await captureResponse.json();
+    // Another instance may have won the capture race. Re-read the order and
+    // treat a confirmed COMPLETED order as the same idempotent success.
+    if (isOrderAlreadyCaptured(captureData)) {
+      try {
+        const completed = await getCompletedOrder(orderId, accessToken);
+        if (completed) return completedOrderResponse(completed, attribution, contact);
+      } catch (e) {
+        console.error('Already-captured order re-check error:', e);
+      }
+    }
 
-    if (captureData.status === 'COMPLETED') {
-      // Send order confirmation email (fire-and-forget, don't block response)
+    if (!captureData) {
+      return NextResponse.json(
+        { error: 'PayPal returned an unreadable capture response. Please contact support before retrying.' },
+        { status: 502 },
+      );
+    }
+
+    if (captureResponse.ok && captureData.status === 'COMPLETED') {
+      // Extract amount and payer info from capture response
+      let amount = 0;
+      let currency = 'USD';
+      let payerEmail = '';
+      let payerName = '';
+      let orderItems: any[] = [];
+
+      try {
+        const capture = captureData.purchase_units?.[0]?.payments?.captures?.[0];
+        if (capture?.amount) {
+          amount = parseFloat(capture.amount.value) || 0;
+          currency = capture.amount.currency_code || 'USD';
+        }
+        // Extract items from purchase unit
+        const puItems = captureData.purchase_units?.[0]?.items;
+        if (puItems && Array.isArray(puItems)) {
+          orderItems = puItems.map((item: any) => ({
+            name: item.name,
+            slug: item.sku || undefined,
+            price: parseFloat(item.unit_amount?.value || '0'),
+            quantity: parseInt(item.quantity || '1', 10),
+          }));
+        }
+        // Payer info
+        if (captureData.payer) {
+          payerEmail = captureData.payer.email_address || contact.email || '';
+          const name = captureData.payer.name;
+          if (name) {
+            payerName = [name.given_name, name.surname].filter(Boolean).join(' ');
+          }
+        }
+      } catch (e) {
+        console.error('Error parsing capture data:', e);
+      }
+
+      // ---- Persist the captured order to the durable store (fire & await, but
+      // never fail the response on persistence errors). Deduped by PayPal order
+      // id inside persistCapturedOrder/persistOrder — safe on repeated calls.
+      const persisted = await persistCapturedOrder(captureData, {
+        attribution,
+        contactEmail: contact.email,
+        contactName: contact.name,
+        contactPhone: contact.phone,
+      }).catch((e) => { console.error('order persist await error:', e); return null; });
+
+      // Sole purchase analytics emission point. alreadyCaptured responses and
+      // the browser success page deliberately do not emit another purchase.
+      sendServerPurchaseEvent({
+        orderId: captureData.id,
+        items: orderItems.map((it) => ({
+          item_id: it.slug || '',
+          item_name: it.name || 'Product',
+          price: it.price || 0,
+          quantity: it.quantity || 1,
+          item_category: 'sealer',
+        })),
+        value: amount,
+        currency,
+        cookieHeader: request.headers.get('cookie'),
+      }).catch(() => {});
+
+      const captureEmail = captureData.payer?.email_address || contact.email || '';
+      const captureName = captureData.payer?.name
+        ? [captureData.payer.name.given_name, captureData.payer.name.surname].filter(Boolean).join(' ')
+        : contact.name || '';
+      let confirmationEmailStatus: 'sent' | 'failed' | 'not_configured' | 'no_email' =
+        captureEmail ? 'not_configured' : 'no_email';
+
+      // Await the customer send so the response never claims an email was sent
+      // when SMTP was not configured or rejected the message.
       try {
         const { sendEmail } = await import('@/lib/smtp');
         const SMTP_PASS = process.env.SMTP_PASS;
         if (SMTP_PASS) {
-          let captureEmail = '';
-          let captureName = '';
           let captureAmount = 0;
           try {
             const cap = captureData.purchase_units?.[0]?.payments?.captures?.[0];
             if (cap?.amount) captureAmount = parseFloat(cap.amount.value) || 0;
-            if (captureData.payer) {
-              captureEmail = captureData.payer.email_address || '';
-              const pn = captureData.payer.name;
-              if (pn) captureName = [pn.given_name, pn.surname].filter(Boolean).join(' ');
-            }
           } catch {}
           if (captureEmail) {
             const itemsHtml = (captureData.purchase_units?.[0]?.items || []).map((item: any) =>
@@ -391,31 +504,46 @@ export async function PUT(request: NextRequest) {
                 <ul><li>📦 We'll prepare your order within 1-2 business days</li><li>🚚 Standard shipping takes 7–15 days</li><li>📧 You'll receive a tracking number via email</li></ul>
                 <p style="color:#666;font-size:14px;margin-top:24px;">Questions? Reply to this email, contact support@freshlocksealer.com, or WhatsApp <a href="https://wa.me/8618316990301" style="color:#0f4c3a; font-weight:bold;">+86 183 1699 0301</a></p>
               </div></div>`;
-            sendEmail({
-              host: process.env.SMTP_HOST || 'smtp.zoho.com',
-              port: Number(process.env.SMTP_PORT || 587),
-              user: process.env.SMTP_USER || 'support@freshlocksealer.com',
-              pass: SMTP_PASS,
-              from: `FreshLock <${process.env.SMTP_USER || 'support@freshlocksealer.com'}>`,
-              to: captureEmail,
-              subject: `FreshLock Order Confirmed — ${captureData.id}`,
-              html: emailHtml,
-            }).catch((e: any) => console.error('Confirmation email error:', e));
+            let smtpTimeout: ReturnType<typeof setTimeout> | undefined;
+            try {
+              await Promise.race([
+                sendEmail({
+                  host: process.env.SMTP_HOST || 'smtp.zoho.com',
+                  port: Number(process.env.SMTP_PORT || 587),
+                  user: process.env.SMTP_USER || 'support@freshlocksealer.com',
+                  pass: SMTP_PASS,
+                  from: `FreshLock <${process.env.SMTP_USER || 'support@freshlocksealer.com'}>`,
+                  to: captureEmail,
+                  subject: `FreshLock Order Confirmed — ${captureData.id}`,
+                  html: emailHtml,
+                }),
+                new Promise((_, reject) => {
+                  smtpTimeout = setTimeout(() => reject(new Error('Confirmation email timeout')), 8000);
+                }),
+              ]);
+              confirmationEmailStatus = 'sent';
+            } catch (e: any) {
+              confirmationEmailStatus = 'failed';
+              console.error('Confirmation email error:', e);
+            } finally {
+              if (smtpTimeout) clearTimeout(smtpTimeout);
+            }
           }
         }
       } catch (e) {
+        if (captureEmail) confirmationEmailStatus = 'failed';
         console.error('Email send setup error:', e);
       }
 
       // ---- Merchant order notification (instant alert to the store owner) ----
       // Fires once per genuinely captured order (the idempotency guard above
-      // returns early for duplicates, so this never double-sends).
+      // returns early for duplicates, so this path is not repeated).
       try {
         const { sendEmail: sendMerchantEmail } = await import('@/lib/smtp');
         const SMTP_PASS_M = process.env.SMTP_PASS;
         if (SMTP_PASS_M) {
           let mAmount = 0;
-          let mName = ''; let mEmail = ''; let mPhone = '';
+          let mName = contact.name || ''; let mEmail = contact.email || ''; let mPhone = contact.phone || '';
           let mAddr = ''; let mCapId = '';
           try {
             const puM: any = captureData.purchase_units?.[0] || {};
@@ -427,9 +555,9 @@ export async function PUT(request: NextRequest) {
               if (seg.startsWith('phone:')) mPhone = seg.slice(6);
             }
             if (captureData.payer) {
-              mEmail = captureData.payer.email_address || '';
+              mEmail = captureData.payer.email_address || contact.email || '';
               const pn = captureData.payer.name;
-              if (pn) mName = [pn.given_name, pn.surname].filter(Boolean).join(' ');
+              if (pn) mName = [pn.given_name, pn.surname].filter(Boolean).join(' ') || mName;
             }
             const sh = puM.shipping;
             if (sh) {
@@ -477,68 +605,6 @@ export async function PUT(request: NextRequest) {
         console.error('Merchant notify setup error:', e);
       }
 
-      // Extract amount and payer info from capture response
-      let amount = 0;
-      let currency = 'USD';
-      let payerEmail = '';
-      let payerName = '';
-      let orderItems: any[] = [];
-
-      try {
-        const capture = captureData.purchase_units?.[0]?.payments?.captures?.[0];
-        if (capture?.amount) {
-          amount = parseFloat(capture.amount.value) || 0;
-          currency = capture.amount.currency_code || 'USD';
-        }
-        // Extract items from purchase unit
-        const puItems = captureData.purchase_units?.[0]?.items;
-        if (puItems && Array.isArray(puItems)) {
-          orderItems = puItems.map((item: any) => ({
-            name: item.name,
-            slug: item.sku || undefined,
-            price: parseFloat(item.unit_amount?.value || '0'),
-            quantity: parseInt(item.quantity || '1', 10),
-          }));
-        }
-        // Payer info
-        if (captureData.payer) {
-          payerEmail = captureData.payer.email_address || contact.email || '';
-          const name = captureData.payer.name;
-          if (name) {
-            payerName = [name.given_name, name.surname].filter(Boolean).join(' ');
-          }
-        }
-      } catch (e) {
-        console.error('Error parsing capture data:', e);
-      }
-
-      // ---- Persist the captured order to the durable store (fire & await, but
-      // never fail the response on persistence errors). Deduped by PayPal order
-      // id inside persistCapturedOrder/persistOrder — safe on repeated calls.
-      const persisted = await persistCapturedOrder(captureData, {
-        attribution,
-        contactEmail: contact.email,
-        contactName: contact.name,
-        contactPhone: contact.phone,
-      }).catch((e) => { console.error('order persist await error:', e); return null; });
-
-      // Server-side purchase event — fires here regardless of ad blockers,
-      // browser privacy settings, or the tab closing before client-side
-      // gtag.js on the success page would have sent it.
-      sendServerPurchaseEvent({
-        orderId: captureData.id,
-        items: orderItems.map((it) => ({
-          item_id: it.slug || '',
-          item_name: it.name || 'Product',
-          price: it.price || 0,
-          quantity: it.quantity || 1,
-          item_category: 'sealer',
-        })),
-        value: amount,
-        currency,
-        cookieHeader: request.headers.get('cookie'),
-      }).catch(() => {});
-
       return NextResponse.json({
         success: true,
         orderId: captureData.id,
@@ -551,6 +617,7 @@ export async function PUT(request: NextRequest) {
         payerName: payerName || contact.name || '',
         items: orderItems,
         persisted: persisted?.result?.persisted === true,
+        confirmationEmailStatus,
       });
     }
 

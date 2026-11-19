@@ -1,15 +1,10 @@
 // Server-side GA4 purchase tracking via the Measurement Protocol.
 //
-// Why this exists: the client-side `trackPurchaseOnce` in lib/ga4.ts only
-// fires from the browser on the checkout success page. Real orders are
-// captured and persisted here on the server regardless, but the GA4 event
-// depends on gtag.js loading, no ad blocker / privacy extension blocking
-// google-analytics.com, and the tab staying open long enough to fire it.
-// In practice most real purchases never reach GA4 this way, which silently
-// makes purchase-based conversion data look far lower than it is. This
-// server-side call is independent of the buyer's browser and always fires
-// once a PayPal capture succeeds, so it acts as the reliable source of
-// truth for purchase conversions.
+// PayPal purchase analytics have one emission point: a fresh successful
+// capture in app/api/paypal/route.ts. alreadyCaptured responses and the
+// browser success page do not emit again, preventing refresh/duplicate-PUT
+// double counting. This server-side call is also independent of gtag.js,
+// browser privacy extensions, and the buyer keeping the success tab open.
 //
 // Requires GA4_API_SECRET (created in GA4 Admin > Data Streams > [stream] >
 // Measurement Protocol API secrets — the read-only service account cannot

@@ -3,26 +3,31 @@ import { useEffect, useState, useRef, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/lib/cart-context';
-import { trackPurchaseOnce } from '@/lib/ga4';
 import { getAttribution } from '@/lib/attribution';
+
+type CheckoutStatus = 'verifying' | 'invalid' | 'failed' | 'success';
+
 function CheckoutSuccessContent() {
   const searchParams = useSearchParams();
-  const sessionId = searchParams.get('session_id');
   const paypalToken = searchParams.get('token'); // PayPal order ID
-  const payerId = searchParams.get('PayerID');
   const paymentMethod = searchParams.get('payment_method');
+  const isPayPalReturn = paymentMethod === 'paypal' && Boolean(paypalToken);
   const [orderInfo, setOrderInfo] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
+  const [status, setStatus] = useState<CheckoutStatus>('verifying');
   const [error, setError] = useState('');
-  const { clearCart, items: cartItems } = useCart();
+  const { clearCart } = useCart();
   const capturedRef = useRef(false);
+
   useEffect(() => {
-    // --- PayPal flow ---
-    if (paymentMethod === 'paypal' && paypalToken && !capturedRef.current) {
-      capturedRef.current = true;
-      // Read the contact details + attribution stashed before the PayPal
-      // redirect (survives the off-site round-trip). These let the server
-      // persist the order with the customer email and UTM/referrer source.
+    if (capturedRef.current) return;
+    if (!isPayPalReturn || !paypalToken) {
+      setStatus('invalid');
+      return;
+    }
+    capturedRef.current = true;
+
+    const capturePayPalReturn = async () => {
+      // Contact + attribution survive the off-site PayPal round-trip.
       let pendingContact: any = {};
       let pendingAttribution: any = undefined;
       try {
@@ -34,72 +39,66 @@ function CheckoutSuccessContent() {
       if (!pendingAttribution) {
         try { pendingAttribution = getAttribution() || {}; } catch {}
       }
-      // Capture the PayPal payment
-      fetch('/api/paypal', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          orderId: paypalToken,
-          attribution: pendingAttribution || undefined,
-          contact: {
-            email: pendingContact.email || undefined,
-            name: pendingContact.name || undefined,
-            phone: pendingContact.phone || undefined,
-          },
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            setOrderInfo({
-              order_id: data.orderNumber || data.orderId,
-              paypal_order_id: data.orderId,
-              amount_total: data.amount * 100, // Convert to cents for compatibility
-              customer_email: data.payerEmail,
-              customer_name: data.payerName,
-              items: data.items,
-            });
-            // Consume the pending contact/attribution once capture succeeded.
-            try {
-              localStorage.removeItem('freshlock-pending-contact');
-              localStorage.removeItem('freshlock-pending-attribution');
-            } catch {}
-            // Fire GA4 purchase event (idempotent per transaction id — safe on
-            // success-page refresh; safeGtag also queues if gtag.js is not ready).
-            const purchaseItems = (data.items && data.items.length > 0
-              ? data.items
-              : cartItems.map((ci: any) => ({
-                  name: ci.product?.name,
-                  price: ci.product?.price,
-                  quantity: ci.quantity,
-                  slug: ci.product?.slug,
-                }))
-            ).map((i: any) => ({
-              item_id: i.slug || i.product?.slug || i.sku || '',
-              item_name: i.name || i.product?.name || 'Product',
-              price: i.price || i.product?.price || 0,
-              quantity: i.quantity || 1,
-              item_category: 'sealer',
-            }));
-            if (purchaseItems.length > 0) {
-              trackPurchaseOnce(data.orderId || paypalToken, purchaseItems, data.amount || 0);
-            }
-            clearCart();
-          } else {
-            setError(data.error || 'Payment verification failed.');
-          }
-          setLoading(false);
-        })
-        .catch((err) => {
-          console.error('PayPal capture error:', err);
-          setError('Unable to verify payment. Please contact support@freshlocksealer.com.');
-          setLoading(false);
+
+      try {
+        const res = await fetch('/api/paypal', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            orderId: paypalToken,
+            attribution: pendingAttribution || undefined,
+            contact: {
+              email: pendingContact.email || undefined,
+              name: pendingContact.name || undefined,
+              phone: pendingContact.phone || undefined,
+            },
+          }),
         });
-    } else {
-      setLoading(false);
-    }
-  }, [sessionId, paypalToken, payerId, paymentMethod, clearCart, cartItems]);
-  if (loading) {
+        const data = await res.json().catch(() => null);
+        if (!res.ok || !data?.success) {
+          setError(data?.error || 'Payment verification failed. Please contact support.');
+          setStatus('failed');
+          return;
+        }
+
+        let confirmationEmailStatus = data.confirmationEmailStatus || 'unavailable';
+        try {
+          const storageKey = `freshlock_confirmation_email_${paypalToken}`;
+          const firstCaptureStatus = window.sessionStorage.getItem(storageKey);
+          if (
+            confirmationEmailStatus === 'unavailable' &&
+            typeof firstCaptureStatus === 'string' &&
+            ['sent', 'failed', 'not_configured', 'no_email'].includes(firstCaptureStatus)
+          ) {
+            confirmationEmailStatus = firstCaptureStatus;
+          }
+          window.sessionStorage.removeItem(storageKey);
+        } catch {}
+        setOrderInfo({
+          order_id: data.orderNumber || data.orderId,
+          paypal_order_id: data.orderId,
+          amount_total: data.amount * 100,
+          customer_email: data.payerEmail,
+          customer_name: data.payerName,
+          confirmation_email_status: confirmationEmailStatus,
+        });
+        try {
+          localStorage.removeItem('freshlock-pending-contact');
+          localStorage.removeItem('freshlock-pending-attribution');
+        } catch {}
+        clearCart();
+        setStatus('success');
+      } catch (err) {
+        console.error('PayPal capture error:', err);
+        setError('Unable to verify payment. Please contact support@freshlocksealer.com.');
+        setStatus('failed');
+      }
+    };
+
+    void capturePayPalReturn();
+  }, [isPayPalReturn, paypalToken, clearCart]);
+
+  if (status === 'verifying') {
     return (
       <div className="max-w-3xl mx-auto px-4 py-20 text-center">
         <div className="animate-spin h-12 w-12 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
@@ -107,7 +106,27 @@ function CheckoutSuccessContent() {
       </div>
     );
   }
-  if (error) {
+
+  if (status === 'invalid') {
+    return (
+      <div className="max-w-3xl mx-auto px-4 py-20 text-center">
+        <div className="text-6xl mb-6">⚠️</div>
+        <h1 className="text-3xl font-bold text-red-600 mb-4">Unable to Verify Checkout</h1>
+        <p className="text-gray-600 mb-6">
+          This checkout return link is invalid, incomplete, or uses an unsupported payment reference.
+          No order success has been confirmed.
+        </p>
+        <div className="flex gap-4 justify-center">
+          <Link href="/checkout" className="btn-primary">Return to Checkout</Link>
+          <Link href="/contact" className="px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition">
+            Contact Support
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  if (status === 'failed') {
     return (
       <div className="max-w-3xl mx-auto px-4 py-20 text-center">
         <div className="text-6xl mb-6">⚠️</div>
@@ -118,9 +137,7 @@ function CheckoutSuccessContent() {
           order reference <strong>{paypalToken}</strong> and we'll resolve it.
         </p>
         <div className="flex gap-4 justify-center">
-          <Link href="/" className="btn-primary">
-            Back to Home
-          </Link>
+          <Link href="/" className="btn-primary">Back to Home</Link>
           <Link href="/contact" className="px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition">
             Contact Support
           </Link>
@@ -128,33 +145,39 @@ function CheckoutSuccessContent() {
       </div>
     );
   }
+
   return (
     <div className="max-w-3xl mx-auto px-4 py-20 text-center">
       <div className="text-6xl mb-6">✅</div>
       <h1 className="text-3xl font-bold text-primary mb-4">Thank You!</h1>
       <p className="text-gray-600 mb-2">Your order has been placed successfully.</p>
       {orderInfo?.order_id && (
-        <p className="text-gray-500 mb-1">
-          Order Number: <strong>{orderInfo.order_id}</strong>
-        </p>
+        <p className="text-gray-500 mb-1">Order Number: <strong>{orderInfo.order_id}</strong></p>
       )}
       {orderInfo?.paypal_order_id && (
-        <p className="text-gray-400 text-sm mb-4">
-          PayPal reference: <strong>{orderInfo.paypal_order_id}</strong>
-        </p>
+        <p className="text-gray-400 text-sm mb-4">PayPal reference: <strong>{orderInfo.paypal_order_id}</strong></p>
       )}
-      {orderInfo?.customer_email && (
-        <p className="text-gray-500 mb-6">
+      {orderInfo?.customer_email && orderInfo?.confirmation_email_status === 'sent' && (
+        <p className="text-gray-500 mb-2">
           A confirmation email has been sent to <strong>{orderInfo.customer_email}</strong>
         </p>
+      )}
+      {['failed', 'not_configured'].includes(orderInfo?.confirmation_email_status) && (
+        <p className="text-amber-700 mb-2">
+          Your payment is confirmed, but we could not confirm that a confirmation email was sent. Please contact support with your PayPal reference.
+        </p>
+      )}
+      {orderInfo?.confirmation_email_status === 'unavailable' && (
+        <p className="text-gray-500 mb-2">
+          We could not confirm the email status on this return. Your order remains confirmed; contact support if you need a receipt.
+        </p>
+      )}
+      {orderInfo?.customer_email && !['sent', 'failed', 'not_configured'].includes(orderInfo?.confirmation_email_status) && (
+        <p className="text-gray-500 mb-2">Order contact email: <strong>{orderInfo.customer_email}</strong></p>
       )}
       {orderInfo?.amount_total ? (
         <p className="text-2xl font-bold text-primary mb-8">
           Total: ${(orderInfo.amount_total / 100).toFixed(2)} USD
-        </p>
-      ) : orderInfo?.amount ? (
-        <p className="text-2xl font-bold text-primary mb-8">
-          Total: ${orderInfo.amount.toFixed(2)} USD
         </p>
       ) : null}
       <div className="bg-gray-50 rounded-xl p-6 mb-8 text-left">
@@ -166,9 +189,7 @@ function CheckoutSuccessContent() {
         </ul>
       </div>
       <div className="flex gap-4 justify-center">
-        <Link href="/" className="btn-primary">
-          Back to Home
-        </Link>
+        <Link href="/" className="btn-primary">Back to Home</Link>
         <Link href="/products" className="px-6 py-3 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition">
           Continue Shopping
         </Link>
@@ -176,6 +197,7 @@ function CheckoutSuccessContent() {
     </div>
   );
 }
+
 export default function CheckoutSuccessPage() {
   return (
     <Suspense fallback={<div className="max-w-3xl mx-auto px-4 py-20 text-center"><div className="animate-spin h-12 w-12 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div><p className="text-gray-500">Loading...</p></div>}>
