@@ -190,6 +190,10 @@ const componentModule = loadTsModule(componentPath, {
   localStorage: windowMock.localStorage,
   fetch: (...args) => componentFetch(...args),
   process: { env: { NEXT_PUBLIC_PAYPAL_CLIENT_ID: 'test-client' } },
+  // Real timers are required now that browser requests have finite deadlines;
+  // the shared default above intentionally fires timers immediately for other fixtures.
+  setTimeout: globalThis.setTimeout,
+  clearTimeout: globalThis.clearTimeout,
 });
 
 const baseProps = {
@@ -347,6 +351,8 @@ const successModule = loadTsModule(successPath, {
   window: windowMock,
   localStorage: windowMock.localStorage,
   fetch: (...args) => successFetch(...args),
+  setTimeout,
+  clearTimeout,
 });
 
 async function renderSuccess(query) {

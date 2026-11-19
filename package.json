@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:paypal": "node --test tests/paypal-onapprove-contract.test.mjs tests/paypal-risk-regression.test.mjs",
+    "test:paypal": "node --test tests/paypal-onapprove-contract.test.mjs tests/paypal-risk-regression.test.mjs tests/paypal-resilience-regression.test.mjs",
     "test:paypal:risk": "node --test tests/paypal-risk-regression.test.mjs"
   },
   "dependencies": {

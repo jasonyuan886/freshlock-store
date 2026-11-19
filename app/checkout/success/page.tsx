@@ -7,6 +7,41 @@ import { getAttribution } from '@/lib/attribution';
 
 type CheckoutStatus = 'verifying' | 'invalid' | 'failed' | 'success';
 
+const CAPTURE_RETURN_TIMEOUT_MS = 90_000;
+
+// Keep the redirect return under the same deadline as the embedded checkout:
+// one timer covers both the capture response and its JSON body.
+async function fetchJsonWithTimeout(
+  input: string,
+  init: RequestInit,
+  timeoutMs: number,
+): Promise<{ response: Response; data: any }> {
+  const controller = new AbortController();
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timeout = setTimeout(() => {
+      const error = new Error(`Payment request timed out after ${timeoutMs}ms`);
+      error.name = 'TimeoutError';
+      reject(error);
+      controller.abort();
+    }, timeoutMs);
+  });
+
+  try {
+    const response = await Promise.race([
+      fetch(input, { ...init, signal: controller.signal }),
+      timeoutPromise,
+    ]);
+    const data = await Promise.race([response.json(), timeoutPromise]).catch((error) => {
+      if (error?.name === 'TimeoutError') throw error;
+      return null;
+    });
+    return { response, data };
+  } finally {
+    if (timeout) clearTimeout(timeout);
+  }
+}
+
 function CheckoutSuccessContent() {
   const searchParams = useSearchParams();
   const paypalToken = searchParams.get('token'); // PayPal order ID
@@ -41,7 +76,7 @@ function CheckoutSuccessContent() {
       }
 
       try {
-        const res = await fetch('/api/paypal', {
+        const { response: res, data } = await fetchJsonWithTimeout('/api/paypal', {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -53,8 +88,7 @@ function CheckoutSuccessContent() {
               phone: pendingContact.phone || undefined,
             },
           }),
-        });
-        const data = await res.json().catch(() => null);
+        }, CAPTURE_RETURN_TIMEOUT_MS);
         if (!res.ok || !data?.success) {
           setError(data?.error || 'Payment verification failed. Please contact support.');
           setStatus('failed');
@@ -88,9 +122,11 @@ function CheckoutSuccessContent() {
         } catch {}
         clearCart();
         setStatus('success');
-      } catch (err) {
+      } catch (err: any) {
         console.error('PayPal capture error:', err);
-        setError('Unable to verify payment. Please contact support@freshlocksealer.com.');
+        setError(err?.name === 'TimeoutError'
+          ? 'Payment verification timed out. Please refresh the page to check your order status or contact support@freshlocksealer.com.'
+          : 'Unable to verify payment. Please contact support@freshlocksealer.com.');
         setStatus('failed');
       }
     };
