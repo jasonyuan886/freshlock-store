@@ -20,6 +20,8 @@ interface PayPalButtonsProps {
   }>;
   totalPrice: number;
   shipping: number;
+  shippingMethod: 'standard' | 'faster';
+  couponCode?: string;
   shippingInfo: {
     name: string;
     address: string;
@@ -38,6 +40,8 @@ export default function PayPalButtons({
   items,
   totalPrice,
   shipping,
+  shippingMethod,
+  couponCode,
   shippingInfo,
   contactEmail,
   onSuccess,
@@ -48,7 +52,14 @@ export default function PayPalButtons({
   const [sdkReady, setSdkReady] = useState(false);
   const [cardEligible, setCardEligible] = useState(false);
   const [cardSubmitting, setCardSubmitting] = useState(false);
+  const cardSubmittingRef = useRef(false);
   const cardFieldsRef = useRef<any>(null);
+  const captureInFlightRef = useRef(new Map<string, Promise<void>>());
+
+  const setCardProcessing = useCallback((processing: boolean) => {
+    cardSubmittingRef.current = processing;
+    setCardSubmitting(processing);
+  }, []);
 
   // Component-scoped init guards. Deliberately NOT window globals: a remount
   // inside the SPA must be able to build a fresh set of fields, and a stale
@@ -60,9 +71,9 @@ export default function PayPalButtons({
   // render time, so every callback must read through this ref instead of a
   // closed-over prop. Without it the order is created with the empty shipping
   // address captured on first paint, and "Pay" silently does nothing.
-  const latest = useRef({ items, shippingInfo, contactEmail, onSuccess, onError });
+  const latest = useRef({ items, shippingInfo, shippingMethod, couponCode, contactEmail, onSuccess, onError });
   useEffect(() => {
-    latest.current = { items, shippingInfo, contactEmail, onSuccess, onError };
+    latest.current = { items, shippingInfo, shippingMethod, couponCode, contactEmail, onSuccess, onError };
   });
 
   const handleError = useCallback((msg: string) => {
@@ -130,6 +141,9 @@ export default function PayPalButtons({
           slug: i.product.slug,
         })),
         shippingAddress: si,
+        shippingMethod: latest.current.shippingMethod,
+        shippingCountry: si.country,
+        couponCode: latest.current.couponCode || undefined,
       }),
     });
     const data = await res.json();
@@ -139,21 +153,44 @@ export default function PayPalButtons({
 
   const captureOrder = useCallback(
     async (orderId: string) => {
-      const payload = buildOrderPayload();
-      const res = await fetch('/api/paypal', {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          orderId,
-          contact: payload.contact,
-          attribution: payload.attribution,
-        }),
-      });
-      const data = await res.json();
-      if (data.success) handleSuccess(data.orderId || orderId);
-      else handleError(data.error || 'Payment failed');
+      const inFlight = captureInFlightRef.current.get(orderId);
+      if (inFlight) return inFlight;
+
+      const capture = (async () => {
+        try {
+          const payload = buildOrderPayload();
+          const res = await fetch('/api/paypal', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              orderId,
+              contact: payload.contact,
+              attribution: payload.attribution,
+            }),
+          });
+          const data = await res.json().catch(() => null);
+          if (!data) {
+            handleError('Payment could not be verified because the server returned an invalid response. Please contact support before retrying.');
+            return;
+          }
+          if (res.ok && data.success) {
+            const emailStatus = data.confirmationEmailStatus;
+            if (['sent', 'failed', 'not_configured', 'no_email'].includes(emailStatus)) {
+              try { window.sessionStorage.setItem(`freshlock_confirmation_email_${orderId}`, emailStatus); } catch {}
+            }
+            handleSuccess(data.orderId || orderId);
+          } else handleError(data.error || 'Payment failed. Please contact support before retrying.');
+        } catch (e) {
+          handleError('Unable to verify payment due to a network error. Please check your connection or contact support before retrying.');
+        } finally {
+          captureInFlightRef.current.delete(orderId);
+          setCardProcessing(false);
+        }
+      })();
+      captureInFlightRef.current.set(orderId, capture);
+      return capture;
     },
-    [buildOrderPayload, handleSuccess, handleError]
+    [buildOrderPayload, handleSuccess, handleError, setCardProcessing]
   );
 
   // 1) Load the PayPal SDK exactly once per mount.
@@ -259,11 +296,10 @@ export default function PayPalButtons({
       const cf = window.paypal.CardFields?.({
         createOrder,
         onApprove: async (data: PayPalApprovalData) => {
-          setCardSubmitting(false);
           await captureOrder(data.orderID);
         },
         onError: (err: any) => {
-          setCardSubmitting(false);
+          setCardProcessing(false);
           console.error('CardFields error', err);
           handleError('Card payment failed. Check your card details and try again.');
         },
@@ -290,16 +326,17 @@ export default function PayPalButtons({
     }
 
     setLoading(false);
-  }, [sdkReady, createOrder, captureOrder, handleError, validateShipping]);
+  }, [sdkReady, createOrder, captureOrder, handleError, validateShipping, setCardProcessing]);
 
   const submitCard = async () => {
+    if (cardSubmittingRef.current) return;
     if (!validateShipping()) return;
     if (!cardFieldsRef.current) {
       handleError('Card form is not ready yet. Please refresh the page and try again.');
       return;
     }
     const si = latest.current.shippingInfo;
-    setCardSubmitting(true);
+    setCardProcessing(true);
     buildOrderPayload();
     try {
       await cardFieldsRef.current.submit({
@@ -313,7 +350,7 @@ export default function PayPalButtons({
         },
       });
     } catch (e) {
-      setCardSubmitting(false);
+      if (captureInFlightRef.current.size === 0) setCardProcessing(false);
       handleError('Could not submit card payment. Please try again.');
     }
   };

@@ -30,13 +30,13 @@ export default function CheckoutPage() {
   // Free-shipping threshold is evaluated on the pre-discount subtotal (matches
   // the server), so applying a coupon never strips away free shipping.
   const [paymentMethod, setPaymentMethod] = useState('paypal');
-  const [shippingMethod, setShippingMethod] = useState('standard');
+  const [shippingMethod, setShippingMethod] = useState<'standard' | 'faster'>('standard');
   const [processing, setProcessing] = useState(false);
   const [error, setError] = useState('');
   // Promo code: display-only client state. The server re-validates the code
   // and computes the real charge independently in /api/paypal.
   const [couponInput, setCouponInput] = useState('');
-  const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; percentOff?: number; amountOff?: number; minSubtotal?: number; description: string } | null>(null);
+  const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; active: boolean; percentOff?: number; amountOff?: number; minSubtotal?: number; description: string } | null>(null);
   const [couponChecking, setCouponChecking] = useState(false);
   const [couponError, setCouponError] = useState('');
   // 表单状态
@@ -166,7 +166,7 @@ export default function CheckoutPage() {
           setAppliedCoupon(null);
           setCouponError(`This code requires a subtotal of $${data.minSubtotal}+`);
         } else {
-          setAppliedCoupon({ code: data.code, percentOff: data.percentOff ?? undefined, amountOff: data.amountOff ?? undefined, minSubtotal: data.minSubtotal ?? undefined, description: data.description });
+          setAppliedCoupon({ code: data.code, active: true, percentOff: data.percentOff ?? undefined, amountOff: data.amountOff ?? undefined, minSubtotal: data.minSubtotal ?? undefined, description: data.description });
         }
       } else {
         setAppliedCoupon(null);
@@ -583,6 +583,8 @@ export default function CheckoutPage() {
                     items={items}
                     totalPrice={total}
                     shipping={shipping}
+                    shippingMethod={shippingMethod}
+                    couponCode={appliedCoupon?.code}
                     shippingInfo={{
                       name: `${form.firstName} ${form.lastName}`.trim(),
                       address: form.address,
