@@ -8,8 +8,9 @@
 //
 // Requires GA4_API_SECRET (created in GA4 Admin > Data Streams > [stream] >
 // Measurement Protocol API secrets — the read-only service account cannot
-// create this, it must be done in the GA4 web console). Silently no-ops if
-// the secret isn't configured, so this never blocks or breaks checkout.
+// create this, it must be done in the GA4 web console). Missing configuration
+// and delivery failures return an explicit status so checkout can observe the
+// outcome without ever turning a successful payment into a failure.
 
 type GA4Item = {
   item_id: string;
@@ -38,9 +39,12 @@ export async function sendServerPurchaseEvent(params: {
 }) {
   const measurementId = process.env.GA4_MEASUREMENT_ID;
   const apiSecret = process.env.GA4_API_SECRET;
-  if (!measurementId || !apiSecret) {
-    console.warn('[ga4-server] GA4_API_SECRET not configured, skipping server-side purchase event');
-    return;
+  const missingConfig: string[] = [];
+  if (!measurementId) missingConfig.push('GA4_MEASUREMENT_ID');
+  if (!apiSecret) missingConfig.push('GA4_API_SECRET');
+  if (missingConfig.length) {
+    console.warn(`[ga4-server] ${missingConfig.join(', ')} not configured, skipping server-side purchase event`);
+    return 'not_configured' as const;
   }
 
   // Fall back to a synthetic client_id tied to the order when the buyer has
@@ -64,6 +68,8 @@ export async function sendServerPurchaseEvent(params: {
     ],
   };
 
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
   try {
     const res = await fetch(
       `https://www.google-analytics.com/mp/collect?measurement_id=${measurementId}&api_secret=${apiSecret}`,
@@ -71,12 +77,20 @@ export async function sendServerPurchaseEvent(params: {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
+        signal: controller.signal,
       },
     );
     if (!res.ok) {
-      console.error('[ga4-server] purchase event rejected:', res.status, await res.text().catch(() => ''));
+      // Do not log the response body or request URL: they can contain upstream
+      // details and the Measurement Protocol credential respectively.
+      console.error('[ga4-server] purchase event rejected with HTTP status:', res.status);
+      return 'failed' as const;
     }
+    return 'sent' as const;
   } catch (e: any) {
-    console.error('[ga4-server] purchase event send error:', e?.message || e);
+    console.error('[ga4-server] purchase event send error:', e?.name === 'AbortError' ? 'timeout' : 'request failed');
+    return 'failed' as const;
+  } finally {
+    clearTimeout(timeout);
   }
 }

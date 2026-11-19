@@ -466,7 +466,9 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
 
       // Sole purchase analytics emission point. alreadyCaptured responses and
       // the browser success page deliberately do not emit another purchase.
-      sendServerPurchaseEvent({
+      // Start now so analytics overlaps the email waits, but await its bounded
+      // result before responding so serverless cannot freeze it after return.
+      const analyticsStatusPromise = sendServerPurchaseEvent({
         orderId: captureData.id,
         items: orderItems.map((it) => ({
           item_id: it.slug || '',
@@ -478,7 +480,10 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
         value: amount,
         currency,
         cookieHeader: request.headers.get('cookie'),
-      }).catch(() => {});
+      }).catch(() => {
+        console.error('[ga4-server] purchase event promise rejected');
+        return 'failed' as const;
+      });
 
       const captureEmail = captureData.payer?.email_address || contact.email || '';
       const captureName = captureData.payer?.name
@@ -487,8 +492,10 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
       let confirmationEmailStatus: 'sent' | 'failed' | 'not_configured' | 'no_email' =
         captureEmail ? 'not_configured' : 'no_email';
 
-      // Await the customer send so the response never claims an email was sent
-      // when SMTP was not configured or rejected the message.
+      // Start the customer send without serialising it behind the merchant
+      // notification. Both sends retain their own bounded 8s wait and are
+      // awaited before responding, so their worst-case budgets overlap.
+      const confirmationEmailPromise = (async () => {
       try {
         const { sendEmail } = await import('@/lib/smtp');
         const SMTP_PASS = process.env.SMTP_PASS;
@@ -547,10 +554,13 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
         if (captureEmail) confirmationEmailStatus = 'failed';
         console.error('Email send setup error:', e);
       }
+      })();
 
       // ---- Merchant order notification (instant alert to the store owner) ----
       // Fires once per genuinely captured order (the idempotency guard above
-      // returns early for duplicates, so this path is not repeated).
+      // returns early for duplicates, so this path is not repeated). Like the
+      // customer email, wait for a bounded result without failing the payment.
+      let merchantEmailStatus: 'sent' | 'failed' | 'not_configured' = 'not_configured';
       try {
         const { sendEmail: sendMerchantEmail } = await import('@/lib/smtp');
         const SMTP_PASS_M = process.env.SMTP_PASS;
@@ -602,22 +612,41 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
               </div>
               <p style="font-size:13px;color:#666;">Packing reminder: 1.5kg parcel, add 5 extra medium + 5 extra large bags. Tell the customer the white round foam in the valve must stay in place.</p>
             </div></div>`;
-          // Store archive + owner Gmail (phone push). Fire-and-forget.
-          sendMerchantEmail({
-            host: process.env.SMTP_HOST || 'smtp.zoho.com',
-            port: Number(process.env.SMTP_PORT || 587),
-            user: process.env.SMTP_USER || 'support@freshlocksealer.com',
-            pass: SMTP_PASS_M,
-            from: `FreshLock Orders <${process.env.SMTP_USER || 'support@freshlocksealer.com'}>`,
-            to: ['support@freshlocksealer.com', 'jasonyuan866@gmail.com'],
-            subject: `NEW ORDER $${mAmount.toFixed(2)} — ${mName || 'customer'} (${captureData.id})`,
-            html: merchantHtml,
-          }).catch((e: any) => console.error('Merchant notify email error:', e));
+          // Store archive + owner Gmail (phone push). A timeout bounds the
+          // response wait; an SMTP rejection/timeout never changes success.
+          let merchantSmtpTimeout: ReturnType<typeof setTimeout> | undefined;
+          try {
+            await Promise.race([
+              sendMerchantEmail({
+                host: process.env.SMTP_HOST || 'smtp.zoho.com',
+                port: Number(process.env.SMTP_PORT || 587),
+                user: process.env.SMTP_USER || 'support@freshlocksealer.com',
+                pass: SMTP_PASS_M,
+                from: `FreshLock Orders <${process.env.SMTP_USER || 'support@freshlocksealer.com'}>`,
+                to: ['support@freshlocksealer.com', 'jasonyuan866@gmail.com'],
+                subject: `NEW ORDER $${mAmount.toFixed(2)} — ${mName || 'customer'} (${captureData.id})`,
+                html: merchantHtml,
+              }),
+              new Promise((_, reject) => {
+                merchantSmtpTimeout = setTimeout(() => reject(new Error('Merchant notification email timeout')), 8000);
+              }),
+            ]);
+            merchantEmailStatus = 'sent';
+          } catch {
+            merchantEmailStatus = 'failed';
+            // SMTP errors can contain command details; keep them out of logs.
+            console.error('Merchant notification email failed or timed out');
+          } finally {
+            if (merchantSmtpTimeout) clearTimeout(merchantSmtpTimeout);
+          }
         }
-      } catch (e) {
-        console.error('Merchant notify setup error:', e);
+      } catch {
+        if (process.env.SMTP_PASS) merchantEmailStatus = 'failed';
+        console.error('Merchant notification setup failed');
       }
 
+      await confirmationEmailPromise;
+      const analyticsStatus = await analyticsStatusPromise;
       return NextResponse.json({
         success: true,
         orderId: captureData.id,
@@ -631,6 +660,8 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
         items: orderItems,
         persisted: persisted?.result?.persisted === true,
         confirmationEmailStatus,
+        analyticsStatus,
+        merchantEmailStatus,
       });
     }
 
