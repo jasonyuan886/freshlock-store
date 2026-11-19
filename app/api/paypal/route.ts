@@ -492,8 +492,10 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
       let confirmationEmailStatus: 'sent' | 'failed' | 'not_configured' | 'no_email' =
         captureEmail ? 'not_configured' : 'no_email';
 
-      // Await the customer send so the response never claims an email was sent
-      // when SMTP was not configured or rejected the message.
+      // Start the customer send without serialising it behind the merchant
+      // notification. Both sends retain their own bounded 8s wait and are
+      // awaited before responding, so their worst-case budgets overlap.
+      const confirmationEmailPromise = (async () => {
       try {
         const { sendEmail } = await import('@/lib/smtp');
         const SMTP_PASS = process.env.SMTP_PASS;
@@ -552,6 +554,7 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
         if (captureEmail) confirmationEmailStatus = 'failed';
         console.error('Email send setup error:', e);
       }
+      })();
 
       // ---- Merchant order notification (instant alert to the store owner) ----
       // Fires once per genuinely captured order (the idempotency guard above
@@ -642,6 +645,7 @@ async function capturePayPalOrder(request: NextRequest, reqBody: any) {
         console.error('Merchant notification setup failed');
       }
 
+      await confirmationEmailPromise;
       const analyticsStatus = await analyticsStatusPromise;
       return NextResponse.json({
         success: true,

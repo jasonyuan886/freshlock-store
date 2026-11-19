@@ -313,6 +313,29 @@ test('fresh capture waits for merchant email settlement and exposes its status',
   assert.equal(response.data.merchantEmailStatus, 'sent');
 });
 
+test('customer and merchant email waits overlap instead of adding two serial 8 second budgets', async () => {
+  const customer = deferred();
+  const merchant = deferred();
+  const harness = makeRoute({
+    sendEmail: (message) => Array.isArray(message.to) ? merchant.promise : customer.promise,
+  });
+  let settled = false;
+  const pending = harness.route.PUT(apiRequest());
+  pending.finally(() => { settled = true; }).catch(() => {});
+  await flush();
+  assert.equal(harness.emailCalls.filter((mail) => mail.to === 'buyer@example.test').length, 1);
+  assert.equal(harness.emailCalls.filter((mail) => Array.isArray(mail.to)).length, 1,
+    'merchant email must start while the customer email is still pending');
+  customer.resolve('customer-id');
+  await flush();
+  assert.equal(settled, false, 'response must still wait for the merchant email');
+  merchant.resolve('merchant-id');
+  const response = await pending;
+  assert.equal(response.data.success, true);
+  assert.equal(response.data.confirmationEmailStatus, 'sent');
+  assert.equal(response.data.merchantEmailStatus, 'sent');
+});
+
 test('merchant email rejection preserves payment success and returns merchantEmailStatus failed', async () => {
   const harness = makeRoute({
     sendEmail: async (message) => {
