@@ -66,6 +66,7 @@ test('BLACKFRIDAY25 keeps its existing $129 tier', () => {
 
 test('all customer-facing coupon copy states the same $39 minimum', () => {
   const files = [
+    'app/page.tsx',
     'components/BlackFridayBanner.tsx',
     'components/FomoCountdownTimer.tsx',
     'app/api/abandoned-cart/route.ts',
@@ -73,6 +74,6 @@ test('all customer-facing coupon copy states the same $39 minimum', () => {
   for (const file of files) {
     const source = readFileSync(new URL(file, root), 'utf8');
     assert.match(source, /\$39\+/, `${file} must advertise the $39 minimum`);
-    assert.doesNotMatch(source, /\$10 off any order|\$10 OFF Every Order|no minimum/i, `${file} contains obsolete no-minimum copy`);
+    assert.doesNotMatch(source, /\$10 off any order|\$10 OFF Every Order|no minimum|Black Friday is ON — \$10 OFF(?!\s*\$39\+)/i, `${file} contains obsolete no-minimum copy`);
   }
 });
