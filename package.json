@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:paypal": "node --test tests/paypal-onapprove-contract.test.mjs tests/paypal-card-billing.test.mjs tests/paypal-risk-regression.test.mjs tests/paypal-resilience-regression.test.mjs tests/paypal-post-capture-reliability.test.mjs tests/paypal-webhook-reconciliation.test.mjs tests/stripe-server-totals-regression.test.mjs",
+    "test:paypal": "node --test tests/paypal-onapprove-contract.test.mjs tests/paypal-card-billing.test.mjs tests/paypal-risk-regression.test.mjs tests/paypal-resilience-regression.test.mjs tests/paypal-post-capture-reliability.test.mjs tests/paypal-webhook-reconciliation.test.mjs tests/stripe-server-totals-regression.test.mjs tests/coupon-minimum-regression.test.mjs",
     "test:paypal:risk": "node --test tests/paypal-risk-regression.test.mjs",
     "test:paypal:webhook": "node --test tests/paypal-webhook-reconciliation.test.mjs",
     "test:paypal:stripe": "node --test tests/stripe-server-totals-regression.test.mjs"

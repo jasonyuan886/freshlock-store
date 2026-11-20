@@ -14,6 +14,7 @@ export default function BlackFridayBanner() {
   const inPeak = Date.now() >= new Date('2026-11-24T00:00:00-08:00').getTime() && Date.now() < new Date('2026-11-29T00:00:00-08:00').getTime();
   const CODE = inPeak ? 'BLACKFRIDAY15' : 'BLACKFRIDAY10';
   const OFF = inPeak ? '$15' : '$10';
+  const MIN = inPeak ? '' : ' $39+';
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
@@ -48,7 +49,7 @@ export default function BlackFridayBanner() {
     <div id="bf-banner" className="w-full bg-black text-center py-2.5 px-4">
       <Link href="/checkout" className="no-underline">
         <span className="text-yellow-400 font-bold text-sm sm:text-base tracking-wide">
-          ⚡ BLACK FRIDAY IS ON — {OFF} OFF
+          ⚡ BLACK FRIDAY IS ON — {OFF} OFF{MIN}
         </span>
         {now > 0 && (
           <span className="ml-2 text-yellow-300 font-bold text-sm sm:text-base">

@@ -17,7 +17,7 @@ const COUPONS: Coupon[] = [
   // 2026-11-06 袁总令「直接给优惠券不要折扣券」：BLACKFRIDAY15 停用，换固定金额双档
   { code: 'BLACKFRIDAY15', percentOff: 0.15, active: false, description: 'Replaced by fixed-amount BLACKFRIDAY10/25 (2026-11-06)' },
   // 黑五固定金额券：2026-11-06 袁总令提前开闸（原 11-24 生效作废）；12-02 自动失效
-  { code: 'BLACKFRIDAY10', amountOff: 10, active: true, notAfter: '2026-12-02', description: 'Black Friday deal — $10 off any order (ends Dec 1)' },
+  { code: 'BLACKFRIDAY10', amountOff: 10, minSubtotal: 39, active: true, notAfter: '2026-12-02', description: 'Black Friday deal — $10 off orders of $39+ (ends Dec 1)' },
   // 2026-11-20 袁总批准：黑五高潮加码档（固定金额，遵 11-06 不用折扣券令），11-24~11-28 生效
   { code: 'BLACKFRIDAY15', amountOff: 15, active: true, notBefore: '2026-11-24', notAfter: '2026-12-02', description: 'Black Friday peak — $15 off any order (Nov 24-28)' },
   { code: 'BLACKFRIDAY25', amountOff: 25, minSubtotal: 129, active: true, notAfter: '2026-12-02', description: 'Black Friday deal — $25 off orders over $129 (ends Dec 1)' },
