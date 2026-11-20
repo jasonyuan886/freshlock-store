@@ -2,6 +2,9 @@
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { getAttribution } from '@/lib/attribution';
+import { resolveCardBilling, type CardBillingSource } from '@/lib/card-billing';
+import { extractCardErrorMeta, getCardErrorMessage } from '@/lib/card-error';
+import { COUNTRIES } from '@/lib/countries';
 
 declare global {
   interface Window {
@@ -39,6 +42,7 @@ interface PayPalButtonsProps {
 const SDK_LOAD_TIMEOUT_MS = 15_000;
 const CREATE_ORDER_TIMEOUT_MS = 50_000;
 const CAPTURE_ORDER_TIMEOUT_MS = 90_000;
+const CARD_ERROR_REPORT_TIMEOUT_MS = 2_500;
 
 // One deadline covers both response headers and the JSON body. Reject before
 // aborting so a fetch/mock that reacts synchronously to abort cannot turn the
@@ -74,6 +78,37 @@ async function fetchJsonWithTimeout(
   }
 }
 
+async function reportCardError(
+  error: unknown,
+  stage: 'card-fields-error' | 'card-submit-error',
+): Promise<string> {
+  const meta = extractCardErrorMeta(error);
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), CARD_ERROR_REPORT_TIMEOUT_MS);
+  try {
+    const response = await fetch('/api/paypal/card-error', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ stage, issue: meta.issue, debugId: meta.debugId }),
+      signal: controller.signal,
+      keepalive: true,
+    });
+    if (!response.ok) return '';
+    const data = await response.json().catch(() => null);
+    return typeof data?.reference === 'string' && /^CARD-[A-Z0-9]{8}$/.test(data.reference)
+      ? data.reference
+      : '';
+  } catch {
+    return '';
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function withSupportReference(message: string, reference: string): string {
+  return reference ? `${message} Support reference: ${reference}.` : message;
+}
+
 export default function PayPalButtons({
   items,
   totalPrice,
@@ -90,6 +125,10 @@ export default function PayPalButtons({
   const [sdkReady, setSdkReady] = useState(false);
   const [cardEligible, setCardEligible] = useState(false);
   const [cardSubmitting, setCardSubmitting] = useState(false);
+  const [billingSameAsShipping, setBillingSameAsShipping] = useState(true);
+  const [billingInfo, setBillingInfo] = useState<CardBillingSource>({
+    name: '', address: '', city: '', state: '', postalCode: '', country: 'US',
+  });
   const cardSubmittingRef = useRef(false);
   const cardFieldsRef = useRef<any>(null);
   const captureInFlightRef = useRef(new Map<string, Promise<void>>());
@@ -368,10 +407,12 @@ export default function PayPalButtons({
         onApprove: async (data: PayPalApprovalData) => {
           await captureOrder(data.orderID);
         },
-        onError: (err: any) => {
+        onError: async (err: any) => {
           setCardProcessing(false);
-          console.error('CardFields error', err);
-          handleError('Card payment failed. Check your card details and try again.');
+          const meta = extractCardErrorMeta(err);
+          console.error('CardFields error', meta);
+          const reference = await reportCardError(err, 'card-fields-error');
+          handleError(withSupportReference(getCardErrorMessage(meta.issue), reference));
         },
       });
       if (cf && cf.isEligible && cf.isEligible()) {
@@ -405,25 +446,33 @@ export default function PayPalButtons({
       handleError('Card form is not ready yet. Please refresh the page and try again.');
       return;
     }
-    const si = latest.current.shippingInfo;
+    const { submission, error } = resolveCardBilling(
+      latest.current.shippingInfo,
+      billingSameAsShipping,
+      billingInfo,
+    );
+    if (error || !submission) {
+      handleError(error || 'Please check the card billing address.');
+      return;
+    }
     setCardProcessing(true);
     buildOrderPayload();
     try {
-      await cardFieldsRef.current.submit({
-        cardholderName: si.name || '',
-        billingAddress: {
-          streetAddress: si.address || '',
-          locality: si.city || '',
-          region: si.state || '',
-          postalCode: si.postalCode || '',
-          countryCodeAlpha2: (si.country || 'US').slice(0, 2).toUpperCase(),
-        },
-      });
+      await cardFieldsRef.current.submit(submission);
     } catch (e) {
       if (captureInFlightRef.current.size === 0) setCardProcessing(false);
-      handleError('Could not submit card payment. Please try again.');
+      const meta = extractCardErrorMeta(e);
+      console.error('Card submit error', meta);
+      const reference = await reportCardError(e, 'card-submit-error');
+      handleError(withSupportReference(getCardErrorMessage(meta.issue), reference));
     }
   };
+
+  const updateBillingField = (field: keyof CardBillingSource, value: string) => {
+    setBillingInfo((current) => ({ ...current, [field]: value }));
+  };
+
+  const billingInputClass = 'w-full h-11 px-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-[#005B52] focus:border-transparent';
 
   return (
     <div className="w-full">
@@ -457,6 +506,123 @@ export default function PayPalButtons({
                 className="min-h-10 border border-gray-300 rounded-md bg-white"
               />
             </div>
+          </div>
+
+          <div className="mt-4 rounded-lg border border-gray-200 p-3">
+            <label className="flex items-start gap-2 text-sm text-gray-700 cursor-pointer">
+              <input
+                type="checkbox"
+                name="billingSameAsShipping"
+                checked={billingSameAsShipping}
+                disabled={cardSubmitting}
+                onChange={(event) => setBillingSameAsShipping(event.target.checked)}
+                className="mt-0.5 h-4 w-4 rounded border-gray-300 text-[#005B52] focus:ring-[#005B52]"
+              />
+              <span>
+                <span className="font-medium">Billing address is the same as shipping</span>
+                <span className="mt-0.5 block text-xs text-gray-500">
+                  Uncheck this if your card statement uses a different cardholder name or address.
+                </span>
+              </span>
+            </label>
+
+            {!billingSameAsShipping && (
+              <fieldset className="mt-3 space-y-3" disabled={cardSubmitting}>
+                <legend className="sr-only">Card billing address</legend>
+                <p className="text-xs text-gray-500">
+                  Enter the cardholder name and billing address exactly as shown on your card statement.
+                </p>
+                <div>
+                  <label htmlFor="billingName" className="block text-xs font-medium text-gray-600 mb-1">Cardholder name *</label>
+                  <input
+                    id="billingName"
+                    name="billingName"
+                    type="text"
+                    required
+                    autoComplete="cc-name"
+                    placeholder="Name as shown on card"
+                    value={billingInfo.name}
+                    onChange={(event) => updateBillingField('name', event.target.value)}
+                    className={billingInputClass}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="billingAddress" className="block text-xs font-medium text-gray-600 mb-1">Billing street address *</label>
+                  <input
+                    id="billingAddress"
+                    name="billingAddress"
+                    type="text"
+                    required
+                    autoComplete="billing street-address"
+                    placeholder="Street address on your card statement"
+                    value={billingInfo.address}
+                    onChange={(event) => updateBillingField('address', event.target.value)}
+                    className={billingInputClass}
+                  />
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="billingCity" className="block text-xs font-medium text-gray-600 mb-1">City *</label>
+                    <input
+                      id="billingCity"
+                      name="billingCity"
+                      type="text"
+                      required
+                      autoComplete="billing address-level2"
+                      value={billingInfo.city}
+                      onChange={(event) => updateBillingField('city', event.target.value)}
+                      className={billingInputClass}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="billingState" className="block text-xs font-medium text-gray-600 mb-1">State / province *</label>
+                    <input
+                      id="billingState"
+                      name="billingState"
+                      type="text"
+                      required
+                      autoComplete="billing address-level1"
+                      placeholder="e.g. IL"
+                      value={billingInfo.state}
+                      onChange={(event) => updateBillingField('state', event.target.value)}
+                      className={billingInputClass}
+                    />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="billingPostalCode" className="block text-xs font-medium text-gray-600 mb-1">ZIP / postal code *</label>
+                    <input
+                      id="billingPostalCode"
+                      name="billingPostalCode"
+                      type="text"
+                      required
+                      autoComplete="billing postal-code"
+                      placeholder="e.g. 62701"
+                      value={billingInfo.postalCode}
+                      onChange={(event) => updateBillingField('postalCode', event.target.value)}
+                      className={billingInputClass}
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="billingCountry" className="block text-xs font-medium text-gray-600 mb-1">Country *</label>
+                    <select
+                      id="billingCountry"
+                      name="billingCountry"
+                      required
+                      autoComplete="billing country"
+                      value={billingInfo.country}
+                      onChange={(event) => updateBillingField('country', event.target.value)}
+                      className={`${billingInputClass} bg-white`}
+                    >
+                      {COUNTRIES.map((country) => (
+                        <option key={country.code} value={country.code}>{country.name}</option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+              </fieldset>
+            )}
           </div>
 
           <button

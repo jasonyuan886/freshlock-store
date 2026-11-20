@@ -138,8 +138,8 @@ const baseProps = {
   items: [{ product: { name: 'Test Sealer', price: 50, slug: 'test-sealer' }, quantity: 1 }],
   totalPrice: 55.99, shipping: 5.99, shippingMethod: 'standard',
   shippingInfo: {
-    name: 'Test Buyer', address: '1 Test Street', city: 'Testville', state: 'TS',
-    postalCode: '00000', country: 'US', phone: '+10000000000',
+    name: 'Test Buyer', address: '1 Test Street', city: 'Testville', state: 'CA',
+    postalCode: '90001', country: 'US', phone: '+10000000000',
   },
   contactEmail: 'buyer@example.test', onSuccess() {}, onError() {},
 };
@@ -171,6 +171,9 @@ function makeComponent({ paypal = true, fetchImpl } = {}) {
   const module = loadTsModule(componentPath, {
     react: React, 'react/jsx-runtime': jsxRuntime,
     '@/lib/attribution': { getAttribution: () => ({ utm_source: 'test' }) },
+    '@/lib/card-billing': loadTsModule(new URL('lib/card-billing.ts', root)),
+    '@/lib/card-error': loadTsModule(new URL('lib/card-error.ts', root)),
+    '@/lib/countries': loadTsModule(new URL('lib/countries.ts', root)),
   }, {
     window: windowMock, document: documentMock, localStorage: windowMock.localStorage,
     fetch: fetchImpl || (async () => { throw new Error('Unexpected component fetch'); }),

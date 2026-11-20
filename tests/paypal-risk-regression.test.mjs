@@ -184,6 +184,9 @@ const componentModule = loadTsModule(componentPath, {
   react: React,
   'react/jsx-runtime': jsxRuntime,
   '@/lib/attribution': { getAttribution: () => ({ utm_source: 'test' }) },
+  '@/lib/card-billing': loadTsModule(new URL('lib/card-billing.ts', root)),
+  '@/lib/card-error': loadTsModule(new URL('lib/card-error.ts', root)),
+  '@/lib/countries': loadTsModule(new URL('lib/countries.ts', root)),
 }, {
   window: windowMock,
   document: documentMock,
@@ -202,8 +205,8 @@ const baseProps = {
   shipping: 5.99,
   shippingMethod: 'standard',
   shippingInfo: {
-    name: 'Test Buyer', address: '1 Test Street', city: 'Testville', state: 'TS',
-    postalCode: '00000', country: 'US', phone: '+10000000000',
+    name: 'Test Buyer', address: '1 Test Street', city: 'Testville', state: 'CA',
+    postalCode: '90001', country: 'US', phone: '+10000000000',
   },
   contactEmail: 'buyer@example.test',
   onSuccess() {},
