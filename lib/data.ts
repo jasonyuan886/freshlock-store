@@ -74,7 +74,7 @@ export const products: Product[] = [
       'Bag compatibility': 'Compatible with most embossed valve bags (not locked to our own bags)',
       'Jar compatibility': 'Mason jars with a valve-style vacuum lid (not standard flat/screw lids)',
       'Nozzle size': '33 mm inner diameter (max valve opening) / 40 mm outer diameter (min flat sealing surface) — works with any Mason jar lid or food storage container lid whose valve fits within that, on a large-enough flush surface',
-      "What's in the box": '1 FreshLock Pro sealer, 1 USB-C charging cable, starter vacuum bags, user manual',
+      "What's in the box": '1 FreshLock Pro sealer, 1 USB-C charging cable, 10 small starter vacuum bags, user manual',
       'Warranty': '1-year warranty on the unit, 6-month on accessories',
     },
     category: 'devices',

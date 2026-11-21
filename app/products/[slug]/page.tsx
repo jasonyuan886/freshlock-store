@@ -412,6 +412,10 @@ export default function ProductDetailPage({ params }: { params: Params }) {
                   </div>
                   <div className="flex items-start gap-1.5">
                     <span className="text-green-600">✓</span>
+                    <span>Comes with <strong>10 starter bags</strong> — ready to use right out of the box.</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-green-600">✓</span>
                     <span><strong>1-year warranty</strong> + 30-day returns = zero risk to try.</span>
                   </div>
                   <div className="flex items-start gap-1.5">
