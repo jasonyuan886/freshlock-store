@@ -6,6 +6,7 @@ import type { Product } from '@/lib/types';
 import { generateProductSchema, generateBreadcrumbSchema, SITE_URL } from '@/lib/schema';
 import AddToCartClient from './AddToCartClient';
 import TrackViewItem from './TrackViewItem';
+import ProductLeadCapture from './ProductLeadCapture';
 import GalleryClient from './GalleryClient';
 import FrequentlyBoughtTogether from '@/components/FrequentlyBoughtTogether';
 import Image from 'next/image';
@@ -489,6 +490,8 @@ export default function ProductDetailPage({ params }: { params: Params }) {
             </div>
 
             <First100ReviewersBlock compact />
+
+            <ProductLeadCapture productName={product.name} slug={product.slug} />
 
             <div className="flex flex-wrap gap-4 mt-4 text-xs text-gray-500">
               <span>🚚 Free US shipping over ${FREE_SHIPPING_THRESHOLD}</span>
