@@ -5,6 +5,7 @@ import Script from 'next/script';
 import './globals.css';
 import Header from '@/components/Header';
 import BlackFridayBanner from '../components/BlackFridayBanner';
+import HolidayBanner from '../components/HolidayBanner';
 import JpVisitorBanner from '@/components/JpVisitorBanner';
 import Footer from '@/components/Footer';
 import FomoPurchaseNotification from '@/components/FomoPurchaseNotification';
@@ -112,6 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CartProvider>
           <AttributionTracker />
           <Header />
+          <HolidayBanner />
           <BlackFridayBanner />
           <main className="w-full min-h-[60vh]">{children}</main>
           <Footer />
