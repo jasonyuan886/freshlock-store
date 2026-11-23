@@ -269,7 +269,7 @@ section{position:relative}
 .faq-a p{color:var(--muted-dark);font-size:clamp(14.5px,1.4vw,17px);line-height:1.75;padding:0 0 26px;max-width:68ch}
 footer{border-top:1px solid var(--line-dark);padding:36px 5vw;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted-light)}
 footer .logo{font-size:16px}
-.nav-link{white-space:nowrap;font-size:14px;font-weight:600;opacity:.72;transition:opacity .25s var(--ease)}
+.nav-link{white-space:nowrap;margin-left:16px;font-size:14px;font-weight:600;opacity:.72;transition:opacity .25s var(--ease)}
 .nav-link:hover{opacity:1}
 .hero-all{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:15px;font-weight:600;opacity:.75;transition:opacity .25s var(--ease),gap .25s var(--ease);width:max-content}
 .hero-all:hover{opacity:1;gap:10px}
