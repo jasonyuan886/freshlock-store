@@ -269,6 +269,10 @@ section{position:relative}
 .faq-a p{color:var(--muted-dark);font-size:clamp(14.5px,1.4vw,17px);line-height:1.75;padding:0 0 26px;max-width:68ch}
 footer{border-top:1px solid var(--line-dark);padding:36px 5vw;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;color:var(--muted-light)}
 footer .logo{font-size:16px}
+.nav-link{font-size:14px;font-weight:600;opacity:.72;transition:opacity .25s var(--ease)}
+.nav-link:hover{opacity:1}
+.hero-all{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:15px;font-weight:600;opacity:.75;transition:opacity .25s var(--ease),gap .25s var(--ease);width:max-content}
+.hero-all:hover{opacity:1;gap:10px}
 @media (max-width:900px){
   .hero-product{position:relative;right:auto;top:auto;transform:none;width:78vw;max-width:380px;margin:34px auto 0;order:3}
   .hero{padding-top:110px}
@@ -296,7 +300,7 @@ footer .logo{font-size:16px}
 <nav id="nav">
   <div className="logo"><span className="dot"></span>FreshLock</div>
   <div style={{display: "flex", alignItems: "center", gap: "14px"}}>
-    <a href="/products" aria-label="All products" style={{fontSize: 14, fontWeight: 600, color: "#0b100e", padding: "9px 4px"}}>All Products</a>
+    <a className="nav-link" href="/products">All Products</a>
     <a href="/cart" aria-label="Shopping cart" style={{position: "relative", color: "#e8730e"}}>
       <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
     </a>
@@ -316,8 +320,8 @@ footer .logo{font-size:16px}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
     <a className="btn-ghost" href="#how">See How It Works</a>
-    <a className="btn-ghost" href="/products">View All Products</a>
   </div>
+  <a className="hero-all rv d3" href="/products">Browse all products &amp; accessories <span aria-hidden="true">→</span></a>
   <div className="hero-trust rv in d4">
     <span>🫙 Mason-jar ready — valve lids &amp; hose kit included</span>
     <span>🚚 Free US shipping over <b>$89</b></span>
