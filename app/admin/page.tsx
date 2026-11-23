@@ -1,7 +1,6 @@
 import { listOrdersDir, readOrdersJson } from '@/lib/admin-gh';
 
 export const dynamic = 'force-dynamic';
-export const revalidate = 30;
 
 type Row = {
   file: string;
