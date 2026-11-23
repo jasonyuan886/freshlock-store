@@ -70,16 +70,25 @@ export default function AirwallexPayment(props: Props) {
       if (!res.ok) {
         throw new Error(data?.error || 'Could not initialize card payment.');
       }
-      const { intent_id, client_secret } = data;
+      const { intent_id, client_secret, order_number } = data;
       if (!intent_id || !client_secret) throw new Error('Payment initialization incomplete.');
 
-      // Redirect to Airwallex's hosted payment page — same UX pattern as the
-      // PayPal redirect. The customer pays there and is sent back to our
-      // /checkout/success, which verifies the result with our server.
+      // Redirect via the official SDK helper — it builds the signed hosted
+      // payment page URL (a raw checkout.airwallex.com URL lands on their
+      // marketing site; redirectToCheckout is the supported entry point).
+      const sdk = await import('@airwallex/components-sdk');
+      const { payments } = await sdk.init({ env: 'prod', enabledElements: ['payments'] });
+
       setPhase('redirecting');
-      window.location.href =
-        `https://checkout.airwallex.com/?intent_id=${encodeURIComponent(intent_id)}` +
-        `&client_secret=${encodeURIComponent(client_secret)}`;
+      payments.redirectToCheckout({
+        env: 'prod',
+        mode: 'payment',
+        intent_id,
+        client_secret,
+        currency: 'USD',
+        country_code: 'US',
+        successUrl: `https://www.freshlocksealer.com/checkout/success?payment_method=airwallex&order_number=${encodeURIComponent(order_number)}`,
+      } as any);
     } catch (err: any) {
       console.error('airwallex startPayment error:', err);
       setPhase('error');
