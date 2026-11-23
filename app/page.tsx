@@ -271,6 +271,7 @@ footer{border-top:1px solid var(--line-dark);padding:36px 5vw;display:flex;justi
 footer .logo{font-size:16px}
 .nav-link{white-space:nowrap;margin-left:16px;font-size:14px;font-weight:600;opacity:.72;transition:opacity .25s var(--ease)}
 .nav-link:hover{opacity:1}
+@media (max-width:560px){.nav-cta{font-size:12px;padding:7px 12px;white-space:nowrap}.nav-link{margin-left:10px;font-size:13px}}
 .hero-all{display:inline-flex;align-items:center;gap:6px;margin-top:20px;font-size:15px;font-weight:600;opacity:.75;transition:opacity .25s var(--ease),gap .25s var(--ease);width:max-content}
 .hero-all:hover{opacity:1;gap:10px}
 @media (max-width:900px){
