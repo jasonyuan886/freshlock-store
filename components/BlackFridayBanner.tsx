@@ -46,13 +46,13 @@ export default function BlackFridayBanner() {
   const s = Math.floor((left % 60000) / 1000);
 
   return (
-    <div id="bf-banner" className="w-full bg-black text-center py-2.5 px-4">
-      <Link href="/checkout" className="no-underline">
+    <div id="bf-banner" className="w-full bg-black py-2.5 px-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1.5">
+      <Link href="/checkout" className="no-underline inline-flex flex-wrap items-center justify-center gap-x-1.5">
         <span className="text-yellow-400 font-bold text-sm sm:text-base tracking-wide">
           ⚡ BLACK FRIDAY IS ON — {OFF} OFF{MIN}
         </span>
         {now > 0 && (
-          <span className="ml-2 text-yellow-300 font-bold text-sm sm:text-base">
+          <span className="text-yellow-300 font-bold text-sm sm:text-base">
             ENDS IN {d_}D {pad(h)}:{pad(m)}:{pad(s)}
           </span>
         )}
@@ -61,7 +61,7 @@ export default function BlackFridayBanner() {
         type="button"
         onClick={copyCode}
         aria-label="Copy coupon code"
-        className="ml-2 align-middle bg-yellow-400 text-black text-xs sm:text-sm font-bold px-2.5 py-1 rounded"
+        className="align-middle bg-yellow-400 text-black text-xs sm:text-sm font-bold px-2.5 py-1 rounded"
       >
         {copied ? 'COPIED!' : (<span>COPY CODE <span className="hidden sm:inline">{CODE}</span></span>)}
       </button>
