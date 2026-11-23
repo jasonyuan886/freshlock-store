@@ -146,7 +146,8 @@ export default function CheckoutPage() {
   // Shipping: Standard (free over threshold, else $5.99) or Faster Air (US $15 / others $10)
   const standardShipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const airShipping = AIR_SHIPPING_US; // 统一 $10 全球
-  const shipping = shippingMethod === 'faster' ? airShipping : standardShipping;
+  // TEST-ONLY（与 /api/airwallex/create-intent 保持一致，测完删）：TESTPAY1 免运费
+  const shipping = appliedCoupon?.code === 'TESTPAY1' ? 0 : (shippingMethod === 'faster' ? airShipping : standardShipping);
 
   const discount = appliedCoupon ? couponDiscount(appliedCoupon, totalPrice) : 0;
   const total = +(totalPrice - discount + shipping).toFixed(2);
