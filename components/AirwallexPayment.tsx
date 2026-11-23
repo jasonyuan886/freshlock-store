@@ -24,11 +24,16 @@ export default function AirwallexPayment(props: Props) {
   const router = useRouter();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const elementRef = useRef<any>(null);
+  const readyTimerRef = useRef<any>(null);
   const [phase, setPhase] = useState<Phase>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [orderNumber, setOrderNumber] = useState<string>('');
 
   function resetElement() {
+    if (readyTimerRef.current) {
+      clearTimeout(readyTimerRef.current);
+      readyTimerRef.current = null;
+    }
     try {
       elementRef.current?.destroy?.();
     } catch {
@@ -114,9 +119,19 @@ export default function AirwallexPayment(props: Props) {
         throw new Error('Airwallex payment form could not be initialized.');
       }
 
-      element.on('ready', () => setPhase('ready'));
+      element.on('ready', () => {
+        if (readyTimerRef.current) {
+          clearTimeout(readyTimerRef.current);
+          readyTimerRef.current = null;
+        }
+        setPhase('ready');
+      });
       element.on('success', async () => {
         setPhase('processing');
+        if (readyTimerRef.current) {
+          clearTimeout(readyTimerRef.current);
+          readyTimerRef.current = null;
+        }
         try {
           // Ask our server to verify + finalize (idempotent with webhook)
           const fin = await fetch('/api/airwallex/status', {
@@ -151,6 +166,22 @@ export default function AirwallexPayment(props: Props) {
 
       element.mount('#awx-dropin-container');
       elementRef.current = element;
+
+      // Watchdog: if the hosted form never becomes ready (e.g. the visitor's
+      // network blocks Airwallex endpoints), surface a clear message instead
+      // of spinning forever.
+      readyTimerRef.current = setTimeout(() => {
+        setPhase((current) => {
+          if (current === 'preparing') {
+            setErrorMessage(
+              'The secure card form could not load — this is usually a network restriction on Airwallex endpoints. Please try again, use PayPal, or retry with a US/VPN connection.',
+            );
+            resetElement();
+            return 'error';
+          }
+          return current;
+        });
+      }, 25000);
     } catch (err: any) {
       console.error('airwallex startPayment error:', err);
       setPhase('error');
