@@ -1,7 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 type Props = {
   items: Array<{ slug: string; quantity: number }>;
@@ -18,33 +17,14 @@ type Props = {
   shippingCountry: string;
 };
 
-type Phase = 'idle' | 'preparing' | 'ready' | 'processing' | 'success' | 'error';
+type Phase = 'idle' | 'preparing' | 'redirecting' | 'error';
 
 export default function AirwallexPayment(props: Props) {
-  const router = useRouter();
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const elementRef = useRef<any>(null);
-  const readyTimerRef = useRef<any>(null);
   const [phase, setPhase] = useState<Phase>('idle');
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const [orderNumber, setOrderNumber] = useState<string>('');
-
-  function resetElement() {
-    if (readyTimerRef.current) {
-      clearTimeout(readyTimerRef.current);
-      readyTimerRef.current = null;
-    }
-    try {
-      elementRef.current?.destroy?.();
-    } catch {
-      // ignore
-    }
-    elementRef.current = null;
-    if (containerRef.current) containerRef.current.innerHTML = '';
-  }
 
   async function startPayment() {
-    if (phase === 'preparing' || phase === 'processing' || phase === 'ready') return;
+    if (phase === 'preparing' || phase === 'redirecting') return;
 
     setErrorMessage('');
 
@@ -64,7 +44,6 @@ export default function AirwallexPayment(props: Props) {
     setPhase('preparing');
 
     try {
-      // 1. Create payment intent server-side (order + intent are created there)
       const res = await fetch('/api/airwallex/create-intent', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -91,130 +70,37 @@ export default function AirwallexPayment(props: Props) {
       if (!res.ok) {
         throw new Error(data?.error || 'Could not initialize card payment.');
       }
-      const { intent_id, client_secret, order_number } = data;
+      const { intent_id, client_secret } = data;
       if (!intent_id || !client_secret) throw new Error('Payment initialization incomplete.');
 
-      setOrderNumber(order_number);
-
-      // 2. Load Airwallex SDK and mount the drop-in
-      const sdk = await import('@airwallex/components-sdk');
-      // init is best-effort and time-boxed — some SDK versions auto-initialise
-      await Promise.race([
-        Promise.resolve((sdk as any).init?.({ env: 'prod' })).catch(() => undefined),
-        new Promise((res) => setTimeout(res, 4000)),
-      ]);
-
-      resetElement();
-      // createElement resolves asynchronously in current SDK versions; time-box it
-      const element: any = await Promise.race([
-        Promise.resolve(
-          sdk.createElement('dropIn', {
-            client_secret,
-            currency: 'USD',
-          } as any),
-        ),
-        new Promise((_, rej) => setTimeout(() => rej(new Error('Payment form timed out — please try again.')), 20000)),
-      ]);
-      if (!element || typeof element.on !== 'function' || typeof element.mount !== 'function') {
-        throw new Error('Airwallex payment form could not be initialized.');
-      }
-
-      element.on('ready', () => {
-        if (readyTimerRef.current) {
-          clearTimeout(readyTimerRef.current);
-          readyTimerRef.current = null;
-        }
-        setPhase('ready');
-      });
-      element.on('success', async () => {
-        setPhase('processing');
-        if (readyTimerRef.current) {
-          clearTimeout(readyTimerRef.current);
-          readyTimerRef.current = null;
-        }
-        try {
-          // Ask our server to verify + finalize (idempotent with webhook)
-          const fin = await fetch('/api/airwallex/status', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ intent_id }),
-          });
-          const finData = await fin.json().catch(() => ({}));
-          setPhase('success');
-          router.push(
-            `/checkout/success?payment_method=airwallex&order_number=${encodeURIComponent(
-              finData?.orderNumber || order_number,
-            )}`,
-          );
-        } catch {
-          // Even if finalize call fails, webhook will finalize; still land on success page
-          setPhase('success');
-          router.push(
-            `/checkout/success?payment_method=airwallex&order_number=${encodeURIComponent(order_number)}`,
-          );
-        }
-      });
-      element.on('error', (evt: any) => {
-        console.error('airwallex drop-in error:', evt);
-        setPhase('error');
-        setErrorMessage(
-          (evt && (evt.message || evt.error?.message)) ||
-            'Card payment could not be completed. Please try again or use PayPal below.',
-        );
-        resetElement();
-      });
-
-      element.mount('#awx-dropin-container');
-      elementRef.current = element;
-
-      // Watchdog: if the hosted form never becomes ready (e.g. the visitor's
-      // network blocks Airwallex endpoints), surface a clear message instead
-      // of spinning forever.
-      readyTimerRef.current = setTimeout(() => {
-        setPhase((current) => {
-          if (current === 'preparing') {
-            setErrorMessage(
-              'The secure card form could not load — this is usually a network restriction on Airwallex endpoints. Please try again, use PayPal, or retry with a US/VPN connection.',
-            );
-            resetElement();
-            return 'error';
-          }
-          return current;
-        });
-      }, 25000);
+      // Redirect to Airwallex's hosted payment page — same UX pattern as the
+      // PayPal redirect. The customer pays there and is sent back to our
+      // /checkout/success, which verifies the result with our server.
+      setPhase('redirecting');
+      window.location.href =
+        `https://checkout.airwallex.com/?intent_id=${encodeURIComponent(intent_id)}` +
+        `&client_secret=${encodeURIComponent(client_secret)}`;
     } catch (err: any) {
       console.error('airwallex startPayment error:', err);
       setPhase('error');
       setErrorMessage(
-        err?.message?.includes('Could not initialize') || err?.message?.includes('fetch')
-          ? 'Card payment is temporarily unavailable — please use PayPal below.'
-          : err?.message || 'Something went wrong. Please try again or use PayPal below.',
+        err?.message || 'Something went wrong. Please try again or use PayPal below.',
       );
-      resetElement();
     }
   }
 
   return (
     <div className="w-full">
-      {phase !== 'ready' && phase !== 'processing' && phase !== 'success' && (
-        <button
-          type="button"
-          onClick={startPayment}
-          disabled={phase === 'preparing'}
-          className="btn-primary w-full rounded-lg px-6 py-3 text-base font-semibold disabled:opacity-60"
-        >
-          {phase === 'preparing' ? 'Preparing secure card payment…' : 'Pay with Card / Google Pay'}
-        </button>
-      )}
-
-      {(phase === 'preparing' || phase === 'ready' || phase === 'processing') && (
-        <div className="mt-3">
-          <div id="awx-dropin-container" ref={containerRef} />
-          {phase === 'preparing' && (
-            <p className="mt-2 text-xs text-gray-500">Loading secure payment form…</p>
-          )}
-        </div>
-      )}
+      <button
+        type="button"
+        onClick={startPayment}
+        disabled={phase === 'preparing' || phase === 'redirecting'}
+        className="btn-primary w-full rounded-lg px-6 py-3 text-base font-semibold disabled:opacity-60"
+      >
+        {phase === 'preparing' && 'Preparing secure payment…'}
+        {phase === 'redirecting' && 'Redirecting to secure payment page…'}
+        {(phase === 'idle' || phase === 'error') && 'Pay with Card / Google Pay'}
+      </button>
 
       {phase === 'error' && (
         <div className="mt-2 rounded-lg border border-red-200 bg-red-50 p-3">
@@ -230,7 +116,8 @@ export default function AirwallexPayment(props: Props) {
       )}
 
       <p className="mt-2 text-[11px] text-gray-400">
-        Secure card payment by Airwallex. Your card details are encrypted and never touch our servers.
+        You&apos;ll be redirected to Airwallex&apos;s secure payment page (Visa / Mastercard /
+        Amex / Google Pay). Your card details never touch our servers.
       </p>
     </div>
   );
