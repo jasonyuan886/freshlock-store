@@ -19,7 +19,7 @@ export const FREE_SHIPPING_REGIONS: Record<string, number> = {
 };
 export const STARTER_KIT_SHIPS_FREE = true; // Starter kits always ship free
 
-export const products: Product[] = [
+const rawProducts: Product[] = [
   {
     slug: 'freshlock-pro',
     mpn: 'FL-PRO-01',
@@ -293,6 +293,22 @@ Buying the kit saves $10 versus purchasing the sealer and lids separately.`,
     category: 'kits',
   },
 ];
+import priceOverrides from '@/data/price-overrides.json';
+import imageOverrides from '@/data/image-overrides.json';
+
+// Admin 覆盖层（/admin 后台可改价/换主图，2026-11-23）：优先于上方原始数据
+export const products: Product[] = rawProducts.map((p) => {
+  const price = (priceOverrides as Record<string, number>)[p.slug];
+  const image = (imageOverrides as Record<string, string>)[p.slug];
+  if (price == null && !image) return p;
+  return {
+    ...p,
+    ...(price != null
+      ? { price, compareAtPrice: p.compareAtPrice && p.compareAtPrice > price ? p.compareAtPrice : p.price }
+      : {}),
+    ...(image ? { image } : {}),
+  };
+});
 
 // Reviews — dates spread across ~60 days, mix of ratings, "Verified Buyer" label,
 // at least one 4★ neutral review, and placeholder image reviews.
