@@ -47,6 +47,8 @@ function CheckoutSuccessContent() {
   const paypalToken = searchParams.get('token'); // PayPal order ID
   const paymentMethod = searchParams.get('payment_method');
   const isPayPalReturn = paymentMethod === 'paypal' && Boolean(paypalToken);
+  const orderNumber = searchParams.get('order_number');
+  const isAirwallexReturn = paymentMethod === 'airwallex' && Boolean(orderNumber);
   const [orderInfo, setOrderInfo] = useState<any>(null);
   const [status, setStatus] = useState<CheckoutStatus>('verifying');
   const [error, setError] = useState('');
@@ -55,6 +57,31 @@ function CheckoutSuccessContent() {
 
   useEffect(() => {
     if (capturedRef.current) return;
+    if (isAirwallexReturn && orderNumber) {
+      capturedRef.current = true;
+      (async () => {
+        for (let attempt = 0; attempt < 15; attempt++) {
+          try {
+            const r = await fetch(`/api/airwallex/status?order_number=${encodeURIComponent(orderNumber)}`);
+            const d = await r.json();
+            if (d?.paid) {
+              setOrderInfo({
+                order_id: d.orderNumber,
+                paypal_order_id: null,
+                customer_email: d.customer_email,
+                amount_total: d.amount_total,
+              });
+              setStatus('success');
+              try { clearCart(); } catch {}
+              return;
+            }
+          } catch {}
+          await new Promise((resolve) => setTimeout(resolve, 3000));
+        }
+        setStatus('failed');
+      })();
+      return;
+    }
     if (!isPayPalReturn || !paypalToken) {
       setStatus('invalid');
       return;

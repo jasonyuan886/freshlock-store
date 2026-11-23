@@ -6,6 +6,7 @@ import { trackBeginCheckout } from '@/lib/ga4';
 import { getAttribution } from '@/lib/attribution';
 import dynamic from 'next/dynamic';
 const PayPalButtons = dynamic(() => import('@/components/PayPalButtons'), { ssr: false });
+const AirwallexPayment = dynamic(() => import('@/components/AirwallexPayment'), { ssr: false });
 import Image from 'next/image';
 import {FREE_SHIPPING_THRESHOLD, SHIPPING_FEE_UNDER, AIR_SHIPPING_US} from '@/lib/data';
 import { couponDiscount } from '@/lib/coupons';
@@ -444,6 +445,25 @@ export default function CheckoutPage() {
                     <p className="text-xs text-gray-600 mt-1">Pay securely with your PayPal account, or check out as a guest using Visa, Mastercard, Amex, or Discover. <strong className="text-[#003087]">Eligible purchases are covered by PayPal Buyer Protection.</strong></p>
                   </div>
                 </label>
+
+                <label className={`flex items-start gap-3 p-4 border-2 rounded-lg cursor-pointer transition ${paymentMethod === 'airwallex' ? 'border-[#0f4c3a] bg-[#0f4c3a]/5' : 'hover:bg-gray-50 border-gray-200'}`}>
+                  <input
+                    type="radio"
+                    name="payment"
+                    value="airwallex"
+                    checked={paymentMethod === 'airwallex'}
+                    onChange={(e) => setPaymentMethod(e.target.value)}
+                    className="accent-[#0f4c3a] mt-1"
+                  />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <span className="inline-flex items-center font-bold text-white bg-[#0f4c3a] px-2 py-0.5 rounded text-sm tracking-wide">Card</span>
+                      <span className="inline-flex items-center text-xs font-semibold text-gray-700 border border-gray-300 rounded px-2 py-0.5">G Pay</span>
+                      <span className="text-xs bg-green-100 text-green-800 px-2 py-0.5 rounded-full font-medium">No PayPal account needed</span>
+                    </div>
+                    <p className="text-xs text-gray-600 mt-1">Pay directly with Visa, Mastercard, Amex, Discover or Google Pay — fast, secure, no account required.</p>
+                  </div>
+                </label>
               </div>
               {/* 安全提示 */}
               <div className="mt-4 p-3 bg-green-50 rounded-lg flex items-start gap-2">
@@ -617,6 +637,24 @@ export default function CheckoutPage() {
                   `Pay $${total.toFixed(2)} USD`
                 )}
               </button>
+              )}
+              {paymentMethod === 'airwallex' && (
+                <div className="mt-6">
+                  <AirwallexPayment
+                    items={items.map((item) => ({ slug: item.product.slug, quantity: item.quantity }))}
+                    shippingMethod={shippingMethod}
+                    couponCode={appliedCoupon?.code}
+                    customerEmail={form.email}
+                    customerFirstName={form.firstName}
+                    customerLastName={form.lastName}
+                    customerPhone={form.phone}
+                    shippingAddress={form.address}
+                    shippingCity={form.city}
+                    shippingState={form.state}
+                    shippingPostalCode={form.postcode}
+                    shippingCountry={form.country}
+                  />
+                </div>
               )}
               <div className="mt-3 flex flex-wrap gap-2 justify-center text-[10px] text-gray-400">
                 <span>🔒 SSL Secure Checkout</span>
