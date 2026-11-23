@@ -16,7 +16,15 @@ export default function CountrySelect({ countries, value, onChange }: Props) {
   const boxRef = useRef<HTMLDivElement | null>(null);
   const selected = countries.find(c => c.code === value);
   const q = query.trim().toLowerCase();
-  const filtered = q ? countries.filter(c => c.name.toLowerCase().includes(q) || c.code.toLowerCase() === q) : countries;
+  const filtered = q
+    ? countries
+        .filter(c => c.name.toLowerCase().includes(q) || c.code.toLowerCase() === q)
+        .sort((a, b) => {
+          const ap = a.name.toLowerCase().startsWith(q) ? 0 : 1;
+          const bp = b.name.toLowerCase().startsWith(q) ? 0 : 1;
+          return ap - bp || a.name.localeCompare(b.name);
+        })
+    : countries;
   useEffect(() => {
     function onDoc(e: MouseEvent) {
       if (boxRef.current && !boxRef.current.contains(e.target as Node)) setOpen(false);
