@@ -42,6 +42,20 @@ export default function AirwallexPayment(props: Props) {
     if (phase === 'preparing' || phase === 'processing' || phase === 'ready') return;
 
     setErrorMessage('');
+
+    // Client-side pre-check with a friendly pointer (server validates again)
+    const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!props.customerEmail || !EMAIL_RE.test(props.customerEmail.trim())) {
+      setPhase('error');
+      setErrorMessage('Please fill in your email address at the top of the form (Contact information), then try again.');
+      try {
+        const emailInput = document.querySelector('input[name="email"]') as HTMLInputElement | null;
+        emailInput?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(() => emailInput?.focus(), 300);
+      } catch {}
+      return;
+    }
+
     setPhase('preparing');
 
     try {
