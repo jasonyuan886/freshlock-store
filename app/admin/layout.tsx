@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
 import { isValidSession, ADMIN_COOKIE } from '@/lib/admin-auth';
 import LogoutButton from './LogoutButton';
+import AdminGate from './AdminGate';
 
 export const dynamic = 'force-dynamic';
 
@@ -14,8 +14,10 @@ const NAV = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = cookies().get(ADMIN_COOKIE)?.value;
-  const authed = isValidSession(session);
-  if (!authed) redirect('/admin/login');
+  if (!isValidSession(session)) {
+    // 未登录：整站渲染登录门（任何 /admin 路径都安全落在这，无重定向循环）
+    return <AdminGate />;
+  }
 
   return (
     <div style={{ minHeight: '100vh', background: '#f6f4ee', fontFamily: 'system-ui, -apple-system, Segoe UI, Roboto, sans-serif', color: '#0b100e' }}>
