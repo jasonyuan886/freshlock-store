@@ -65,3 +65,19 @@ export async function listOrdersDir(): Promise<Array<{ name: string }>> {
   const data = await res.json();
   return Array.isArray(data) ? data.map((x: any) => ({ name: x.name })) : [];
 }
+
+// Binary-safe write for images: pass base64 content straight to GitHub API
+export async function writeStoreBase64(path: string, base64Content: string, message: string) {
+  const existing = await readStoreText(path);
+  const body: any = { message, content: base64Content, branch: 'master' };
+  if (existing?.sha) body.sha = existing.sha;
+  const res = await ghApi(`https://api.github.com/repos/${OWNER}/${STORE_REPO}/contents/${encodeURIComponent(path)}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) {
+    const t = await res.text();
+    throw new Error(`write binary ${path}: HTTP ${res.status} ${t.slice(0, 120)}`);
+  }
+}
