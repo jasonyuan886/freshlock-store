@@ -23,6 +23,18 @@ function verifyAirwallexSignature(rawBody: string, timestamp: string, signature:
   return false;
 }
 
+function headerMatchesSecret(request: Request, secret: string): boolean {
+  // Airwallex console guidance for webhook secrets: "Check the secret in the
+  // request header matches this secret." Some integrations deliver the shared
+  // secret in a dedicated header — accept an exact match on any header value.
+  const headers = (request.headers as any)?.entries?.();
+  if (!headers) return false;
+  for (const [, value] of request.headers.entries()) {
+    if (value === secret) return true;
+  }
+  return false;
+}
+
 export async function POST(request: Request) {
   const secret = process.env.AIRWALLEX_WEBHOOK_SECRET;
   if (!secret) {
@@ -44,7 +56,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'stale timestamp' }, { status: 400 });
   }
 
-  if (!verifyAirwallexSignature(rawBody, timestamp, signature, secret)) {
+  const verified =
+    headerMatchesSecret(request, secret) ||
+    verifyAirwallexSignature(rawBody, timestamp, signature, secret);
+  if (!verified) {
     console.error('airwallex webhook: signature mismatch');
     return NextResponse.json({ error: 'invalid signature' }, { status: 400 });
   }
