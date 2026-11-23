@@ -296,18 +296,34 @@ Buying the kit saves $10 versus purchasing the sealer and lids separately.`,
 import priceOverrides from '@/data/price-overrides.json';
 import imageOverrides from '@/data/image-overrides.json';
 
-// Admin 覆盖层（/admin 后台可改价/换主图，2026-11-23）：优先于上方原始数据
+// Admin 覆盖层 v2（/admin：改价/划线价/换主图/换画廊图，2026-11-23）
+type PriceOv = number | { price?: number | null; compareAtPrice?: number | null };
+type ImageOv = string | { image?: string | null; images?: Record<string, string> };
+
 export const products: Product[] = rawProducts.map((p) => {
-  const price = (priceOverrides as Record<string, number>)[p.slug];
-  const image = (imageOverrides as Record<string, string>)[p.slug];
-  if (price == null && !image) return p;
-  return {
-    ...p,
-    ...(price != null
-      ? { price, compareAtPrice: p.compareAtPrice && p.compareAtPrice > price ? p.compareAtPrice : p.price }
-      : {}),
-    ...(image ? { image } : {}),
-  };
+  const po = (priceOverrides as Record<string, PriceOv>)[p.slug];
+  const io = (imageOverrides as Record<string, ImageOv>)[p.slug];
+  if (po == null && io == null) return p;
+  const next: any = { ...p };
+  if (po != null) {
+    const price = typeof po === 'number' ? po : po.price;
+    const cap = typeof po === 'number'
+      ? (p.compareAtPrice && p.compareAtPrice > po ? p.compareAtPrice : p.price)
+      : po.compareAtPrice;
+    if (price != null) next.price = price;
+    if (cap != null) next.compareAtPrice = cap;
+  }
+  if (io != null) {
+    if (typeof io === 'string') {
+      next.image = io;
+    } else {
+      if (io.image) next.image = io.image;
+      if (io.images && Array.isArray(next.images)) {
+        next.images = next.images.map((im: string, i: number) => io.images![String(i)] ?? im);
+      }
+    }
+  }
+  return next;
 });
 
 // Reviews — dates spread across ~60 days, mix of ratings, "Verified Buyer" label,
