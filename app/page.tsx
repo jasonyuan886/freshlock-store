@@ -296,6 +296,7 @@ footer .logo{font-size:16px}
 <nav id="nav">
   <div className="logo"><span className="dot"></span>FreshLock</div>
   <div style={{display: "flex", alignItems: "center", gap: "14px"}}>
+    <a href="/products" aria-label="All products" style={{fontSize: 14, fontWeight: 600, color: "#0b100e", padding: "9px 4px"}}>All Products</a>
     <a href="/cart" aria-label="Shopping cart" style={{position: "relative", color: "#e8730e"}}>
       <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
     </a>
@@ -315,6 +316,7 @@ footer .logo{font-size:16px}
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </a>
     <a className="btn-ghost" href="#how">See How It Works</a>
+    <a className="btn-ghost" href="/products">View All Products</a>
   </div>
   <div className="hero-trust rv in d4">
     <span>🫙 Mason-jar ready — valve lids &amp; hose kit included</span>
