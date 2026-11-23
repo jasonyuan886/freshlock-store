@@ -77,19 +77,25 @@ export default function AirwallexPayment(props: Props) {
 
       setOrderNumber(order_number);
 
-      // 2. Load Airwallex SDK and mount the drop-in (cards + Google Pay only)
+      // 2. Load Airwallex SDK and mount the drop-in
       const sdk = await import('@airwallex/components-sdk');
-      await (sdk as any).init?.({ env: 'prod' });
+      // init is best-effort and time-boxed — some SDK versions auto-initialise
+      await Promise.race([
+        Promise.resolve((sdk as any).init?.({ env: 'prod' })).catch(() => undefined),
+        new Promise((res) => setTimeout(res, 4000)),
+      ]);
 
       resetElement();
-      // createElement resolves asynchronously in current SDK versions
-      let element: any = await Promise.resolve(
-        sdk.createElement('dropIn', {
-          client_secret,
-          currency: 'USD',
-          methods: ['card', 'googlepay'],
-        } as any),
-      );
+      // createElement resolves asynchronously in current SDK versions; time-box it
+      const element: any = await Promise.race([
+        Promise.resolve(
+          sdk.createElement('dropIn', {
+            client_secret,
+            currency: 'USD',
+          } as any),
+        ),
+        new Promise((_, rej) => setTimeout(() => rej(new Error('Payment form timed out — please try again.')), 20000)),
+      ]);
       if (!element || typeof element.on !== 'function' || typeof element.mount !== 'function') {
         throw new Error('Airwallex payment form could not be initialized.');
       }
