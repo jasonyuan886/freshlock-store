@@ -20,8 +20,7 @@ export async function POST(request: Request) {
   const m = dataUrl.match(/^data:image\/(png|jpeg|jpg|webp);base64,(.+)$/s);
   if (!m) return NextResponse.json({ error: 'unsupported image type (png/jpg/webp)' }, { status: 400 });
   const b64 = m[2];
-  const approxBytes = Math.floor(b64.length * 3 / 4);
-  if (approxBytes > 3 * 1024 * 1024) {
+  if (Math.floor(b64.length * 3 / 4) > 3 * 1024 * 1024) {
     return NextResponse.json({ error: 'image too large (max 3MB)' }, { status: 400 });
   }
   const ext = m[1] === 'jpeg' ? 'jpg' : m[1];
