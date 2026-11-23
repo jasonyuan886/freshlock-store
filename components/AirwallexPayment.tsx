@@ -82,11 +82,17 @@ export default function AirwallexPayment(props: Props) {
       await (sdk as any).init?.({ env: 'prod' });
 
       resetElement();
-      const element = sdk.createElement('dropIn', {
-        client_secret,
-        currency: 'USD',
-        methods: ['card', 'googlepay'],
-      } as any);
+      // createElement resolves asynchronously in current SDK versions
+      let element: any = await Promise.resolve(
+        sdk.createElement('dropIn', {
+          client_secret,
+          currency: 'USD',
+          methods: ['card', 'googlepay'],
+        } as any),
+      );
+      if (!element || typeof element.on !== 'function' || typeof element.mount !== 'function') {
+        throw new Error('Airwallex payment form could not be initialized.');
+      }
 
       element.on('ready', () => setPhase('ready'));
       element.on('success', async () => {
