@@ -13,6 +13,7 @@
     "test:paypal:stripe": "node --test tests/stripe-server-totals-regression.test.mjs"
   },
   "dependencies": {
+    "@airwallex/components-sdk": "^1.37.1",
     "@stripe/react-stripe-js": "^6.7.0",
     "@stripe/stripe-js": "^9.10.0",
     "@vercel/analytics": "^2.0.1",
