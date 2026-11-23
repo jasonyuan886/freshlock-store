@@ -60,7 +60,9 @@ export async function POST(request: Request) {
     const coupon = couponCode ? lookupCoupon(couponCode) : null;
     const discount = coupon ? +couponDiscount(coupon, subtotal).toFixed(2) : 0;
 
-    const total = +(subtotal - discount + shipping).toFixed(2);
+    // TEST-ONLY（2026-11-23 支付链路实测，测完删除）：TESTPAY1 免运费
+    const effectiveShipping = coupon?.code === 'TESTPAY1' ? 0 : shipping;
+    const total = +(subtotal - discount + effectiveShipping).toFixed(2);
     if (!(total > 0)) {
       return NextResponse.json({ error: 'Invalid order total.' }, { status: 400 });
     }
@@ -111,7 +113,7 @@ export async function POST(request: Request) {
       shipping_method: shippingMethod,
       items: lineItems,
       subtotal,
-      shipping,
+      shipping: effectiveShipping,
       discount,
       coupon_code: coupon ? couponCode : undefined,
       total,

@@ -21,6 +21,8 @@ const COUPONS: Coupon[] = [
   // 2026-11-20 袁总批准：黑五高潮加码档（固定金额，遵 11-06 不用折扣券令），11-24~11-28 生效
   { code: 'BLACKFRIDAY15', amountOff: 15, active: true, notBefore: '2026-11-24', notAfter: '2026-12-02', description: 'Black Friday peak — $15 off any order (Nov 24-28)' },
   { code: 'BLACKFRIDAY25', amountOff: 25, minSubtotal: 129, active: true, notAfter: '2026-12-02', description: 'Black Friday deal — $25 off orders over $129 (ends Dec 1)' },
+  // TEST-ONLY（2026-11-23 支付链路实测码，测完即删；明天自动过期双保险）
+  { code: 'TESTPAY1', amountOff: 19, active: true, notAfter: '2026-11-24', description: 'internal payment test' },
 ];
 
 export function lookupCoupon(rawCode: string | undefined | null): Coupon | null {
