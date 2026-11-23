@@ -5,6 +5,7 @@ import { useCart } from '@/lib/cart-context';
 import { trackBeginCheckout } from '@/lib/ga4';
 import { getAttribution } from '@/lib/attribution';
 import dynamic from 'next/dynamic';
+import CountrySelect from '@/components/CountrySelect';
 const PayPalButtons = dynamic(() => import('@/components/PayPalButtons'), { ssr: false });
 const AirwallexPayment = dynamic(() => import('@/components/AirwallexPayment'), { ssr: false });
 import Image from 'next/image';
@@ -146,8 +147,7 @@ export default function CheckoutPage() {
   // Shipping: Standard (free over threshold, else $5.99) or Faster Air (US $15 / others $10)
   const standardShipping = totalPrice >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE_UNDER;
   const airShipping = AIR_SHIPPING_US; // 统一 $10 全球
-  // TEST-ONLY（与 /api/airwallex/create-intent 保持一致，测完删）：TESTPAY1 免运费
-  const shipping = appliedCoupon?.code === 'TESTPAY1' ? 0 : (shippingMethod === 'faster' ? airShipping : standardShipping);
+  const shipping = shippingMethod === 'faster' ? airShipping : standardShipping;
 
   const discount = appliedCoupon ? couponDiscount(appliedCoupon, totalPrice) : 0;
   const total = +(totalPrice - discount + shipping).toFixed(2);
@@ -404,16 +404,11 @@ export default function CheckoutPage() {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Country</label>
-                  <select
-                    name="country"
-                    value={form.country}
-                    onChange={handleChange}
-                    className="w-full border rounded-lg px-4 py-2.5 focus:ring-2 focus:ring-primary focus:border-transparent outline-none"
-                  >
-                    {COUNTRIES.map(c => (
-                      <option key={c.code} value={c.code}>{c.name}</option>
-                    ))}
-                  </select>
+                  <CountrySelect
+              countries={COUNTRIES}
+              value={form.country}
+              onChange={handleChange as any}
+            />
                 </div>
               </div>
             </div>
