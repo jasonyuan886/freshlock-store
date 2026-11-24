@@ -39,6 +39,19 @@ export default function CheckoutPage() {
   // and computes the real charge independently in /api/paypal.
   const [couponInput, setCouponInput] = useState('');
   const [appliedCoupon, setAppliedCoupon] = useState<{ code: string; active: boolean; percentOff?: number; amountOff?: number; minSubtotal?: number; description: string } | null>(null);
+  // 优惠码防丢：刷新/支付重试后从本地恢复（2026-11-24 Michael 案例）
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('fl_coupon');
+      if (saved) setAppliedCoupon(JSON.parse(saved));
+    } catch {}
+  }, []);
+  useEffect(() => {
+    try {
+      if (appliedCoupon) localStorage.setItem('fl_coupon', JSON.stringify(appliedCoupon));
+      else localStorage.removeItem('fl_coupon');
+    } catch {}
+  }, [appliedCoupon]);
   const [couponChecking, setCouponChecking] = useState(false);
   const [couponError, setCouponError] = useState('');
   // 表单状态
