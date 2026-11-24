@@ -75,6 +75,20 @@ function CheckoutSuccessContent() {
               try { clearCart(); } catch {}
               return;
             }
+            // 主动触发服务端核验（防 webhook 延迟/丢失导致客户看到"联系客服"）
+            if (d?.orderId && attempt < 3) {
+              try {
+                await fetch('/api/airwallex/status', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ intent_id: d.orderId }) });
+                const r2 = await fetch(`/api/airwallex/status?order_number=${encodeURIComponent(orderNumber)}`);
+                const d2 = await r2.json();
+                if (d2?.paid) {
+                  setOrderInfo({ order_id: d2.orderNumber, paypal_order_id: null, customer_email: d2.customer_email, amount_total: d2.amount_total });
+                  setStatus('success');
+                  try { clearCart(); } catch {}
+                  return;
+                }
+              } catch {}
+            }
           } catch {}
           await new Promise((resolve) => setTimeout(resolve, 3000));
         }
