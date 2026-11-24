@@ -2,14 +2,14 @@
   {
     "code": "FRESHLOCK15",
     "percentOff": 0.15,
-    "active": true,
-    "description": "Save 15% on your order"
+    "active": false,
+    "description": "已于11-24停用：公开无门槛85折漏利润，公开面统一走BLACKFRIDAY系列；如需复活请在后台重开"
   },
   {
     "code": "KRISTINA15",
     "percentOff": 0.15,
-    "active": true,
-    "description": "Thanks for visiting our farm stand"
+    "active": false,
+    "description": "已于11-24停用：与WILDMOON15为同一达人（Kristina=Wild Moon Acres），保留WILDMOON15即可"
   },
   {
     "code": "WILDMOON15",
