@@ -1,4 +1,5 @@
 import { readOrdersJson } from '@/lib/admin-gh';
+import TrackingEditor from '../../TrackingEditor';
 
 export const dynamic = 'force-dynamic';
 
@@ -34,6 +35,7 @@ export default async function OrderDetail({ params }: { params: { id: string } }
 
   return (
     <div style={{ maxWidth: 760 }}>
+      <TrackingEditor id={decodeURIComponent(params.id)} initial={(o as any).tracking_no || ""} customerEmail={cust.email || o.customer_email || ""} />
       <a href="/admin" style={{ color: '#0b6e3b', textDecoration: 'none', fontSize: 13 }}>← 返回订单列表</a>
       <h1 style={{ fontSize: 20, fontWeight: 800, margin: '8px 0 16px' }}>🧾 订单详情</h1>
 
