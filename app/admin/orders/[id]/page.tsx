@@ -1,5 +1,5 @@
 import { readOrdersJson } from '@/lib/admin-gh';
-import TrackingEditor from '../../TrackingEditor';
+import TrackingEditor from '../TrackingEditor';
 
 export const dynamic = 'force-dynamic';
 
