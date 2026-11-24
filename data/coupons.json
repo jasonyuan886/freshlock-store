@@ -46,5 +46,12 @@
     "active": true,
     "notAfter": "2026-12-02",
     "description": "Black Friday deal — $25 off orders over $129 (ends Dec 1)"
+  },
+  {
+    "code": "RICHARDFS",
+    "amountOff": 6,
+    "active": true,
+    "notAfter": "2026-12-01",
+    "description": "Richard win-back: $6 off any order (covers shipping on bags)"
   }
 ]
