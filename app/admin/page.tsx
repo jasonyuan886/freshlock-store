@@ -18,7 +18,8 @@ async function loadOrders(): Promise<OrderRow[]> {
       const o: any = r?.data || {};
       const airwallex = !!o.airwallex_intent_id || o.payment_method === 'airwallex';
       const total = typeof o.total === 'number' ? o.total : (typeof o.amount_total === 'number' ? o.amount_total / 100 : null);
-      const status = o.status || (o.paid_at ? 'PAID' : 'PENDING');
+      let status = o.status || (o.paid_at ? 'PAID' : 'PENDING');
+      if (o.qa_hold) status = 'HOLD';  // 疑似测试单，袁总终审前不计入成交
       return {
         file,
         source: airwallex ? 'Airwallex' : 'PayPal',
