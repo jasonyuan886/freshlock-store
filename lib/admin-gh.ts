@@ -5,6 +5,7 @@ export const ORDERS_REPO = 'freshlock-orders';
 
 async function ghApi(url: string, init?: RequestInit): Promise<Response> {
   return fetch(url, {
+    cache: 'no-store',
     ...init,
     headers: {
       Authorization: `Bearer ${TOKEN}`,
