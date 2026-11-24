@@ -163,6 +163,27 @@ export async function finalizeAirwallexOrder(intentId: string): Promise<Finalize
     record.confirmation_email_status = 'failed';
   }
 
+  // 管理员收款通知（2026-11-24 Michael 案例后补：每笔付款即时通知袁总）
+  try {
+    const { sendEmail: notifyAdmin } = await import('@/lib/smtp');
+    await notifyAdmin({
+      host: SMTP_HOST, port: SMTP_PORT, user: SMTP_USER, pass: SMTP_PASS!,
+      from: `FreshLock Website <${SMTP_USER}>`,
+      to: TO_EMAIL,
+      subject: `💰 订单已付款: ${record.order_number} | ${money(record.total)} ${record.currency}`,
+      html: `<div style="font-family:Arial,sans-serif;max-width:560px;margin:0 auto;color:#222;">
+        <h2 style="color:#0f4c3a;border-bottom:2px solid #0f4c3a;padding-bottom:6px;">💰 收款通知</h2>
+        <p><strong>单号:</strong> ${escapeHtml(record.order_number)}<br/>
+        <strong>金额:</strong> ${money(record.total)} ${record.currency}<br/>
+        <strong>渠道:</strong> Airwallex（卡 / Google Pay）<br/>
+        <strong>客户:</strong> ${escapeHtml(record.customer.email)}</p>
+        <p><a href="https://www.freshlocksealer.com/admin/orders/airwallex-${escapeHtml(record.order_number)}">后台查看订单详情 →</a></p>
+      </div>`,
+    });
+  } catch (e) {
+    console.error('finalizeAirwallexOrder: admin notify failed', e);
+  }
+
   try {
     await saveAirwallexOrder(record);
   } catch (err) {
