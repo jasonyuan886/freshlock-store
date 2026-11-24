@@ -37,7 +37,8 @@
     "active": true,
     "notBefore": "2026-11-24",
     "notAfter": "2026-12-02",
-    "description": "Black Friday peak — $15 off any order (Nov 24-28)"
+    "description": "Black Friday peak — $15 off orders of $50+ (Nov 24-28)",
+    "minSubtotal": 50
   },
   {
     "code": "BLACKFRIDAY25",
