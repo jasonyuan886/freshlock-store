@@ -9,7 +9,7 @@ type OrderRow = {
 type DayPoint = { date: string; revenue: number; count: number };
 
 const STATUS_STYLE: Record<string, string> = {
-  PAID: '#2fb86b', PENDING: '#e8730e', FAILED: '#c0392b',
+  PAID: '#2fb86b', PENDING: '#e8730e', FAILED: '#c0392b', HOLD: '#999',
 };
 
 export default function OrdersExplorer({ orders, series }: { orders: OrderRow[]; series: DayPoint[] }) {
