@@ -14,6 +14,10 @@ export function middleware(req: NextRequest) {
   if (jaPath) links.push(`<${JP_BASE}${jaPath}>; rel="alternate"; hreflang="ja"`);
   res.headers.set('Link', links.join(', '));
 
+  // 恢复 96ee69a 版 middleware 的 canonical 响应头（6fbf8f1 重写时丢失）
+  const canonical = `https://www.freshlocksealer.com${path === '/' ? '' : path}`;
+  res.headers.set('x-canonical-url', canonical);
+
   if (req.headers.get('x-vercel-ip-country') === 'JP') {
     res.cookies.set('jp_visitor', '1', { maxAge: 60 * 60 * 24 * 30, sameSite: 'lax' });
   }
