@@ -201,6 +201,42 @@ const rawProducts: Product[] = [
     badge: 'Value Pack',
   },
   {
+    slug: 'vacuum-seal-bags-small-50-pack',
+    mpn: 'FL-BAG-S50',
+    name: 'Vacuum Seal Bags — 50 Pack (Small)',
+    price: 34.99,
+    description:
+      'Our compact 50-bag refill pack in the small 22×21 cm size — the same small bags included in the FreshLock Starter Kit. These 90 μm embossed valve bags are sized for single portions, snacks, cheese, coffee beans, and pet food: they take up less fridge and freezer space and seal in seconds with any valve-type handheld sealer (including FreshLock Pro). White circular one-way air valve, apple-green double-track zip slider, BPA-free, food-safe, reusable, freezer, sous-vide and microwave safe.',
+    shortDescription:
+      '50 small embossed valve bags (22×21 cm), 90 μm, BPA-free. Perfect for snacks, single portions, cheese, coffee beans, and pet food.',
+    image: '/images/products/bags-small.jpg',
+    images: [
+      '/images/products/bags-small.jpg',
+      '/images/products/bags-1.jpg',
+    ],
+    features: [
+      '90 μm embossed multi-layer PA+PE film for durability',
+      'BPA-free & food-safe',
+      'White circular one-way air valve + apple-green double-track zip slider',
+      'Pre-cut size: 22 × 21 cm (Small) — snacks, single portions, cheese, coffee beans, pet food',
+      'Compatible with most valve-type handheld vacuum sealers',
+      'Reusable & recyclable; freezer, fridge, sous-vide and microwave safe',
+      'Great per-bag value',
+    ],
+    specs: {
+      'Quantity': '50 bags',
+      'Size': '22 × 21 cm (Small)',
+      'Thickness': '90 μm embossed texture',
+      'Material': 'PA + PE multi-layer, BPA-free, food-safe',
+      'Closure': 'Double-track zipper with apple-green slider',
+      'Valve': 'White circular one-way air valve',
+      'Microwave safe': 'Yes (open zipper first, up to 100 °C)',
+      'Freezer safe': 'Yes (-20 °C)',
+      'Sous-vide safe': 'Yes (up to 100 °C)',
+    },
+    category: 'bags',
+  },
+  {
     slug: 'lids-50-pack',
     mpn: 'FL-LID-50',
     name: 'FreshLock Mason Jar Vacuum Lids — 50 Pack (25 Wide + 25 Regular Mouth)',

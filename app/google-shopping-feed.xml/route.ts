@@ -76,6 +76,18 @@ const FEED_META: Record<string, {
     weight: '0.4 kg',
     loyalty: 'freshlock_club:member:35.99 USD::::',
   },
+  'vacuum-seal-bags-small-50-pack': {
+    title: 'Vacuum Seal Bags 50 Pack Small (22x21cm) — BPA-Free, Reusable, 90um',
+    desc: '50 small embossed valve bags (22x21 cm), 90 um, BPA-free. Compatible with most valve-type handheld vacuum sealers. Perfect for snacks, single portions, cheese, coffee beans, and pet food. Reusable, freezer-safe, microwave-safe, sous-vide safe. Double-track zipper with slider.',
+    mpn: 'FL-BAG-S50',
+    category: 'Home & Garden > Kitchen & Dining > Kitchen Storage > Food Storage Bags',
+    productType: 'Food Storage Bags',
+    extraImages: ['/images/products/bags-1.jpg'],
+    shipService: 'DHL Express',
+    shipPrice: '5.99 USD',
+    weight: '0.3 kg',
+    loyalty: 'freshlock_club:member:30.99 USD::::',
+  },
   'lids-50-pack': {
     title: 'FreshLock Mason Jar Vacuum Lids — 50 Pack (25 Wide + 25 Regular Mouth)',
     desc: '50 food-grade stainless mason jar lids with a one-way air valve: 25 wide-mouth (86 mm) + 25 regular-mouth (70 mm). Turn any standard mason jar into a vacuum container — pump with your FreshLock Pro hose attachment until the indicator dimples. Reusable, BPA-free silicone sealing ring. For refrigerated or frozen storage only; not for canning, oven, or microwave.',

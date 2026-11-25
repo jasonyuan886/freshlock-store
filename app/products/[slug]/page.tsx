@@ -204,6 +204,10 @@ export default function ProductDetailPage({ params }: { params: Params }) {
       // Large bags — upsell medium pack for variety
       return products.filter((p) => p.slug === 'vacuum-seal-bags-30-pack');
     }
+    if (product.slug === 'vacuum-seal-bags-small-50-pack') {
+      // Small bags — upsell medium pack for variety
+      return products.filter((p) => p.slug === 'vacuum-seal-bags-30-pack');
+    }
     return [];
   };
   const bundleProducts = getBundleProducts();
