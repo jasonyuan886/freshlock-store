@@ -174,6 +174,16 @@ function ReviewsSection() {
           </article>
         ))}
       </div>
+
+      <div className="mt-8 text-center">
+        <a
+          href="mailto:support@freshlocksealer.com?subject=Product%20review%20%E2%80%94%20FreshLock&body=Hi%20FreshLock%20team%2C%0D%0A%0D%0AI%27d%20like%20to%20leave%20a%20review%20for%20my%20order.%0D%0A%0D%0ARating%20%281-5%29%3A%20%0D%0AProduct%3A%20%0D%0AReview%3A%20%0D%0A%0D%0AName%3A%20%0D%0AOrder%20email%3A%20"
+          className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold px-6 py-3 rounded-lg transition"
+        >
+          Bought one? Leave a review
+        </a>
+        <p className="text-xs text-gray-500 mt-2">We read every review — it opens your email app, nothing to sign up for.</p>
+      </div>
     </section>
   );
 }
