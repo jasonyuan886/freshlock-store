@@ -377,7 +377,7 @@ footer .logo{font-size:16px}
         <p>Works with most embossed valve bags — no brand lock-in. BPA-free PA+PE bags recommended. Just line it up and you're ready.</p>
       </div>
       <div className="step-visual">
-        <img src="https://www.freshlocksealer.com/images/products/bags-1.jpg" alt="Vacuum seal valve bags compatible with FreshLock Pro" width="440" height="440" loading="lazy" />
+        <img src="https://www.freshlocksealer.com/images/products/bags-3sizes.jpg" alt="Vacuum seal valve bags compatible with FreshLock Pro" width="440" height="440" loading="lazy" />
       </div>
     </div>
   </div>
