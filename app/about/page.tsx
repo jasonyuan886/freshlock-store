@@ -72,7 +72,7 @@ export default function AboutPage() {
             <li><strong>Detachable transparent drip cup</strong> (liquid backflow protection) so soups, marinades and juicy proteins seal cleanly without damaging the motor.</li>
             <li><strong>USB-C rechargeable</strong> 1200 mAh battery — 80–100 seals per charge, ~2.5 hour charge time.</li>
             <li><strong>Under 60 dB</strong> — library-quiet operation.</li>
-            <li>Compatible with <strong>most embossed valve bags</strong>, not just our own. Our bags are 90 μm embossed PA+PE, BPA-free, with a white circular air valve and apple-green zip slider.</li>
+            <li>Compatible with <strong>most embossed valve bags</strong>, not just our own. Our bags are 90 μm embossed PA+PE, BPA-free, with a white circular air valve and pink zip slider.</li>
           </ul>
           <p className="text-gray-600 leading-relaxed mt-4">
             <em>FreshLock is a pump-style vacuum system — it does not use a heat bar or heat-sealing element. Air is extracted through the one-way valve on the bag, and the reusable double-track zip slider keeps the seal.</em>

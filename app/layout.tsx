@@ -47,7 +47,7 @@ export const metadata: Metadata = {
           url: '/images/products/sealer-main.jpg',
           width: 1200,
           height: 630,
-          alt: 'FreshLock Pro handheld vacuum sealer in pearl white with apple-green zip-slider bags',
+          alt: 'FreshLock Pro handheld vacuum sealer in pearl white with pink zip-slider bags',
         },
       ],
     },
